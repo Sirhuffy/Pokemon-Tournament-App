@@ -1,3 +1,27 @@
+function changeGame() {
+
+currentGame = document.getElementById("gameSelect").value
+loadGameData()
+
+}
+
+function changeLevelCap() {
+
+levelCap = document.getElementById("levelCap").value
+
+}
+
+async function loadGameData() {
+
+const response = await fetch(`data/${currentGame}/pokemon.json`)
+gameData.pokemon = await response.json()
+
+console.log("Loaded game:", currentGame)
+
+}
+
+loadGameData()
+
 function openPage(page) {
 
 const content = document.getElementById("content");
@@ -11,7 +35,12 @@ content.innerHTML = "<h2>Team Planner</h2>";
 }
 
 if (page === "moves") {
-content.innerHTML = "<h2>Move Lookup</h2>";
+
+let html = "<h2>Move Lookup</h2>"
+html += "<input id='moveSearch' placeholder='Search move'>"
+
+content.innerHTML = html
+
 }
 
 if (page === "items") {
