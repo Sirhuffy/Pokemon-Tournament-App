@@ -14,6 +14,21 @@
 
 <h1>Pokemon Tournament Companion</h1>
 
+<h2>Select Game</h2>
+
+<select id="gameSelect" onchange="changeGame()">
+<option value="gsc">Gold / Silver / Crystal (1999)</option>
+<option value="frlg">Fire Red / Leaf Green (2004)</option>
+<option value="rse">Ruby / Sapphire / Emerald (2002)</option>
+</select>
+
+<h2>Level Cap</h2>
+
+<select id="levelCap" onchange="changeLevelCap()">
+<option value="55">Level 55</option>
+<option value="60">Level 60</option>
+</select>
+
 <div class="menu">
 
 <button onclick="openPage('pokedex')">Pokédex</button>
