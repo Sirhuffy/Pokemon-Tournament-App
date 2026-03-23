@@ -1,6 +1,6 @@
 let currentGame = "gsc"
 let levelCap = 55
-let gameData = {}
+let gameData = { pokemon: [], moves: [], learnsets: [] } // Initialize as empty arrays
 let selectedType = null
 let selectedSort = "bst"
 
@@ -128,8 +128,8 @@ html += `
 
     // Initial load
     updateResults()
-}
-    }
+
+    
 
     if (page === "team") {
         content.innerHTML = "<h2>Team Planner</h2>"
