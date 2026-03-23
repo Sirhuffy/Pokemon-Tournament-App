@@ -8,6 +8,9 @@ let selectedType = null
 let selectedSort = "bst"
 let team = []
 
+// ==========================
+// TYPE CHART
+// ==========================
 const typeChart = {
     Normal: { weakTo: ["Fighting"], resists: [], immuneTo: ["Ghost"] },
     Fire: { weakTo: ["Water","Ground","Rock"], resists: ["Fire","Grass","Ice","Bug","Steel"], immuneTo: [] },
@@ -29,91 +32,226 @@ const typeChart = {
 }
 
 // ==========================
-// CORE DATA LOADING
+// DATA LOADING
 // ==========================
 async function initApp() {
     try {
         await Promise.all([loadGameData(), loadMoveData(), loadLearnsets()]);
-        loadSavedTeam(); 
+        loadSavedTeam();
         console.log("All data loaded!");
     } catch (error) {
         console.error("Error loading JSON:", error);
     }
 }
 
-async function loadGameData() { const r = await fetch("data/pokemon-core.json"); gameData.pokemon = await r.json(); }
-async function loadMoveData() { const r = await fetch("data/moves.json"); gameData.moves = await r.json(); }
-async function loadLearnsets() { const r = await fetch("data/learnsets.json"); gameData.learnsets = await r.json(); }
-initApp();
+async function loadGameData() {
+    const r = await fetch("data/pokemon-core.json")
+    gameData.pokemon = await r.json()
+}
+
+async function loadMoveData() {
+    const r = await fetch("data/moves.json")
+    gameData.moves = await r.json()
+}
+
+async function loadLearnsets() {
+    const r = await fetch("data/learnsets.json")
+    gameData.learnsets = await r.json()
+}
+
+initApp()
 
 // ==========================
-// STORAGE FUNCTIONS
+// STORAGE
 // ==========================
-function saveTeam() { localStorage.setItem("pokemonTeam", JSON.stringify(team)); }
-function loadSavedTeam() {
-    const saved = localStorage.getItem("pokemonTeam");
-    if (saved) { team = JSON.parse(saved); }
+function saveTeam() {
+    localStorage.setItem("pokemonTeam", JSON.stringify(team))
 }
+
+function loadSavedTeam() {
+    const saved = localStorage.getItem("pokemonTeam")
+    if (saved) team = JSON.parse(saved)
+}
+
 function clearTeam() {
-    if (confirm("Are you sure you want to clear your entire team?")) {
-        team = [];
-        saveTeam();
-        updateTeamDisplay();
+    if (confirm("Clear entire team?")) {
+        team = []
+        saveTeam()
+        updateTeamDisplay()
     }
 }
 
 // ==========================
-// PAGE NAVIGATION
+// GAME HELPERS
+// ==========================
+function getGameKey() {
+    if (currentGame === "gsc") return "crystal"
+    if (currentGame === "rse") return "emerald"
+    if (currentGame === "frlg") return "firered-leafgreen"
+    return "crystal"
+}
+
+function getLearnset(name) {
+    const entry = gameData.learnsets.find(p => p.pokemon === name)
+    if (!entry) return []
+    return entry.learnset[getGameKey()] || []
+}
+
+function getMovesForLevel(name) {
+    return getLearnset(name).filter(m => m.level <= levelCap)
+}
+
+// ==========================
+// NAVIGATION
 // ==========================
 function openPage(page) {
-    const content = document.getElementById("content");
+    const content = document.getElementById("content")
+
     if (gameData.pokemon.length === 0) {
-        content.innerHTML = "<h2>Loading...</h2>";
-        return;
+        content.innerHTML = "<h2>Loading...</h2>"
+        return
     }
 
     if (page === "team") {
         content.innerHTML = `
             <h2>Team Builder</h2>
-            <input id='teamSearch' placeholder='Search Pokemon to add...'>
-            <div id='teamSearchResults' style="max-height: 150px; overflow-y: auto;"></div>
+            <input id='teamSearch' placeholder='Add to Team...'>
+            <div id='teamSearchResults'></div>
             <div id='teamDisplay'></div>
-        `;
-        document.getElementById("teamSearch").addEventListener("input", updateTeamSearch);
-        updateTeamDisplay();
+        `
+        document.getElementById("teamSearch").addEventListener("input", updateTeamSearch)
+        updateTeamDisplay()
     }
-    else if (page === "weakness") {
-        content.innerHTML = `<h2>Weakness Calculator</h2><div id='weaknessContent'></div>`;
-        document.getElementById("weaknessContent").innerHTML = renderWeaknessAnalysis();
-    }
+
     else if (page === "pokedex") {
-        let html = "<h2>Pokedex</h2>";
-        html += "<input id='pokeSearch' placeholder='Search...'>";
-        const types = ["Normal","Fire","Water","Grass","Electric","Ice","Fighting","Poison","Ground","Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel"];
-        html += "<div id='typeButtons'>";
+        let html = "<h2>Pokedex</h2>"
+
+        html += "<input id='pokeSearch' placeholder='Search...'>"
+
+        html += `
+        <select id="sortSelect" onchange="changeSort()">
+            <option value="bst">Total Stats</option>
+            <option value="attack">Attack</option>
+            <option value="defense">Defense</option>
+            <option value="spAttack">Sp. Attack</option>
+            <option value="spDefense">Sp. Defense</option>
+            <option value="speed">Speed</option>
+        </select>
+        `
+
+        const types = ["Normal","Fire","Water","Grass","Electric","Ice","Fighting","Poison","Ground","Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel"]
+
+        html += "<div>"
         types.forEach(t => {
-            html += `<button onclick="filterByType('${t}')">${t}</button>`;
-        });
-        html += `<button onclick="clearTypeFilter()">All</button></div>`;
-        html += "<div id='pokeResults'></div>";
-        content.innerHTML = html;
-        document.getElementById("pokeSearch").addEventListener("input", updateResults);
-        updateResults();
+            html += `<button onclick="filterByType('${t}')">${t}</button>`
+        })
+        html += `<button onclick="clearTypeFilter()">All</button>`
+        html += "</div>"
+
+        html += "<div id='pokeResults'></div>"
+
+        content.innerHTML = html
+
+        document.getElementById("pokeSearch").addEventListener("input", updateResults)
+
+        updateResults()
+    }
+
+    else if (page === "weakness") {
+        content.innerHTML = `<h2>Weakness</h2>${renderWeaknessAnalysis()}`
     }
 }
 
 // ==========================
-// TEAM BUILDER LOGIC
+// POKEDEX
+// ==========================
+function changeSort() {
+    selectedSort = document.getElementById("sortSelect").value
+    updateResults()
+}
+
+function filterByType(type) {
+    selectedType = type
+    updateResults()
+}
+
+function clearTypeFilter() {
+    selectedType = null
+    updateResults()
+}
+
+function updateResults() {
+    const query = document.getElementById("pokeSearch")?.value?.toLowerCase() || ""
+
+    let results = [...gameData.pokemon]
+
+    if (query) results = results.filter(p => p.name.toLowerCase().includes(query))
+    if (selectedType) results = results.filter(p => p.types.includes(selectedType))
+
+    results.sort((a, b) => {
+        if (selectedSort === "bst") {
+            const totalA = Object.values(a.baseStats).reduce((a,b)=>a+b,0)
+            const totalB = Object.values(b.baseStats).reduce((a,b)=>a+b,0)
+            return totalB - totalA
+        }
+        return b.baseStats[selectedSort] - a.baseStats[selectedSort]
+    })
+
+    let html = ""
+
+    results.slice(0,50).forEach(p => {
+        const total = Object.values(p.baseStats).reduce((a,b)=>a+b,0)
+        html += `
+        <div onclick="showPokemon('${p.name}')">
+            ${p.name} (${p.types.join("/")}) - ${selectedSort==="bst"?total:p.baseStats[selectedSort]}
+        </div>`
+    })
+
+    document.getElementById("pokeResults").innerHTML = html
+}
+
+function showPokemon(name) {
+    const p = gameData.pokemon.find(x => x.name === name)
+    if (!p) return
+
+    const moves = getMovesForLevel(name)
+
+    let html = `<h2>${p.name}</h2>`
+    html += `<p>${p.types.join("/")}</p>`
+
+    html += `<p>
+        HP:${p.baseStats.hp} |
+        Atk:${p.baseStats.attack} |
+        Def:${p.baseStats.defense} |
+        SpA:${p.baseStats.spAttack} |
+        SpD:${p.baseStats.spDefense} |
+        Spe:${p.baseStats.speed}
+    </p>`
+
+    html += "<h3>Moves</h3>"
+    moves.forEach(m=>{
+        html += `<div>Lv ${m.level}: ${m.move}</div>`
+    })
+
+    html += `<button onclick="openPage('pokedex')">Back</button>`
+
+    document.getElementById("content").innerHTML = html
+}
+
+// ==========================
+// TEAM BUILDER
 // ==========================
 function updateTeamSearch() {
-    const query = document.getElementById("teamSearch").value.toLowerCase();
-    if (!query) { document.getElementById("teamSearchResults").innerHTML = ""; return; }
-    let results = gameData.pokemon.filter(p => p.name.toLowerCase().includes(query)).slice(0, 5);
-    let html = "";
-    results.forEach(p => {
-        html += `<div class="search-item" onclick="addToTeam('${p.name}')" style="padding:12px; border-bottom:1px solid #eee; cursor:pointer; text-align:left;">+ ${p.name}</div>`;
-    });
-    document.getElementById("teamSearchResults").innerHTML = html;
+    const query = document.getElementById("teamSearch").value.toLowerCase()
+
+    let results = gameData.pokemon.filter(p=>p.name.toLowerCase().includes(query)).slice(0,5)
+
+    let html=""
+    results.forEach(p=>{
+        html += `<div onclick="addToTeam('${p.name}')">+ ${p.name}</div>`
+    })
+
+    document.getElementById("teamSearchResults").innerHTML = html
 }
 
 function addToTeam(name) {
@@ -127,9 +265,9 @@ function addToTeam(name) {
 }
 
 function removeFromTeam(name) {
-    team = team.filter(p => p !== name);
-    saveTeam();
-    updateTeamDisplay();
+    team = team.filter(p=>p!==name)
+    saveTeam()
+    updateTeamDisplay()
 }
 
 function updateTeamDisplay() {
@@ -162,81 +300,69 @@ function updateTeamDisplay() {
 }
 
 // ==========================
-// ANALYSIS & POKEDEX HELPERS
+// ANALYSIS
 // ==========================
-function filterByType(type) { selectedType = type; updateResults(); }
-function clearTypeFilter() { selectedType = null; updateResults(); }
-
-function updateResults() {
-    const query = document.getElementById("pokeSearch")?.value?.toLowerCase() || "";
-    let results = gameData.pokemon;
-    if (query) results = results.filter(p => p.name.toLowerCase().includes(query));
-    if (selectedType) results = results.filter(p => p.types.includes(selectedType));
-
-    let html = "";
-    results.slice(0, 50).forEach(p => {
-        html += `<div class="poke-entry" onclick="showPokemon('${p.name}')"><strong>${p.name}</strong> (${p.types.join("/")})</div>`;
-    });
-    document.getElementById("pokeResults").innerHTML = html;
-}
-
-function showPokemon(name) {
-    const p = gameData.pokemon.find(x => x.name === name);
-    if (!p) return;
-    document.getElementById("content").innerHTML = `<h2>${p.name}</h2><p>Types: ${p.types.join(", ")}</p><button onclick="openPage('pokedex')">Back</button>`;
-}
-
 function analyzeTeamWeakness() {
-    let results = {};
-    Object.keys(typeChart).forEach(type => results[type] = 0);
-    team.forEach(name => {
-        const p = gameData.pokemon.find(x => x.name === name);
-        if (!p) return;
-        p.types.forEach(t => {
-            const data = typeChart[t];
-            data.weakTo.forEach(w => results[w] += 1);
-            data.resists.forEach(r => results[r] -= 1);
-            data.immuneTo.forEach(i => results[i] -= 2);
-        });
-    });
-    return results;
+    let results={}
+    Object.keys(typeChart).forEach(t=>results[t]=0)
+
+    team.forEach(name=>{
+        const p=gameData.pokemon.find(x=>x.name===name)
+        if(!p)return
+
+        p.types.forEach(t=>{
+            const d=typeChart[t]
+            d.weakTo.forEach(w=>results[w]+=1)
+            d.resists.forEach(r=>results[r]-=1)
+            d.immuneTo.forEach(i=>results[i]-=2)
+        })
+    })
+
+    return results
 }
 
 function renderWeaknessAnalysis() {
-    const results = analyzeTeamWeakness();
-    let html = "<h4>Weakness Analysis</h4><div style='text-align:left; display:inline-block;'>";
-    Object.entries(results).sort((a, b) => b[1] - a[1]).forEach(([type, score]) => {
-        if (score === 0) return;
-        let color = score > 0 ? "#cc0000" : "#2e7d32";
-        html += `<div style="color:${color}"><strong>${type}:</strong> ${score}</div>`;
-    });
-    return html + "</div>";
+    let html="<h4>Weakness</h4>"
+    const res=analyzeTeamWeakness()
+
+    Object.entries(res).sort((a,b)=>b[1]-a[1]).forEach(([t,s])=>{
+        if(s===0)return
+        html+=`<div>${t}: ${s}</div>`
+    })
+
+    return html
 }
 
 function recommendFixes() {
-    const weaknessScores = analyzeTeamWeakness();
-    const biggestWeaknesses = Object.entries(weaknessScores).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([type]) => type);
-    let candidates = gameData.pokemon.filter(p => !team.includes(p.name));
-    const scored = candidates.map(p => {
-        let fixScore = 0;
-        p.types.forEach(t => {
-            const data = typeChart[t];
-            biggestWeaknesses.forEach(w => {
-                if (data.resists.includes(w)) fixScore += 2;
-                if (data.immuneTo.includes(w)) fixScore += 3;
-            });
-        });
-        return { ...p, score: fixScore };
-    }).filter(p => p.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
-    return { weaknesses: biggestWeaknesses, picks: scored };
+    const weak = Object.entries(analyzeTeamWeakness())
+        .sort((a,b)=>b[1]-a[1])
+        .slice(0,2)
+        .map(([t])=>t)
+
+    const candidates = gameData.pokemon.filter(p=>!team.includes(p.name))
+
+    const scored = candidates.map(p=>{
+        let score=0
+        p.types.forEach(t=>{
+            const d=typeChart[t]
+            weak.forEach(w=>{
+                if(d.resists.includes(w)) score+=2
+                if(d.immuneTo.includes(w)) score+=3
+            })
+        })
+        return {...p,score}
+    }).sort((a,b)=>b.score-a.score).slice(0,3)
+
+    return {weak,scored}
 }
 
 function renderRecommendations() {
-    const data = recommendFixes();
-    if (data.picks.length === 0) return "";
-    let html = `<h4>Recommended Fixes</h4>`;
-    data.picks.forEach(p => {
-        html += `<button class="rec-btn" onclick="addToTeam('${p.name}')">+ ${p.name}</button>`;
-    });
-    return html;
+    const data = recommendFixes()
+    let html="<h4>Fix Suggestions</h4>"
+
+    data.scored.forEach(p=>{
+        html+=`<button onclick="addToTeam('${p.name}')">+ ${p.name}</button>`
+    })
+
+    return html
 }
