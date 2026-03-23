@@ -114,6 +114,8 @@ function openPage(page) {
     updateResults()
 }
 
+}
+
 // ==========================
 // TEAM DISPLAY
 // ==========================
