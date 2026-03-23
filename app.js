@@ -255,12 +255,13 @@ function updateTeamSearch() {
 }
 
 function addToTeam(name) {
-    if (team.length>=6) return alert("Max 6")
-    if (team.includes(name)) return alert("Already added")
-
-    team.push(name)
-    saveTeam()
-    updateTeamDisplay()
+    if (team.length >= 6) { alert("Max 6 Pokemon!"); return; }
+    if (team.includes(name)) { alert("Already added!"); return; }
+    team.push(name);
+    saveTeam();
+    document.getElementById("teamSearch").value = "";
+    document.getElementById("teamSearchResults").innerHTML = "";
+    updateTeamDisplay();
 }
 
 function removeFromTeam(name) {
@@ -270,34 +271,32 @@ function removeFromTeam(name) {
 }
 
 function updateTeamDisplay() {
-    const el = document.getElementById("teamDisplay")
-    if (!el) return
+    const displayArea = document.getElementById("teamDisplay");
+    if (!displayArea) return;
 
-    let html="<h3>Your Team</h3>"
+    let html = "<h3>Your Team</h3>";
 
-    if (team.length===0){
-        html+="Empty"
+    if (team.length > 0) {
+        html += `<button onclick="clearTeam()" class="clear-btn">Clear Full Team</button>`;
+        html += "<div class='team-grid'>"; // Uses your CSS Grid
+
+        team.forEach(name => {
+            const p = gameData.pokemon.find(x => x.name === name);
+            if (!p) return;
+            html += `
+                <div class="team-card">
+                    <strong>${p.name}</strong><br>
+                    <small>${p.types.join("/")}</small><br>
+                    <button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button>
+                </div>`;
+        });
+        html += "</div><hr>";
+        html += renderWeaknessAnalysis();
+        html += renderRecommendations();
     } else {
-
-        html+=`<button onclick="clearTeam()">Clear</button>`
-        html+=`<div style="display:flex;gap:10px;flex-wrap:wrap;">`
-
-        team.forEach(name=>{
-            const p = gameData.pokemon.find(x=>x.name===name)
-            html+=`
-            <div style="border:1px solid #ccc;padding:10px;">
-                ${p.name}<br>
-                ${p.types.join("/")}<br>
-                <button onclick="removeFromTeam('${p.name}')">Remove</button>
-            </div>`
-        })
-
-        html+="</div>"
-        html+=renderWeaknessAnalysis()
-        html+=renderRecommendations()
+        html += "<p style='margin-top:20px; color:#666;'>Your team is empty. Add Pokemon above.</p>";
     }
-
-    el.innerHTML=html
+    displayArea.innerHTML = html;
 }
 
 // ==========================
