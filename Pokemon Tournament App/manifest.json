@@ -1,0 +1,9 @@
+{
+"name": "Pokemon Tournament Companion",
+"short_name": "PokemonApp",
+"start_url": "index.html",
+"display": "standalone",
+"background_color": "#ffffff",
+"theme_color": "#cc0000",
+"icons": []
+}
