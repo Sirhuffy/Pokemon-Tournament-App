@@ -256,18 +256,31 @@ function updateTeamSearch() {
 
 function addToTeam(name) {
     if (team.length >= 6) { alert("Max 6 Pokemon!"); return; }
-    if (team.includes(name)) { alert("Already added!"); return; }
-    team.push(name);
-    saveTeam();
-    document.getElementById("teamSearch").value = "";
-    document.getElementById("teamSearchResults").innerHTML = "";
-    updateTeamDisplay();
+    
+    // Check if the name is already in our team list
+    if (team.some(p => p.name === name)) { 
+        alert("Already added!"); 
+        return; 
+    }
+
+    // Find the actual data object for this Pokemon
+    const pokemonData = gameData.pokemon.find(p => p.name === name);
+    
+    if (pokemonData) {
+        team.push(pokemonData); // Add the WHOLE object, not just the string
+        saveTeam();
+        document.getElementById("teamSearch").value = "";
+        document.getElementById("teamSearchResults").innerHTML = "";
+        updateTeamDisplay();
+    } else {
+        console.error("Could not find data for:", name);
+    }
 }
 
 function removeFromTeam(name) {
-    team = team.filter(p=>p!==name)
-    saveTeam()
-    updateTeamDisplay()
+    team = team.filter(p => p.name !== name);
+    saveTeam();
+    updateTeamDisplay();
 }
 
 function updateTeamDisplay() {
@@ -276,13 +289,13 @@ function updateTeamDisplay() {
 
     let html = "<h3>Your Team</h3>";
 
-    if (team.length > 0) {
+    // Check the actual length of the array
+    if (team && team.length > 0) {
         html += `<button onclick="clearTeam()" class="clear-btn">Clear Full Team</button>`;
-        html += "<div class='team-grid'>"; // Uses your CSS Grid
+        html += "<div class='team-grid'>";
 
-        team.forEach(name => {
-            const p = gameData.pokemon.find(x => x.name === name);
-            if (!p) return;
+        team.forEach(p => {
+            // No 'find' needed anymore! 'p' is the Pokemon object.
             html += `
                 <div class="team-card">
                     <strong>${p.name}</strong><br>
@@ -290,6 +303,7 @@ function updateTeamDisplay() {
                     <button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button>
                 </div>`;
         });
+
         html += "</div><hr>";
         html += renderWeaknessAnalysis();
         html += renderRecommendations();
