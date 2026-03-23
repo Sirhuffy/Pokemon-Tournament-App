@@ -6,6 +6,7 @@ let levelCap = 55
 let gameData = { pokemon: [], moves: [], learnsets: [] }
 let selectedType = null
 let selectedSort = "bst"
+let team = []
 
 // ==========================
 // CORE DATA LOADING
@@ -101,9 +102,25 @@ function openPage(page) {
         document.getElementById("pokeSearch").addEventListener("input", updateResults);
         updateResults();
     } 
-    else if (page === "team") {
-        content.innerHTML = "<h2>Team Planner</h2><p>Coming Soon!</p>";
-    } 
+    
+else if (page === "team") {
+
+    let html = "<h2>Team Builder</h2>"
+
+    html += "<input id='teamSearch' placeholder='Search Pokemon'>"
+
+    html += "<div id='teamSearchResults'></div>"
+
+    html += "<h3>Your Team</h3>"
+    html += "<div id='teamDisplay'></div>"
+
+    content.innerHTML = html
+
+    document.getElementById("teamSearch").addEventListener("input", updateTeamSearch)
+
+    updateTeamDisplay()
+}
+
     else if (page === "moves") {
         let html = "<h2>Move Lookup</h2>";
         html += "<input id='moveSearch' placeholder='Search move'>";
@@ -178,6 +195,8 @@ function showPokemon(name) {
     document.getElementById("content").innerHTML = html;
 }
 
+
+
 // ==========================
 // HELPER FUNCTIONS
 // ==========================
@@ -239,3 +258,72 @@ function getMovesForLevel(pokemonName) {
     const moves = getLearnset(pokemonName);
     return moves.filter(m => m.level <= levelCap);
 }
+
+function updateTeamSearch() {
+
+    const query = document.getElementById("teamSearch")?.value?.toLowerCase() || ""
+
+    let results = gameData.pokemon
+
+    if (query) {
+        results = results.filter(p =>
+            p.name.toLowerCase().includes(query)
+        )
+    }
+
+    let html = ""
+
+    results.slice(0, 20).forEach(p => {
+        html += `
+        <div onclick="addToTeam('${p.name}')" style="cursor:pointer;">
+            ${p.name} (${p.types.join("/")})
+        </div>
+        `
+    })
+
+    document.getElementById("teamSearchResults").innerHTML = html
+}
+
+function addToTeam(name) {
+
+    if (team.length >= 6) {
+        alert("Team is full (max 6)")
+        return
+    }
+
+    if (team.includes(name)) {
+        alert("Already in team")
+        return
+    }
+
+    team.push(name)
+    updateTeamDisplay()
+}
+
+function removeFromTeam(name) {
+    team = team.filter(p => p !== name)
+    updateTeamDisplay()
+}
+
+function updateTeamDisplay() {
+
+    let html = ""
+
+    team.forEach(name => {
+
+        const p = gameData.pokemon.find(x => x.name === name)
+
+        if (!p) return
+
+        html += `
+        <div style="border-bottom:1px solid #ccc; padding:5px;">
+            <strong>${p.name}</strong> (${p.types.join("/")})
+            <button onclick="removeFromTeam('${p.name}')">Remove</button>
+        </div>
+        `
+    })
+
+    document.getElementById("teamDisplay").innerHTML = html
+}
+
+
