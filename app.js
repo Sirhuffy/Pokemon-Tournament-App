@@ -36,13 +36,33 @@ const typeChart = {
 // ==========================
 async function initApp() {
     try {
-        await Promise.all([loadGameData(), loadMoveData(), loadLearnsets()]);
+        // 1. Wait for ALL data to download first
+        const [pokemonRes, movesRes, learnsetsRes] = await Promise.all([
+            fetch("data/pokemon-core.json"),
+            fetch("data/moves.json"),
+            fetch("data/learnsets.json")
+        ]);
+
+        gameData.pokemon = await pokemonRes.json();
+        gameData.moves = await movesRes.json();
+        gameData.learnsets = await learnsetsRes.json();
+
+        // 2. ONLY AFTER data is loaded, load the team from storage
         loadSavedTeam();
-        console.log("All data loaded!");
+        
+        console.log("Data & Team Loaded. System Ready.");
+
+        // 3. Default to the Team Planner page so you can see if it worked immediately
+        openPage('team'); 
+
     } catch (error) {
-        console.error("Error loading JSON:", error);
+        console.error("Initialization failed:", error);
+        document.getElementById("content").innerHTML = "<h2>Error loading data. Check console.</h2>";
     }
 }
+
+// Ensure the browser is fully ready before starting the app
+window.addEventListener('DOMContentLoaded', initApp);
 
 async function loadGameData() {
     const r = await fetch("data/pokemon-core.json")
