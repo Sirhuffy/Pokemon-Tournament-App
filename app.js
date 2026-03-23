@@ -128,34 +128,40 @@ function removeFromTeam(name) {
 }
 
 function updateTeamDisplay() {
+    const displayArea = document.getElementById("teamDisplay");
+    
+    // If the user isn't on the Team Page, don't try to update (prevents errors)
+    if (!displayArea) return;
+
     let html = "<h3>Your Team</h3>";
     
-    // Header Actions (Clear Button)
     if (team.length > 0) {
         html += `<button onclick="clearTeam()" class="clear-btn">Clear Full Team</button>`;
-    }
-
-    html += "<div class='team-grid'>";
-    team.forEach(name => {
-        const p = gameData.pokemon.find(x => x.name === name);
-        if (!p) return;
-        html += `
-            <div class="team-card">
-                <strong>${p.name}</strong><br>
-                <small>${p.types.join("/")}</small>
-                <button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button>
-            </div>`;
-    });
-    html += "</div>";
-
-    if (team.length === 0) html += "<p>Your team is empty.</p>";
-    else {
+        
+        // This container holds the cards side-by-side
+        html += "<div class='team-grid'>";
+        
+        team.forEach(name => {
+            const p = gameData.pokemon.find(x => x.name === name);
+            if (!p) return;
+            
+            html += `
+                <div class="team-card">
+                    <strong>${p.name}</strong><br>
+                    <small>${p.types.join("/")}</small>
+                    <button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button>
+                </div>`;
+        });
+        
+        html += "</div>"; // Close team-grid
         html += "<hr>";
         html += renderWeaknessAnalysis();
         html += renderRecommendations();
+    } else {
+        html += "<p style='padding:20px; color:#666;'>Your team is empty. Search above to add Pokemon!</p>";
     }
 
-    document.getElementById("teamDisplay").innerHTML = html;
+    displayArea.innerHTML = html;
 }
 
 // ==========================
