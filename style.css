@@ -25,7 +25,7 @@ h2 { margin-top: 20px; color: #444; }
    ========================== */
 .menu {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns for mobile */
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 15px;
 }
@@ -55,42 +55,65 @@ input, select {
     margin: 10px 0;
     border-radius: 8px;
     border: 1px solid #ccc;
-    font-size: 16px; /* Prevents iOS from zooming in on focus */
+    font-size: 16px;
 }
 
-#typeButtons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-    padding: 10px;
+/* ==========================
+   TEAM BUILDER STYLES
+   ========================== */
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two cards per row on mobile */
+    gap: 10px;
+    padding: 15px;
 }
 
-#typeButtons button {
-    padding: 8px 12px;
-    border-radius: 4px;
-    border: none;
+.team-card {
+    background: white;
+    border: 2px solid #cc0000;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.remove-btn {
+    background: #ff4444;
     color: white;
-    font-weight: bold;
-    font-size: 12px;
-    text-transform: uppercase;
-    background-color: #777; /* Default */
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 11px;
+    width: 100%;
+    margin-top: 8px;
 }
 
-/* Example Type Colors */
-button[onclick*="'Fire'"] { background-color: #F08030 !important; }
-button[onclick*="'Water'"] { background-color: #6890F0 !important; }
-button[onclick*="'Grass'"] { background-color: #78C850 !important; }
-button[onclick*="'Electric'"] { background-color: #F8D030 !important; color: black !important; }
-button[onclick*="'Psychic'"] { background-color: #F85888 !important; }
+.clear-btn {
+    background: #ffa500; /* Orange color for notice */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
-/* = =========================
+.rec-btn {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* ==========================
    RESULTS LIST
    ========================== */
 #pokeResults, #moveResults {
     margin-top: 20px;
     text-align: left;
-    padding: 0 15px 50px 15px; /* Extra bottom padding for scrolling */
+    padding: 0 15px 50px 15px;
 }
 
 .poke-entry {
