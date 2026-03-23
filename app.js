@@ -89,8 +89,19 @@ function saveTeam() {
 }
 
 function loadSavedTeam() {
-    const saved = localStorage.getItem("pokemonTeam")
-    if (saved) team = JSON.parse(saved)
+    const saved = localStorage.getItem("pokemonTeam");
+    if (saved) {
+        const parsed = JSON.parse(saved);
+        
+        // SAFETY CHECK: If the first item is just a string, it's old data. Clear it.
+        if (parsed.length > 0 && typeof parsed[0] === 'string') {
+            console.warn("Old team data format detected. Clearing for compatibility.");
+            team = [];
+            saveTeam();
+        } else {
+            team = parsed;
+        }
+    }
 }
 
 function clearTeam() {
@@ -277,23 +288,28 @@ function updateTeamSearch() {
 function addToTeam(name) {
     if (team.length >= 6) { alert("Max 6 Pokemon!"); return; }
     
-    // Check if the name is already in our team list
+    // Check by name string since team now contains objects
     if (team.some(p => p.name === name)) { 
         alert("Already added!"); 
         return; 
     }
 
-    // Find the actual data object for this Pokemon
+    // IMPORTANT: Make sure this find is working
     const pokemonData = gameData.pokemon.find(p => p.name === name);
     
-    if (pokemonData) {
-        team.push(pokemonData); // Add the WHOLE object, not just the string
+    if (pokemonData && pokemonData.types) { // Ensure it has types!
+        team.push(pokemonData); 
         saveTeam();
-        document.getElementById("teamSearch").value = "";
+        
+        // Clear search UI
+        const searchInput = document.getElementById("teamSearch");
+        if (searchInput) searchInput.value = "";
         document.getElementById("teamSearchResults").innerHTML = "";
+        
+        // Refresh display
         updateTeamDisplay();
     } else {
-        console.error("Could not find data for:", name);
+        alert("Error: Could not find data for " + name);
     }
 }
 
@@ -315,14 +331,19 @@ function updateTeamDisplay() {
         html += "<div class='team-grid'>";
 
         team.forEach(p => {
-            // No 'find' needed anymore! 'p' is the Pokemon object.
-            html += `
-                <div class="team-card">
-                    <strong>${p.name}</strong><br>
-                    <small>${p.types.join("/")}</small><br>
-                    <button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button>
-                </div>`;
-        });
+    // 1. ADD THIS GUARD: If p is missing or doesn't have types, skip it!
+    if (!p || !p.types) {
+        console.warn("Found a broken entry in team, skipping...", p);
+        return; 
+    }
+
+    html += `
+        <div class="team-card">
+            <strong>${p.name}</strong><br>
+            <small>${p.types.join("/")}</small><br>
+            <button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button>
+        </div>`;
+});
 
         html += "</div><hr>";
         html += renderWeaknessAnalysis();
@@ -341,18 +362,18 @@ function analyzeTeamWeakness() {
     Object.keys(typeChart).forEach(t => results[t] = 0);
 
     team.forEach(p => {
-        // 'p' is already the Pokemon object, no need to 'find' it!
-        if (!p || !p.types) return;
-
-        p.types.forEach(t => {
-            const d = typeChart[t];
-            if (!d) return;
-            d.weakTo.forEach(w => results[w] += 1);
-            d.resists.forEach(r => results[r] -= 1);
-            d.immuneTo.forEach(i => results[i] -= 2);
-        });
+        // Double safety check: ensure types exist before trying to use them
+        if (p && p.types) {
+            p.types.forEach(t => {
+                const d = typeChart[t];
+                if (d) {
+                    d.weakTo.forEach(w => results[w] += 1);
+                    d.resists.forEach(r => results[r] -= 1);
+                    d.immuneTo.forEach(i => results[i] -= 2);
+                }
+            });
+        }
     });
-
     return results;
 }
 
