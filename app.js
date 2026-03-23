@@ -8,6 +8,30 @@ let selectedType = null
 let selectedSort = "bst"
 let team = []
 
+
+
+const typeChart = {
+    Normal: { weakTo: ["Fighting"], resists: [], immuneTo: ["Ghost"] },
+    Fire: { weakTo: ["Water","Ground","Rock"], resists: ["Fire","Grass","Ice","Bug","Steel"], immuneTo: [] },
+    Water: { weakTo: ["Electric","Grass"], resists: ["Fire","Water","Ice","Steel"], immuneTo: [] },
+    Grass: { weakTo: ["Fire","Ice","Poison","Flying","Bug"], resists: ["Water","Electric","Grass","Ground"], immuneTo: [] },
+    Electric: { weakTo: ["Ground"], resists: ["Electric","Flying","Steel"], immuneTo: [] },
+    Ice: { weakTo: ["Fire","Fighting","Rock","Steel"], resists: ["Ice"], immuneTo: [] },
+    Fighting: { weakTo: ["Flying","Psychic"], resists: ["Bug","Rock","Dark"], immuneTo: [] },
+    Poison: { weakTo: ["Ground","Psychic"], resists: ["Grass","Fighting","Poison","Bug"], immuneTo: [] },
+    Ground: { weakTo: ["Water","Grass","Ice"], resists: ["Poison","Rock"], immuneTo: ["Electric"] },
+    Flying: { weakTo: ["Electric","Ice","Rock"], resists: ["Grass","Fighting","Bug"], immuneTo: ["Ground"] },
+    Psychic: { weakTo: ["Bug","Ghost","Dark"], resists: ["Fighting","Psychic"], immuneTo: [] },
+    Bug: { weakTo: ["Fire","Flying","Rock"], resists: ["Grass","Fighting","Ground"], immuneTo: [] },
+    Rock: { weakTo: ["Water","Grass","Fighting","Ground","Steel"], resists: ["Normal","Fire","Poison","Flying"], immuneTo: [] },
+    Ghost: { weakTo: ["Ghost","Dark"], resists: ["Poison","Bug"], immuneTo: ["Normal","Fighting"] },
+    Dragon: { weakTo: ["Ice","Dragon"], resists: ["Fire","Water","Electric","Grass"], immuneTo: [] },
+    Dark: { weakTo: ["Fighting","Bug"], resists: ["Ghost","Dark"], immuneTo: ["Psychic"] },
+    Steel: { weakTo: ["Fire","Fighting","Ground"], resists: ["Normal","Grass","Ice","Flying","Psychic","Bug","Rock","Dragon","Steel"], immuneTo: ["Poison"] }
+}
+
+
+
 // ==========================
 // CORE DATA LOADING
 // ==========================
@@ -119,6 +143,13 @@ else if (page === "team") {
     document.getElementById("teamSearch").addEventListener("input", updateTeamSearch)
 
     updateTeamDisplay()
+
+let extra = ""
+extra += renderWeaknessAnalysis()
+extra += renderRecommendations()
+
+document.getElementById("teamDisplay").innerHTML += extra
+
 }
 
     else if (page === "moves") {
@@ -365,5 +396,141 @@ function renderTeamPokemonDetails(name) {
 }
 
 
+function analyzeTeamWeakness() {
+
+    let results = {}
+
+    Object.keys(typeChart).forEach(type => {
+        results[type] = 0
+    })
+
+    team.forEach(name => {
+
+        const p = gameData.pokemon.find(x => x.name === name)
+        if (!p) return
+
+        p.types.forEach(t => {
+
+            const data = typeChart[t]
+
+            data.weakTo.forEach(w => results[w] += 1)
+            data.resists.forEach(r => results[r] -= 1)
+            data.immuneTo.forEach(i => results[i] -= 2)
+
+        })
+    })
+
+    return results
+}
+
+
+function renderWeaknessAnalysis() {
+
+    const results = analyzeTeamWeakness()
+
+    let html = "<h3>Team Weakness Analysis</h3>"
+
+    Object.entries(results)
+        .sort((a, b) => b[1] - a[1])
+        .forEach(([type, score]) => {
+
+            let label = ""
+
+            if (score >= 2) label = "❌ Weak"
+            else if (score === 1) label = "⚠️ Slight Weakness"
+            else if (score <= -2) label = "✅ Strong"
+
+            html += `<div>${type}: ${score} ${label}</div>`
+        })
+
+    return html
+}
+
+
+function recommendFixes() {
+
+    const weaknessScores = analyzeTeamWeakness()
+
+    // Get top 3 weaknesses
+    const biggestWeaknesses = Object.entries(weaknessScores)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([type]) => type)
+
+    let candidates = gameData.pokemon.filter(p => !team.includes(p.name))
+
+    const scored = candidates.map(p => {
+
+        let fixScore = 0
+
+        p.types.forEach(t => {
+            const data = typeChart[t]
+
+            biggestWeaknesses.forEach(w => {
+                if (data.resists.includes(w)) fixScore += 2
+                if (data.immuneTo.includes(w)) fixScore += 3
+                if (data.weakTo.includes(w)) fixScore -= 2
+            })
+        })
+
+        const baseScore = calculateScore(p)
+
+        return {
+            ...p,
+            score: baseScore + (fixScore * 10)
+        }
+    })
+
+    scored.sort((a, b) => b.score - a.score)
+
+    return {
+        weaknesses: biggestWeaknesses,
+        picks: scored.slice(0, 5)
+    }
+}
+
+
+function renderRecommendations() {
+
+    const data = recommendFixes()
+
+    let html = "<h3>Recommended Fixes</h3>"
+
+    html += `<p>Biggest Weaknesses: ${data.weaknesses.join(", ")}</p>`
+
+    data.picks.forEach(p => {
+        html += `
+        <div onclick="showPokemon('${p.name}')" style="cursor:pointer;">
+            ${p.name} (${p.types.join("/")}) - Score: ${p.score.toFixed(1)}
+        </div>
+        `
+    })
+
+    return html
+}
+
+
+function analyzeMoveCoverage() {
+
+    let coverage = {}
+
+    gameData.moves.forEach(m => {
+        coverage[m.type] = 0
+    })
+
+    team.forEach(name => {
+
+        const moves = getMovesForLevel(name)
+
+        moves.forEach(m => {
+            const moveData = gameData.moves.find(x => x.name === m.move)
+            if (!moveData) return
+
+            coverage[moveData.type] += 1
+        })
+    })
+
+    return coverage
+}
 
 
