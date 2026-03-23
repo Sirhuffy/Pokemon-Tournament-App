@@ -144,11 +144,6 @@ else if (page === "team") {
 
     updateTeamDisplay()
 
-let extra = ""
-extra += renderWeaknessAnalysis()
-extra += renderRecommendations()
-
-document.getElementById("teamDisplay").innerHTML += extra
 
 }
 
@@ -360,8 +355,13 @@ function updateTeamDisplay() {
         `
     })
 
+    // 👇 ADD ANALYSIS + RECOMMENDATIONS HERE
+    html += renderWeaknessAnalysis()
+    html += renderRecommendations()
+
     document.getElementById("teamDisplay").innerHTML = html
 }
+
 
 function toggleTeamPokemon(name) {
 
@@ -444,6 +444,17 @@ function renderWeaknessAnalysis() {
         })
 
     return html
+}
+
+
+function calculateScore(pokemon) {
+    const stats = pokemon.baseStats
+
+    // Simple but effective for now
+    const bst = Object.values(stats).reduce((a, b) => a + b, 0)
+
+    // Slight speed bias (important in your format)
+    return bst + (stats.speed * 0.5)
 }
 
 
