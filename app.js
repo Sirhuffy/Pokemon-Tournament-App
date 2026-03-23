@@ -317,22 +317,23 @@ function updateTeamDisplay() {
 // ANALYSIS
 // ==========================
 function analyzeTeamWeakness() {
-    let results={}
-    Object.keys(typeChart).forEach(t=>results[t]=0)
+    let results = {};
+    Object.keys(typeChart).forEach(t => results[t] = 0);
 
-    team.forEach(name=>{
-        const p=gameData.pokemon.find(x=>x.name===name)
-        if(!p)return
+    team.forEach(p => {
+        // 'p' is already the Pokemon object, no need to 'find' it!
+        if (!p || !p.types) return;
 
-        p.types.forEach(t=>{
-            const d=typeChart[t]
-            d.weakTo.forEach(w=>results[w]+=1)
-            d.resists.forEach(r=>results[r]-=1)
-            d.immuneTo.forEach(i=>results[i]-=2)
-        })
-    })
+        p.types.forEach(t => {
+            const d = typeChart[t];
+            if (!d) return;
+            d.weakTo.forEach(w => results[w] += 1);
+            d.resists.forEach(r => results[r] -= 1);
+            d.immuneTo.forEach(i => results[i] -= 2);
+        });
+    });
 
-    return results
+    return results;
 }
 
 function renderWeaknessAnalysis() {
@@ -348,27 +349,33 @@ function renderWeaknessAnalysis() {
 }
 
 function recommendFixes() {
-    const weak = Object.entries(analyzeTeamWeakness())
-        .sort((a,b)=>b[1]-a[1])
-        .slice(0,2)
-        .map(([t])=>t)
+    const weaknessAnalysis = analyzeTeamWeakness();
+    const weak = Object.entries(weaknessAnalysis)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 2)
+        .map(([t]) => t);
 
-    const candidates = gameData.pokemon.filter(p=>!team.includes(p.name))
+    // FIX: Check p.name against the names of pokemon already in the team objects
+    const teamNames = team.map(member => member.name);
+    const candidates = gameData.pokemon.filter(p => !teamNames.includes(p.name));
 
-    const scored = candidates.map(p=>{
-        let score=0
-        p.types.forEach(t=>{
-            const d=typeChart[t]
-            weak.forEach(w=>{
-                if(d.resists.includes(w)) score+=2
-                if(d.immuneTo.includes(w)) score+=3
-            })
-        })
-        return {...p,score}
-    }).sort((a,b)=>b.score-a.score).slice(0,3)
+    const scored = candidates.map(p => {
+        let score = 0;
+        p.types.forEach(t => {
+            const d = typeChart[t];
+            weak.forEach(w => {
+                if (d.resists.includes(w)) score += 2;
+                if (d.immuneTo.includes(w)) score += 3;
+            });
+        });
+        return { ...p, score };
+    }).filter(p => p.score > 0) // Only suggest helpful ones
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3);
 
-    return {weak,scored}
+    return { weak, scored };
 }
+
 
 function renderRecommendations() {
     const data = recommendFixes()
