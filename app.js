@@ -91,10 +91,27 @@ function openPage(page) {
         document.getElementById("weaknessContent").innerHTML = renderWeaknessAnalysis();
     }
     else if (page === "pokedex") {
-        content.innerHTML = `<h2>Pokedex</h2><input id='pokeSearch' placeholder='Search...'><div id='pokeResults'></div>`;
-        document.getElementById("pokeSearch").addEventListener("input", updateResults);
-        updateResults();
-    }
+
+    let html = "<h2>Pokedex</h2>"
+
+    html += "<input id='pokeSearch' placeholder='Search...'>"
+
+    const types = ["Normal","Fire","Water","Grass","Electric","Ice","Fighting","Poison","Ground","Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel"]
+
+    html += "<div id='typeButtons'>"
+    types.forEach(t => {
+        html += `<button onclick="filterByType('${t}')">${t}</button>`
+    })
+    html += `<button onclick="clearTypeFilter()">All</button>`
+    html += "</div>"
+
+    html += "<div id='pokeResults'></div>"
+
+    content.innerHTML = html
+
+    document.getElementById("pokeSearch").addEventListener("input", updateResults)
+
+    updateResults()
 }
 
 // ==========================
@@ -128,40 +145,54 @@ function removeFromTeam(name) {
 }
 
 function updateTeamDisplay() {
-    const displayArea = document.getElementById("teamDisplay");
-    
-    // If the user isn't on the Team Page, don't try to update (prevents errors)
-    if (!displayArea) return;
 
-    let html = "<h3>Your Team</h3>";
-    
+    const displayArea = document.getElementById("teamDisplay")
+    if (!displayArea) return
+
+    let html = "<h3>Your Team</h3>"
+
     if (team.length > 0) {
-        html += `<button onclick="clearTeam()" class="clear-btn">Clear Full Team</button>`;
-        
-        // This container holds the cards side-by-side
-        html += "<div class='team-grid'>";
-        
+
+        html += `<button onclick="clearTeam()">Clear Full Team</button>`
+
+        // 🔥 FIX: Force visible layout (no CSS dependency)
+        html += "<div style='display:flex; flex-wrap:wrap; gap:10px;'>"
+
         team.forEach(name => {
-            const p = gameData.pokemon.find(x => x.name === name);
-            if (!p) return;
-            
+            const p = gameData.pokemon.find(x => x.name === name)
+            if (!p) return
+
             html += `
-                <div class="team-card">
-                    <strong>${p.name}</strong><br>
-                    <small>${p.types.join("/")}</small>
-                    <button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button>
-                </div>`;
-        });
-        
-        html += "</div>"; // Close team-grid
-        html += "<hr>";
-        html += renderWeaknessAnalysis();
-        html += renderRecommendations();
+            <div style="border:1px solid #ccc; padding:10px; width:120px;">
+                <strong>${p.name}</strong><br>
+                <small>${p.types.join("/")}</small><br>
+                <button onclick="removeFromTeam('${p.name}')">Remove</button>
+            </div>`
+        })
+
+        html += "</div>"
+
+        html += "<hr>"
+        html += renderWeaknessAnalysis()
+        html += renderRecommendations()
+
     } else {
-        html += "<p style='padding:20px; color:#666;'>Your team is empty. Search above to add Pokemon!</p>";
+        html += "<p>Your team is empty. Add Pokemon above.</p>"
     }
 
-    displayArea.innerHTML = html;
+    displayArea.innerHTML = html
+}
+
+
+
+function filterByType(type) {
+    selectedType = type
+    updateResults()
+}
+
+function clearTypeFilter() {
+    selectedType = null
+    updateResults()
 }
 
 // ==========================
@@ -224,16 +255,31 @@ function renderRecommendations() {
 }
 
 function updateResults() {
-    const query = document.getElementById("pokeSearch")?.value?.toLowerCase() || "";
-    let results = gameData.pokemon.filter(p => p.name.toLowerCase().includes(query)).slice(0, 20);
-    let html = "";
-    results.forEach(p => {
-        html += `<div class="poke-entry" onclick="showPokemon('${p.name}')"><strong>${p.name}</strong></div>`;
-    });
-    document.getElementById("pokeResults").innerHTML = html;
+
+    const query = document.getElementById("pokeSearch")?.value?.toLowerCase() || ""
+
+    let results = gameData.pokemon
+
+    if (query) {
+        results = results.filter(p => p.name.toLowerCase().includes(query))
+    }
+
+    if (selectedType) {
+        results = results.filter(p => p.types.includes(selectedType))
+    }
+
+    let html = ""
+
+    results.slice(0, 50).forEach(p => {
+        html += `
+        <div class="poke-entry" onclick="showPokemon('${p.name}')">
+            <strong>${p.name}</strong> (${p.types.join("/")})
+        </div>`
+    })
+
+    document.getElementById("pokeResults").innerHTML = html
 }
 
-function showPokemon(name) {
-    const p = gameData.pokemon.find(x => x.name === name);
-    document.getElementById("content").innerHTML = `<h2>${p.name}</h2><p>Types: ${p.types.join(", ")}</p><button onclick="openPage('pokedex')">Back</button>`;
-}
+
+
+
