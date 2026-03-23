@@ -312,12 +312,18 @@ function updateTeamDisplay() {
     team.forEach(name => {
 
         const p = gameData.pokemon.find(x => x.name === name)
-
         if (!p) return
 
         html += `
         <div style="border-bottom:1px solid #ccc; padding:5px;">
-            <strong>${p.name}</strong> (${p.types.join("/")})
+            <div onclick="toggleTeamPokemon('${p.name}')" style="cursor:pointer;">
+                <strong>${p.name}</strong> (${p.types.join("/")})
+            </div>
+
+            <div id="team-${p.name}" style="display:none; padding-left:10px;">
+                ${renderTeamPokemonDetails(p.name)}
+            </div>
+
             <button onclick="removeFromTeam('${p.name}')">Remove</button>
         </div>
         `
@@ -325,5 +331,39 @@ function updateTeamDisplay() {
 
     document.getElementById("teamDisplay").innerHTML = html
 }
+
+function toggleTeamPokemon(name) {
+
+    const el = document.getElementById(`team-${name}`)
+
+    if (el.style.display === "none") {
+        el.style.display = "block"
+    } else {
+        el.style.display = "none"
+    }
+}
+
+function renderTeamPokemonDetails(name) {
+
+    const pokemon = gameData.pokemon.find(p => p.name === name)
+    if (!pokemon) return ""
+
+    const moves = getMovesForLevel(name)
+
+    let html = ""
+
+    html += `<p>HP: ${pokemon.baseStats.hp} | Atk: ${pokemon.baseStats.attack} | Def: ${pokemon.baseStats.defense}</p>`
+    html += `<p>SpA: ${pokemon.baseStats.spAttack} | SpD: ${pokemon.baseStats.spDefense} | Spe: ${pokemon.baseStats.speed}</p>`
+
+    html += "<strong>Available Moves:</strong>"
+
+    moves.forEach(m => {
+        html += `<div>Lv ${m.level}: ${m.move}</div>`
+    })
+
+    return html
+}
+
+
 
 
