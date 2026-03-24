@@ -318,29 +318,34 @@ function updateTeamDisplay() {
 
     let html = "<h3>Your Team</h3>";
 
-    // Check the actual length of the array
     if (team && team.length > 0) {
         html += `<button onclick="clearTeam()" class="clear-btn">Clear Full Team</button>`;
         html += "<div class='team-grid'>";
 
         team.forEach(p => {
-    // 1. ADD THIS GUARD: If p is missing or doesn't have types, skip it!
-    if (!p || !p.types) {
-        console.warn("Found a broken entry in team, skipping...", p);
-        return; 
-    }
+            // SAFETY GATE: If data is corrupted, don't crash the whole app
+            if (!p || !p.name || !p.types) {
+                console.error("Skipping broken Pokemon entry:", p);
+                return;
+            }
 
-    html += `
-        <div class="team-card">
-            <strong>${p.name}</strong><br>
-            <small>${p.types.join("/")}</small><br>
-            <button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button>
-        </div>`;
-});
+            html += `
+                <div class="team-card">
+                    <strong>${p.name}</strong><br>
+                    <small>${p.types.join("/")}</small><br>
+                    <button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button>
+                </div>`;
+        });
 
         html += "</div><hr>";
-        html += renderWeaknessAnalysis();
-        html += renderRecommendations();
+        
+        // Wrap these in try/catch so a calculation error doesn't break the UI
+        try {
+            html += renderWeaknessAnalysis();
+            html += renderRecommendations();
+        } catch (e) {
+            console.error("Analysis Error:", e);
+        }
     } else {
         html += "<p style='margin-top:20px; color:#666;'>Your team is empty. Add Pokemon above.</p>";
     }
@@ -355,20 +360,23 @@ function analyzeTeamWeakness() {
     Object.keys(typeChart).forEach(t => results[t] = 0);
 
     team.forEach(p => {
-        // Double safety check: ensure types exist before trying to use them
-        if (p && p.types) {
-            p.types.forEach(t => {
-                const d = typeChart[t];
-                if (d) {
-                    d.weakTo.forEach(w => results[w] += 1);
-                    d.resists.forEach(r => results[r] -= 1);
-                    d.immuneTo.forEach(i => results[i] -= 2);
-                }
-            });
-        }
+        if (!p || !p.types) return;
+
+        p.types.forEach(t => {
+            // Capitalize to match TypeChart keys (Fire, Water, etc)
+            const typeKey = t.charAt(0).toUpperCase() + t.slice(1).toLowerCase();
+            const d = typeChart[typeKey];
+            
+            if (d) { // SAFETY GATE: Only proceed if the type exists in our chart
+                d.weakTo.forEach(w => results[w] += 1);
+                d.resists.forEach(r => results[r] -= 1);
+                d.immuneTo.forEach(i => results[i] -= 2);
+            }
+        });
     });
     return results;
 }
+
 
 function renderWeaknessAnalysis() {
     let html="<h4>Weakness</h4>"
@@ -383,31 +391,33 @@ function renderWeaknessAnalysis() {
 }
 
 function recommendFixes() {
-    const weaknessAnalysis = analyzeTeamWeakness();
-    const weak = Object.entries(weaknessAnalysis)
+    const weakData = analyzeTeamWeakness();
+    const biggestWeaknesses = Object.entries(weakData)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 2)
         .map(([t]) => t);
 
-    // FIX: Check p.name against the names of pokemon already in the team objects
     const teamNames = team.map(member => member.name);
     const candidates = gameData.pokemon.filter(p => !teamNames.includes(p.name));
 
     const scored = candidates.map(p => {
         let score = 0;
-        p.types.forEach(t => {
-            const d = typeChart[t];
-            weak.forEach(w => {
-                if (d.resists.includes(w)) score += 2;
-                if (d.immuneTo.includes(w)) score += 3;
+        if (p.types) {
+            p.types.forEach(t => {
+                const typeKey = t.charAt(0).toUpperCase() + t.slice(1).toLowerCase();
+                const d = typeChart[typeKey];
+                if (d) {
+                    biggestWeaknesses.forEach(w => {
+                        if (d.resists.includes(w)) score += 2;
+                        if (d.immuneTo.includes(w)) score += 3;
+                    });
+                }
             });
-        });
+        }
         return { ...p, score };
-    }).filter(p => p.score > 0) // Only suggest helpful ones
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3);
+    }).filter(p => p.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
 
-    return { weak, scored };
+    return { weak: biggestWeaknesses, scored };
 }
 
 
