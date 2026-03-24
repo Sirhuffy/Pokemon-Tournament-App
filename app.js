@@ -3,7 +3,7 @@
 // ==========================
 let currentGame = "gsc"
 let levelCap = 55
-let gameData = { pokemon: [], moves: [], learnsets: [] }
+let gameData = { pokemon: [], moves: [], learnsets: [], encounters: [] }
 let selectedType = null
 let selectedSort = "bst"
 let team = []
@@ -37,15 +37,19 @@ const typeChart = {
 async function initApp() {
     try {
         // 1. Wait for ALL data to download first
-        const [pokemonRes, movesRes, learnsetsRes] = await Promise.all([
+        const [pokemonRes, movesRes, learnsetsRes, encountersRes, itemsRes] = await Promise.all([
             fetch("data/pokemon-core.json"),
-            fetch("data/moves.json"),
-            fetch("data/learnsets.json")
+           fetch("data/moves.json"),
+            fetch("data/learnsets.json"),
+            fetch("data/encounters.json"),
+            fetch("data/items.json")
         ]);
 
+        gameData.items = await itemsRes.json();
         gameData.pokemon = await pokemonRes.json();
         gameData.moves = await movesRes.json();
         gameData.learnsets = await learnsetsRes.json();
+        gameData.encounters = await encountersRes.json();
 
         // 2. ONLY AFTER data is loaded, load the team from storage
         loadSavedTeam();
@@ -141,6 +145,43 @@ function getBestMoves(name) {
     .slice(0,4)
 }
 
+
+function getEncounters(name) {
+    const entry = gameData.encounters.find(e => e.pokemon === name)
+    if (!entry) return []
+
+    const gameKey = getGameKey()
+    return entry.games?.[gameKey] || []
+}
+
+function recommendItems(pokemon) {
+    if (!pokemon || !pokemon.baseStats) return []
+
+    const items = gameData.items || []
+    let suggestions = []
+
+    const { hp, attack, spAttack, speed } = pokemon.baseStats
+
+    // Bulky → Leftovers
+    if (hp > 80) {
+        const item = items.find(i => i.name === "Leftovers")
+        if (item) suggestions.push(item)
+    }
+
+    // Fast → Quick Claw fallback
+    if (speed < 60) {
+        const item = items.find(i => i.name === "Quick Claw")
+        if (item) suggestions.push(item)
+    }
+
+    // STAB boosting items
+    pokemon.types.forEach(type => {
+        const item = items.find(i => i.type === type)
+        if (item) suggestions.push(item)
+    })
+
+    return suggestions.slice(0, 3)
+}
 
 // ==========================
 // NAVIGATION
@@ -238,12 +279,14 @@ function updateResults() {
         return b.baseStats[selectedSort] - a.baseStats[selectedSort]
     })
 
-const isOnTeam = team.some(member => member.name === p.name);
+
 
     let html = ""
 
     results.slice(0,50).forEach(p => {
         const total = Object.values(p.baseStats).reduce((a,b)=>a+b,0)
+        const isOnTeam = team.some(member => member.name === p.name);
+
         html += `
 <div style="display:flex; justify-content:space-between; padding:10px; border-bottom:1px solid #eee;">
     <div onclick="showPokemon('${p.name}')" style="cursor:pointer;">
@@ -265,6 +308,7 @@ function showPokemon(name) {
     if (!p) return
 
     const moves = getBestMoves(name)
+    const encounters = gameData.encounters ? getEncounters(name) : []
 
     let html = `<h2>${p.name}</h2>`
     html += `<p>${p.types.join("/")}</p>`
@@ -280,13 +324,45 @@ function showPokemon(name) {
 
     html += "<h3>Moves</h3>"
     moves.forEach(m=>{
-    html += `<div>⭐ Lv ${m.level}: ${m.move}</div>`
-})
+        html += `<div>⭐ Lv ${m.level}: ${m.move}</div>`
+    })
+
+    html += "<h3>Where to Catch</h3>"
+
+    if (encounters.length === 0) {
+        html += "<p>No data yet.</p>"
+    } else {
+        encounters.forEach(loc => {
+            html += `<div>${loc.area} (${loc.method}) - ${loc.rate}</div>`
+        })
+    }
+
+    html += "<h3>Best Route</h3>"
+    html += `<p>${recommendRoute(p.name)}</p>`
+
+    html += "<h3>IV Estimate (Basic)</h3>"
+    html += "<p>Feature coming soon...</p>"
+
+    const items = gameData.items ? recommendItems(p) : []
+
+    html += "<h3>Recommended Items</h3>"
+    items.forEach(i => {
+        html += `<div>${i.name} - ${i.effect}</div>`
+    })
+
+    html += "<h3>EV Training</h3>"
+
+    const stats = ["attack","speed","spAttack","defense","hp"]
+
+    stats.forEach(stat => {
+        html += `<div>${stat.toUpperCase()}: ${getEVTrainingSpots(stat)}</div>`
+    })
 
     html += `
-    <button onclick="addToTeam('${p.name}')">Add to Team</button>
-    <br><br>
-    <button onclick="openPage('pokedex')">Back</button>
+        <br>
+        <button onclick="addToTeam('${p.name}')">Add to Team</button>
+        <br><br>
+        <button onclick="openPage('pokedex')">Back</button>
     `
 
     document.getElementById("content").innerHTML = html
@@ -383,6 +459,7 @@ function updateTeamDisplay() {
         try {
             html += renderWeaknessAnalysis();
             html += renderOffenseCoverage();
+            html += renderMoveCoverage();
             html += renderRecommendations();
         } catch (e) {
             console.error("Analysis Error:", e);
@@ -512,3 +589,93 @@ function renderRecommendations() {
 
     return html
 }
+
+
+function analyzeMoveCoverage() {
+    const coverage = {};
+
+    Object.keys(typeChart).forEach(t => coverage[t] = 0);
+
+    team.forEach(p => {
+        const moves = getMovesForLevel(p.name);
+
+        moves.forEach(m => {
+            const moveData = gameData.moves.find(x => x.name === m.move);
+            if (!moveData) return;
+
+            const type = moveData.type;
+            if (coverage[type] !== undefined) {
+                coverage[type] += 1;
+            }
+        });
+    });
+
+    return coverage;
+}
+
+function renderMoveCoverage() {
+    const coverage = analyzeMoveCoverage();
+
+    let html = "<h4>Move Coverage</h4>";
+
+    Object.entries(coverage)
+        .sort((a,b)=>b[1]-a[1])
+        .forEach(([type, count]) => {
+            if (count === 0) {
+                html += `<div style="color:#cc0000">${type}: NONE</div>`;
+            } else {
+                html += `<div>${type}: ${count}</div>`;
+            }
+        });
+
+    return html;
+}
+
+
+
+function getEVTrainingSpots(stat) {
+    const game = getGameKey()
+
+    const spots = {
+        crystal: {
+            attack: "Route 42 (Machop)",
+            speed: "Route 30 (Rattata)",
+            spAttack: "Route 34 (Abra)",
+            defense: "Union Cave (Geodude)",
+            hp: "Route 32 (Wooper)"
+        },
+        emerald: {
+            attack: "Mt. Chimney (Numel)",
+            speed: "Route 104 (Wingull)",
+            spAttack: "Route 113 (Spinda)",
+            defense: "Granite Cave (Geodude)",
+            hp: "Route 117 (Marill)"
+        },
+        "firered-leafgreen": {
+            attack: "Route 10 (Machop)",
+            speed: "Route 1 (Pidgey)",
+            spAttack: "Pokemon Tower (Gastly)",
+            defense: "Rock Tunnel (Geodude)",
+            hp: "Route 12 (Slowpoke)"
+        }
+    }
+
+    return spots[game]?.[stat] || "Unknown"
+}
+
+
+function recommendRoute(pokemonName) {
+    const encounters = getEncounters(pokemonName)
+
+    if (encounters.length === 0) return "No route data"
+
+    return encounters[0].area
+}
+
+function estimateIV(stat, base, level) {
+    // rough estimate
+    return Math.floor((stat - base) * 2)
+}
+
+
+
