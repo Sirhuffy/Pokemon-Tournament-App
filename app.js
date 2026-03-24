@@ -79,12 +79,11 @@ function loadSavedTeam() {
         
         // SAFETY CHECK: If the first item is just a string, it's old data. Clear it.
         if (parsed.length > 0 && typeof parsed[0] === 'string') {
-            console.warn("Old team data format detected. Clearing for compatibility.");
-            team = [];
-            saveTeam();
-        } else {
-            team = parsed;
-        }
+    // Convert each name to the full Pokemon object from gameData
+    team = parsed.map(name => gameData.pokemon.find(p => p.name === name)).filter(p => p);
+} else {
+    team = parsed;
+}
     }
 }
 
