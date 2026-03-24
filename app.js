@@ -148,10 +148,16 @@ function getBestMoves(name) {
 
 function getEncounters(name) {
     const entry = gameData.encounters.find(e => e.pokemon === name)
-    if (!entry) return []
+    if (!entry) return null
 
     const gameKey = getGameKey()
-    return entry.games?.[gameKey] || []
+    const data = entry.games?.[gameKey]
+
+    if (!data || data.length === 0) {
+        return []
+    }
+
+    return data
 }
 
 function recommendItems(pokemon) {
@@ -182,6 +188,49 @@ function recommendItems(pokemon) {
 
     return suggestions.slice(0, 3)
 }
+
+
+function getEVYield(pokemonName) {
+    const evMap = {
+        "Zubat": { speed: 1 },
+        "Magikarp": { speed: 1 },
+        "Geodude": { defense: 1 },
+        "Gastly": { spAttack: 1 },
+        "Machop": { attack: 1 },
+        "Tentacool": { spDefense: 1 }
+    }
+
+    return evMap[pokemonName] || {}
+}
+
+
+function getEVTrainingSpots(stat) {
+    const gameKey = getGameKey()
+    let recommendations = []
+
+    gameData.encounters.forEach(entry => {
+        const evYield = getEVYield(entry.pokemon)
+
+        if (!evYield[stat]) return
+
+        const locations = entry.games?.[gameKey] || []
+
+        locations.forEach(loc => {
+            recommendations.push({
+                pokemon: entry.pokemon,
+                area: loc.area,
+                rate: loc.rate,
+                ev: evYield[stat]
+            })
+        })
+    })
+
+    return recommendations
+        .sort((a,b) => parseFloat(b.rate) - parseFloat(a.rate))
+        .slice(0, 5)
+}
+
+
 
 // ==========================
 // NAVIGATION
@@ -327,15 +376,15 @@ function showPokemon(name) {
         html += `<div>⭐ Lv ${m.level}: ${m.move}</div>`
     })
 
-    html += "<h3>Where to Catch</h3>"
+   html += "<h3>Where to Catch</h3>"
 
-    if (encounters.length === 0) {
-        html += "<p>No data yet.</p>"
-    } else {
-        encounters.forEach(loc => {
-            html += `<div>${loc.area} (${loc.method}) - ${loc.rate}</div>`
-        })
-    }
+if (!encounters || encounters.length === 0) {
+    html += "<p style='color:#999;'>Not available or not yet added for this game.</p>"
+} else {
+    encounters.forEach(loc => {
+        html += `<div>${loc.area} (${loc.method}) - ${loc.rate}</div>`
+    })
+}
 
     html += "<h3>Best Route</h3>"
     html += `<p>${recommendRoute(p.name)}</p>`
@@ -350,13 +399,24 @@ function showPokemon(name) {
         html += `<div>${i.name} - ${i.effect}</div>`
     })
 
+
     html += "<h3>EV Training</h3>"
 
-    const stats = ["attack","speed","spAttack","defense","hp"]
+const stats = ["attack","speed","spAttack","defense","spDefense","hp"]
 
-    stats.forEach(stat => {
-        html += `<div>${stat.toUpperCase()}: ${getEVTrainingSpots(stat)}</div>`
+stats.forEach(stat => {
+    const spots = getEVTrainingSpots(stat)
+
+    if (spots.length === 0) return
+
+    html += `<div><strong>${stat.toUpperCase()}</strong>:</div>`
+
+    spots.forEach(s => {
+        html += `<div style="font-size:12px; margin-left:10px;">
+            ${s.pokemon} (${s.area}) - ${s.rate}
+        </div>`
     })
+})
 
     html += `
         <br>

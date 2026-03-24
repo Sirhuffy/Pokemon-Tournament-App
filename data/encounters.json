@@ -1,0 +1,3090 @@
+[
+    {
+        "pokemon": "Bulbasaur",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ivysaur",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Venusaur",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Charmander",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Charmeleon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Charizard",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Squirtle",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Wartortle",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Blastoise",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Caterpie",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Metapod",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Butterfree",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Weedle",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kakuna",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Beedrill",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Pidgey",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Pidgeotto",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Pidgeot",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Rattata",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Raticate",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Spearow",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Fearow",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ekans",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Arbok",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Pikachu",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Raichu",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sandshrew",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sandslash",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Nidoran-f",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Nidorina",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Nidoqueen",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Nidoran-m",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Nidorino",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Nidoking",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Clefairy",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Clefable",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Vulpix",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ninetales",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Jigglypuff",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Wigglytuff",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Zubat",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Golbat",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Oddish",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Gloom",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Vileplume",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Paras",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Parasect",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Venonat",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Venomoth",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Diglett",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Dugtrio",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Meowth",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Persian",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Psyduck",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Golduck",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Mankey",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Primeape",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Growlithe",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Arcanine",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Poliwag",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Poliwhirl",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Poliwrath",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Abra",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kadabra",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Alakazam",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Machop",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Machoke",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Machamp",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Bellsprout",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Weepinbell",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Victreebel",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Tentacool",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Tentacruel",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Geodude",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Graveler",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Golem",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ponyta",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Rapidash",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Slowpoke",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Slowbro",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Magnemite",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Magneton",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Farfetchd",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Doduo",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Dodrio",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Seel",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Dewgong",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Grimer",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Muk",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Shellder",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Cloyster",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Gastly",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Haunter",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Gengar",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Onix",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Drowzee",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Hypno",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Krabby",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kingler",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Voltorb",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Electrode",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Exeggcute",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Exeggutor",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Cubone",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Marowak",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Hitmonlee",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Hitmonchan",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Lickitung",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Koffing",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Weezing",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Rhyhorn",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Rhydon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Chansey",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Tangela",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kangaskhan",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Horsea",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Seadra",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Goldeen",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Seaking",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Staryu",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Starmie",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Mr-mime",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Scyther",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Jynx",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Electabuzz",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Magmar",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Pinsir",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Tauros",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Magikarp",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Gyarados",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Lapras",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ditto",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Eevee",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Vaporeon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Jolteon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Flareon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Porygon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Omanyte",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Omastar",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kabuto",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kabutops",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Aerodactyl",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Snorlax",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Articuno",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Zapdos",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Moltres",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Dratini",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Dragonair",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Dragonite",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Mewtwo",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Mew",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Chikorita",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Bayleef",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Meganium",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Cyndaquil",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Quilava",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Typhlosion",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Totodile",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Croconaw",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Feraligatr",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sentret",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Furret",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Hoothoot",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Noctowl",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ledyba",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ledian",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Spinarak",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ariados",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Crobat",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Chinchou",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Lanturn",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Pichu",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Cleffa",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Igglybuff",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Togepi",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Togetic",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Natu",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Xatu",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Mareep",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Flaaffy",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ampharos",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Bellossom",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Marill",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Azumarill",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sudowoodo",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Politoed",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Hoppip",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Skiploom",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Jumpluff",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Aipom",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sunkern",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sunflora",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Yanma",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Wooper",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Quagsire",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Espeon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Umbreon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Murkrow",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Slowking",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Misdreavus",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Unown",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Wobbuffet",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Girafarig",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Pineco",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Forretress",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Dunsparce",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Gligar",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Steelix",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Snubbull",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Granbull",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Qwilfish",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Scizor",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Shuckle",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Heracross",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sneasel",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Teddiursa",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ursaring",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Slugma",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Magcargo",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Swinub",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Piloswine",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Corsola",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Remoraid",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Octillery",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Delibird",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Mantine",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Skarmory",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Houndour",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Houndoom",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kingdra",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Phanpy",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Donphan",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Porygon2",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Stantler",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Smeargle",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Tyrogue",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Hitmontop",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Smoochum",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Elekid",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Magby",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Miltank",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Blissey",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Raikou",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Entei",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Suicune",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Larvitar",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Pupitar",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Tyranitar",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Lugia",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ho-oh",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Celebi",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Treecko",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Grovyle",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sceptile",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Torchic",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Combusken",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Blaziken",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Mudkip",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Marshtomp",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Swampert",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Poochyena",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Mightyena",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Zigzagoon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Linoone",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Wurmple",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Silcoon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Beautifly",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Cascoon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Dustox",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Lotad",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Lombre",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ludicolo",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Seedot",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Nuzleaf",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Shiftry",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Taillow",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Swellow",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Wingull",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Pelipper",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ralts",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kirlia",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Gardevoir",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Surskit",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Masquerain",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Shroomish",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Breloom",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Slakoth",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Vigoroth",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Slaking",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Nincada",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Ninjask",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Shedinja",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Whismur",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Loudred",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Exploud",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Makuhita",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Hariyama",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Azurill",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Nosepass",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Skitty",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Delcatty",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sableye",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Mawile",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Aron",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Lairon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Aggron",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Meditite",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Medicham",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Electrike",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Manectric",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Plusle",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Minun",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Volbeat",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Illumise",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Roselia",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Gulpin",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Swalot",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Carvanha",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sharpedo",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Wailmer",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Wailord",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Numel",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Camerupt",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Torkoal",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Spoink",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Grumpig",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Spinda",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Trapinch",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Vibrava",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Flygon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Cacnea",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Cacturne",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Swablu",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Altaria",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Zangoose",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Seviper",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Lunatone",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Solrock",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Barboach",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Whiscash",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Corphish",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Crawdaunt",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Baltoy",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Claydol",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Lileep",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Cradily",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Anorith",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Armaldo",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Feebas",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Milotic",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Castform",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kecleon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Shuppet",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Banette",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Duskull",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Dusclops",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Tropius",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Chimecho",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Absol",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Wynaut",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Snorunt",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Glalie",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Spheal",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Sealeo",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Walrein",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Clamperl",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Huntail",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Gorebyss",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Relicanth",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Luvdisc",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Bagon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Shelgon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Salamence",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Beldum",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Metang",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Metagross",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Regirock",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Regice",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Registeel",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Latias",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Latios",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Kyogre",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Groudon",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Rayquaza",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Jirachi",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    },
+    {
+        "pokemon": "Deoxys-normal",
+        "games": {
+            "crystal": [],
+            "emerald": [],
+            "firered-leafgreen": []
+        }
+    }
+]
