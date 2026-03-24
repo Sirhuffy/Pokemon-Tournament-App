@@ -164,29 +164,31 @@ function recommendItems(pokemon) {
     if (!pokemon || !pokemon.baseStats) return []
 
     const items = gameData.items || []
+    const gameKey = getGameKey()
     let suggestions = []
 
-    const { hp, attack, spAttack, speed } = pokemon.baseStats
+    const { hp, speed } = pokemon.baseStats
 
-    // Bulky → Leftovers
+    // Bulk → Leftovers
     if (hp > 80) {
         const item = items.find(i => i.name === "Leftovers")
         if (item) suggestions.push(item)
     }
 
-    // Fast → Quick Claw fallback
+    // Slow → Quick Claw
     if (speed < 60) {
         const item = items.find(i => i.name === "Quick Claw")
         if (item) suggestions.push(item)
     }
 
-    // STAB boosting items
+    // Type boosting items
     pokemon.types.forEach(type => {
         const item = items.find(i => i.type === type)
         if (item) suggestions.push(item)
     })
 
-    return suggestions.slice(0, 3)
+    // 🔥 KEY FIX: Filter items that exist in this game
+    return suggestions.filter(i => i.location?.[gameKey]).slice(0, 3)
 }
 
 
@@ -246,12 +248,16 @@ function openPage(page) {
     if (page === "team") {
         content.innerHTML = `
             <h2>Team Builder</h2>
-            <input id='teamSearch' placeholder='Add to Team...'>
+            <input id='globalSearch' placeholder='Search Pokémon...'>
+            <div id='globalResults'></div>
             <div id='teamSearchResults'></div>
             <div id='teamDisplay'></div>
         `
         document.getElementById("teamSearch").addEventListener("input", updateTeamSearch)
         updateTeamDisplay()
+
+document.getElementById("globalSearch").addEventListener("input", updateGlobalSearch)
+
     }
 
     else if (page === "pokedex") {
@@ -292,6 +298,42 @@ function openPage(page) {
         content.innerHTML = `<h2>Weakness</h2>${renderWeaknessAnalysis()}`
     }
 }
+
+
+function updateGlobalSearch() {
+    const query = document.getElementById("globalSearch").value.toLowerCase()
+
+    if (!query) {
+        document.getElementById("globalResults").innerHTML = ""
+        return
+    }
+
+    const results = gameData.pokemon
+        .filter(p => p.name.toLowerCase().includes(query))
+        .slice(0, 8)
+
+    let html = ""
+
+    results.forEach(p => {
+        const isOnTeam = team.some(t => t.name === p.name)
+
+        html += `
+        <div style="display:flex; justify-content:space-between; padding:8px; border-bottom:1px solid #eee;">
+            <div onclick="showPokemon('${p.name}')" style="cursor:pointer;">
+                ${p.name}
+            </div>
+            ${
+                isOnTeam
+                ? `<button onclick="removeFromTeam('${p.name}')">-</button>`
+                : `<button onclick="addToTeam('${p.name}')">+</button>`
+            }
+        </div>`
+    })
+
+    document.getElementById("globalResults").innerHTML = html
+}
+
+
 
 // ==========================
 // POKEDEX
@@ -395,9 +437,19 @@ if (!encounters || encounters.length === 0) {
     const items = gameData.items ? recommendItems(p) : []
 
     html += "<h3>Recommended Items</h3>"
-    items.forEach(i => {
-        html += `<div>${i.name} - ${i.effect}</div>`
-    })
+    
+
+const gameKey = getGameKey()
+
+items.forEach(i => {
+    const location = i.location?.[gameKey] || "Unknown"
+
+    html += `<div>
+        <strong>${i.name}</strong><br>
+        <small>${i.effect}</small><br>
+        <small style="color:#666;">📍 ${location}</small>
+    </div>`
+})
 
 
     html += "<h3>EV Training</h3>"
