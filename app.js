@@ -115,6 +115,33 @@ function getMovesForLevel(name) {
     return getLearnset(name).filter(m => m.level <= levelCap)
 }
 
+function getBestMoves(name) {
+    const moves = getMovesForLevel(name)
+
+    // Score moves
+    return moves.map(m => {
+        const moveData = gameData.moves.find(x => x.name === m.move)
+
+        let score = 0
+
+        if (moveData) {
+            // Prefer damaging moves
+            if (moveData.power) score += moveData.power
+
+            // STAB bonus
+            const p = gameData.pokemon.find(p => p.name === name)
+            if (p && p.types.includes(moveData.type)) {
+                score += 50
+            }
+        }
+
+        return { ...m, score }
+    })
+    .sort((a,b) => b.score - a.score)
+    .slice(0,4)
+}
+
+
 // ==========================
 // NAVIGATION
 // ==========================
@@ -211,14 +238,23 @@ function updateResults() {
         return b.baseStats[selectedSort] - a.baseStats[selectedSort]
     })
 
+const isOnTeam = team.some(member => member.name === p.name);
+
     let html = ""
 
     results.slice(0,50).forEach(p => {
         const total = Object.values(p.baseStats).reduce((a,b)=>a+b,0)
         html += `
-        <div onclick="showPokemon('${p.name}')">
-            ${p.name} (${p.types.join("/")}) - ${selectedSort==="bst"?total:p.baseStats[selectedSort]}
-        </div>`
+<div style="display:flex; justify-content:space-between; padding:10px; border-bottom:1px solid #eee;">
+    <div onclick="showPokemon('${p.name}')" style="cursor:pointer;">
+        ${p.name} (${p.types.join("/")}) - ${selectedSort==="bst"?total:p.baseStats[selectedSort]}
+    </div>
+    ${
+        isOnTeam
+        ? `<button onclick="removeFromTeam('${p.name}')" style="background:#ff4444; color:white;">-</button>`
+        : `<button onclick="addToTeam('${p.name}')">+</button>`
+    }
+</div>`
     })
 
     document.getElementById("pokeResults").innerHTML = html
@@ -228,7 +264,7 @@ function showPokemon(name) {
     const p = gameData.pokemon.find(x => x.name === name)
     if (!p) return
 
-    const moves = getMovesForLevel(name)
+    const moves = getBestMoves(name)
 
     let html = `<h2>${p.name}</h2>`
     html += `<p>${p.types.join("/")}</p>`
@@ -244,10 +280,14 @@ function showPokemon(name) {
 
     html += "<h3>Moves</h3>"
     moves.forEach(m=>{
-        html += `<div>Lv ${m.level}: ${m.move}</div>`
-    })
+    html += `<div>⭐ Lv ${m.level}: ${m.move}</div>`
+})
 
-    html += `<button onclick="openPage('pokedex')">Back</button>`
+    html += `
+    <button onclick="addToTeam('${p.name}')">Add to Team</button>
+    <br><br>
+    <button onclick="openPage('pokedex')">Back</button>
+    `
 
     document.getElementById("content").innerHTML = html
 }
@@ -342,6 +382,7 @@ function updateTeamDisplay() {
         // Wrap these in try/catch so a calculation error doesn't break the UI
         try {
             html += renderWeaknessAnalysis();
+            html += renderOffenseCoverage();
             html += renderRecommendations();
         } catch (e) {
             console.error("Analysis Error:", e);
@@ -377,6 +418,30 @@ function analyzeTeamWeakness() {
     return results;
 }
 
+function analyzeOffenseCoverage() {
+    let coverage = {}
+
+    Object.keys(typeChart).forEach(t => coverage[t] = 0)
+
+    team.forEach(p => {
+        const moves = getBestMoves(p.name)
+
+        moves.forEach(m => {
+            const moveData = gameData.moves.find(x => x.name === m.move)
+            if (!moveData) return
+
+            // Which types this move is strong against
+            Object.entries(typeChart).forEach(([type, data]) => {
+                if (data.weakTo.includes(moveData.type)) {
+                    coverage[type] += 1
+                }
+            })
+        })
+    })
+
+    return coverage
+}
+
 
 function renderWeaknessAnalysis() {
     let html="<h4>Weakness</h4>"
@@ -389,6 +454,22 @@ function renderWeaknessAnalysis() {
 
     return html
 }
+
+
+function renderOffenseCoverage() {
+    const coverage = analyzeOffenseCoverage()
+    let html = "<h4>Offensive Coverage</h4>"
+
+    Object.entries(coverage)
+        .sort((a,b)=>b[1]-a[1])
+        .forEach(([type, score]) => {
+            if (score === 0) return
+            html += `<div>${type}: ${score}</div>`
+        })
+
+    return html
+}
+
 
 function recommendFixes() {
     const weakData = analyzeTeamWeakness();
