@@ -64,22 +64,6 @@ async function initApp() {
 // Ensure the browser is fully ready before starting the app
 window.addEventListener('DOMContentLoaded', initApp);
 
-async function loadGameData() {
-    const r = await fetch("data/pokemon-core.json")
-    gameData.pokemon = await r.json()
-}
-
-async function loadMoveData() {
-    const r = await fetch("data/moves.json")
-    gameData.moves = await r.json()
-}
-
-async function loadLearnsets() {
-    const r = await fetch("data/learnsets.json")
-    gameData.learnsets = await r.json()
-}
-
-initApp()
 
 // ==========================
 // STORAGE
@@ -275,15 +259,25 @@ function showPokemon(name) {
 function updateTeamSearch() {
     const query = document.getElementById("teamSearch").value.toLowerCase()
 
-    let results = gameData.pokemon.filter(p=>p.name.toLowerCase().includes(query)).slice(0,5)
+    if (!query) {
+        document.getElementById("teamSearchResults").innerHTML = ""
+        return
+    }
 
-    let html=""
-    results.forEach(p=>{
+    const teamNames = team.map(p => p.name)
+
+    let results = gameData.pokemon
+        .filter(p => p.name.toLowerCase().includes(query) && !teamNames.includes(p.name))
+        .slice(0, 5)
+
+    let html = ""
+    results.forEach(p => {
         html += `<div onclick="addToTeam('${p.name}')">+ ${p.name}</div>`
     })
 
     document.getElementById("teamSearchResults").innerHTML = html
 }
+
 
 function addToTeam(name) {
     if (team.length >= 6) { alert("Max 6 Pokemon!"); return; }
