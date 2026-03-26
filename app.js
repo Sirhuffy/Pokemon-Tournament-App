@@ -246,19 +246,18 @@ function openPage(page) {
     }
 
     if (page === "team") {
-        content.innerHTML = `
-            <h2>Team Builder</h2>
-            <input id='globalSearch' placeholder='Search Pokémon...'>
-            <div id='globalResults'></div>
-            <div id='teamSearchResults'></div>
-            <div id='teamDisplay'></div>
-        `
-        document.getElementById("teamSearch").addEventListener("input", updateTeamSearch)
-        updateTeamDisplay()
+    content.innerHTML = `
+        <h2>Team Builder</h2>
+        <input id='globalSearch' placeholder='Search Pokémon...'>
+        <div id='globalResults'></div>
+        <div id='teamDisplay'></div>
+    `
 
-document.getElementById("globalSearch").addEventListener("input", updateGlobalSearch)
+    // ✅ Correct listener (matches new input ID)
+    document.getElementById("globalSearch").addEventListener("input", updateGlobalSearch)
 
-    }
+    updateTeamDisplay()
+}
 
     else if (page === "pokedex") {
         let html = "<h2>Pokedex</h2>"
@@ -412,6 +411,40 @@ function showPokemon(name) {
         SpD:${p.baseStats.spDefense} |
         Spe:${p.baseStats.speed}
     </p>`
+
+
+html += `
+<h3>IV Checker</h3>
+
+<input id="ivLevel" placeholder="Level (e.g. 50)" type="number"><br>
+
+<input id="ivHP" placeholder="HP">
+<input id="ivAttack" placeholder="Attack">
+<input id="ivDefense" placeholder="Defense"><br>
+
+<input id="ivSpAttack" placeholder="Sp. Atk">
+<input id="ivSpDefense" placeholder="Sp. Def">
+<input id="ivSpeed" placeholder="Speed"><br>
+
+<button onclick="runIVCalc('${p.name}')">Check IVs</button>
+
+<div id="ivResult"></div>
+`
+
+
+html += "<h3>EV Optimization Plan</h3>"
+
+const evPlan = getBestEVLocations(p)
+
+evPlan.forEach(e => {
+    html += `
+        <div>
+            <strong>${e.stat.toUpperCase()}</strong>: 
+            ${e.best}
+        </div>
+    `
+})
+
 
     html += "<h3>Moves</h3>"
     moves.forEach(m=>{
@@ -776,6 +809,9 @@ function getEVTrainingSpots(stat) {
 }
 
 
+
+
+
 function recommendRoute(pokemonName) {
     const encounters = getEncounters(pokemonName)
 
@@ -787,6 +823,77 @@ function recommendRoute(pokemonName) {
 function estimateIV(stat, base, level) {
     // rough estimate
     return Math.floor((stat - base) * 2)
+}
+
+
+function getEVSpread(pokemon) {
+    if (!pokemon || !pokemon.baseStats) return []
+
+    const { attack, spAttack, speed } = pokemon.baseStats
+
+    // Simple but effective logic
+    if (attack > spAttack) {
+        return ["attack", "speed"]
+    } else {
+        return ["spAttack", "speed"]
+    }
+}
+
+
+function getBestEVLocations(pokemon) {
+    const stats = getEVSpread(pokemon)
+
+    return stats.map(stat => ({
+        stat,
+        best: getEVTrainingSpots(stat)
+    }))
+}
+
+function estimateIVs(pokemon, level, stats) {
+    if (!pokemon || !stats) return null
+
+    const base = pokemon.baseStats
+
+    let result = {}
+
+    Object.keys(stats).forEach(stat => {
+        if (!base[stat]) return
+
+        // Rough Gen 2–3 formula approximation
+        const iv = Math.floor(((stats[stat] - base[stat]) * 2))
+
+        result[stat] = Math.max(0, Math.min(15, iv))
+    })
+
+    return result
+}
+
+
+
+function runIVCalc(name) {
+    const p = gameData.pokemon.find(x => x.name === name)
+    if (!p) return
+
+    const level = parseInt(document.getElementById("ivLevel").value)
+
+    const stats = {
+        hp: parseInt(document.getElementById("ivHP").value),
+        attack: parseInt(document.getElementById("ivAttack").value),
+        defense: parseInt(document.getElementById("ivDefense").value),
+        spAttack: parseInt(document.getElementById("ivSpAttack").value),
+        spDefense: parseInt(document.getElementById("ivSpDefense").value),
+        speed: parseInt(document.getElementById("ivSpeed").value)
+    }
+
+    const result = estimateIVs(p, level, stats)
+
+    let html = "<h4>IV Estimate</h4>"
+
+    Object.entries(result).forEach(([stat, val]) => {
+        html += `<div>${stat.toUpperCase()}: ${val}/15</div>`
+    })
+
+    document.getElementById("ivResult").innerHTML = html
 }
 
 
