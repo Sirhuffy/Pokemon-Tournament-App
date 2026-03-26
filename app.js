@@ -148,7 +148,7 @@ function getBestMoves(name) {
 
 function getEncounters(name) {
     const entry = gameData.encounters.find(e => e.pokemon === name)
-    if (!entry) return null
+    if (!entry) return []
 
     const gameKey = getGameKey()
     const data = entry.games?.[gameKey]
@@ -318,9 +318,9 @@ function updateGlobalSearch() {
 
         html += `
         <div style="display:flex; justify-content:space-between; padding:8px; border-bottom:1px solid #eee;">
-            <div onclick="showPokemon('${p.name}')" style="cursor:pointer;">
-                ${p.name}
-            </div>
+           <span onclick="showPokemon('${p.name}')" style="cursor:pointer;">
+    ${p.name}
+</span>
             ${
                 isOnTeam
                 ? `<button onclick="removeFromTeam('${p.name}')">-</button>`
@@ -490,17 +490,15 @@ items.forEach(i => {
 const stats = ["attack","speed","spAttack","defense","spDefense","hp"]
 
 stats.forEach(stat => {
-    const spots = getEVTrainingSpots(stat)
+    const spot = getEVTrainingSpots(stat)
 
-    if (spots.length === 0) return
+    if (!spot) return
 
-    html += `<div><strong>${stat.toUpperCase()}</strong>:</div>`
-
-    spots.forEach(s => {
-        html += `<div style="font-size:12px; margin-left:10px;">
-            ${s.pokemon} (${s.area}) - ${s.rate}
-        </div>`
-    })
+    html += `
+        <div>
+            <strong>${stat.toUpperCase()}</strong>: ${spot}
+        </div>
+    `
 })
 
     html += `
