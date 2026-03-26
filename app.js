@@ -418,15 +418,19 @@ html += `
 
 <input id="ivLevel" placeholder="Level (e.g. 50)" type="number"><br>
 
-<input id="ivHP" placeholder="HP">
+<select id="ivGender">
+    <option value="">Unknown</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+</select><br>
+
 <input id="ivAttack" placeholder="Attack">
 <input id="ivDefense" placeholder="Defense"><br>
 
 <input id="ivSpAttack" placeholder="Sp. Atk">
-<input id="ivSpDefense" placeholder="Sp. Def">
 <input id="ivSpeed" placeholder="Speed"><br>
 
-<button onclick="runIVCalc('${p.name}')">Check IVs</button>
+<button onclick="runIVCalc('${p.name}')">Check DVs</button>
 
 <div id="ivResult"></div>
 `
@@ -484,6 +488,17 @@ items.forEach(i => {
     </div>`
 })
 
+
+html += "<h3>TM Compatibility</h3>"
+
+const tms = p.tms?.[getGameKey()] || []
+
+tms.forEach(move => {
+    const tmData = gameData.tms.find(t => t.move === move)
+    const location = tmData?.games?.[getGameKey()]?.location || "Unknown"
+
+    html += `<div>${move} — 📍 ${location}</div>`
+})
 
     html += "<h3>EV Training</h3>"
 
@@ -847,24 +862,72 @@ function getBestEVLocations(pokemon) {
     }))
 }
 
-function estimateIVs(pokemon, level, stats) {
-    if (!pokemon || !stats) return null
-
+function calculateStatRange(pokemon, level, observedStats, isMale = null) {
     const base = pokemon.baseStats
+    const isGen2 = currentGame === "gsc"
+
+    const maxIV = isGen2 ? 15 : 31
 
     let result = {}
 
-    Object.keys(stats).forEach(stat => {
-        if (!base[stat]) return
+    const statsToCheck = ["attack","defense","speed","spAttack"]
 
-        // Rough Gen 2–3 formula approximation
-        const iv = Math.floor(((stats[stat] - base[stat]) * 2))
+    statsToCheck.forEach(stat => {
+        let matches = []
 
-        result[stat] = Math.max(0, Math.min(15, iv))
+        for (let iv = 0; iv <= maxIV; iv++) {
+
+            // Gender rule (Gen 2 only, attack only)
+            if (isGen2 && stat === "attack") {
+                if (isMale === true && iv < 8) continue
+                if (isMale === false && iv > 7) continue
+            }
+
+            let calc
+
+            if (isGen2) {
+                calc = Math.floor(((base[stat] + iv) * 2 * level) / 100) + 5
+            } else {
+                calc = Math.floor((((base[stat] * 2 + iv) * level) / 100) + 5)
+            }
+
+            if (calc === observedStats[stat]) {
+                matches.push(iv)
+            }
+        }
+
+        result[stat] = matches
     })
 
     return result
 }
+
+
+function summarizeIVs(results, isGen2) {
+    const max = isGen2 ? 15 : 31
+
+    let summary = {}
+
+    Object.entries(results).forEach(([stat, vals]) => {
+        if (!vals.length) {
+            summary[stat] = { range: "No match", rating: "Invalid" }
+            return
+        }
+
+        const min = Math.min(...vals)
+        const maxVal = Math.max(...vals)
+
+        const avg = (min + maxVal) / 2
+
+        summary[stat] = {
+            range: `${min} - ${maxVal}`,
+            rating: getRangeLabel(avg, max)
+        }
+    })
+
+    return summary
+}
+
 
 
 
@@ -874,24 +937,56 @@ function runIVCalc(name) {
 
     const level = parseInt(document.getElementById("ivLevel").value)
 
+    const genderVal = document.getElementById("ivGender").value
+    const isMale = genderVal === "male" ? true :
+                   genderVal === "female" ? false : null
+
     const stats = {
-        hp: parseInt(document.getElementById("ivHP").value),
         attack: parseInt(document.getElementById("ivAttack").value),
         defense: parseInt(document.getElementById("ivDefense").value),
-        spAttack: parseInt(document.getElementById("ivSpAttack").value),
-        spDefense: parseInt(document.getElementById("ivSpDefense").value),
-        speed: parseInt(document.getElementById("ivSpeed").value)
+        speed: parseInt(document.getElementById("ivSpeed").value),
+        spAttack: parseInt(document.getElementById("ivSpAttack").value)
     }
 
-    const result = estimateIVs(p, level, stats)
+    if (!level || isNaN(level)) {
+        alert("Enter a valid level")
+        return
+    }
 
-    let html = "<h4>IV Estimate</h4>"
+    if (Object.values(stats).some(v => isNaN(v))) {
+        alert("Fill in all stat fields")
+        return
+    }
 
-    Object.entries(result).forEach(([stat, val]) => {
-        html += `<div>${stat.toUpperCase()}: ${val}/15</div>`
+    const raw = calculateStatRange(p, level, stats, isMale)
+    const summary = summarizeIVs(raw, currentGame === "gsc")
+
+    let html = "<h4>IV/DV Quality</h4>"
+
+    Object.entries(summary).forEach(([stat, data]) => {
+        html += `
+            <div>
+                <strong>${stat.toUpperCase()}</strong>: 
+                ${data.range} → ${data.rating}
+            </div>
+        `
     })
 
+    html += `<p style="color:#999; font-size:12px;">
+        Note: Results assume minimal EVs (early-game accuracy)
+    </p>`
+
     document.getElementById("ivResult").innerHTML = html
+}
+
+function getRangeLabel(value, max) {
+    const percent = value / max
+
+    if (percent >= 0.9) return "Elite (Top 10%)"
+    if (percent >= 0.75) return "High"
+    if (percent >= 0.5) return "Above Average"
+    if (percent >= 0.25) return "Below Average"
+    return "Low"
 }
 
 
