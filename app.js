@@ -233,7 +233,7 @@ function openPage(page) {
         document.getElementById("globalSearch").addEventListener("input", updateGlobalSearch);
         updateTeamDisplay();
 
-} else if (page === "compare") {
+    } else if (page === "compare") {
         content.innerHTML = `
             <h2>Compare Pokémon</h2>
             <div class="compare-selectors" style="display:flex; gap:20px; margin-bottom:20px;">
@@ -243,7 +243,6 @@ function openPage(page) {
             <div id="comparisonTable"></div>
         `;
         renderComparisonTable();
-    }
 
     } else if (page === "pokedex") {
         let html = "<h2>Pokedex</h2><input id='pokeSearch' placeholder='Search...'>";
@@ -256,12 +255,13 @@ function openPage(page) {
             <option value="speed">Speed</option>
         </select>`;
         const types = Object.keys(typeChart);
-        html += "<div>";
-        types.forEach(t => { html += `<button onclick="filterByType('${t}')">${t}</button>` });
+        html += "<div style='margin-top:10px;'>";
+        types.forEach(t => { html += `<button onclick="filterByType('${t}')">${t}</button> ` });
         html += `<button onclick="clearTypeFilter()">All</button></div><div id='pokeResults'></div>`;
         content.innerHTML = html;
         document.getElementById("pokeSearch").addEventListener("input", updateResults);
         updateResults();
+
     } else if (page === "weakness") {
         content.innerHTML = `<h2>Weakness</h2>${renderWeaknessAnalysis()}`;
     }
@@ -575,83 +575,79 @@ function calculateStatRange(pokemon, level, observedStats, natureName, isMale = 
 function runIVCalc(name) {
     const p = gameData.pokemon.find(x => x.name === name);
     if (!p) return;
+    
     const level = parseInt(document.getElementById("ivLevel").value);
     const nature = document.getElementById("ivNature")?.value || null;
     const isMale = document.getElementById("ivGender").value === "male" ? true : document.getElementById("ivGender").value === "female" ? false : null;
 
     const stats = {
-        attack: parseInt(document.getElementById("ivAttack").value),
-        defense: parseInt(document.getElementById("ivDefense").value),
-        speed: parseInt(document.getElementById("ivSpeed").value),
-        spAttack: parseInt(document.getElementById("ivSpAttack").value),
+        attack: parseInt(document.getElementById("ivAttack").value) || 0,
+        defense: parseInt(document.getElementById("ivDefense").value) || 0,
+        speed: parseInt(document.getElementById("ivSpeed").value) || 0,
+        spAttack: parseInt(document.getElementById("ivSpAttack").value) || 0,
         spDefense: parseInt(document.getElementById("ivSpDefense")?.value || 0)
     };
 
     if (isNaN(level)) { alert("Enter a level!"); return; }
 
     const raw = calculateStatRange(p, level, stats, nature, isMale);
-    const maxIV = currentGame === "gsc" ? 15 : 31
+    const maxIV = currentGame === "gsc" ? 15 : 31;
 
-let html = `<h4>${currentGame === 'gsc' ? 'DV' : 'IV'} Results</h4>`
+    let html = `<h4>${currentGame === 'gsc' ? 'DV' : 'IV'} Results</h4>`;
 
-Object.entries(raw).forEach(([stat, vals]) => {
-    const min = vals.length ? Math.min(...vals) : "-"
-    const max = vals.length ? Math.max(...vals) : "-"
-    const pct = getIVPercentile(vals, maxIV).toFixed(1)
+    Object.entries(raw).forEach(([stat, vals]) => {
+        const min = vals.length ? Math.min(...vals) : "-";
+        const max = vals.length ? Math.max(...vals) : "-";
+        const pct = getIVPercentile(vals, maxIV).toFixed(1);
 
-    html += `
-        <div>
-            <strong>${stat.toUpperCase()}</strong>: ${min}–${max}
-            <span style="color:#666;">(${pct}%)</span>
-        </div>
-    `
-})
+        html += `
+            <div>
+                <strong>${stat.toUpperCase()}</strong>: ${min}–${max}
+                <span style="color:#666;">(${pct}%)</span>
+            </div>
+        `;
+    });
+
+    if (currentGame === "gsc") {
+        const hpDVs = calculateHPDVGen2(raw);
+        const minHP = hpDVs.length ? Math.min(...hpDVs) : "-";
+        const maxHP = hpDVs.length ? Math.max(...hpDVs) : "-";
+        const pct = getIVPercentile(hpDVs, 15).toFixed(1);
+
+        html += `
+            <div style="margin-top:10px; border-top:1px solid #ddd; padding-top:5px;">
+                <strong>HP DV</strong>: ${minHP}–${maxHP}
+                <span style="color:#666;">(${pct}%)</span>
+            </div>
+        `;
+    }
+
+    document.getElementById("ivResult").innerHTML = html;
+}
 
 
 function calculateHPDVGen2(result) {
-    let hpDVs = []
-
+    let hpDVs = [];
+    if(!result.attack.length || !result.defense.length) return [];
+    
     result.attack.forEach(a => {
         result.defense.forEach(d => {
             result.speed.forEach(s => {
                 result.spAttack.forEach(sp => {
-
-                    const hp =
-                        ((a % 2) << 3) |
-                        ((d % 2) << 2) |
-                        ((s % 2) << 1) |
-                        (sp % 2)
-
-                    hpDVs.push(hp)
-                })
-            })
-        })
-    })
-
-    return [...new Set(hpDVs)]
-
-if (currentGame === "gsc") {
-    const hpDVs = calculateHPDVGen2(raw)
-    const pct = getIVPercentile(hpDVs, 15).toFixed(1)
-
-    html += `
-        <div>
-            <strong>HP DV</strong>: ${Math.min(...hpDVs)}–${Math.max(...hpDVs)}
-            <span style="color:#666;">(${pct}%)</span>
-        </div>
-    `
+                    const hp = ((a % 2) << 3) | ((d % 2) << 2) | ((s % 2) << 1) | (sp % 2);
+                    hpDVs.push(hp);
+                });
+            });
+        });
+    });
+    return [...new Set(hpDVs)];
 }
-
-}
-
 
 function getIVPercentile(range, maxIV) {
-    if (!range.length) return 0
-
-    const avg = range.reduce((a,b)=>a+b,0) / range.length
-    return (avg / maxIV) * 100
+    if (!range.length) return 0;
+    const avg = range.reduce((a,b)=>a+b,0) / range.length;
+    return (avg / maxIV) * 100;
 }
-
 
 
 // ==========================
