@@ -18,6 +18,15 @@
         "Kinesis"
       ]
     },
+    "ohko": {
+      "rule": "No one-hit knockout moves. Perish Song is allowed because it's a delayed condition, not an instant KO.",
+      "moves": [
+        "Guillotine",
+        "Horn Drill",
+        "Fissure",
+        "Sheer Cold"
+      ]
+    },
     "nonDamagingRecovery": {
       "rule": "No HP-recovery moves unless the move also causes damage.",
       "moves": [
