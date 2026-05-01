@@ -24,6 +24,8 @@ const DATA = {
   learnsets: [],
   encounters: [],
   natures: [],
+  items: [],          // optional — populated once user runs build_items.py
+  machines: null,     // optional — { perGame, compatibility } from build_machines.py
 };
 
 // Indexed for O(1) lookup (we have ~386 mons / 354 moves)
@@ -32,6 +34,8 @@ const IDX = {
   movesByName: {},
   learnsetsByName: {},
   encountersByName: {},
+  itemsByName: {},
+  tmsByPokemon: {},   // { pokemonName -> { versionGroup -> [moveName, ...] } }
 };
 
 // Type chart (Gen 2+ — Steel/Dark exist; in Gen 1 they don't, but
@@ -63,13 +67,15 @@ async function initApp() {
   try {
     // Load all data in parallel. tournament-rules.json is required;
     // others degrade gracefully if missing.
-    const [rulesRes, pokemonRes, movesRes, learnsetsRes, encountersRes, naturesRes] = await Promise.all([
+    const [rulesRes, pokemonRes, movesRes, learnsetsRes, encountersRes, naturesRes, itemsRes, machinesRes] = await Promise.all([
       fetchJSON("data/tournament-rules.json", true),
       fetchJSON("data/pokemon-core.json", true),
       fetchJSON("data/moves.json", true),
       fetchJSON("data/learnsets.json", true),
       fetchJSON("data/encounters.json", false),
       fetchJSON("data/natures.json", false),
+      fetchJSON("data/items.json", false),
+      fetchJSON("data/machines.json", false),
     ]);
 
     STATE.rules     = rulesRes;
@@ -78,12 +84,19 @@ async function initApp() {
     DATA.learnsets  = learnsetsRes || [];
     DATA.encounters = encountersRes || [];
     DATA.natures    = naturesRes || [];
+    DATA.items      = Array.isArray(itemsRes) ? itemsRes : [];
+    // machines.json may be in old shape (from PokeAPI build) or null
+    DATA.machines   = (machinesRes && machinesRes.perGame) ? machinesRes : null;
 
     // Build indexes
     DATA.pokemon.forEach(p    => IDX.pokemonByName[p.name] = p);
     DATA.moves.forEach(m      => IDX.movesByName[m.name] = m);
     DATA.learnsets.forEach(l  => IDX.learnsetsByName[l.pokemon] = l);
     DATA.encounters.forEach(e => IDX.encountersByName[e.pokemon] = e);
+    DATA.items.forEach(it     => IDX.itemsByName[it.name] = it);
+    if (DATA.machines && Array.isArray(DATA.machines.compatibility)) {
+      DATA.machines.compatibility.forEach(c => IDX.tmsByPokemon[c.pokemon] = c.tms);
+    }
 
     loadSavedState();
     bindControls();
@@ -158,6 +171,7 @@ function bindControls() {
 
   gameSelect.addEventListener("change", (e) => {
     STATE.currentGame = e.target.value;
+    mapState.openArea = null; // areas don't carry across game families
     applyTheme();
     saveState();
     openPage(STATE.currentPage);
@@ -198,7 +212,10 @@ function openPage(page) {
   switch (page) {
     case "team":     return renderTeamPage();
     case "pokedex":  return renderPokedexPage();
+    case "maps":     return renderMapsPage();
     case "moves":    return renderMovesPage();
+    case "items":    return renderItemsPage();
+    case "tms":      return renderTMsPage();
     case "ivcalc":   return renderIVCalcPage();
     case "weakness": return renderWeaknessPage();
     case "rules":    return renderRulesPage();
@@ -628,6 +645,8 @@ function showPokemonDetail(name) {
 
     ${overCapHtml}
 
+    ${renderTmCompatSection(name)}
+
     <div style="margin-top:18px; display:flex; gap:8px;">
       ${onTeam
         ? `<button class="btn btn-danger" id="teamBtn">Remove from Team</button>`
@@ -645,6 +664,40 @@ function showPokemonDetail(name) {
     ivCalcContext.pokemonName = name;
     openPage("ivcalc");
   });
+}
+
+// Returns HTML for the "TMs this Pokémon can learn in [game]" panel,
+// or empty string if no machines data is loaded.
+function renderTmCompatSection(pokemonName) {
+  if (!DATA.machines) return "";
+  const vg = gameInfo().learnsetKey;
+  const compat = IDX.tmsByPokemon[pokemonName];
+  if (!compat || !compat[vg] || compat[vg].length === 0) return "";
+
+  const moves = compat[vg].slice().sort();
+  // Cross-reference to which TM number each move is in this game
+  const tmIndex = {};
+  (DATA.machines.perGame[vg] || []).forEach(t => { tmIndex[t.move] = t.tm; });
+
+  const html = moves.map(m => {
+    const tm = tmIndex[m] || "";
+    const md = getMoveData(m);
+    const status = moveStatus(m);
+    const badge = status === "banned" ? `<span class="badge badge-banned">banned</span>` :
+                  status === "warn"   ? `<span class="badge badge-warn">caution</span>` : "";
+    return `<div class="row">
+      <div class="row-main">
+        <div class="name">${tm ? escapeHtml(tm) + " — " : ""}${escapeHtml(m)} ${badge}</div>
+        <div class="meta">
+          ${md ? `<span class="type-pill type-${md.type}">${md.type}</span>` : ""}
+          ${md ? `<span class="muted">${md.power || "—"}pw / ${md.accuracy || "—"}acc</span>` : ""}
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+
+  return `<h3>TM/HM compatibility (${moves.length})</h3>
+          <div class="row-list">${html}</div>`;
 }
 
 // ============================ MOVES PAGE ============================
@@ -991,6 +1044,325 @@ function renderOffenseSummary(teamObjs) {
   }
   html += `</div><p class="muted tiny">Number of team members with a damaging move that hits this type for super-effective damage.</p>`;
   return html;
+}
+
+// ============================ ITEMS PAGE ============================
+const itemsFilter = { query: "", category: "", availableOnly: true };
+
+function renderItemsPage() {
+  if (!DATA.items.length) {
+    setContent(`<h2>Items</h2>
+      <div class="empty"><span class="emoji">🎒</span>
+        <p>No item data yet.</p>
+        <p class="tiny">Run <code>python3 tools/build_items.py</code> from the project folder
+          to fetch comprehensive item data from PokeAPI. Once it finishes, refresh this page.</p>
+      </div>`);
+    return;
+  }
+
+  const cats = [...new Set(DATA.items.map(i => i.category))].sort();
+  const html = `
+    <h2>Items — ${escapeHtml(gameInfo().label)}</h2>
+    <input type="search" id="itemSearch" placeholder="Search items…" value="${escapeHtml(itemsFilter.query)}">
+    <div class="flex" style="gap:8px; margin-top:8px;">
+      <select id="itemCat" style="flex:1;">
+        <option value="">All categories</option>
+        ${cats.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c.replace(/-/g, " "))}</option>`).join("")}
+      </select>
+    </div>
+    <div class="flex" style="gap:14px; margin-top:8px; font-size:13px; color:var(--text-dim);">
+      <label class="flex"><input type="checkbox" id="itemAvail" ${itemsFilter.availableOnly ? "checked" : ""}>
+        Available in ${escapeHtml(gameInfo().label)} only
+      </label>
+    </div>
+    <div id="itemResults" class="row-list" style="margin-top:12px;"></div>
+  `;
+  setContent(html);
+  $("#itemSearch").value = itemsFilter.query;
+  $("#itemCat").value = itemsFilter.category;
+
+  $("#itemSearch").addEventListener("input",  e => { itemsFilter.query = e.target.value; updateItemsList(); });
+  $("#itemCat").addEventListener("change",    e => { itemsFilter.category = e.target.value; updateItemsList(); });
+  $("#itemAvail").addEventListener("change",  e => { itemsFilter.availableOnly = e.target.checked; updateItemsList(); });
+
+  updateItemsList();
+}
+
+function updateItemsList() {
+  const game = STATE.currentGame;
+  const q = itemsFilter.query.trim().toLowerCase();
+  let res = DATA.items.slice();
+  if (itemsFilter.availableOnly) {
+    res = res.filter(i => i.perGame && i.perGame[game] && i.perGame[game].available);
+  }
+  if (itemsFilter.category) res = res.filter(i => i.category === itemsFilter.category);
+  if (q) res = res.filter(i => i.name.toLowerCase().includes(q));
+
+  res.sort((a, b) => a.name.localeCompare(b.name));
+  const max = 100;
+  const truncated = res.length > max;
+  res = res.slice(0, max);
+
+  const html = res.map(i => {
+    const pg = i.perGame?.[game];
+    const flavor = pg?.flavor || i.shortEffect || i.effect || "";
+    const heldBy = (pg?.heldBy || []).slice(0, 4)
+      .map(h => `${escapeHtml(h.pokemon)}${h.rarity ? ` (${h.rarity}%)` : ""}`).join(", ");
+    return `<div class="row">
+      <div class="row-main">
+        <div class="name">${escapeHtml(i.name)} <span class="badge badge-tag">${escapeHtml(i.category.replace(/-/g," "))}</span></div>
+        <div class="meta">${escapeHtml(flavor || "—")}</div>
+        ${heldBy ? `<div class="muted tiny" style="margin-top:4px;">Held by: ${heldBy}</div>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+
+  $("#itemResults").innerHTML = html + (truncated
+    ? `<div class="status">Showing first ${max} — refine your search.</div>`
+    : res.length === 0 ? `<div class="empty"><span class="emoji">🔎</span><p>No items match.</p></div>` : "");
+}
+
+// ============================ TMs/HMs PAGE ============================
+const tmsFilter = { query: "", showCompat: false };
+
+function renderTMsPage() {
+  if (!DATA.machines) {
+    setContent(`<h2>TMs / HMs</h2>
+      <div class="empty"><span class="emoji">💿</span>
+        <p>No TM/HM data yet.</p>
+        <p class="tiny">Run <code>python3 tools/build_machines.py</code> from the project folder
+          to fetch TM/HM lists and per-Pokémon compatibility from PokeAPI.</p>
+      </div>`);
+    return;
+  }
+
+  const vg = gameInfo().learnsetKey; // matches PokeAPI version_group used by build_machines
+  const list = (DATA.machines.perGame[vg] || []).slice();
+  list.sort((a, b) => {
+    const num = (s) => parseInt((s.tm || "").slice(2), 10) || 0;
+    const prefix = (s) => (s.tm || "").startsWith("HM") ? 1 : 0;
+    return prefix(a) - prefix(b) || num(a) - num(b);
+  });
+
+  let html = `
+    <h2>TMs / HMs — ${escapeHtml(gameInfo().label)}</h2>
+    <p class="muted tiny">${list.length} machines in this game.</p>
+    <input type="search" id="tmSearch" placeholder="Search by TM number or move…" value="${escapeHtml(tmsFilter.query)}">
+    <div id="tmResults" class="row-list" style="margin-top:12px;"></div>
+  `;
+  setContent(html);
+  $("#tmSearch").value = tmsFilter.query;
+  $("#tmSearch").addEventListener("input", (e) => { tmsFilter.query = e.target.value; updateTMsList(list); });
+  updateTMsList(list);
+}
+
+function updateTMsList(list) {
+  const q = tmsFilter.query.trim().toLowerCase();
+  let res = q ? list.filter(t => t.tm.toLowerCase().includes(q) || t.move.toLowerCase().includes(q)) : list;
+
+  const html = res.map(t => {
+    const md = getMoveData(t.move);
+    const status = moveStatus(t.move);
+    const badge = status === "banned" ? `<span class="badge badge-banned">banned</span>` :
+                  status === "warn"   ? `<span class="badge badge-warn">caution</span>` : "";
+    return `<div class="row">
+      <div class="row-main">
+        <div class="name">${escapeHtml(t.tm)} — ${escapeHtml(t.move)} ${badge}</div>
+        <div class="meta">
+          ${md ? `<span class="type-pill type-${md.type}">${md.type}</span>` : ""}
+          ${md ? `<span class="muted">${md.category || ""} · ${md.power || "—"}pw / ${md.accuracy || "—"}acc / ${md.pp || "—"}pp</span>` : ""}
+        </div>
+        ${md && md.effect ? `<div class="muted tiny" style="margin-top:4px;">${escapeHtml(md.effect)}</div>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+
+  $("#tmResults").innerHTML = res.length === 0
+    ? `<div class="empty"><span class="emoji">🔎</span><p>No machines match.</p></div>`
+    : html;
+}
+
+// ============================ MAPS PAGE ============================
+// Lazily-built index: encountersKey -> { areaName -> [ {pokemon, method, rate, levels} ] }
+const AREA_INDEX = {};
+
+const METHOD_LABELS = {
+  "walk":               "Walk",
+  "surf":               "Surf",
+  "old-rod":            "Old Rod",
+  "good-rod":           "Good Rod",
+  "super-rod":          "Super Rod",
+  "rock-smash":         "Rock Smash",
+  "headbutt-low":       "Headbutt (low)",
+  "headbutt-normal":    "Headbutt",
+  "headbutt-high":      "Headbutt (high)",
+  "gift":               "Gift",
+  "gift-egg":           "Gift egg",
+  "only-one":           "Static",
+  "pokeflute":          "Poké Flute",
+  "feebas-tile-fishing":"Feebas tile",
+  "wailmer-pail":       "Wailmer Pail",
+  "squirt-bottle":      "Squirt Bottle",
+  "devon-scope":        "Devon Scope",
+  "seaweed":            "Underwater",
+  "roaming-grass":      "Roaming",
+  "roaming-water":      "Roaming (water)",
+  "colosseum-bonus-disc-jpn": "Colo bonus (JP)",
+  "colosseum-bonus-disc-us":  "Colo bonus (US)",
+  "pokemon-channel-pal":      "Pokémon Channel",
+};
+function methodLabel(m) { return METHOD_LABELS[m] || m; }
+
+function buildAreaIndex(encountersKey) {
+  if (AREA_INDEX[encountersKey]) return AREA_INDEX[encountersKey];
+  const areas = {};
+  // Dedup on a row basis: gen-2 morning/day/night entries are stored as
+  // duplicates with identical fields, so a Set on the stringified row
+  // collapses them.
+  for (const entry of DATA.encounters) {
+    const locs = entry.games?.[encountersKey];
+    if (!locs || !locs.length) continue;
+    const seenForThisPokemon = {};
+    for (const loc of locs) {
+      const area = loc.area || "Unknown area";
+      const key = `${loc.method}|${loc.rate}|${loc.levels}|${area}`;
+      if (seenForThisPokemon[key]) continue;
+      seenForThisPokemon[key] = true;
+      (areas[area] = areas[area] || []).push({
+        pokemon: entry.pokemon,
+        method: loc.method,
+        rate: loc.rate,
+        levels: loc.levels,
+      });
+    }
+  }
+  AREA_INDEX[encountersKey] = areas;
+  return areas;
+}
+
+let mapState = { query: "", openArea: null, methodFilter: "" };
+
+function renderMapsPage() {
+  const key = gameInfo().encountersKey;
+  const areas = buildAreaIndex(key);
+  const areaNames = Object.keys(areas).sort((a, b) => a.localeCompare(b));
+
+  if (mapState.openArea) return renderAreaDetail(mapState.openArea, areas);
+
+  // collect all methods seen, for the filter dropdown
+  const methodsSeen = new Set();
+  for (const list of Object.values(areas)) for (const r of list) methodsSeen.add(r.method);
+  const methodOpts = [...methodsSeen].sort()
+    .map(m => `<option value="${escapeHtml(m)}">${escapeHtml(methodLabel(m))}</option>`).join("");
+
+  let html = `
+    <h2>Maps — ${escapeHtml(gameInfo().label)}</h2>
+    <p class="muted tiny">${areaNames.length} areas with wild encounter data. Tap an area to see what's there.</p>
+    <input type="search" id="mapSearch" placeholder="Search areas (e.g. Route 32, Mt. Moon)…" value="${escapeHtml(mapState.query)}">
+    <div class="flex" style="gap:8px; margin-top:8px;">
+      <select id="methodFilter" style="flex:1;">
+        <option value="">All methods</option>
+        ${methodOpts}
+      </select>
+    </div>
+    <div id="areaList" class="row-list" style="margin-top:12px;"></div>
+  `;
+  setContent(html);
+  $("#mapSearch").value = mapState.query;
+  $("#methodFilter").value = mapState.methodFilter;
+
+  $("#mapSearch").addEventListener("input", (e) => { mapState.query = e.target.value; renderAreaList(); });
+  $("#methodFilter").addEventListener("change", (e) => { mapState.methodFilter = e.target.value; renderAreaList(); });
+
+  renderAreaList();
+
+  function renderAreaList() {
+    const q = mapState.query.trim().toLowerCase();
+    const mfilter = mapState.methodFilter;
+    let filtered = areaNames;
+    if (q) filtered = filtered.filter(a => a.toLowerCase().includes(q));
+    if (mfilter) filtered = filtered.filter(a => areas[a].some(r => r.method === mfilter));
+
+    const html = filtered.map(a => {
+      const records = mfilter ? areas[a].filter(r => r.method === mfilter) : areas[a];
+      const uniquePokemon = new Set(records.map(r => r.pokemon)).size;
+      const methodSet = new Set(records.map(r => r.method));
+      const methodChips = [...methodSet].slice(0, 3).map(m => `<span class="badge badge-tag">${escapeHtml(methodLabel(m))}</span>`).join("");
+      return `<div class="row" data-area="${escapeHtml(a)}">
+        <div class="row-main">
+          <div class="name">${escapeHtml(a)}</div>
+          <div class="meta">${uniquePokemon} Pokémon ${methodChips}</div>
+        </div>
+        <button class="btn btn-ghost open-area-btn" data-area="${escapeHtml(a)}">Open</button>
+      </div>`;
+    }).join("");
+
+    $("#areaList").innerHTML = filtered.length === 0
+      ? `<div class="empty"><span class="emoji">🗺️</span><p>No areas match.</p></div>`
+      : html;
+
+    $$("#areaList .open-area-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        mapState.openArea = btn.dataset.area;
+        renderMapsPage();
+      });
+    });
+  }
+}
+
+function renderAreaDetail(areaName, areas) {
+  const records = (areas[areaName] || []).slice();
+  // Group by method, then by pokemon
+  const byMethod = {};
+  for (const r of records) {
+    (byMethod[r.method] = byMethod[r.method] || []).push(r);
+  }
+
+  // Sort methods alphabetically, walk first
+  const methodOrder = Object.keys(byMethod).sort((a, b) => {
+    if (a === "walk") return -1;
+    if (b === "walk") return 1;
+    return a.localeCompare(b);
+  });
+
+  let html = `
+    <button class="btn btn-ghost" id="backToMaps" style="margin-bottom:10px;">← Maps</button>
+    <h2>${escapeHtml(areaName)}</h2>
+    <p class="muted tiny">${escapeHtml(gameInfo().label)} · ${records.length} encounter rows · ${new Set(records.map(r => r.pokemon)).size} unique Pokémon</p>
+  `;
+
+  for (const method of methodOrder) {
+    const rows = byMethod[method].slice();
+    // Sort by rate desc (rates are like "4%", parse leading number), then by pokemon name
+    rows.sort((a, b) => {
+      const ra = parseFloat(a.rate) || 0, rb = parseFloat(b.rate) || 0;
+      if (rb !== ra) return rb - ra;
+      return a.pokemon.localeCompare(b.pokemon);
+    });
+    html += `<h3>${escapeHtml(methodLabel(method))}</h3><div class="row-list">`;
+    for (const r of rows) {
+      const p = IDX.pokemonByName[r.pokemon];
+      const types = p ? p.types.map(t => `<span class="type-pill type-${t}">${t}</span>`).join("") : "";
+      const isLegend = isLegendary(r.pokemon);
+      html += `<div class="row">
+        <div class="row-main">
+          <div class="name">${escapeHtml(r.pokemon)} ${isLegend ? `<span class="badge badge-banned">Legend</span>` : ""}</div>
+          <div class="meta">${types} <span class="muted">· Lv ${escapeHtml(r.levels || "?")} · ${escapeHtml(r.rate || "?")}</span></div>
+        </div>
+        <button class="btn btn-ghost view-pokemon-btn" data-name="${escapeHtml(r.pokemon)}">View</button>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
+  setContent(html);
+  $("#backToMaps").addEventListener("click", () => {
+    mapState.openArea = null;
+    renderMapsPage();
+  });
+  $$(".view-pokemon-btn").forEach(btn => {
+    btn.addEventListener("click", () => showPokemonDetail(btn.dataset.name));
+  });
 }
 
 // ============================ RULES PAGE ============================
