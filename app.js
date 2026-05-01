@@ -1,747 +1,1031 @@
-// ==========================
-// INITIAL STATE
-// ==========================
-let currentGame = "gsc"; // Default to Gen 2
-let levelCap = 55;
-let gameData = {
-    pokemon: [],
-    learnsets: [],
-    moves: [],
-    items: [],
-    encounters: [],
-    machines: []
-};
-let selectedType = null;
-let selectedSort = "bst";
-let team = [];
-let compareSelection = [null, null]; // Tracks the two Pokémon to compare
+/* ==================================================================
+   Pokemon Tournament Companion — app.js
+   Tournament rules: 18-hour fresh-start, level cap 55/60, no
+   legendaries on battle teams, no accuracy-reducers, no non-damaging
+   recovery. Supports Gold/Silver/Crystal, Ruby/Sapphire/Emerald,
+   FireRed/LeafGreen with per-game movesets and encounter data.
+   ================================================================== */
 
-// ==========================
-// TYPE CHART
-// ==========================
-const typeChart = {
-    Normal: { weakTo: ["Fighting"], resists: [], immuneTo: ["Ghost"] },
-    Fire: { weakTo: ["Water","Ground","Rock"], resists: ["Fire","Grass","Ice","Bug","Steel"], immuneTo: [] },
-    Water: { weakTo: ["Electric","Grass"], resists: ["Fire","Water","Ice","Steel"], immuneTo: [] },
-    Grass: { weakTo: ["Fire","Ice","Poison","Flying","Bug"], resists: ["Water","Electric","Grass","Ground"], immuneTo: [] },
-    Electric: { weakTo: ["Ground"], resists: ["Electric","Flying","Steel"], immuneTo: [] },
-    Ice: { weakTo: ["Fire","Fighting","Rock","Steel"], resists: ["Ice"], immuneTo: [] },
-    Fighting: { weakTo: ["Flying","Psychic"], resists: ["Bug","Rock","Dark"], immuneTo: [] },
-    Poison: { weakTo: ["Ground","Psychic"], resists: ["Grass","Fighting","Poison","Bug"], immuneTo: [] },
-    Ground: { weakTo: ["Water","Grass","Ice"], resists: ["Poison","Rock"], immuneTo: ["Electric"] },
-    Flying: { weakTo: ["Electric","Ice","Rock"], resists: ["Grass","Fighting","Bug"], immuneTo: ["Ground"] },
-    Psychic: { weakTo: ["Bug","Ghost","Dark"], resists: ["Fighting","Psychic"], immuneTo: [] },
-    Bug: { weakTo: ["Fire","Flying","Rock"], resists: ["Grass","Fighting","Ground"], immuneTo: [] },
-    Rock: { weakTo: ["Water","Grass","Fighting","Ground","Steel"], resists: ["Normal","Fire","Poison","Flying"], immuneTo: [] },
-    Ghost: { weakTo: ["Ghost","Dark"], resists: ["Poison","Bug"], immuneTo: ["Normal","Fighting"] },
-    Dragon: { weakTo: ["Ice","Dragon"], resists: ["Fire","Water","Electric","Grass"], immuneTo: [] },
-    Dark: { weakTo: ["Fighting","Bug"], resists: ["Ghost","Dark"], immuneTo: ["Psychic"] },
-    Steel: { weakTo: ["Fire","Fighting","Ground"], resists: ["Normal","Grass","Ice","Flying","Psychic","Bug","Rock","Dragon","Steel"], immuneTo: ["Poison"] }
+"use strict";
+
+// ============================ STATE ============================
+const STATE = {
+  rules: null,
+  currentGame: "crystal",
+  levelCap: 55,
+  currentPage: "team",
+  team: [],            // array of pokemon names
 };
 
-// ==========================
-// DATA LOADING
-// ==========================
+// Raw data caches
+const DATA = {
+  pokemon: [],
+  moves: [],
+  learnsets: [],
+  encounters: [],
+  natures: [],
+};
+
+// Indexed for O(1) lookup (we have ~386 mons / 354 moves)
+const IDX = {
+  pokemonByName: {},
+  movesByName: {},
+  learnsetsByName: {},
+  encountersByName: {},
+};
+
+// Type chart (Gen 2+ — Steel/Dark exist; in Gen 1 they don't, but
+// the games we cover are all Gen 2/3 so this single table is fine)
+const TYPE_CHART = {
+  Normal:   { weakTo: ["Fighting"], resists: [], immuneTo: ["Ghost"] },
+  Fire:     { weakTo: ["Water","Ground","Rock"], resists: ["Fire","Grass","Ice","Bug","Steel"], immuneTo: [] },
+  Water:    { weakTo: ["Electric","Grass"], resists: ["Fire","Water","Ice","Steel"], immuneTo: [] },
+  Grass:    { weakTo: ["Fire","Ice","Poison","Flying","Bug"], resists: ["Water","Electric","Grass","Ground"], immuneTo: [] },
+  Electric: { weakTo: ["Ground"], resists: ["Electric","Flying","Steel"], immuneTo: [] },
+  Ice:      { weakTo: ["Fire","Fighting","Rock","Steel"], resists: ["Ice"], immuneTo: [] },
+  Fighting: { weakTo: ["Flying","Psychic"], resists: ["Bug","Rock","Dark"], immuneTo: [] },
+  Poison:   { weakTo: ["Ground","Psychic"], resists: ["Grass","Fighting","Poison","Bug"], immuneTo: [] },
+  Ground:   { weakTo: ["Water","Grass","Ice"], resists: ["Poison","Rock"], immuneTo: ["Electric"] },
+  Flying:   { weakTo: ["Electric","Ice","Rock"], resists: ["Grass","Fighting","Bug"], immuneTo: ["Ground"] },
+  Psychic:  { weakTo: ["Bug","Ghost","Dark"], resists: ["Fighting","Psychic"], immuneTo: [] },
+  Bug:      { weakTo: ["Fire","Flying","Rock"], resists: ["Grass","Fighting","Ground"], immuneTo: [] },
+  Rock:     { weakTo: ["Water","Grass","Fighting","Ground","Steel"], resists: ["Normal","Fire","Poison","Flying"], immuneTo: [] },
+  Ghost:    { weakTo: ["Ghost","Dark"], resists: ["Poison","Bug"], immuneTo: ["Normal","Fighting"] },
+  Dragon:   { weakTo: ["Ice","Dragon"], resists: ["Fire","Water","Electric","Grass"], immuneTo: [] },
+  Dark:     { weakTo: ["Fighting","Bug"], resists: ["Ghost","Dark"], immuneTo: ["Psychic"] },
+  Steel:    { weakTo: ["Fire","Fighting","Ground"], resists: ["Normal","Grass","Ice","Flying","Psychic","Bug","Rock","Dragon","Steel"], immuneTo: ["Poison"] },
+};
+
+// ============================ INIT ============================
+window.addEventListener("DOMContentLoaded", initApp);
+
 async function initApp() {
-    try {
-        const [pokemonRes, movesRes, learnsetsRes, encountersRes, itemsRes, tmsRes, naturesRes] = await Promise.all([
-            fetch("data/pokemon-core.json"),
-            fetch("data/moves.json"),
-            fetch("data/learnsets.json"),
-            fetch("data/encounters.json"),
-            fetch("data/items.json"),
-            fetch("data/tms.json"),
-            fetch("data/natures.json")
-        ]);
+  try {
+    // Load all data in parallel. tournament-rules.json is required;
+    // others degrade gracefully if missing.
+    const [rulesRes, pokemonRes, movesRes, learnsetsRes, encountersRes, naturesRes] = await Promise.all([
+      fetchJSON("data/tournament-rules.json", true),
+      fetchJSON("data/pokemon-core.json", true),
+      fetchJSON("data/moves.json", true),
+      fetchJSON("data/learnsets.json", true),
+      fetchJSON("data/encounters.json", false),
+      fetchJSON("data/natures.json", false),
+    ]);
 
-        gameData.pokemon = await pokemonRes.json();
-        gameData.moves = await movesRes.json();
-        gameData.learnsets = await learnsetsRes.json();
-        gameData.encounters = await encountersRes.json();
-        gameData.items = await itemsRes.json();
-        gameData.tms = await tmsRes.json();
-        gameData.natures = await naturesRes.json();
+    STATE.rules     = rulesRes;
+    DATA.pokemon    = pokemonRes || [];
+    DATA.moves      = movesRes || [];
+    DATA.learnsets  = learnsetsRes || [];
+    DATA.encounters = encountersRes || [];
+    DATA.natures    = naturesRes || [];
 
-        loadSavedTeam();
-        console.log("System Ready. All data loaded.");
-        openPage('team'); 
+    // Build indexes
+    DATA.pokemon.forEach(p    => IDX.pokemonByName[p.name] = p);
+    DATA.moves.forEach(m      => IDX.movesByName[m.name] = m);
+    DATA.learnsets.forEach(l  => IDX.learnsetsByName[l.pokemon] = l);
+    DATA.encounters.forEach(e => IDX.encountersByName[e.pokemon] = e);
 
-    } catch (error) {
-        console.error("Initialization failed:", error);
-        document.getElementById("content").innerHTML = "<h2>Error loading data. Check console.</h2>";
+    loadSavedState();
+    bindControls();
+    applyTheme();
+    openPage(STATE.currentPage);
+
+    // Register service worker (PWA)
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js").catch(() => {});
     }
+  } catch (err) {
+    console.error("Init failed:", err);
+    document.getElementById("content").innerHTML =
+      `<div class="empty"><span class="emoji">⚠️</span>
+        <p>Failed to load data.</p>
+        <p class="tiny">${escapeHtml(err.message || String(err))}</p></div>`;
+  }
 }
 
-window.addEventListener('DOMContentLoaded', initApp);
-
-// ==========================
-// STORAGE
-// ==========================
-function saveTeam() {
-    localStorage.setItem("pokemonTeam", JSON.stringify(team));
+async function fetchJSON(url, required) {
+  try {
+    const res = await fetch(url, { cache: "no-cache" });
+    if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
+    const text = await res.text();
+    if (!text.trim()) return null;          // empty file is OK if not required
+    return JSON.parse(text);
+  } catch (e) {
+    if (required) throw e;
+    console.warn(`Optional data file ${url} unavailable:`, e.message);
+    return null;
+  }
 }
 
-function loadSavedTeam() {
-    const saved = localStorage.getItem("pokemonTeam");
-    if (saved) {
-        const parsed = JSON.parse(saved);
-        // Safety check to ensure we map names back to objects
-        team = parsed.map(p => {
-            const name = typeof p === 'string' ? p : p.name;
-            return gameData.pokemon.find(data => data.name === name);
-        }).filter(p => p);
+// ============================ PERSISTENCE ============================
+const LS_KEYS = { team: "ptc.team", game: "ptc.game", levelCap: "ptc.levelCap", page: "ptc.page" };
+
+function saveState() {
+  try {
+    localStorage.setItem(LS_KEYS.team, JSON.stringify(STATE.team));
+    localStorage.setItem(LS_KEYS.game, STATE.currentGame);
+    localStorage.setItem(LS_KEYS.levelCap, String(STATE.levelCap));
+    localStorage.setItem(LS_KEYS.page, STATE.currentPage);
+  } catch (e) { /* localStorage may be unavailable */ }
+}
+
+function loadSavedState() {
+  try {
+    const team = JSON.parse(localStorage.getItem(LS_KEYS.team) || "[]");
+    if (Array.isArray(team)) {
+      // names only — drop anything that isn't in our pokedex
+      STATE.team = team
+        .map(t => typeof t === "string" ? t : t?.name)
+        .filter(n => n && IDX.pokemonByName[n]);
     }
+    const g = localStorage.getItem(LS_KEYS.game);
+    if (g && STATE.rules.games[g]) STATE.currentGame = g;
+    const lc = parseInt(localStorage.getItem(LS_KEYS.levelCap), 10);
+    if (lc === 55 || lc === 60) STATE.levelCap = lc;
+    const pg = localStorage.getItem(LS_KEYS.page);
+    if (pg) STATE.currentPage = pg;
+  } catch (e) { /* ignore */ }
 }
 
-function clearTeam() {
-    if (confirm("Clear entire team?")) {
-        team = [];
-        saveTeam();
-        updateTeamDisplay();
-    }
+// ============================ CONTROL BINDING ============================
+function bindControls() {
+  const gameSelect = document.getElementById("gameSelect");
+  const levelCap   = document.getElementById("levelCap");
+  const navTabs    = document.getElementById("navTabs");
+
+  gameSelect.value = STATE.currentGame;
+  levelCap.value   = String(STATE.levelCap);
+
+  gameSelect.addEventListener("change", (e) => {
+    STATE.currentGame = e.target.value;
+    applyTheme();
+    saveState();
+    openPage(STATE.currentPage);
+  });
+  levelCap.addEventListener("change", (e) => {
+    STATE.levelCap = parseInt(e.target.value, 10);
+    saveState();
+    openPage(STATE.currentPage);
+  });
+  navTabs.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-page]");
+    if (!btn) return;
+    openPage(btn.dataset.page);
+  });
 }
 
-// ==========================
-// GAME HELPERS
-// ==========================
-function getGameKey() {
-    if (currentGame === "gsc") return "gsc";
-    if (currentGame === "rse") return "rse";
-    if (currentGame === "frlg") return "frlg";
-    return "gsc";
+function applyTheme() {
+  const family = STATE.rules.games[STATE.currentGame].family;
+  document.body.dataset.gameFamily = family;
+  // also update subtitle text with current level cap
+  const subtitle = document.getElementById("ruleSubtitle");
+  if (subtitle) {
+    subtitle.textContent =
+      `No legendaries · Lvl ${STATE.levelCap} cap · No accuracy-reducers · Recovery only if it damages`;
+  }
 }
 
-// Maps our internal keys to the PokeAPI-style keys in learnsets.json
-function getPokeApiKey() {
-    if (currentGame === "gsc") return "crystal";
-    if (currentGame === "rse") return "emerald";
-    if (currentGame === "frlg") return "firered-leafgreen";
-    return "crystal";
+// ============================ ROUTER ============================
+function openPage(page) {
+  STATE.currentPage = page;
+  saveState();
+
+  // tab active state
+  document.querySelectorAll("#navTabs button").forEach(b => {
+    b.classList.toggle("active", b.dataset.page === page);
+  });
+
+  switch (page) {
+    case "team":     return renderTeamPage();
+    case "pokedex":  return renderPokedexPage();
+    case "moves":    return renderMovesPage();
+    case "ivcalc":   return renderIVCalcPage();
+    case "weakness": return renderWeaknessPage();
+    case "rules":    return renderRulesPage();
+    default:         return renderTeamPage();
+  }
 }
+
+// ============================ HELPERS ============================
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+}
+
+function setContent(html) { document.getElementById("content").innerHTML = html; }
+
+let toastTimer = null;
+function toast(msg, kind = "") {
+  const el = document.getElementById("toast");
+  el.className = "toast " + kind + " show";
+  el.textContent = msg;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+}
+
+function gameInfo() { return STATE.rules.games[STATE.currentGame]; }
 
 function getLearnset(name) {
-    const entry = gameData.learnsets.find(p => p.pokemon === name);
-    if (!entry) return [];
-    return entry.learnset[getPokeApiKey()] || [];
-}
-
-function getMovesForLevel(name) {
-    return getLearnset(name).filter(m => m.level <= levelCap);
-}
-
-function getBestMoves(name) {
-    const moves = getMovesForLevel(name);
-    return moves.map(m => {
-        const moveData = gameData.moves.find(x => x.name === m.move);
-        let score = 0;
-        if (moveData) {
-            if (moveData.power) score += moveData.power;
-            const p = gameData.pokemon.find(p => p.name === name);
-            if (p && p.types.includes(moveData.type)) score += 50;
-        }
-        return { ...m, score };
-    })
-    .sort((a,b) => b.score - a.score)
-    .slice(0,4);
+  const entry = IDX.learnsetsByName[name];
+  if (!entry) return [];
+  return entry.learnset[gameInfo().learnsetKey] || [];
 }
 
 function getEncounters(name) {
-    const entry = gameData.encounters.find(e => e.pokemon === name);
-    if (!entry) return [];
-    return entry.games?.[getGameKey()] || [];
+  const entry = IDX.encountersByName[name];
+  if (!entry) return [];
+  return entry.games?.[gameInfo().encountersKey] || [];
 }
 
-function recommendItems(pokemon) {
-    if (!pokemon || !pokemon.baseStats) return [];
-    const items = gameData.items || [];
-    const gameKey = getGameKey();
-    let suggestions = [];
+function isLegendary(name) {
+  return STATE.rules.legendaries.includes(name);
+}
 
-    const { hp, speed } = pokemon.baseStats;
-    if (hp > 80) {
-        const item = items.find(i => i.name === "Leftovers");
-        if (item) suggestions.push(item);
+// Returns "banned" | "warn" | "ok"
+function moveStatus(moveName) {
+  const banned = STATE.rules.bannedMoves;
+  const warn   = STATE.rules.warnMoves;
+  for (const cat of Object.values(banned)) {
+    if (cat.moves.includes(moveName)) return "banned";
+  }
+  for (const cat of Object.values(warn)) {
+    if (cat.moves.includes(moveName)) return "warn";
+  }
+  return "ok";
+}
+
+// Pokemon-availability heuristic: in GSC, only gens 1+2 (#1–251); in
+// RSE/FRLG, all gens 1–3. Doesn't account for cartridge-specific
+// version exclusives — we surface that via the encounter list.
+function isInRegionalDex(pokemon) {
+  const family = gameInfo().family;
+  if (family === "gsc") return pokemon.number <= 251;
+  return pokemon.number <= 386;
+}
+
+function getMoveData(name) { return IDX.movesByName[name] || null; }
+
+function bestLegalMoves(pokemonName, count = 4) {
+  const learnset = getLearnset(pokemonName).filter(m => m.level <= STATE.levelCap);
+  const seen = new Set();
+  const moves = [];
+  for (const m of learnset) {
+    if (seen.has(m.move)) continue;
+    seen.add(m.move);
+    if (moveStatus(m.move) === "banned") continue;
+    moves.push(m);
+  }
+  const p = IDX.pokemonByName[pokemonName];
+  // Score: power + STAB bonus, status moves get a small floor
+  const scored = moves.map(m => {
+    const md = getMoveData(m.move);
+    let score = 0;
+    if (md) {
+      score += md.power || 0;
+      if (md.power && p && p.types.includes(md.type)) score += 30; // STAB
+      if (!md.power) score += 5; // status floor so we keep one if no others
     }
-    if (speed < 60) {
-        const item = items.find(i => i.name === "Quick Claw");
-        if (item) suggestions.push(item);
+    return { ...m, score };
+  });
+  return scored.sort((a, b) => b.score - a.score).slice(0, count);
+}
+
+function teamViolations() {
+  const issues = [];
+  for (const name of STATE.team) {
+    if (isLegendary(name)) {
+      issues.push({ pokemon: name, kind: "legendary", message: `${name} is a legendary — battle teams must not include legendaries.` });
     }
-    pokemon.types.forEach(type => {
-        const item = items.find(i => i.type === type);
-        if (item) suggestions.push(item);
-    });
-
-    return suggestions.filter(i => i.location?.[gameKey]).slice(0, 3);
+    const learnset = getLearnset(name);
+    // Don't flag banned moves on the *whole* learnset — only flag if the
+    // user later picks a curated 4-move loadout with one. For v1 we just
+    // surface this informationally as part of the move list rendering.
+  }
+  return issues;
 }
 
-function getEVYield(pokemonName) {
-    const evMap = {
-        "Zubat": { speed: 1 }, "Magikarp": { speed: 1 }, "Geodude": { defense: 1 },
-        "Gastly": { spAttack: 1 }, "Machop": { attack: 1 }, "Tentacool": { spDefense: 1 }
-    };
-    return evMap[pokemonName] || {};
-}
+// ============================ TEAM PAGE ============================
+function renderTeamPage() {
+  const violations = teamViolations();
+  const teamObjs = STATE.team.map(n => IDX.pokemonByName[n]).filter(Boolean);
 
-function getEVTrainingSpots(stat) {
-    const gameKey = getGameKey();
-    let recommendations = [];
-    gameData.encounters.forEach(entry => {
-        const evYield = getEVYield(entry.pokemon);
-        if (!evYield[stat]) return;
-        const locations = entry.games?.[gameKey] || [];
-        locations.forEach(loc => {
-            recommendations.push({
-                pokemon: entry.pokemon, area: loc.area,
-                rate: loc.rate, ev: evYield[stat]
-            });
-        });
-    });
-    return recommendations.sort((a,b) => parseFloat(b.rate) - parseFloat(a.rate)).slice(0, 5);
-}
+  let html = `
+    <h2>Team Builder</h2>
+    <div class="team-summary">
+      <div class="count"><strong>${teamObjs.length}</strong>/6 selected</div>
+      <div class="row-actions">
+        <button class="btn btn-ghost" id="addBtn">+ Add Pokémon</button>
+        ${teamObjs.length ? `<button class="btn btn-danger" id="clearBtn">Clear</button>` : ""}
+      </div>
+    </div>
+  `;
 
-function getMachineMoveName(machineCode) {
-    const gameMachines = gameData.machines.find(m => m.game === currentGame);
-    if (!gameMachines) return null;
-    return gameMachines.tms[machineCode] || gameMachines.hms[machineCode];
-}
+  if (violations.length) {
+    html += `<div class="violation"><strong>Rule violations:</strong><br>`
+         +  violations.map(v => `· ${escapeHtml(v.message)}`).join("<br>")
+         +  `</div>`;
+  }
 
-// ==========================
-// NAVIGATION & UI
-// ==========================
-function openPage(page) {
-    const content = document.getElementById("content");
-    if (gameData.pokemon.length === 0) {
-        content.innerHTML = "<h2>Loading...</h2>";
-        return;
+  if (teamObjs.length === 0) {
+    html += `<div class="empty"><span class="emoji">📋</span>
+      <p>No Pokémon yet.</p>
+      <p class="tiny">Tap + Add Pokémon to start building your team for ${escapeHtml(gameInfo().label)}.</p>
+    </div>`;
+  } else {
+    html += `<div class="team-grid">`;
+    for (const p of teamObjs) {
+      html += renderTeamCard(p);
     }
+    html += `</div>`;
 
-    if (page === "team") {
-        content.innerHTML = `
-            <h2>Team Builder</h2>
-            <div style="margin-bottom:15px;">
-                <label>Current Game: </label>
-                <select id="gameSelect" onchange="changeGame(this.value)">
-                    <option value="gsc" ${currentGame==='gsc'?'selected':''}>Gold/Silver/Crystal</option>
-                    <option value="rse" ${currentGame==='rse'?'selected':''}>Ruby/Sapphire/Emerald</option>
-                    <option value="frlg" ${currentGame==='frlg'?'selected':''}>FireRed/LeafGreen</option>
-                </select>
-            </div>
-            <input id='globalSearch' placeholder='Search Pokémon...'>
-            <div id='globalResults'></div>
-            <div id='teamDisplay'></div>
-        `;
-        document.getElementById("globalSearch").addEventListener("input", updateGlobalSearch);
-        updateTeamDisplay();
+    // Coverage analysis
+    html += `<hr class="hr"><h3>Defensive Coverage</h3>` + renderWeaknessSummary(teamObjs);
+    html += `<h3>Offensive Coverage</h3>` + renderOffenseSummary(teamObjs);
+  }
 
-    } else if (page === "compare") {
-        content.innerHTML = `
-            <h2>Compare Pokémon</h2>
-            <div class="compare-selectors" style="display:flex; gap:20px; margin-bottom:20px;">
-                <div id="slot-0">${renderCompareSlot(0)}</div>
-                <div id="slot-1">${renderCompareSlot(1)}</div>
-            </div>
-            <div id="comparisonTable"></div>
-        `;
-        renderComparisonTable();
+  setContent(html);
 
-    } else if (page === "pokedex") {
-        let html = "<h2>Pokedex</h2><input id='pokeSearch' placeholder='Search...'>";
-        html += `<select id="sortSelect" onchange="changeSort()">
-            <option value="bst">Total Stats</option>
-            <option value="attack">Attack</option>
-            <option value="defense">Defense</option>
-            <option value="spAttack">Sp. Attack</option>
-            <option value="spDefense">Sp. Defense</option>
-            <option value="speed">Speed</option>
-        </select>`;
-        const types = Object.keys(typeChart);
-        html += "<div style='margin-top:10px;'>";
-        types.forEach(t => { html += `<button onclick="filterByType('${t}')">${t}</button> ` });
-        html += `<button onclick="clearTypeFilter()">All</button></div><div id='pokeResults'></div>`;
-        content.innerHTML = html;
-        document.getElementById("pokeSearch").addEventListener("input", updateResults);
-        updateResults();
-
-    } else if (page === "weakness") {
-        content.innerHTML = `<h2>Weakness</h2>${renderWeaknessAnalysis()}`;
+  $("#addBtn")?.addEventListener("click", () => openPage("pokedex"));
+  $("#clearBtn")?.addEventListener("click", () => {
+    if (confirm("Clear your entire team?")) {
+      STATE.team = [];
+      saveState();
+      openPage("team");
     }
+  });
+  // Wire per-card buttons
+  $$(".team-card .remove-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const name = e.currentTarget.dataset.name;
+      removeFromTeam(name);
+    });
+  });
 }
 
-function changeGame(val) {
-    currentGame = val;
-    saveTeam(); // Save context
-    updateTeamDisplay();
+function renderTeamCard(p) {
+  const moves = bestLegalMoves(p.name, 4);
+  const isLegend = isLegendary(p.name);
+  const stats = p.baseStats;
+  const total = Object.values(stats).reduce((a,b) => a+b, 0);
+
+  let movesHtml = "";
+  if (moves.length === 0) {
+    movesHtml = `<div class="muted tiny" style="padding:6px 10px;">No legal level-up moves under cap.</div>`;
+  } else {
+    movesHtml = moves.map(m => {
+      const md = getMoveData(m.move);
+      const status = moveStatus(m.move);
+      const badge = status === "warn"  ? `<span class="badge badge-warn">caution</span>` : "";
+      const meta  = md ? `${md.type} · ${md.category} · ${md.power || "—"}/${md.accuracy || "—"}` : "";
+      return `<div class="move">
+                <div>
+                  <span class="move-name">${escapeHtml(m.move)}</span>${badge}
+                  <div class="move-meta">${escapeHtml(meta)} · Lv ${m.level}</div>
+                </div>
+              </div>`;
+    }).join("");
+  }
+
+  const typesHtml = p.types.map(t => `<span class="type-pill type-${t}">${t}</span>`).join("");
+
+  return `
+    <div class="team-card">
+      <div class="header">
+        <div>
+          <div class="name">#${p.number} ${escapeHtml(p.name)}${isLegend ? `<span class="badge badge-banned">Legendary</span>` : ""}</div>
+          <div class="types">${typesHtml}</div>
+        </div>
+        <button class="btn btn-icon btn-ghost remove-btn" data-name="${escapeHtml(p.name)}" aria-label="Remove">×</button>
+      </div>
+      <div class="stats-row">
+        <span><b>${stats.hp}</b>HP</span>
+        <span><b>${stats.attack}</b>Atk</span>
+        <span><b>${stats.defense}</b>Def</span>
+        <span><b>${stats.spAttack}</b>SpA</span>
+        <span><b>${stats.spDefense}</b>SpD</span>
+        <span><b>${stats.speed}</b>Spe</span>
+      </div>
+      <div class="muted tiny" style="margin-top:4px;">BST ${total}</div>
+      <div class="moves">${movesHtml}</div>
+    </div>
+  `;
 }
 
-function updateGlobalSearch() {
-    const query = document.getElementById("globalSearch").value.toLowerCase();
-    if (!query) { document.getElementById("globalResults").innerHTML = ""; return; }
-    const results = gameData.pokemon.filter(p => p.name.toLowerCase().includes(query)).slice(0, 8);
-    let html = "";
-    results.forEach(p => {
-        const isOnTeam = team.some(t => t.name === p.name);
-        html += `
-        <div style="display:flex; justify-content:space-between; padding:8px; border-bottom:1px solid #eee;">
-            <span onclick="showPokemon('${p.name}')" style="cursor:pointer;">${p.name}</span>
-            ${isOnTeam ? `<button onclick="removeFromTeam('${p.name}')">-</button>` : `<button onclick="addToTeam('${p.name}')">+</button>`}
-        </div>`;
-    });
-    document.getElementById("globalResults").innerHTML = html;
-}
-
-function updateResults() {
-    const query = document.getElementById("pokeSearch")?.value?.toLowerCase() || "";
-    let results = [...gameData.pokemon];
-    if (query) results = results.filter(p => p.name.toLowerCase().includes(query));
-    if (selectedType) results = results.filter(p => p.types.includes(selectedType));
-
-    results.sort((a, b) => {
-        if (selectedSort === "bst") {
-            const totalA = Object.values(a.baseStats).reduce((x,y)=>x+y,0);
-            const totalB = Object.values(b.baseStats).reduce((x,y)=>x+y,0);
-            return totalB - totalA;
-        }
-        return b.baseStats[selectedSort] - a.baseStats[selectedSort];
-    });
-
-    let html = "";
-    results.slice(0,50).forEach(p => {
-        const total = Object.values(p.baseStats).reduce((x,y)=>x+y,0);
-        const isOnTeam = team.some(member => member.name === p.name);
-        html += `
-        <div style="display:flex; justify-content:space-between; padding:10px; border-bottom:1px solid #eee;">
-            <div onclick="showPokemon('${p.name}')" style="cursor:pointer;">
-                ${p.name} (${p.types.join("/")}) - ${selectedSort==="bst"?total:p.baseStats[selectedSort]}
-            </div>
-            ${isOnTeam ? `<button onclick="removeFromTeam('${p.name}')" style="background:#ff4444; color:white;">-</button>` : `<button onclick="addToTeam('${p.name}')">+</button>`}
-        </div>`;
-    });
-    document.getElementById("pokeResults").innerHTML = html;
-}
-
-function showPokemon(name) {
-    const p = gameData.pokemon.find(x => x.name === name);
-    if (!p) return;
-
-    const isGen2 = currentGame === "gsc";
-    const moves = getBestMoves(name);
-    const encounters = getEncounters(name);
-
-    let html = `<h2>${p.name}</h2><p>${p.types.join("/")}</p>`;
-    html += `<p>HP:${p.baseStats.hp} | Atk:${p.baseStats.attack} | Def:${p.baseStats.defense} | SpA:${p.baseStats.spAttack} | SpD:${p.baseStats.spDefense} | Spe:${p.baseStats.speed}</p>`;
-
-    // IV / DV CHECKER UI
-    html += `<h3>${isGen2 ? 'DV' : 'IV'} Checker</h3>
-        <input id="ivLevel" placeholder="Level" type="number" style="width:60px;"><br>
-        <select id="ivGender">
-            <option value="">Unknown Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-        ${!isGen2 ? `<select id="ivNature">
-            <option value="">Select Nature</option>
-            ${gameData.natures.map(n => `<option value="${n.name}">${n.name}</option>`).join('')}
-        </select>` : ''}
-        <br>
-        <input id="ivAttack" placeholder="Attack" type="number">
-        <input id="ivDefense" placeholder="Defense" type="number"><br>
-        <input id="ivSpAttack" placeholder="Sp. Attack" type="number">
-        ${!isGen2 ? `<input id="ivSpDefense" placeholder="Sp. Defense" type="number">` : ''}
-        <input id="ivSpeed" placeholder="Speed" type="number"><br>
-        <button onclick="runIVCalc('${p.name}')">Check Stats</button>
-        <div id="ivResult"></div>`;
-
-    // EV PLAN
-    html += "<h3>EV Optimization Plan</h3>";
-    const evPlan = getEVSpread(p);
-    evPlan.forEach(stat => {
-        const spots = getEVTrainingSpots(stat);
-        html += `<div><strong>${stat.toUpperCase()}</strong>: ${spots.length > 0 ? spots[0].area : 'None found'}</div>`;
-    });
-
-    // MOVES & ENCOUNTERS
-    html += "<h3>Best Moves (Level Cap)</h3>";
-    moves.forEach(m => { html += `<div>⭐ Lv ${m.level}: ${m.move}</div>`; });
-
-    html += "<h3>Where to Catch</h3>";
-    if (encounters.length === 0) {
-        html += "<p style='color:#999;'>Not available in this game.</p>";
-    } else {
-        encounters.forEach(loc => { html += `<div>${loc.area} (${loc.method}) - ${loc.rate}</div>`; });
-    }
-
-    // TM & ITEMS
-    const tms = p.tms?.[getPokeApiKey()] || [];
-    html += "<h3>TM Compatibility</h3>";
-    tms.forEach(move => {
-        const tmData = gameData.tms.find(t => t.move === move);
-        const location = tmData?.games?.[getPokeApiKey()]?.location || "Unknown";
-        html += `<div>${move} — 📍 ${location}</div>`;
-    });
-
-    const items = recommendItems(p);
-    html += "<h3>Recommended Items</h3>";
-    items.forEach(i => {
-        html += `<div><strong>${i.name}</strong><br><small>${i.effect}</small><br><small style="color:#666;">📍 ${i.location?.[getGameKey()] || "Unknown"}</small></div>`;
-    });
-
-    html += `<br><button onclick="addToTeam('${p.name}')">Add to Team</button> <button onclick="openPage('pokedex')">Back</button>`;
-    document.getElementById("content").innerHTML = html;
-}
-
-// ==========================
-// TEAM BUILDER LOGIC
-// ==========================
 function addToTeam(name) {
-    if (team.length >= 6) { alert("Max 6 Pokemon!"); return; }
-    if (team.some(p => p.name === name)) { alert("Already added!"); return; }
-    const pokemonData = gameData.pokemon.find(p => p.name === name);
-    if (pokemonData) {
-        team.push(pokemonData);
-        saveTeam();
-        updateTeamDisplay();
-        if(document.getElementById("globalSearch")) updateGlobalSearch();
-        if(document.getElementById("pokeSearch")) updateResults();
-    }
+  if (STATE.team.includes(name)) {
+    toast(`${name} is already on your team`);
+    return;
+  }
+  if (STATE.team.length >= 6) {
+    toast("Team is full (6 max)", "error");
+    return;
+  }
+  if (isLegendary(name)) {
+    toast(`${name} is a legendary — battle teams can't include legendaries`, "error");
+    return;
+  }
+  STATE.team.push(name);
+  saveState();
+  toast(`Added ${name}`, "success");
+  if (STATE.currentPage === "pokedex") renderPokedexPage();
+  if (STATE.currentPage === "team") renderTeamPage();
 }
 
 function removeFromTeam(name) {
-    team = team.filter(p => p.name !== name);
-    saveTeam();
-    updateTeamDisplay();
-    if(document.getElementById("globalSearch")) updateGlobalSearch();
-    if(document.getElementById("pokeSearch")) updateResults();
+  STATE.team = STATE.team.filter(n => n !== name);
+  saveState();
+  toast(`Removed ${name}`);
+  openPage(STATE.currentPage);
 }
 
-function updateTeamDisplay() {
-    const displayArea = document.getElementById("teamDisplay");
-    if (!displayArea) return;
-    let html = "<h3>Your Team</h3>";
-    if (team.length > 0) {
-        html += `<button onclick="clearTeam()" class="clear-btn">Clear Full Team</button><div class='team-grid'>`;
-        team.forEach(p => {
-            if (!p || !p.types) return; // Safety check
-            html += `<div class="team-card"><strong>${p.name}</strong><br><small>${p.types.join("/")}</small><br><button class="remove-btn" onclick="removeFromTeam('${p.name}')">Remove</button></div>`;
-        });
-        html += "</div><hr>";
-        try {
-            html += renderWeaknessAnalysis();
-            html += renderOffenseCoverage();
-            html += renderMoveCoverage();
-            html += renderRecommendations();
-        } catch (e) { console.error("Analysis Error:", e); }
-    } else {
-        html += "<p>Your team is empty.</p>";
-    }
-    displayArea.innerHTML = html;
+// ============================ POKEDEX PAGE ============================
+let pokedexFilter = { query: "", type: null, sort: "bst", regionOnly: true, includeLegendary: false };
+
+function renderPokedexPage() {
+  const types = Object.keys(TYPE_CHART);
+  const html = `
+    <h2>Pokédex — ${escapeHtml(gameInfo().label)}</h2>
+    <input type="search" id="pokeSearch" placeholder="Search by name…" value="${escapeHtml(pokedexFilter.query)}">
+    <div class="flex" style="gap:8px; margin-top:8px; flex-wrap:wrap;">
+      <select id="pokeSort" style="flex:1; min-width:120px;">
+        <option value="bst">Sort: Total BST</option>
+        <option value="number">Sort: Dex #</option>
+        <option value="name">Sort: A–Z</option>
+        <option value="hp">Sort: HP</option>
+        <option value="attack">Sort: Attack</option>
+        <option value="defense">Sort: Defense</option>
+        <option value="spAttack">Sort: Sp. Atk</option>
+        <option value="spDefense">Sort: Sp. Def</option>
+        <option value="speed">Sort: Speed</option>
+      </select>
+      <select id="pokeType" style="flex:1; min-width:120px;">
+        <option value="">All Types</option>
+        ${types.map(t => `<option value="${t}">${t}</option>`).join("")}
+      </select>
+    </div>
+    <div class="flex" style="gap:14px; margin-top:8px; font-size:13px; color:var(--text-dim);">
+      <label class="flex"><input type="checkbox" id="regionOnly" ${pokedexFilter.regionOnly ? "checked" : ""}> Region only</label>
+      <label class="flex"><input type="checkbox" id="includeLegendary" ${pokedexFilter.includeLegendary ? "checked" : ""}> Show legendaries</label>
+    </div>
+    <div id="pokeResults" class="row-list" style="margin-top:12px;"></div>
+  `;
+  setContent(html);
+
+  $("#pokeSearch").value = pokedexFilter.query;
+  $("#pokeSort").value = pokedexFilter.sort;
+  $("#pokeType").value = pokedexFilter.type || "";
+
+  $("#pokeSearch").addEventListener("input", (e) => { pokedexFilter.query = e.target.value; updatePokedexResults(); });
+  $("#pokeSort").addEventListener("change", (e) => { pokedexFilter.sort = e.target.value; updatePokedexResults(); });
+  $("#pokeType").addEventListener("change", (e) => { pokedexFilter.type = e.target.value || null; updatePokedexResults(); });
+  $("#regionOnly").addEventListener("change", (e) => { pokedexFilter.regionOnly = e.target.checked; updatePokedexResults(); });
+  $("#includeLegendary").addEventListener("change", (e) => { pokedexFilter.includeLegendary = e.target.checked; updatePokedexResults(); });
+
+  updatePokedexResults();
 }
 
-// ==========================
-// ANALYSIS
-// ==========================
-function analyzeTeamWeakness() {
-    let results = {};
-    Object.keys(typeChart).forEach(t => results[t] = 0);
-    team.forEach(p => {
-        p.types.forEach(t => {
-            const typeKey = t.charAt(0).toUpperCase() + t.slice(1).toLowerCase();
-            const d = typeChart[typeKey];
-            if (d) {
-                d.weakTo.forEach(w => results[w] += 1);
-                d.resists.forEach(r => results[r] -= 1);
-                d.immuneTo.forEach(i => results[i] -= 2);
-            }
-        });
-    });
-    return results;
-}
+function updatePokedexResults() {
+  const q = pokedexFilter.query.trim().toLowerCase();
+  let results = DATA.pokemon.slice();
 
-function renderWeaknessAnalysis() {
-    let html="<h4>Weakness Analysis</h4>";
-    const res=analyzeTeamWeakness();
-    Object.entries(res).sort((a,b)=>b[1]-a[1]).forEach(([t,s])=>{
-        if(s > 0) html+=`<div>${t}: <span style="color:red;">x${s}</span></div>`;
-    });
-    return html;
-}
+  if (pokedexFilter.regionOnly) results = results.filter(isInRegionalDex);
+  if (!pokedexFilter.includeLegendary) results = results.filter(p => !isLegendary(p.name));
+  if (pokedexFilter.type) results = results.filter(p => p.types.includes(pokedexFilter.type));
+  if (q) results = results.filter(p => p.name.toLowerCase().includes(q));
 
-function analyzeOffenseCoverage() {
-    let coverage = {};
-    Object.keys(typeChart).forEach(t => coverage[t] = 0);
-    team.forEach(p => {
-        getBestMoves(p.name).forEach(m => {
-            const moveData = gameData.moves.find(x => x.name === m.move);
-            if (!moveData) return;
-            Object.entries(typeChart).forEach(([type, data]) => {
-                if (data.weakTo.includes(moveData.type)) coverage[type] += 1;
-            });
-        });
-    });
-    return coverage;
-}
+  const sortKey = pokedexFilter.sort;
+  if (sortKey === "bst") {
+    results.sort((a, b) => bst(b) - bst(a));
+  } else if (sortKey === "number") {
+    results.sort((a, b) => a.number - b.number);
+  } else if (sortKey === "name") {
+    results.sort((a, b) => a.name.localeCompare(b.name));
+  } else {
+    results.sort((a, b) => (b.baseStats[sortKey] || 0) - (a.baseStats[sortKey] || 0));
+  }
 
-function renderOffenseCoverage() {
-    const coverage = analyzeOffenseCoverage();
-    let html = "<h4>Offensive Coverage</h4>";
-    Object.entries(coverage).sort((a,b)=>b[1]-a[1]).forEach(([type, score]) => {
-        if (score > 0) html += `<div>${type}: ${score}</div>`;
-    });
-    return html;
-}
+  const max = 80;
+  const truncated = results.length > max;
+  results = results.slice(0, max);
 
-function renderMoveCoverage() {
-    const coverage = {};
-    team.forEach(p => {
-        getBestMoves(p.name).forEach(m => {
-            const moveData = gameData.moves.find(x => x.name === m.move);
-            if (moveData) coverage[moveData.type] = (coverage[moveData.type] || 0) + 1;
-        });
-    });
-    let html = "<h4>Move Type Distribution</h4>";
-    Object.entries(coverage).sort((a,b)=>b[1]-a[1]).forEach(([type, count]) => {
-        html += `<div>${type}: ${count}</div>`;
-    });
-    return html;
-}
-
-function renderRecommendations() {
-    const weakData = analyzeTeamWeakness();
-    const biggestWeak = Object.entries(weakData).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([t]) => t);
-    const candidates = gameData.pokemon.filter(p => !team.some(m => m.name === p.name));
-    
-    const scored = candidates.map(p => {
-        let score = 0;
-        p.types.forEach(t => {
-            const d = typeChart[t];
-            if (d) biggestWeak.forEach(w => { if (d.resists.includes(w) || d.immuneTo.includes(w)) score += 2; });
-        });
-        return { ...p, score };
-    }).filter(p => p.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
-
-    let html="<h4>Fix Suggestions</h4>";
-    scored.forEach(p=>{ html+=`<button onclick="addToTeam('${p.name}')">+ ${p.name}</button> `; });
-    return html;
-}
-
-// ==========================
-// IV / DV CALCULATOR MATH
-// ==========================
-function getEVSpread(pokemon) {
-    if (!pokemon || !pokemon.baseStats) return ["attack", "speed"];
-    return pokemon.baseStats.attack > pokemon.baseStats.spAttack ? ["attack", "speed"] : ["spAttack", "speed"];
-}
-
-function calculateStatRange(pokemon, level, observedStats, natureName, isMale = null) {
-    const base = pokemon.baseStats;
-    const isGen2 = currentGame === "gsc";
-    const maxIV = isGen2 ? 15 : 31;
-    let result = {};
-
-    let natureMod = { increased: null, decreased: null };
-    if (!isGen2 && natureName) {
-        natureMod = gameData.natures.find(n => n.name === natureName) || natureMod;
-    }
-
-    const statsToCheck = isGen2 ? ["attack","defense","speed","spAttack"] : ["attack","defense","speed","spAttack","spDefense"];
-
-    statsToCheck.forEach(stat => {
-        let matches = [];
-        for (let iv = 0; iv <= maxIV; iv++) {
-            // Gen 2 Gender Check (Attack DV)
-            if (isGen2 && stat === "attack") {
-                if (isMale === true && iv < 8) continue;
-                if (isMale === false && iv > 7) continue;
-            }
-
-            let calc;
-            if (isGen2) {
-                // GEN 2 FORMULA
-                calc = Math.floor(((base[stat] + iv) * 2 * level) / 100) + 5;
-            } else {
-                // GEN 3 FORMULA
-                let modifier = 1.0;
-                if (natureMod.increased === stat) modifier = 1.1;
-                if (natureMod.decreased === stat) modifier = 0.9;
-                calc = Math.floor((Math.floor(((base[stat] * 2 + iv) * level) / 100) + 5) * modifier);
-            }
-
-            if (Math.abs(calc - observedStats[stat]) <= 1) matches.push(iv);
-        }
-        result[stat] = matches;
-    });
-    return result;
-}
-
-function runIVCalc(name) {
-    const p = gameData.pokemon.find(x => x.name === name);
-    if (!p) return;
-    
-    const level = parseInt(document.getElementById("ivLevel").value);
-    const nature = document.getElementById("ivNature")?.value || null;
-    const isMale = document.getElementById("ivGender").value === "male" ? true : document.getElementById("ivGender").value === "female" ? false : null;
-
-    const stats = {
-        attack: parseInt(document.getElementById("ivAttack").value) || 0,
-        defense: parseInt(document.getElementById("ivDefense").value) || 0,
-        speed: parseInt(document.getElementById("ivSpeed").value) || 0,
-        spAttack: parseInt(document.getElementById("ivSpAttack").value) || 0,
-        spDefense: parseInt(document.getElementById("ivSpDefense")?.value || 0)
-    };
-
-    if (isNaN(level)) { alert("Enter a level!"); return; }
-
-    const raw = calculateStatRange(p, level, stats, nature, isMale);
-    const maxIV = currentGame === "gsc" ? 15 : 31;
-
-    let html = `<h4>${currentGame === 'gsc' ? 'DV' : 'IV'} Results</h4>`;
-
-    Object.entries(raw).forEach(([stat, vals]) => {
-        const min = vals.length ? Math.min(...vals) : "-";
-        const max = vals.length ? Math.max(...vals) : "-";
-        const pct = getIVPercentile(vals, maxIV).toFixed(1);
-
-        html += `
-            <div>
-                <strong>${stat.toUpperCase()}</strong>: ${min}–${max}
-                <span style="color:#666;">(${pct}%)</span>
-            </div>
-        `;
-    });
-
-    if (currentGame === "gsc") {
-        const hpDVs = calculateHPDVGen2(raw);
-        const minHP = hpDVs.length ? Math.min(...hpDVs) : "-";
-        const maxHP = hpDVs.length ? Math.max(...hpDVs) : "-";
-        const pct = getIVPercentile(hpDVs, 15).toFixed(1);
-
-        html += `
-            <div style="margin-top:10px; border-top:1px solid #ddd; padding-top:5px;">
-                <strong>HP DV</strong>: ${minHP}–${maxHP}
-                <span style="color:#666;">(${pct}%)</span>
-            </div>
-        `;
-    }
-
-    document.getElementById("ivResult").innerHTML = html;
-}
-
-
-function calculateHPDVGen2(result) {
-    let hpDVs = [];
-    if(!result.attack.length || !result.defense.length) return [];
-    
-    result.attack.forEach(a => {
-        result.defense.forEach(d => {
-            result.speed.forEach(s => {
-                result.spAttack.forEach(sp => {
-                    const hp = ((a % 2) << 3) | ((d % 2) << 2) | ((s % 2) << 1) | (sp % 2);
-                    hpDVs.push(hp);
-                });
-            });
-        });
-    });
-    return [...new Set(hpDVs)];
-}
-
-function getIVPercentile(range, maxIV) {
-    if (!range.length) return 0;
-    const avg = range.reduce((a,b)=>a+b,0) / range.length;
-    return (avg / maxIV) * 100;
-}
-
-
-// ==========================
-// COMPARISON TOOL
-// ==========================
-
-// Renders the search box or the selected name for each slot
-function renderCompareSlot(slotIndex) {
-    const selected = compareSelection[slotIndex];
-    if (selected) {
-        return `
-            <div class="compare-slot-active">
-                <strong>${selected.name}</strong> 
-                <button onclick="clearCompareSlot(${slotIndex})">Change</button>
-            </div>
-        `;
-    }
+  const html = results.map(p => {
+    const onTeam = STATE.team.includes(p.name);
+    const legend = isLegendary(p.name);
+    const totalOrStat = sortKey === "bst" || sortKey === "number" || sortKey === "name"
+      ? `BST ${bst(p)}` : `${sortKey} ${p.baseStats[sortKey]}`;
     return `
-        <input type="text" placeholder="Search Pokémon..." 
-               oninput="searchCompare(${slotIndex}, this.value)">
-        <div id="compare-results-${slotIndex}" class="compare-results-dropdown"></div>
-    `;
-}
-
-// Handles searching within the comparison slots
-function searchCompare(slotIndex, query) {
-    const resultsDiv = document.getElementById(`compare-results-${slotIndex}`);
-    if (!query) { resultsDiv.innerHTML = ""; return; }
-    
-    const matches = gameData.pokemon
-        .filter(p => p.name.toLowerCase().includes(query.toLowerCase()))
-        .slice(0, 5);
-
-    resultsDiv.innerHTML = matches.map(p => `
-        <div onclick="selectCompare(${slotIndex}, '${p.name}')" style="cursor:pointer; padding:5px; border-bottom:1px solid #ddd;">
-            ${p.name}
+      <div class="row" data-name="${escapeHtml(p.name)}">
+        <div class="row-main">
+          <div class="name">#${p.number} ${escapeHtml(p.name)} ${legend ? `<span class="badge badge-banned">Legend</span>` : ""}</div>
+          <div class="meta">
+            ${p.types.map(t => `<span class="type-pill type-${t}">${t}</span>`).join("")}
+            <span class="muted">· ${totalOrStat}</span>
+          </div>
         </div>
-    `).join('');
-}
+        <div class="row-actions">
+          <button class="btn btn-ghost view-btn" data-name="${escapeHtml(p.name)}">View</button>
+          ${onTeam
+            ? `<button class="btn btn-danger team-btn" data-name="${escapeHtml(p.name)}" data-action="remove">−</button>`
+            : `<button class="btn btn-primary team-btn" data-name="${escapeHtml(p.name)}" data-action="add" ${legend ? "disabled style='opacity:.4;'" : ""}>+</button>`}
+        </div>
+      </div>`;
+  }).join("");
 
-function selectCompare(slotIndex, name) {
-    const pokemon = gameData.pokemon.find(p => p.name === name);
-    compareSelection[slotIndex] = pokemon;
-    openPage('compare'); // Refresh the page to show the selection
-}
+  const status = truncated
+    ? `<div class="status">Showing first ${max} of ${results.length + (DATA.pokemon.length - results.length - max + max)}+ — refine your search.</div>`
+    : results.length === 0
+      ? `<div class="empty"><span class="emoji">🔎</span><p>No Pokémon match your filters.</p></div>`
+      : "";
 
-function clearCompareSlot(slotIndex) {
-    compareSelection[slotIndex] = null;
-    openPage('compare');
-}
+  $("#pokeResults").innerHTML = html + status;
 
-// Generates the side-by-side data
-function renderComparisonTable() {
-    const tableDiv = document.getElementById("comparisonTable");
-    const [p1, p2] = compareSelection;
-
-    if (!p1 || !p2) {
-        tableDiv.innerHTML = "<p>Select two Pokémon to see the comparison.</p>";
-        return;
-    }
-
-    const stats = ["hp", "attack", "defense", "spAttack", "spDefense", "speed"];
-    
-    let html = `<div class="compare-grid" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; border:1px solid #ccc; padding:10px;">
-        <div><strong>Stat</strong></div>
-        <div><strong>${p1.name}</strong></div>
-        <div><strong>${p2.name}</strong></div>
-        
-        <div style="grid-column: span 3; background:#eee; padding:5px;"><strong>Base Stats</strong></div>
-    `;
-
-    stats.forEach(s => {
-        const v1 = p1.baseStats[s];
-        const v2 = p2.baseStats[s];
-        const winner1 = v1 > v2 ? "font-weight:bold; color:green;" : "";
-        const winner2 = v2 > v1 ? "font-weight:bold; color:green;" : "";
-
-        html += `
-            <div style="text-transform: capitalize;">${s}</div>
-            <div style="${winner1}">${v1}</div>
-            <div style="${winner2}">${v2}</div>
-        `;
+  $$("#pokeResults .team-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const name = btn.dataset.name;
+      if (btn.dataset.action === "add") addToTeam(name); else removeFromTeam(name);
     });
+  });
+  $$("#pokeResults .view-btn").forEach(btn => {
+    btn.addEventListener("click", () => showPokemonDetail(btn.dataset.name));
+  });
+}
 
-    html += `
-        <div style="grid-column: span 3; background:#eee; padding:5px;"><strong>Details</strong></div>
-        <div>Types</div>
-        <div>${p1.types.join('/')}</div>
-        <div>${p2.types.join('/')}</div>
-        
-        <div>Top Moves</div>
-        <div>${getBestMoves(p1.name).map(m => m.move).join('<br>')}</div>
-        <div>${getBestMoves(p2.name).map(m => m.move).join('<br>')}</div>
+function bst(p) { return Object.values(p.baseStats).reduce((a, b) => a + b, 0); }
+
+// ============================ POKEMON DETAIL ============================
+function showPokemonDetail(name) {
+  const p = IDX.pokemonByName[name];
+  if (!p) return;
+
+  const onTeam = STATE.team.includes(name);
+  const legend = isLegendary(name);
+  const learnset = getLearnset(name);
+  const encounters = getEncounters(name);
+  const max = Math.max(...Object.values(p.baseStats));
+  const stats = p.baseStats;
+
+  const allMovesHtml = learnset
+    .filter(m => m.level <= STATE.levelCap)
+    .map(m => {
+      const md = getMoveData(m.move);
+      const status = moveStatus(m.move);
+      const badge = status === "banned" ? `<span class="badge badge-banned">banned</span>` :
+                    status === "warn"   ? `<span class="badge badge-warn">caution</span>` : "";
+      const meta = md ? `${md.type} · ${md.category} · ${md.power || "—"}pw / ${md.accuracy || "—"}acc` : "";
+      return `<div class="row">
+        <div class="row-main">
+          <div class="name">${escapeHtml(m.move)} ${badge}</div>
+          <div class="meta">Lv ${m.level} · ${escapeHtml(meta)}</div>
+        </div>
+      </div>`;
+    }).join("");
+
+  const overCapMoves = learnset.filter(m => m.level > STATE.levelCap);
+  const overCapHtml = overCapMoves.length === 0 ? "" : `
+    <h3>Above level cap</h3>
+    <div class="row-list">${overCapMoves.map(m => {
+      const md = getMoveData(m.move);
+      return `<div class="row" style="opacity:.55;">
+        <div class="row-main">
+          <div class="name">${escapeHtml(m.move)}</div>
+          <div class="meta">Lv ${m.level} ${md ? "· " + md.type : ""}</div>
+        </div>
+      </div>`;
+    }).join("")}</div>`;
+
+  const encHtml = encounters.length === 0
+    ? `<p class="muted tiny">No encounter data for ${escapeHtml(gameInfo().label)} (may be evolution-only or trade-required).</p>`
+    : `<div class="row-list">${encounters.map(e => `<div class="row">
+        <div class="row-main">
+          <div class="name">${escapeHtml(e.area || "Unknown area")}</div>
+          <div class="meta">${escapeHtml(e.method || "")} · ${escapeHtml(e.rate || "")} · Lv ${escapeHtml(e.levels || "?")}</div>
+        </div>
+      </div>`).join("")}</div>`;
+
+  const html = `
+    <button class="btn btn-ghost" id="backBtn" style="margin-bottom:10px;">← Back</button>
+    <h2>#${p.number} ${escapeHtml(p.name)} ${legend ? `<span class="badge badge-banned">Legendary</span>` : ""}</h2>
+    <div>${p.types.map(t => `<span class="type-pill type-${t}">${t}</span>`).join("")}</div>
+
+    <h3>Base stats (BST ${bst(p)})</h3>
+    <div class="stat-bars">
+      ${["hp","attack","defense","spAttack","spDefense","speed"].map(s => `
+        <div class="stat-label">${s}</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="width:${(stats[s]/max*100).toFixed(0)}%"></div></div>
+        <div class="stat-val">${stats[s]}</div>
+      `).join("")}
+    </div>
+
+    <h3>Encounters in ${escapeHtml(gameInfo().label)}</h3>
+    ${encHtml}
+
+    <h3>Level-up moves (≤ ${STATE.levelCap})</h3>
+    <div class="row-list">${allMovesHtml || `<div class="muted tiny">No moves learned by level up under cap.</div>`}</div>
+
+    ${overCapHtml}
+
+    <div style="margin-top:18px; display:flex; gap:8px;">
+      ${onTeam
+        ? `<button class="btn btn-danger" id="teamBtn">Remove from Team</button>`
+        : `<button class="btn btn-primary" id="teamBtn" ${legend ? "disabled style='opacity:.4;'" : ""}>Add to Team</button>`}
+      <button class="btn btn-ghost" id="ivBtn">IV/DV Calc</button>
+    </div>
+  `;
+  setContent(html);
+
+  $("#backBtn").addEventListener("click", () => openPage("pokedex"));
+  $("#teamBtn").addEventListener("click", () => {
+    if (onTeam) removeFromTeam(name); else addToTeam(name);
+  });
+  $("#ivBtn").addEventListener("click", () => {
+    ivCalcContext.pokemonName = name;
+    openPage("ivcalc");
+  });
+}
+
+// ============================ MOVES PAGE ============================
+const movesFilter = { query: "", type: null, status: "all" /* all|banned|warn|ok */ };
+function renderMovesPage() {
+  const types = Object.keys(TYPE_CHART);
+  const html = `
+    <h2>Move Lookup</h2>
+    <input type="search" id="moveSearch" placeholder="Search moves…" value="${escapeHtml(movesFilter.query)}">
+    <div class="flex" style="gap:8px; margin-top:8px;">
+      <select id="moveType" style="flex:1;">
+        <option value="">All types</option>
+        ${types.map(t => `<option value="${t}">${t}</option>`).join("")}
+      </select>
+      <select id="moveStatus" style="flex:1;">
+        <option value="all">All moves</option>
+        <option value="banned">Banned only</option>
+        <option value="warn">Caution only</option>
+        <option value="ok">Allowed only</option>
+      </select>
+    </div>
+    <div id="moveResults" class="row-list" style="margin-top:12px;"></div>
+  `;
+  setContent(html);
+  $("#moveSearch").value = movesFilter.query;
+  $("#moveType").value = movesFilter.type || "";
+  $("#moveStatus").value = movesFilter.status;
+
+  $("#moveSearch").addEventListener("input", (e) => { movesFilter.query = e.target.value; updateMoveResults(); });
+  $("#moveType").addEventListener("change", (e) => { movesFilter.type = e.target.value || null; updateMoveResults(); });
+  $("#moveStatus").addEventListener("change", (e) => { movesFilter.status = e.target.value; updateMoveResults(); });
+
+  updateMoveResults();
+}
+
+function updateMoveResults() {
+  const q = movesFilter.query.trim().toLowerCase();
+  let res = DATA.moves.slice();
+  if (q) res = res.filter(m => m.name.toLowerCase().includes(q));
+  if (movesFilter.type) res = res.filter(m => m.type === movesFilter.type);
+  if (movesFilter.status !== "all") {
+    res = res.filter(m => moveStatus(m.name) === movesFilter.status);
+  }
+  res.sort((a, b) => a.name.localeCompare(b.name));
+
+  const max = 100;
+  const truncated = res.length > max;
+  res = res.slice(0, max);
+
+  const html = res.map(m => {
+    const status = moveStatus(m.name);
+    const badge = status === "banned" ? `<span class="badge badge-banned">banned</span>` :
+                  status === "warn"   ? `<span class="badge badge-warn">caution</span>` :
+                  `<span class="badge badge-ok">ok</span>`;
+    return `<div class="row">
+      <div class="row-main">
+        <div class="name">${escapeHtml(m.name)} ${badge}</div>
+        <div class="meta">
+          <span class="type-pill type-${m.type}">${m.type}</span>
+          <span class="muted">${m.category || ""} · ${m.power || "—"}pw / ${m.accuracy || "—"}acc / ${m.pp || "—"}pp</span>
+        </div>
+        <div class="muted tiny" style="margin-top:4px;">${escapeHtml(m.effect || "")}</div>
+      </div>
     </div>`;
+  }).join("");
 
-    tableDiv.innerHTML = html;
+  $("#moveResults").innerHTML = html + (truncated
+    ? `<div class="status">Showing first ${max} — refine your search.</div>`
+    : res.length === 0 ? `<div class="empty"><span class="emoji">🔎</span><p>No moves match.</p></div>` : "");
+}
+
+// ============================ IV/DV CALCULATOR ============================
+const ivCalcContext = { pokemonName: null };
+
+function renderIVCalcPage() {
+  const isGen2 = gameInfo().family === "gsc";
+  const calcLabel = isGen2 ? "DV" : "IV";
+  const teamOptions = STATE.team.length
+    ? STATE.team.map(n => `<option value="${escapeHtml(n)}">${escapeHtml(n)}</option>`).join("")
+    : "";
+  const allOptions = DATA.pokemon
+    .map(p => `<option value="${escapeHtml(p.name)}">#${p.number} ${escapeHtml(p.name)}</option>`)
+    .join("");
+
+  const html = `
+    <h2>${calcLabel} Calculator</h2>
+    <p class="muted tiny">${isGen2 ? "Gen 2 uses DVs (0–15) with derived HP." : "Gen 3 uses IVs (0–31) with nature modifiers."}</p>
+
+    <label class="muted tiny">Pokémon</label>
+    <select id="ivPokemon">
+      <option value="">— Select Pokémon —</option>
+      ${teamOptions ? `<optgroup label="Your team">${teamOptions}</optgroup>` : ""}
+      <optgroup label="All Pokémon">${allOptions}</optgroup>
+    </select>
+
+    <div class="iv-grid">
+      <div>
+        <label class="muted tiny">Level</label>
+        <input type="number" id="ivLevel" min="1" max="100" placeholder="e.g. 50">
+      </div>
+      ${isGen2 ? `
+        <div>
+          <label class="muted tiny">Gender (refines Atk DV)</label>
+          <select id="ivGender">
+            <option value="">Unknown</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>` : `
+        <div>
+          <label class="muted tiny">Nature</label>
+          <select id="ivNature">
+            <option value="">— None —</option>
+            ${DATA.natures.map(n => `<option value="${escapeHtml(n.name)}">${escapeHtml(n.name)}${n.increased ? ` (+${n.increased}/-${n.decreased})` : ""}</option>`).join("")}
+          </select>
+        </div>`}
+
+      <div><label class="muted tiny">HP</label>      <input type="number" id="ivHP"></div>
+      <div><label class="muted tiny">Attack</label>  <input type="number" id="ivAttack"></div>
+      <div><label class="muted tiny">Defense</label> <input type="number" id="ivDefense"></div>
+      <div><label class="muted tiny">Speed</label>   <input type="number" id="ivSpeed"></div>
+      <div><label class="muted tiny">Sp. Attack</label><input type="number" id="ivSpAttack"></div>
+      ${!isGen2 ? `<div><label class="muted tiny">Sp. Defense</label><input type="number" id="ivSpDefense"></div>` : ""}
+
+      <div class="full">
+        <button class="btn btn-primary" id="ivRunBtn" style="width:100%;">Calculate ${calcLabel}s</button>
+      </div>
+    </div>
+    <div id="ivResult"></div>
+  `;
+  setContent(html);
+
+  if (ivCalcContext.pokemonName) $("#ivPokemon").value = ivCalcContext.pokemonName;
+
+  $("#ivRunBtn").addEventListener("click", runIVCalc);
+}
+
+function runIVCalc() {
+  const isGen2 = gameInfo().family === "gsc";
+  const name = $("#ivPokemon").value;
+  if (!name) return toast("Pick a Pokémon first", "error");
+  const p = IDX.pokemonByName[name];
+  if (!p) return;
+  const level = parseInt($("#ivLevel").value, 10);
+  if (!level || level < 1 || level > 100) return toast("Enter a valid level (1–100)", "error");
+
+  const observed = {
+    hp:        parseInt($("#ivHP").value, 10),
+    attack:    parseInt($("#ivAttack").value, 10),
+    defense:   parseInt($("#ivDefense").value, 10),
+    speed:     parseInt($("#ivSpeed").value, 10),
+    spAttack:  parseInt($("#ivSpAttack").value, 10),
+    spDefense: isGen2 ? null : parseInt($("#ivSpDefense").value, 10),
+  };
+
+  let nature = null, gender = null;
+  if (isGen2) {
+    const g = $("#ivGender").value;
+    gender = g === "male" ? "male" : g === "female" ? "female" : null;
+  } else {
+    const n = $("#ivNature").value;
+    if (n) nature = DATA.natures.find(x => x.name === n) || null;
+  }
+
+  const result = isGen2
+    ? calcGen2DVs(p, level, observed, gender)
+    : calcGen3IVs(p, level, observed, nature);
+
+  renderIVResult(result, isGen2);
+}
+
+function calcGen3IVs(p, level, obs, nature) {
+  const stats = ["hp","attack","defense","speed","spAttack","spDefense"];
+  const out = {};
+  for (const stat of stats) {
+    if (!Number.isFinite(obs[stat])) { out[stat] = null; continue; }
+    const matches = [];
+    for (let iv = 0; iv <= 31; iv++) {
+      let calc;
+      if (stat === "hp") {
+        calc = Math.floor(((p.baseStats.hp * 2 + iv) * level) / 100) + level + 10;
+      } else {
+        let mod = 1.0;
+        if (nature) {
+          if (nature.increased === stat) mod = 1.1;
+          if (nature.decreased === stat) mod = 0.9;
+        }
+        calc = Math.floor((Math.floor(((p.baseStats[stat] * 2 + iv) * level) / 100) + 5) * mod);
+      }
+      if (calc === obs[stat]) matches.push(iv);
+    }
+    out[stat] = matches;
+  }
+  return out;
+}
+
+function calcGen2DVs(p, level, obs, gender) {
+  // Gen 2: DV 0–15, special is one DV used for both SpA and SpD,
+  // HP DV is derived from parity of Atk/Def/Spe/Spc.
+  // Attack DV is gender-locked: male ≥8 (1xxx), female ≤7 (0xxx) when species has gendered DV split.
+  const stats = ["attack","defense","speed","spAttack"];
+  const out = {};
+  for (const stat of stats) {
+    if (!Number.isFinite(obs[stat])) { out[stat] = null; continue; }
+    const matches = [];
+    for (let dv = 0; dv <= 15; dv++) {
+      // Gender filter on Attack DV (most species; doesn't apply to Magnemite, Voltorb, etc.,
+      // but those are genderless so user would leave gender blank)
+      if (stat === "attack" && gender === "male"   && dv < 8)  continue;
+      if (stat === "attack" && gender === "female" && dv > 7)  continue;
+      const base = stat === "spAttack" ? p.baseStats.spAttack : p.baseStats[stat];
+      const calc = Math.floor(((base + dv) * 2 * level) / 100) + 5;
+      if (calc === obs[stat]) matches.push(dv);
+    }
+    out[stat] = matches;
+  }
+  // HP DV from parities of attack/def/spe/spc
+  const hpMatches = new Set();
+  if (out.attack && out.defense && out.speed && out.spAttack) {
+    for (const a of out.attack) for (const d of out.defense) for (const s of out.speed) for (const sp of out.spAttack) {
+      const hpDV = ((a & 1) << 3) | ((d & 1) << 2) | ((s & 1) << 1) | (sp & 1);
+      hpMatches.add(hpDV);
+    }
+  }
+  out.hp = [...hpMatches].sort((a,b) => a - b);
+  // Verify against observed HP if user entered it
+  if (Number.isFinite(obs.hp) && out.hp.length) {
+    const verified = out.hp.filter(hpDV => {
+      const calc = Math.floor(((p.baseStats.hp + hpDV) * 2 * level) / 100) + level + 10;
+      return calc === obs.hp;
+    });
+    if (verified.length) out.hp = verified;
+  }
+  return out;
+}
+
+function renderIVResult(result, isGen2) {
+  const max = isGen2 ? 15 : 31;
+  const order = isGen2
+    ? ["hp","attack","defense","speed","spAttack"]
+    : ["hp","attack","defense","speed","spAttack","spDefense"];
+  let html = `<h3>Possible ${isGen2 ? "DVs" : "IVs"}</h3><div class="row-list">`;
+  for (const stat of order) {
+    const vals = result[stat];
+    if (!vals) {
+      html += `<div class="row"><div class="row-main"><div class="name">${stat}</div><div class="meta muted">— (not entered)</div></div></div>`;
+      continue;
+    }
+    if (vals.length === 0) {
+      html += `<div class="row"><div class="row-main"><div class="name">${stat}</div><div class="meta" style="color:var(--danger);">No match — check your inputs</div></div></div>`;
+      continue;
+    }
+    const min = Math.min(...vals), m = Math.max(...vals);
+    const pct = ((vals.reduce((a,b) => a+b, 0) / vals.length) / max * 100).toFixed(0);
+    const tag = vals.length === 1 ? `exactly ${vals[0]}` : `${min}–${m}`;
+    html += `<div class="row">
+      <div class="row-main">
+        <div class="name">${stat}</div>
+        <div class="meta">${tag} <span class="muted">· ~${pct}% of max</span></div>
+      </div>
+    </div>`;
+  }
+  html += `</div>`;
+  $("#ivResult").innerHTML = html;
+}
+
+// ============================ WEAKNESS PAGE ============================
+function renderWeaknessPage() {
+  const teamObjs = STATE.team.map(n => IDX.pokemonByName[n]).filter(Boolean);
+  let html = `<h2>Type Coverage Analysis</h2>`;
+  if (teamObjs.length === 0) {
+    html += `<div class="empty"><span class="emoji">🛡️</span><p>Add Pokémon to your team to see coverage.</p></div>`;
+    setContent(html);
+    return;
+  }
+  html += `<h3>Defensive (incoming)</h3>` + renderWeaknessSummary(teamObjs);
+  html += `<h3>Offensive (outgoing)</h3>` + renderOffenseSummary(teamObjs);
+  setContent(html);
+}
+
+function renderWeaknessSummary(teamObjs) {
+  const score = {};
+  Object.keys(TYPE_CHART).forEach(t => score[t] = 0);
+  teamObjs.forEach(p => {
+    Object.keys(TYPE_CHART).forEach(atkType => {
+      let mult = 1;
+      p.types.forEach(defType => {
+        const chart = TYPE_CHART[defType];
+        if (!chart) return;
+        if (chart.immuneTo.includes(atkType)) mult *= 0;
+        else if (chart.weakTo.includes(atkType)) mult *= 2;
+        else if (chart.resists.includes(atkType)) mult *= 0.5;
+      });
+      if (mult >= 2) score[atkType] += 1;
+      if (mult <= 0.5 && mult > 0) score[atkType] -= 0.5;
+      if (mult === 0) score[atkType] -= 1;
+    });
+  });
+  const sorted = Object.entries(score).sort((a, b) => b[1] - a[1]);
+  let html = `<div class="row-list">`;
+  for (const [type, s] of sorted) {
+    if (s === 0) continue;
+    const color = s > 0 ? "var(--danger)" : "var(--good)";
+    const sign = s > 0 ? `+${s}` : `${s}`;
+    html += `<div class="row">
+      <div class="row-main">
+        <span class="type-pill type-${type}">${type}</span>
+      </div>
+      <div style="color:${color}; font-weight:700;">${sign}</div>
+    </div>`;
+  }
+  html += `</div><p class="muted tiny">+ values = team is weak to that type · − values = team resists / is immune.</p>`;
+  return html;
+}
+
+function renderOffenseSummary(teamObjs) {
+  // For each defending type, count how many of the team's "best legal moves"
+  // hit it for super-effective damage.
+  const cover = {};
+  Object.keys(TYPE_CHART).forEach(t => cover[t] = 0);
+
+  teamObjs.forEach(p => {
+    const moves = bestLegalMoves(p.name, 4);
+    const moveTypes = new Set();
+    moves.forEach(m => {
+      const md = getMoveData(m.move);
+      if (md && md.power) moveTypes.add(md.type);
+    });
+    moveTypes.forEach(atkType => {
+      Object.keys(TYPE_CHART).forEach(defType => {
+        const chart = TYPE_CHART[defType];
+        if (chart.weakTo.includes(atkType)) cover[defType] += 1;
+      });
+    });
+  });
+  const sorted = Object.entries(cover).sort((a, b) => b[1] - a[1]);
+  let html = `<div class="row-list">`;
+  for (const [type, c] of sorted) {
+    const tone = c >= 2 ? "var(--good)" : c === 1 ? "var(--text)" : "var(--text-faint)";
+    html += `<div class="row">
+      <div class="row-main"><span class="type-pill type-${type}">${type}</span></div>
+      <div style="color:${tone}; font-weight:700;">${c} hit${c === 1 ? "" : "s"}</div>
+    </div>`;
+  }
+  html += `</div><p class="muted tiny">Number of team members with a damaging move that hits this type for super-effective damage.</p>`;
+  return html;
+}
+
+// ============================ RULES PAGE ============================
+function renderRulesPage() {
+  const r = STATE.rules;
+  const li = (s) => `<div class="row"><div class="row-main"><div class="name">${escapeHtml(s)}</div></div></div>`;
+  const html = `
+    <h2>Tournament Rules</h2>
+    <p class="muted">Built into every team check; flagged automatically.</p>
+
+    <h3>Format</h3>
+    <div class="row-list">
+      ${li("18 hours of fresh-cartridge gameplay, no outside help")}
+      ${li("Trade-back evolutions are OK with a partner (Alakazam, etc.)")}
+      ${li("Battle teams are level-capped at " + STATE.levelCap + " (toggle 55/60 above)")}
+    </div>
+
+    <h3>Legendaries (battle-team banned, OK for progression)</h3>
+    <div class="row-list">${r.legendaries.map(li).join("")}</div>
+
+    <h3>Banned moves — accuracy reducers</h3>
+    <p class="muted tiny">${escapeHtml(r.bannedMoves.accuracyReducers.rule)}</p>
+    <div class="row-list">${r.bannedMoves.accuracyReducers.moves.map(li).join("")}</div>
+
+    <h3>Banned moves — non-damaging recovery</h3>
+    <p class="muted tiny">${escapeHtml(r.bannedMoves.nonDamagingRecovery.rule)}</p>
+    <div class="row-list">${r.bannedMoves.nonDamagingRecovery.moves.map(li).join("")}</div>
+
+    <h3>Caution: damaging accuracy reducers</h3>
+    <p class="muted tiny">${escapeHtml(r.warnMoves.damagingAccuracyReducers.rule)}</p>
+    <div class="row-list">${r.warnMoves.damagingAccuracyReducers.moves.map(li).join("")}</div>
+
+    <h3>Allowed: damage-based recovery</h3>
+    <p class="muted tiny">${escapeHtml(r.warnMoves.drainAndPainSplit.rule)}</p>
+    <div class="row-list">${r.warnMoves.drainAndPainSplit.moves.map(li).join("")}</div>
+  `;
+  setContent(html);
 }

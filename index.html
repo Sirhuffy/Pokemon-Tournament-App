@@ -1,45 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pokemon Tournament Companion</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="icon-192.png">
+  <meta charset="UTF-8">
+  <title>Pokemon Tournament Companion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#0e0f13">
+  <meta name="description" content="Tournament-aware team builder for Pokemon Gold/Silver/Crystal, Ruby/Sapphire/Emerald, and FireRed/LeafGreen.">
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pkmn Tourney">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
+<body data-game-family="gsc">
+  <header class="app-header">
     <h1>Pokemon Tournament Companion</h1>
-    
-    <h2>Select Game</h2>
-    <select id="gameSelect" onchange="changeGame()">
-        <option value="gsc">Gold / Silver / Crystal (1999)</option>
-        <option value="frlg">Fire Red / Leaf Green (2004)</option>
-        <option value="rse">Ruby / Sapphire / Emerald (2002)</option>
-    </select>
+    <span class="subtitle" id="ruleSubtitle">No legendaries · Lvl 55 cap · No accuracy or pure-recovery moves</span>
+  </header>
 
-    <h2>Level Cap</h2>
-    <select id="levelCap" onchange="changeLevelCap()">
-        <option value="55">Level 55</option>
-        <option value="60">Level 60</option>
-    </select>
-
-    <div class="menu">
-        <button onclick="openPage('pokedex')">Pokédex</button>
-        <button onclick="openPage('team')">Team Planner</button>
-        <button onclick="openPage('moves')">Move Lookup</button>
-        <button onclick="openPage('items')">Item Locations</button>
-        <button onclick="openPage('maps')">Maps</button>
-        <button onclick="openPage('weakness')">Weakness Calculator</button>
-        <button onclick="openPage('compare')”>Compare</button>
+  <section class="top-controls">
+    <div>
+      <label for="gameSelect">Game</label>
+      <select id="gameSelect" aria-label="Select game">
+        <optgroup label="Gold / Silver / Crystal (1999)">
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="crystal" selected>Crystal</option>
+        </optgroup>
+        <optgroup label="Ruby / Sapphire / Emerald (2002)">
+          <option value="ruby">Ruby</option>
+          <option value="sapphire">Sapphire</option>
+          <option value="emerald">Emerald</option>
+        </optgroup>
+        <optgroup label="FireRed / LeafGreen (2004)">
+          <option value="firered">FireRed</option>
+          <option value="leafgreen">LeafGreen</option>
+        </optgroup>
+      </select>
     </div>
+    <div>
+      <label for="levelCap">Level Cap</label>
+      <select id="levelCap" aria-label="Level cap">
+        <option value="55" selected>55</option>
+        <option value="60">60</option>
+      </select>
+    </div>
+  </section>
 
-    <div id="content"></div>
+  <nav class="nav-tabs" id="navTabs">
+    <button data-page="team"     class="active">Team</button>
+    <button data-page="pokedex">Pokédex</button>
+    <button data-page="moves">Moves</button>
+    <button data-page="ivcalc">IV/DV Calc</button>
+    <button data-page="weakness">Weakness</button>
+    <button data-page="rules">Rules</button>
+  </nav>
 
-    <script src="app.js"></script>
+  <main id="content" role="main">
+    <div class="status">Loading data…</div>
+  </main>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="app.js"></script>
 </body>
 </html>
