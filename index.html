@@ -59,6 +59,7 @@
     <button data-page="items">Items</button>
     <button data-page="tms">TMs/HMs</button>
     <button data-page="ivcalc">IV/DV Calc</button>
+    <button data-page="dmgcalc">Damage Calc</button>
     <button data-page="weakness">Weakness</button>
     <button data-page="typechart">Type Chart</button>
     <button data-page="evtrain">EV Training</button>
@@ -72,6 +73,27 @@
   </main>
 
   <div id="toast" class="toast" aria-live="polite"></div>
+
+  <!-- Fullscreen region-map viewer (pinch-zoomable) -->
+  <div id="mapFullscreen" class="map-fullscreen" hidden>
+    <button class="btn btn-icon" id="mapFullscreenClose" aria-label="Close map">×</button>
+    <img id="mapFullscreenImg" alt="Region map">
+  </div>
+
+  <!-- Move picker modal (slides up from bottom) -->
+  <div id="movePickerOverlay" class="modal-overlay" hidden>
+    <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="movePickerTitle">
+      <div class="modal-header">
+        <h3 id="movePickerTitle">Pick a move</h3>
+        <button class="btn btn-icon btn-ghost" id="movePickerClose" aria-label="Close">×</button>
+      </div>
+      <input type="search" id="movePickerSearch" placeholder="Search moves…" autocomplete="off">
+      <div id="movePickerBody" class="modal-body"></div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="movePickerClear">Clear this slot (use auto)</button>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>

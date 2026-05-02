@@ -15,6 +15,7 @@ const STATE = {
   levelCap: 55,
   currentPage: "team",
   team: [],            // array of pokemon names
+  customMoves: {},     // { pokemonName: [slot0|null, slot1|null, slot2|null, slot3|null] }
 };
 
 // Raw data caches
@@ -29,6 +30,8 @@ const DATA = {
   evYields: [],       // optional — populated once user runs build_pokemon_evs.py
   candies: null,      // optional — { perGame: { game: [{location, notes, source}] } }
   trades: null,       // optional — { perGame: { game: [{npc, location, gives, ...}] } }
+  availability: null, // optional — { perGame: { game: [pokemonName, ...] } } from build_pokedex_availability.py
+  eggMoves: [],       // optional — [{ pokemon, eggMoves: { versionGroup: [moveName, ...] } }]
 };
 
 // Indexed for O(1) lookup (we have ~386 mons / 354 moves)
@@ -40,6 +43,7 @@ const IDX = {
   itemsByName: {},
   tmsByPokemon: {},   // { pokemonName -> { versionGroup -> [moveName, ...] } }
   evByPokemon: {},    // { pokemonName -> { hp, attack, defense, spAttack, spDefense, speed } }
+  eggByPokemon: {},   // { pokemonName -> { versionGroup -> [moveName, ...] } }
 };
 
 // Type chart (Gen 2+ — Steel/Dark exist; in Gen 1 they don't, but
@@ -71,7 +75,7 @@ async function initApp() {
   try {
     // Load all data in parallel. tournament-rules.json is required;
     // others degrade gracefully if missing.
-    const [rulesRes, pokemonRes, movesRes, learnsetsRes, encountersRes, naturesRes, itemsRes, machinesRes, evRes, candiesRes, tradesRes] = await Promise.all([
+    const [rulesRes, pokemonRes, movesRes, learnsetsRes, encountersRes, naturesRes, itemsRes, machinesRes, evRes, candiesRes, tradesRes, availRes, eggRes] = await Promise.all([
       fetchJSON("data/tournament-rules.json", true),
       fetchJSON("data/pokemon-core.json", true),
       fetchJSON("data/moves.json", true),
@@ -83,6 +87,8 @@ async function initApp() {
       fetchJSON("data/ev-yields.json", false),
       fetchJSON("data/rare-candies.json", false),
       fetchJSON("data/in-game-trades.json", false),
+      fetchJSON("data/pokedex-availability.json", false),
+      fetchJSON("data/egg-moves.json", false),
     ]);
 
     STATE.rules     = rulesRes;
@@ -97,6 +103,8 @@ async function initApp() {
     DATA.evYields   = Array.isArray(evRes) ? evRes : [];
     DATA.candies    = (candiesRes && candiesRes.perGame) ? candiesRes : null;
     DATA.trades     = (tradesRes && tradesRes.perGame) ? tradesRes : null;
+    DATA.availability = (availRes && availRes.perGame) ? availRes : null;
+    DATA.eggMoves   = Array.isArray(eggRes) ? eggRes : [];
 
     // Build indexes
     DATA.pokemon.forEach(p    => IDX.pokemonByName[p.name] = p);
@@ -108,6 +116,7 @@ async function initApp() {
       DATA.machines.compatibility.forEach(c => IDX.tmsByPokemon[c.pokemon] = c.tms);
     }
     DATA.evYields.forEach(e => IDX.evByPokemon[e.pokemon] = e.yield);
+    DATA.eggMoves.forEach(e => IDX.eggByPokemon[e.pokemon] = e.eggMoves);
 
     loadSavedState();
     bindControls();
@@ -142,7 +151,10 @@ async function fetchJSON(url, required) {
 }
 
 // ============================ PERSISTENCE ============================
-const LS_KEYS = { team: "ptc.team", game: "ptc.game", levelCap: "ptc.levelCap", page: "ptc.page" };
+const LS_KEYS = {
+  team: "ptc.team", game: "ptc.game", levelCap: "ptc.levelCap",
+  page: "ptc.page", customMoves: "ptc.customMoves",
+};
 
 function saveState() {
   try {
@@ -150,6 +162,7 @@ function saveState() {
     localStorage.setItem(LS_KEYS.game, STATE.currentGame);
     localStorage.setItem(LS_KEYS.levelCap, String(STATE.levelCap));
     localStorage.setItem(LS_KEYS.page, STATE.currentPage);
+    localStorage.setItem(LS_KEYS.customMoves, JSON.stringify(STATE.customMoves));
   } catch (e) { /* localStorage may be unavailable */ }
 }
 
@@ -168,6 +181,8 @@ function loadSavedState() {
     if (lc === 55 || lc === 60) STATE.levelCap = lc;
     const pg = localStorage.getItem(LS_KEYS.page);
     if (pg) STATE.currentPage = pg;
+    const cm = JSON.parse(localStorage.getItem(LS_KEYS.customMoves) || "{}");
+    if (cm && typeof cm === "object") STATE.customMoves = cm;
   } catch (e) { /* ignore */ }
 }
 
@@ -228,6 +243,7 @@ function openPage(page) {
     case "items":     return renderItemsPage();
     case "tms":       return renderTMsPage();
     case "ivcalc":    return renderIVCalcPage();
+    case "dmgcalc":   return renderDmgCalcPage();
     case "weakness":  return renderWeaknessPage();
     case "typechart": return renderTypeChartPage();
     case "evtrain":   return renderEVTrainPage();
@@ -290,13 +306,25 @@ function moveStatus(moveName) {
   return "ok";
 }
 
-// Pokemon-availability heuristic: in GSC, only gens 1+2 (#1–251); in
-// RSE/FRLG, all gens 1–3. Doesn't account for cartridge-specific
-// version exclusives — we surface that via the encounter list.
+// Pokemon-availability filter: prefer the user-curated list from
+// pokedex-availability.json (built from tools/game_reference.xlsx).
+// Falls back to a coarse dex-range heuristic when no list is loaded
+// for the current game.
 function isInRegionalDex(pokemon) {
+  const list = DATA.availability?.perGame?.[STATE.currentGame];
+  if (Array.isArray(list)) {
+    return list.includes(pokemon.name);
+  }
+  // Fallback: dex range
   const family = gameInfo().family;
   if (family === "gsc") return pokemon.number <= 251;
   return pokemon.number <= 386;
+}
+
+// Whether the current game uses the curated availability list
+function hasCuratedAvailability() {
+  const list = DATA.availability?.perGame?.[STATE.currentGame];
+  return Array.isArray(list);
 }
 
 function getMoveData(name) { return IDX.movesByName[name] || null; }
@@ -324,6 +352,121 @@ function bestLegalMoves(pokemonName, count = 4) {
     return { ...m, score };
   });
   return scored.sort((a, b) => b.score - a.score).slice(0, count);
+}
+
+// Returns the 4 moves displayed in the team card for a pokemon.
+// For each slot, if customMoves has a non-null entry use it; otherwise
+// auto-fill from bestLegalMoves, skipping any moves already in custom slots.
+function getActiveMoves(pokemonName) {
+  const slots = STATE.customMoves[pokemonName] || [null, null, null, null];
+  const result = [];
+  const usedNames = new Set();
+
+  // Step 1: place all custom moves first (so auto-fill knows what's taken)
+  for (let i = 0; i < 4; i++) {
+    if (slots[i]) usedNames.add(slots[i]);
+  }
+
+  // Step 2: fetch auto picks excluding already-used moves
+  const learnset = getLearnset(pokemonName).filter(m => m.level <= STATE.levelCap);
+  const seen = new Set();
+  const candidates = [];
+  for (const m of learnset) {
+    if (seen.has(m.move)) continue;
+    seen.add(m.move);
+    if (moveStatus(m.move) === "banned") continue;
+    if (usedNames.has(m.move)) continue;
+    candidates.push(m);
+  }
+  const p = IDX.pokemonByName[pokemonName];
+  candidates.forEach(m => {
+    const md = getMoveData(m.move);
+    let score = 0;
+    if (md) {
+      score += md.power || 0;
+      if (md.power && p && p.types.includes(md.type)) score += 30;
+      if (!md.power) score += 5;
+    }
+    m.score = score;
+  });
+  candidates.sort((a, b) => b.score - a.score);
+
+  // Step 3: walk slots, fill in
+  let autoIdx = 0;
+  for (let i = 0; i < 4; i++) {
+    if (slots[i]) {
+      const learn = getLearnset(pokemonName).find(m => m.move === slots[i]);
+      result.push({
+        move: slots[i],
+        level: learn ? learn.level : null,
+        custom: true,
+      });
+    } else if (autoIdx < candidates.length) {
+      result.push({ ...candidates[autoIdx], custom: false });
+      autoIdx++;
+    } else {
+      result.push(null);
+    }
+  }
+  return result;
+}
+
+// Build the full list of moves a pokemon can have in the current game,
+// grouped for the picker UI.
+function getAllAvailableMoves(pokemonName) {
+  const learnset = getLearnset(pokemonName);
+  const cap = STATE.levelCap;
+  const seen = new Set();
+
+  const legal = [], overCap = [];
+  for (const m of learnset) {
+    if (seen.has(m.move)) continue;
+    seen.add(m.move);
+    if (m.level <= cap) legal.push(m);
+    else overCap.push(m);
+  }
+  legal.sort((a, b) => a.level - b.level || a.move.localeCompare(b.move));
+  overCap.sort((a, b) => a.level - b.level);
+
+  // TM/HM compatibility from machines.json (if loaded)
+  let tms = [];
+  if (DATA.machines) {
+    const vg = gameInfo().learnsetKey;
+    const compat = IDX.tmsByPokemon[pokemonName];
+    if (compat && compat[vg]) {
+      const tmIndex = {};
+      (DATA.machines.perGame[vg] || []).forEach(t => { tmIndex[t.move] = t.tm; });
+      tms = compat[vg]
+        .filter(name => !seen.has(name)) // dedupe vs level-up
+        .map(name => ({ move: name, tm: tmIndex[name] || null }))
+        .sort((a, b) => a.move.localeCompare(b.move));
+      tms.forEach(t => seen.add(t.move));
+    }
+  }
+
+  // Egg moves (from build_egg_moves.py output)
+  let eggs = [];
+  const eggCompat = IDX.eggByPokemon[pokemonName];
+  if (eggCompat) {
+    const vg = gameInfo().learnsetKey;
+    eggs = (eggCompat[vg] || [])
+      .filter(name => !seen.has(name))
+      .map(name => ({ move: name, eggOnly: true }));
+    eggs.forEach(e => seen.add(e.move));
+  }
+
+  return { legal, overCap, tms, eggs };
+}
+
+function setCustomMove(pokemonName, slotIdx, moveName) {
+  if (!STATE.customMoves[pokemonName]) STATE.customMoves[pokemonName] = [null, null, null, null];
+  STATE.customMoves[pokemonName][slotIdx] = moveName;
+  saveState();
+}
+
+function clearCustomMovesFor(pokemonName) {
+  delete STATE.customMoves[pokemonName];
+  saveState();
 }
 
 function teamViolations() {
@@ -385,6 +528,7 @@ function renderTeamPage() {
   $("#clearBtn")?.addEventListener("click", () => {
     if (confirm("Clear your entire team?")) {
       STATE.team = [];
+      STATE.customMoves = {};
       saveState();
       openPage("team");
     }
@@ -396,33 +540,63 @@ function renderTeamPage() {
       removeFromTeam(name);
     });
   });
+  $$(".team-card .move-slot").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const name = btn.dataset.pokemon;
+      const slot = parseInt(btn.dataset.slot, 10);
+      openMovePicker(name, slot);
+    });
+  });
+  $$(".team-card .reset-moves-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      clearCustomMovesFor(btn.dataset.name);
+      toast(`Reset ${btn.dataset.name}'s moves to auto`);
+      renderTeamPage();
+    });
+  });
 }
 
 function renderTeamCard(p) {
-  const moves = bestLegalMoves(p.name, 4);
+  const slots = getActiveMoves(p.name);
   const isLegend = isLegendary(p.name);
   const stats = p.baseStats;
   const total = Object.values(stats).reduce((a,b) => a+b, 0);
+  const hasCustom = STATE.customMoves[p.name]?.some(s => s !== null);
 
-  let movesHtml = "";
-  if (moves.length === 0) {
-    movesHtml = `<div class="muted tiny" style="padding:6px 10px;">No legal level-up moves under cap.</div>`;
-  } else {
-    movesHtml = moves.map(m => {
-      const md = getMoveData(m.move);
-      const status = moveStatus(m.move);
-      const badge = status === "warn"  ? `<span class="badge badge-warn">caution</span>` : "";
-      const meta  = md ? `${md.type} · ${md.category} · ${md.power || "—"}/${md.accuracy || "—"}` : "";
-      return `<div class="move">
-                <div>
-                  <span class="move-name">${escapeHtml(m.move)}</span>${badge}
-                  <div class="move-meta">${escapeHtml(meta)} · Lv ${m.level}</div>
-                </div>
-              </div>`;
-    }).join("");
-  }
+  const eggMovesForPokemon = (IDX.eggByPokemon[p.name] || {})[gameInfo().learnsetKey] || [];
+
+  const movesHtml = [0,1,2,3].map(i => {
+    const slot = slots[i];
+    if (!slot) {
+      return `<button class="move move-slot empty" data-pokemon="${escapeHtml(p.name)}" data-slot="${i}">
+        <div><span class="move-name muted">+ Slot ${i+1}</span>
+          <div class="move-meta muted">Tap to pick a move</div></div>
+        <span class="muted tiny">›</span>
+      </button>`;
+    }
+    const md = getMoveData(slot.move);
+    const status = moveStatus(slot.move);
+    const isEgg = eggMovesForPokemon.includes(slot.move) && (!slot.level && slot.level !== 0);
+    const badge = status === "banned" ? `<span class="badge badge-banned">banned</span>` :
+                  status === "warn"   ? `<span class="badge badge-warn">caution</span>` :
+                  isEgg ? `<span class="badge badge-warn">egg only</span>` :
+                  slot.custom ? `<span class="badge badge-tag">custom</span>` : "";
+    const meta = md ? `${md.type} · ${md.category} · ${md.power || "—"}pw / ${md.accuracy || "—"}acc` : "";
+    const lvl = slot.level !== null && slot.level !== undefined ? ` · Lv ${slot.level}` : "";
+    return `<button class="move move-slot" data-pokemon="${escapeHtml(p.name)}" data-slot="${i}">
+      <div>
+        <span class="move-name">${escapeHtml(slot.move)}</span>${badge}
+        <div class="move-meta">${escapeHtml(meta)}${lvl}</div>
+      </div>
+      <span class="muted tiny">edit ›</span>
+    </button>`;
+  }).join("");
 
   const typesHtml = p.types.map(t => `<span class="type-pill type-${t}">${t}</span>`).join("");
+
+  const resetLink = hasCustom
+    ? `<button class="btn btn-ghost reset-moves-btn" data-name="${escapeHtml(p.name)}" style="font-size:11px; min-height:30px; padding:4px 10px; margin-top:8px;">Reset moves to auto</button>`
+    : "";
 
   return `
     <div class="team-card">
@@ -443,6 +617,7 @@ function renderTeamCard(p) {
       </div>
       <div class="muted tiny" style="margin-top:4px;">BST ${total}</div>
       <div class="moves">${movesHtml}</div>
+      ${resetLink}
     </div>
   `;
 }
@@ -469,6 +644,7 @@ function addToTeam(name) {
 
 function removeFromTeam(name) {
   STATE.team = STATE.team.filter(n => n !== name);
+  delete STATE.customMoves[name];
   saveState();
   toast(`Removed ${name}`);
   openPage(STATE.currentPage);
@@ -500,9 +676,12 @@ function renderPokedexPage() {
       </select>
     </div>
     <div class="flex" style="gap:14px; margin-top:8px; font-size:13px; color:var(--text-dim);">
-      <label class="flex"><input type="checkbox" id="regionOnly" ${pokedexFilter.regionOnly ? "checked" : ""}> Region only</label>
+      <label class="flex"><input type="checkbox" id="regionOnly" ${pokedexFilter.regionOnly ? "checked" : ""}>
+        ${hasCuratedAvailability() ? "Obtainable in this game only" : "Region only (rough)"}
+      </label>
       <label class="flex"><input type="checkbox" id="includeLegendary" ${pokedexFilter.includeLegendary ? "checked" : ""}> Show legendaries</label>
     </div>
+    ${!hasCuratedAvailability() ? `<p class="muted tiny" style="margin-top:6px;">⚠️ No curated obtainability list for ${escapeHtml(gameInfo().label)} yet — using a rough dex-range filter. Run <code>python3 tools/build_pokedex_availability.py</code> after adding a sheet for this game to fix.</p>` : ""}
     <div id="pokeResults" class="row-list" style="margin-top:12px;"></div>
   `;
   setContent(html);
@@ -660,6 +839,8 @@ function showPokemonDetail(name) {
 
     ${overCapHtml}
 
+    ${renderEggMovesSection(name)}
+
     ${renderTmCompatSection(name)}
 
     <div style="margin-top:18px; display:flex; gap:8px;">
@@ -679,6 +860,144 @@ function showPokemonDetail(name) {
     ivCalcContext.pokemonName = name;
     openPage("ivcalc");
   });
+}
+
+// ============================ MOVE PICKER MODAL ============================
+const movePickerCtx = { pokemon: null, slot: 0, query: "" };
+
+function openMovePicker(pokemonName, slotIdx) {
+  movePickerCtx.pokemon = pokemonName;
+  movePickerCtx.slot = slotIdx;
+  movePickerCtx.query = "";
+
+  const overlay = document.getElementById("movePickerOverlay");
+  document.getElementById("movePickerTitle").textContent =
+    `${pokemonName} — Slot ${slotIdx + 1}`;
+  document.getElementById("movePickerSearch").value = "";
+
+  // Bind once-per-open handlers
+  overlay.onclick = (e) => { if (e.target === overlay) closeMovePicker(); };
+  document.getElementById("movePickerClose").onclick = closeMovePicker;
+  document.getElementById("movePickerSearch").oninput = (e) => {
+    movePickerCtx.query = e.target.value;
+    renderMovePickerBody();
+  };
+  document.getElementById("movePickerClear").onclick = () => {
+    setCustomMove(pokemonName, slotIdx, null);
+    closeMovePicker();
+    toast("Slot reset to auto");
+    renderTeamPage();
+  };
+
+  overlay.hidden = false;
+  document.body.style.overflow = "hidden";
+  renderMovePickerBody();
+
+  // ESC to close
+  document.addEventListener("keydown", movePickerEsc);
+}
+
+function movePickerEsc(e) { if (e.key === "Escape") closeMovePicker(); }
+
+function closeMovePicker() {
+  document.getElementById("movePickerOverlay").hidden = true;
+  document.body.style.overflow = "";
+  document.removeEventListener("keydown", movePickerEsc);
+}
+
+function renderMovePickerBody() {
+  const { pokemon, slot, query } = movePickerCtx;
+  const all = getAllAvailableMoves(pokemon);
+  const customSlots = STATE.customMoves[pokemon] || [null,null,null,null];
+  const otherSlotMoves = new Set(customSlots.map((m, i) => i === slot ? null : m).filter(Boolean));
+
+  const q = query.trim().toLowerCase();
+  const matches = (m) => !q || m.toLowerCase().includes(q);
+
+  const renderRow = (moveName, level, tmTag, eggOnly) => {
+    const md = getMoveData(moveName);
+    const status = moveStatus(moveName);
+    const inOther = otherSlotMoves.has(moveName);
+    const badge = status === "banned" ? `<span class="badge badge-banned">banned</span>` :
+                  status === "warn"   ? `<span class="badge badge-warn">caution</span>` :
+                  `<span class="badge badge-ok">ok</span>`;
+    const tmLabel = tmTag ? `<span class="badge badge-tag">${escapeHtml(tmTag)}</span>` : "";
+    const eggLabel = eggOnly ? `<span class="badge badge-warn">egg only</span>` : "";
+    const lvl = level !== undefined && level !== null ? ` · Lv ${level}` : "";
+    const meta = md ? `${md.type} · ${md.power || "—"}pw / ${md.accuracy || "—"}acc / ${md.pp || "—"}pp${lvl}` : "";
+    const inOtherTag = inOther ? `<div class="muted tiny" style="margin-top:2px;">already in another slot</div>` : "";
+    return `<button class="move-pick ${inOther ? "in-other-slot" : ""}" data-move="${escapeHtml(moveName)}">
+      <div style="flex:1; min-width:0;">
+        <div><span style="font-weight:600;">${escapeHtml(moveName)}</span> ${badge} ${tmLabel} ${eggLabel}</div>
+        <div class="move-meta muted">${escapeHtml(meta)}</div>
+        ${inOtherTag}
+      </div>
+      <span class="muted tiny">›</span>
+    </button>`;
+  };
+
+  let html = "";
+  const legalFiltered = all.legal.filter(m => matches(m.move));
+  if (legalFiltered.length) {
+    html += `<h4>Level-up — under cap (${all.legal.filter(m => moveStatus(m.move) !== "banned").length} legal)</h4>`;
+    html += legalFiltered.map(m => renderRow(m.move, m.level, null, false)).join("");
+  }
+  const tmsFiltered = all.tms.filter(t => matches(t.move));
+  if (tmsFiltered.length) {
+    html += `<h4>TMs / HMs (${all.tms.length})</h4>`;
+    html += tmsFiltered.map(t => renderRow(t.move, null, t.tm, false)).join("");
+  }
+  const eggsFiltered = (all.eggs || []).filter(e => matches(e.move));
+  if (eggsFiltered.length) {
+    html += `<h4>Egg moves — requires breeding (${all.eggs.length})</h4>`;
+    html += `<p class="muted tiny" style="margin:-4px 0 6px;">⚠️ These are obtainable only by breeding the right parent. With an 18-hour clock, plan ahead — typical egg costs ~30 minutes.</p>`;
+    html += eggsFiltered.map(e => renderRow(e.move, null, null, true)).join("");
+  }
+  const overFiltered = all.overCap.filter(m => matches(m.move));
+  if (overFiltered.length) {
+    html += `<h4>Above level cap — won't learn until you raise the cap (${all.overCap.length})</h4>`;
+    html += overFiltered.map(m => renderRow(m.move, m.level, null, false)).join("");
+  }
+  if (!html) {
+    html = `<div class="empty"><span class="emoji">🔎</span><p>No moves match.</p></div>`;
+  }
+  const body = document.getElementById("movePickerBody");
+  body.innerHTML = html;
+  body.querySelectorAll(".move-pick").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const move = btn.dataset.move;
+      setCustomMove(movePickerCtx.pokemon, movePickerCtx.slot, move);
+      closeMovePicker();
+      toast(`Set slot ${movePickerCtx.slot + 1} to ${move}`, "success");
+      renderTeamPage();
+    });
+  });
+}
+
+// Returns HTML for the "Egg moves" panel, empty string if not loaded
+// or no eggs in this game.
+function renderEggMovesSection(pokemonName) {
+  const compat = IDX.eggByPokemon[pokemonName];
+  if (!compat) return "";
+  const vg = gameInfo().learnsetKey;
+  const eggs = (compat[vg] || []).slice().sort();
+  if (eggs.length === 0) return "";
+  const rows = eggs.map(m => {
+    const md = getMoveData(m);
+    const status = moveStatus(m);
+    const statusBadge = status === "banned" ? `<span class="badge badge-banned">banned</span>` :
+                        status === "warn"   ? `<span class="badge badge-warn">caution</span>` : "";
+    const meta = md ? `${md.type} · ${md.power || "—"}pw / ${md.accuracy || "—"}acc` : "";
+    return `<div class="row">
+      <div class="row-main">
+        <div class="name">${escapeHtml(m)} <span class="badge badge-warn">egg only</span> ${statusBadge}</div>
+        <div class="meta">${escapeHtml(meta)}</div>
+      </div>
+    </div>`;
+  }).join("");
+  return `<h3>Egg moves (${eggs.length})</h3>
+          <p class="muted tiny" style="margin:-6px 0 8px;">Only obtainable via breeding — plan ahead given the 18-hour clock.</p>
+          <div class="row-list">${rows}</div>`;
 }
 
 // Returns HTML for the "TMs this Pokémon can learn in [game]" panel,
@@ -1201,6 +1520,53 @@ function updateTMsList(list) {
 // Lazily-built index: encountersKey -> { areaName -> [ {pokemon, method, rate, levels} ] }
 const AREA_INDEX = {};
 
+// Per-family region map image (tap-to-zoom reference)
+const REGION_MAP_BY_FAMILY = {
+  gsc:  { src: "icons/maps/johto_kanto.png", label: "Johto / Kanto", note: null },
+  frlg: { src: "icons/maps/johto_kanto.png", label: "Kanto",         note: "Same map as GSC — Kanto routes are identical." },
+  rse:  { src: "icons/maps/hoenn.png",       label: "Hoenn",         note: "ORAS-era map (Gen 6). Routes 101–134 are identical to RSE; some post-game features (Battle Resort, Soaring) don't exist in Gen 3." },
+};
+
+function regionMapHtml() {
+  const m = REGION_MAP_BY_FAMILY[gameInfo().family];
+  if (!m) return "";
+  const noteHtml = m.note ? `<p class="muted tiny" style="margin:-4px 0 10px;">${escapeHtml(m.note)}</p>` : "";
+  return `<div class="map-thumb-wrap" id="mapThumb" data-src="${escapeHtml(m.src)}">
+    <img src="${escapeHtml(m.src)}" alt="${escapeHtml(m.label)} region map" loading="lazy">
+    <span class="map-zoom-hint">🔍 ${escapeHtml(m.label)} — tap to zoom</span>
+  </div>${noteHtml}`;
+}
+
+function openFullscreenMap(src) {
+  const overlay = document.getElementById("mapFullscreen");
+  const img = document.getElementById("mapFullscreenImg");
+  img.src = src;
+  // Reset scroll on each open
+  overlay.scrollLeft = 0;
+  overlay.scrollTop = 0;
+  // Default: fit width to viewport so the whole map is visible; user can pinch-zoom from there
+  img.onload = () => {
+    const vw = window.innerWidth;
+    const naturalRatio = img.naturalHeight / img.naturalWidth;
+    img.style.width = vw + "px";
+    img.style.height = (vw * naturalRatio) + "px";
+  };
+  overlay.hidden = false;
+  document.body.style.overflow = "hidden";
+  document.addEventListener("keydown", mapFullscreenEsc);
+}
+function mapFullscreenEsc(e) { if (e.key === "Escape") closeFullscreenMap(); }
+function closeFullscreenMap() {
+  document.getElementById("mapFullscreen").hidden = true;
+  document.body.style.overflow = "";
+  document.removeEventListener("keydown", mapFullscreenEsc);
+}
+// Bind close button once at startup
+window.addEventListener("DOMContentLoaded", () => {
+  const closeBtn = document.getElementById("mapFullscreenClose");
+  if (closeBtn) closeBtn.addEventListener("click", closeFullscreenMap);
+});
+
 const METHOD_LABELS = {
   "walk":               "Walk",
   "surf":               "Surf",
@@ -1272,6 +1638,7 @@ function renderMapsPage() {
 
   let html = `
     <h2>Maps — ${escapeHtml(gameInfo().label)}</h2>
+    ${regionMapHtml()}
     <p class="muted tiny">${areaNames.length} areas with wild encounter data. Tap an area to see what's there.</p>
     <input type="search" id="mapSearch" placeholder="Search areas (e.g. Route 32, Mt. Moon)…" value="${escapeHtml(mapState.query)}">
     <div class="flex" style="gap:8px; margin-top:8px;">
@@ -1285,6 +1652,10 @@ function renderMapsPage() {
   setContent(html);
   $("#mapSearch").value = mapState.query;
   $("#methodFilter").value = mapState.methodFilter;
+
+  // Tap-to-zoom on the region thumbnail
+  const thumb = document.getElementById("mapThumb");
+  if (thumb) thumb.addEventListener("click", () => openFullscreenMap(thumb.dataset.src));
 
   $("#mapSearch").addEventListener("input", (e) => { mapState.query = e.target.value; renderAreaList(); });
   $("#methodFilter").addEventListener("change", (e) => { mapState.methodFilter = e.target.value; renderAreaList(); });
@@ -1526,20 +1897,25 @@ function renderCandiesPage() {
 
   let html = `
     <h2>Rare Candies — ${escapeHtml(gameInfo().label)}</h2>
-    <div class="warning">⚠️ <strong>Hand-curated from Bulbapedia.</strong> Verify each entry against your cartridge before relying on it for the tournament. Edit <code>data/rare-candies.json</code> to correct or expand.</div>
-    <p class="muted tiny" style="margin-top:8px;">${list.length} known location${list.length===1?"":"s"} for this game.</p>
+    <p class="muted tiny">${list.length} known location${list.length===1?"":"s"} for this game. Edit <code>tools/rare_candies.xlsx</code> and re-run <code>build_rare_candies.py</code> to add more.</p>
   `;
   if (list.length === 0) {
     html += `<div class="empty"><span class="emoji">📭</span><p>No entries yet for ${escapeHtml(gameInfo().label)}.</p></div>`;
   } else {
-    html += `<div class="row-list">${list.map(c => `
-      <div class="row">
+    html += `<div class="row-list">${list.map(c => {
+      const methodBadge = c.method ? `<span class="badge badge-tag">${escapeHtml(c.method)}</span>` : "";
+      const areaLine = c.area ? `<div class="meta">${escapeHtml(c.area)}</div>` : "";
+      const noteLine = c.notes ? `<div class="muted tiny" style="margin-top:4px;">📝 ${escapeHtml(c.notes)}</div>` : "";
+      const sourceLine = c.source ? `<div class="muted tiny" style="margin-top:4px;">↗ <a href="${escapeHtml(c.source)}" target="_blank" rel="noopener">verify</a></div>` : "";
+      return `<div class="row">
         <div class="row-main">
-          <div class="name">${escapeHtml(c.location)}</div>
-          <div class="meta">${escapeHtml(c.notes || "")}</div>
-          ${c.source ? `<div class="muted tiny" style="margin-top:4px;">↗ <a href="${escapeHtml(c.source)}" target="_blank" rel="noopener">${escapeHtml(c.source)}</a></div>` : ""}
+          <div class="name">${escapeHtml(c.location)} ${methodBadge}</div>
+          ${areaLine}
+          ${noteLine}
+          ${sourceLine}
         </div>
-      </div>`).join("")}</div>`;
+      </div>`;
+    }).join("")}</div>`;
   }
   setContent(html);
 }
