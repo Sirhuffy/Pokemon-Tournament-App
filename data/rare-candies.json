@@ -1,80 +1,700 @@
 {
   "_meta": {
-    "description": "Rare Candy locations per game. EDIT THIS FILE to add your verified entries.",
-    "schema": {
-      "perGame": "Game key -> array of { location, notes, source }",
-      "location": "Where to find it (e.g. 'Cerulean Cave 1F NE corner')",
-      "notes": "How to find it / requirements",
-      "source": "URL to verify (Bulbapedia, Serebii, etc.)"
-    },
-    "verificationReminder": "Verify every entry against your cartridge before relying on it for the tournament."
+    "description": "Rare Candy locations per game. Sourced from tools/rare_candies.xlsx (user-maintained). Edit that file and re-run build_rare_candies.py to regenerate.",
+    "fields": {
+      "location": "Town/route name",
+      "area": "Specific spot within the location",
+      "method": "Hidden item, Overworld item, gift, etc.",
+      "notes": "Requirements (Surf, Strength, etc.) or other context"
+    }
   },
   "perGame": {
-    "gold": [],
-    "silver": [],
-    "crystal": [
+    "gold": [
       {
-        "location": "Cerulean Cave",
-        "notes": "Post-game Kanto. Multiple candies hidden across the cave's three floors.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Cerulean_Cave"
+        "location": "Violet City",
+        "area": "Near eastern pond",
+        "method": "Overworld item",
+        "notes": "Requires Surf"
+      },
+      {
+        "location": "Route 34 (Daycare area)",
+        "area": "Behind fence in trees",
+        "method": "Hidden",
+        "notes": "Requires Surf"
+      },
+      {
+        "location": "Olivine Lighthouse",
+        "area": "Upper floors",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Whirl Islands",
+        "area": "Interior area",
+        "method": "Overworld item",
+        "notes": null
       },
       {
         "location": "Mt. Mortar",
-        "notes": "Hidden inside the cave system between Ecruteak and Mahogany. Requires Surf and Strength.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Mt._Mortar"
+        "area": "Interior cave",
+        "method": "Overworld item",
+        "notes": null
       },
       {
-        "location": "Mt. Silver",
-        "notes": "Hidden item inside the cave. Endgame only — accessible after defeating the Elite Four.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Mt._Silver"
+        "location": "Lake of Rage (forest area)",
+        "area": "Hidden tile",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Tin Tower (Bell Tower)",
+        "area": "Interior",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Route 27 (east of New Bark)",
+        "area": null,
+        "method": "Overworld",
+        "notes": null
+      },
+      {
+        "location": "Route 28 (near Mt. Silver)",
+        "area": "Dead-end/tree",
+        "method": "Hidden",
+        "notes": "Tile differs (tree in C vs ground in G/S)"
+      },
+      {
+        "location": "Cinnabar Island",
+        "area": "North dead-end path",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Vermilion City",
+        "area": "Story reward (NPC)",
+        "method": "Gift",
+        "notes": null
       }
     ],
-    "ruby": [],
-    "sapphire": [],
-    "emerald": [
+    "silver": [
       {
-        "location": "Mt. Pyre Summit",
-        "notes": "Hidden item near the top of the outdoor section of Mt. Pyre.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Mt._Pyre"
+        "location": "Violet City",
+        "area": "Near eastern pond",
+        "method": "Overworld item",
+        "notes": "Requires Surf"
       },
       {
-        "location": "Sky Pillar",
-        "notes": "Found within Sky Pillar, accessible during/after the Rayquaza event.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Sky_Pillar"
+        "location": "Route 34 (Daycare area)",
+        "area": "Behind fence in trees",
+        "method": "Hidden",
+        "notes": "Requires Surf"
+      },
+      {
+        "location": "Olivine Lighthouse",
+        "area": "Upper floors",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Whirl Islands",
+        "area": "Interior area",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Mt. Mortar",
+        "area": "Interior cave",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Lake of Rage (forest area)",
+        "area": "Hidden tile",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Tin Tower (Bell Tower)",
+        "area": "Interior",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Route 27 (east of New Bark)",
+        "area": null,
+        "method": "Overworld",
+        "notes": null
+      },
+      {
+        "location": "Route 28 (near Mt. Silver)",
+        "area": "Dead-end/tree",
+        "method": "Hidden",
+        "notes": "Tile differs (tree in C vs ground in G/S)"
+      },
+      {
+        "location": "Cinnabar Island",
+        "area": "North dead-end path",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Vermilion City",
+        "area": "Story reward (NPC)",
+        "method": "Gift",
+        "notes": null
+      }
+    ],
+    "crystal": [
+      {
+        "location": "Violet City",
+        "area": "Near eastern pond",
+        "method": "Overworld item",
+        "notes": "Requires Surf"
+      },
+      {
+        "location": "Route 34 (Daycare area)",
+        "area": "Behind fence in trees",
+        "method": "Hidden",
+        "notes": "Requires Surf"
+      },
+      {
+        "location": "Olivine Lighthouse",
+        "area": "Upper floors",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Whirl Islands",
+        "area": "Interior area",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Mt. Mortar",
+        "area": "Interior cave",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Lake of Rage (forest area)",
+        "area": "Hidden tile",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Tin Tower (Bell Tower)",
+        "area": "Interior",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Route 27 (east of New Bark)",
+        "area": null,
+        "method": "Overworld",
+        "notes": null
+      },
+      {
+        "location": "Route 28 (near Mt. Silver)",
+        "area": "Dead-end/tree",
+        "method": "Hidden",
+        "notes": "Tile differs (tree in C vs ground in G/S)"
+      },
+      {
+        "location": "Cinnabar Island",
+        "area": "North dead-end path",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Vermilion City",
+        "area": "Story reward (NPC)",
+        "method": "Gift",
+        "notes": null
+      },
+      {
+        "location": "Goldenrod Radio Tower",
+        "area": "Buena prize (3 pts)",
+        "method": "Repeatable reward",
+        "notes": "Crystal only repeatable source"
+      }
+    ],
+    "ruby": [
+      {
+        "location": "Route 102",
+        "area": "Near Petalburg entrance",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 104 (south)",
+        "area": "Near flower patches",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Petalburg Woods",
+        "area": "Forest floor item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Route 110",
+        "area": "Near Trick House area",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 111 (desert edge)",
+        "area": "Sand tile",
+        "method": "Hidden",
+        "notes": "Requires Go-Goggles"
+      },
+      {
+        "location": "Route 113",
+        "area": "Ash-covered grass",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 114",
+        "area": "Near fossil maniac house",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Fiery Path",
+        "area": "Interior ground item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Mt. Chimney",
+        "area": "Mountain path",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Jagged Pass",
+        "area": "Rocky slope",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 119 (north)",
+        "area": "Tall grass area",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 120",
+        "area": "Near Ancient Tomb",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Lilycove City",
+        "area": "Department Store roof gift",
+        "method": "Gift",
+        "notes": null
+      },
+      {
+        "location": "Route 123",
+        "area": "Berry master vicinity",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Safari Zone (Hoenn)",
+        "area": "Interior zone item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Victory Road (Hoenn)",
+        "area": "Cave interior",
+        "method": "Overworld item",
+        "notes": null
+      }
+    ],
+    "sapphire": [
+      {
+        "location": "Route 102",
+        "area": "Near Petalburg entrance",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 104 (south)",
+        "area": "Near flower patches",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Petalburg Woods",
+        "area": "Forest floor item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Route 110",
+        "area": "Near Trick House area",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 111 (desert edge)",
+        "area": "Sand tile",
+        "method": "Hidden",
+        "notes": "Requires Go-Goggles"
+      },
+      {
+        "location": "Route 113",
+        "area": "Ash-covered grass",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 114",
+        "area": "Near fossil maniac house",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Fiery Path",
+        "area": "Interior ground item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Mt. Chimney",
+        "area": "Mountain path",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Jagged Pass",
+        "area": "Rocky slope",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 119 (north)",
+        "area": "Tall grass area",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 120",
+        "area": "Near Ancient Tomb",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Lilycove City",
+        "area": "Department Store roof gift",
+        "method": "Gift",
+        "notes": null
+      },
+      {
+        "location": "Route 123",
+        "area": "Berry master vicinity",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Safari Zone (Hoenn)",
+        "area": "Interior zone item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Victory Road (Hoenn)",
+        "area": "Cave interior",
+        "method": "Overworld item",
+        "notes": null
+      }
+    ],
+    "emerald": [
+      {
+        "location": "Route 102",
+        "area": "Near Petalburg entrance",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 104 (south)",
+        "area": "Near flower patches",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Petalburg Woods",
+        "area": "Forest floor item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Route 110",
+        "area": "Near Trick House area",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 111 (desert edge)",
+        "area": "Sand tile",
+        "method": "Hidden",
+        "notes": "Requires Go-Goggles"
+      },
+      {
+        "location": "Route 113",
+        "area": "Ash-covered grass",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 114",
+        "area": "Near fossil maniac house",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Fiery Path",
+        "area": "Interior ground item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Mt. Chimney",
+        "area": "Mountain path",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Jagged Pass",
+        "area": "Rocky slope",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 119 (north)",
+        "area": "Tall grass area",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 120",
+        "area": "Near Ancient Tomb",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Lilycove City",
+        "area": "Department Store roof gift",
+        "method": "Gift",
+        "notes": null
+      },
+      {
+        "location": "Route 123",
+        "area": "Berry master vicinity",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Safari Zone (Hoenn)",
+        "area": "Interior zone item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Victory Road (Hoenn)",
+        "area": "Cave interior",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Route 132 (currents route)",
+        "area": "Island tile",
+        "method": "Hidden",
+        "notes": "Emerald-only location"
+      },
+      {
+        "location": "Battle Frontier",
+        "area": "Exchange/Reward",
+        "method": "Gift",
+        "notes": "Emerald repeatable source"
       }
     ],
     "firered": [
       {
-        "location": "Cerulean Cave",
-        "notes": "Post-game cave on Cerulean City's north side. Multiple candies on different floors.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Cerulean_Cave"
+        "location": "Cerulean City",
+        "area": "Bike Shop backyard",
+        "method": "Hidden",
+        "notes": "Behind building"
       },
       {
-        "location": "Pokémon Mansion",
-        "notes": "Cinnabar Island. Hidden item on one of the upper floors.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Mansion"
+        "location": "Route 9",
+        "area": "Near grass patch",
+        "method": "Hidden",
+        "notes": null
       },
       {
-        "location": "Rocket Hideout",
-        "notes": "Celadon Game Corner basement.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Rocket_Hideout"
+        "location": "Route 10",
+        "area": "Rocky area near Power Plant entrance",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Route 12",
+        "area": "Near fishing house",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 13",
+        "area": "Along fence line",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 17 (Cycling Road)",
+        "area": "Slope section",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 23 (Victory Road path)",
+        "area": "Before Indigo Plateau",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Victory Road (Kanto)",
+        "area": "Interior floor",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Pokemon Tower (Lavender)",
+        "area": "Upper floor",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Silph Co. (Saffron)",
+        "area": "Office floor item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Mt. Ember (One Island)",
+        "area": "Mountain path",
+        "method": "Overworld item",
+        "notes": "Sevii Islands"
+      },
+      {
+        "location": "Berry Forest (Three Island)",
+        "area": "Forest ground",
+        "method": "Hidden",
+        "notes": "Sevii Islands"
+      },
+      {
+        "location": "Lost Cave (Five Island)",
+        "area": "Maze room item",
+        "method": "Overworld item",
+        "notes": "Sevii Islands"
+      },
+      {
+        "location": "Trainer Tower (Seven Island)",
+        "area": "Reward",
+        "method": "Gift",
+        "notes": "Repeatable depending on mode"
       }
     ],
     "leafgreen": [
       {
-        "location": "Cerulean Cave",
-        "notes": "Same as FireRed.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Cerulean_Cave"
+        "location": "Cerulean City",
+        "area": "Bike Shop backyard",
+        "method": "Hidden",
+        "notes": "Behind building"
       },
       {
-        "location": "Pokémon Mansion",
-        "notes": "Same as FireRed.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Mansion"
+        "location": "Route 9",
+        "area": "Near grass patch",
+        "method": "Hidden",
+        "notes": null
       },
       {
-        "location": "Rocket Hideout",
-        "notes": "Same as FireRed.",
-        "source": "https://bulbapedia.bulbagarden.net/wiki/Rocket_Hideout"
+        "location": "Route 10",
+        "area": "Rocky area near Power Plant entrance",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Route 12",
+        "area": "Near fishing house",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 13",
+        "area": "Along fence line",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 17 (Cycling Road)",
+        "area": "Slope section",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Route 23 (Victory Road path)",
+        "area": "Before Indigo Plateau",
+        "method": "Hidden",
+        "notes": null
+      },
+      {
+        "location": "Victory Road (Kanto)",
+        "area": "Interior floor",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Pokemon Tower (Lavender)",
+        "area": "Upper floor",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Silph Co. (Saffron)",
+        "area": "Office floor item",
+        "method": "Overworld item",
+        "notes": null
+      },
+      {
+        "location": "Mt. Ember (One Island)",
+        "area": "Mountain path",
+        "method": "Overworld item",
+        "notes": "Sevii Islands"
+      },
+      {
+        "location": "Berry Forest (Three Island)",
+        "area": "Forest ground",
+        "method": "Hidden",
+        "notes": "Sevii Islands"
+      },
+      {
+        "location": "Lost Cave (Five Island)",
+        "area": "Maze room item",
+        "method": "Overworld item",
+        "notes": "Sevii Islands"
+      },
+      {
+        "location": "Trainer Tower (Seven Island)",
+        "area": "Reward",
+        "method": "Gift",
+        "notes": "Repeatable depending on mode"
       }
     ]
   }
