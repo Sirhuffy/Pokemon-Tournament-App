@@ -1,0 +1,4248 @@
+[
+  {
+    "pokemon": "Bulbasaur",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ivysaur",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Venusaur",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Charmander",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Charmeleon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Charizard",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Squirtle",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Wartortle",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Blastoise",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Caterpie",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Metapod",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Butterfree",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Weedle",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Kakuna",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Beedrill",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Pidgey",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Pidgeotto",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Pidgeot",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 3
+    }
+  },
+  {
+    "pokemon": "Rattata",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Raticate",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Spearow",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Fearow",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Ekans",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Arbok",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Pikachu",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Raichu",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 3
+    }
+  },
+  {
+    "pokemon": "Sandshrew",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Sandslash",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Nidoran-f",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Nidorina",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Nidoqueen",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Nidoran-m",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Nidorino",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Nidoking",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Clefairy",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Clefable",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Vulpix",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Ninetales",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Jigglypuff",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Wigglytuff",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Zubat",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Golbat",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Oddish",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Gloom",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Vileplume",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Paras",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Parasect",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Venonat",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Venomoth",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Diglett",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Dugtrio",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Meowth",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Persian",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Psyduck",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Golduck",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Mankey",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Primeape",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Growlithe",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Arcanine",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Poliwag",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Poliwhirl",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Poliwrath",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 3,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Abra",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Kadabra",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Alakazam",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Machop",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Machoke",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Machamp",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Bellsprout",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Weepinbell",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Victreebel",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Tentacool",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Tentacruel",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Geodude",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Graveler",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Golem",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 3,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ponyta",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Rapidash",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Slowpoke",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Slowbro",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Magnemite",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Magneton",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Farfetchd",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Doduo",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Dodrio",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Seel",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Dewgong",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Grimer",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Muk",
+    "yield": {
+      "hp": 1,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Shellder",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Cloyster",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Gastly",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Haunter",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Gengar",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Onix",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Drowzee",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Hypno",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Krabby",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Kingler",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Voltorb",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Electrode",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Exeggcute",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Exeggutor",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Cubone",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Marowak",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Hitmonlee",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Hitmonchan",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Lickitung",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Koffing",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Weezing",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Rhyhorn",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Rhydon",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Chansey",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Tangela",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Kangaskhan",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Horsea",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Seadra",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Goldeen",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Seaking",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Staryu",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Starmie",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Mr-mime",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Scyther",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Jynx",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Electabuzz",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Magmar",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Pinsir",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Tauros",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Magikarp",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Gyarados",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Lapras",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ditto",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Eevee",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Vaporeon",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Jolteon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Flareon",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Porygon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Omanyte",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Omastar",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Kabuto",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Kabutops",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Aerodactyl",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Snorlax",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Articuno",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Zapdos",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Moltres",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Dratini",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Dragonair",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Dragonite",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Mewtwo",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Mew",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Chikorita",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Bayleef",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Meganium",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Cyndaquil",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Quilava",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Typhlosion",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Totodile",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Croconaw",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Feraligatr",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Sentret",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Furret",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Hoothoot",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Noctowl",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ledyba",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ledian",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Spinarak",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ariados",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Crobat",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 3
+    }
+  },
+  {
+    "pokemon": "Chinchou",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Lanturn",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Pichu",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Cleffa",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Igglybuff",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Togepi",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Togetic",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Natu",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Xatu",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Mareep",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Flaaffy",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ampharos",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Bellossom",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Marill",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Azumarill",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Sudowoodo",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Politoed",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Hoppip",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Skiploom",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Jumpluff",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 3
+    }
+  },
+  {
+    "pokemon": "Aipom",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Sunkern",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Sunflora",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Yanma",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Wooper",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Quagsire",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Espeon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Umbreon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Murkrow",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Slowking",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Misdreavus",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Unown",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Wobbuffet",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Girafarig",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Pineco",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Forretress",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Dunsparce",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Gligar",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Steelix",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Snubbull",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Granbull",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Qwilfish",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Scizor",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Shuckle",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Heracross",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Sneasel",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Teddiursa",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ursaring",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Slugma",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Magcargo",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Swinub",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Piloswine",
+    "yield": {
+      "hp": 1,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Corsola",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Remoraid",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Octillery",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Delibird",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Mantine",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Skarmory",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Houndour",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Houndoom",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Kingdra",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Phanpy",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Donphan",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Porygon2",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Stantler",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Smeargle",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Tyrogue",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Hitmontop",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Smoochum",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Elekid",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Magby",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Miltank",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Blissey",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Raikou",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Entei",
+    "yield": {
+      "hp": 1,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Suicune",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Larvitar",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Pupitar",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Tyranitar",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Lugia",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ho-oh",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Celebi",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Treecko",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Grovyle",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Sceptile",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 3
+    }
+  },
+  {
+    "pokemon": "Torchic",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Combusken",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Blaziken",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Mudkip",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Marshtomp",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Swampert",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Poochyena",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Mightyena",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Zigzagoon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Linoone",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Wurmple",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Silcoon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Beautifly",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Cascoon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Dustox",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Lotad",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Lombre",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ludicolo",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Seedot",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Nuzleaf",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Shiftry",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Taillow",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Swellow",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Wingull",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Pelipper",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ralts",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Kirlia",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Gardevoir",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Surskit",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Masquerain",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Shroomish",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Breloom",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Slakoth",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Vigoroth",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Slaking",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Nincada",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Ninjask",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Shedinja",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Whismur",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Loudred",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Exploud",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Makuhita",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Hariyama",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Azurill",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Nosepass",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Skitty",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Delcatty",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Sableye",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Mawile",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Aron",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Lairon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Aggron",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 3,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Meditite",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Medicham",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Electrike",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Manectric",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Plusle",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Minun",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Volbeat",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Illumise",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Roselia",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Gulpin",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Swalot",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Carvanha",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Sharpedo",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Wailmer",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Wailord",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Numel",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Camerupt",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Torkoal",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Spoink",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Grumpig",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Spinda",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Trapinch",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Vibrava",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Flygon",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 2
+    }
+  },
+  {
+    "pokemon": "Cacnea",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Cacturne",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Swablu",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Altaria",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Zangoose",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Seviper",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Lunatone",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Solrock",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Barboach",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Whiscash",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Corphish",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Crawdaunt",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Baltoy",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Claydol",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Lileep",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Cradily",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Anorith",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Armaldo",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Feebas",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Milotic",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 2,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Castform",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Kecleon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Shuppet",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Banette",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Duskull",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Dusclops",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Tropius",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Chimecho",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Absol",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Wynaut",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Snorunt",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Glalie",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Spheal",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Sealeo",
+    "yield": {
+      "hp": 2,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Walrein",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Clamperl",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Huntail",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Gorebyss",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 2,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Relicanth",
+    "yield": {
+      "hp": 1,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Luvdisc",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 1
+    }
+  },
+  {
+    "pokemon": "Bagon",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Shelgon",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Salamence",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Beldum",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 1,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Metang",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Metagross",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 3,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Regirock",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 3,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Regice",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Registeel",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 2,
+      "spAttack": 0,
+      "spDefense": 1,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Latias",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 3,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Latios",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Kyogre",
+    "yield": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 3,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Groudon",
+    "yield": {
+      "hp": 0,
+      "attack": 3,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Rayquaza",
+    "yield": {
+      "hp": 0,
+      "attack": 2,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Jirachi",
+    "yield": {
+      "hp": 3,
+      "attack": 0,
+      "defense": 0,
+      "spAttack": 0,
+      "spDefense": 0,
+      "speed": 0
+    }
+  },
+  {
+    "pokemon": "Deoxys-normal",
+    "yield": {
+      "hp": 0,
+      "attack": 1,
+      "defense": 0,
+      "spAttack": 1,
+      "spDefense": 0,
+      "speed": 1
+    }
+  }
+]

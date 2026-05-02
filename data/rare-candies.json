@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "description": "Rare Candy locations per game. EDIT THIS FILE to add your verified entries.",
+    "schema": {
+      "perGame": "Game key -> array of { location, notes, source }",
+      "location": "Where to find it (e.g. 'Cerulean Cave 1F NE corner')",
+      "notes": "How to find it / requirements",
+      "source": "URL to verify (Bulbapedia, Serebii, etc.)"
+    },
+    "verificationReminder": "Verify every entry against your cartridge before relying on it for the tournament."
+  },
+  "perGame": {
+    "gold": [],
+    "silver": [],
+    "crystal": [
+      {
+        "location": "Cerulean Cave",
+        "notes": "Post-game Kanto. Multiple candies hidden across the cave's three floors.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Cerulean_Cave"
+      },
+      {
+        "location": "Mt. Mortar",
+        "notes": "Hidden inside the cave system between Ecruteak and Mahogany. Requires Surf and Strength.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Mt._Mortar"
+      },
+      {
+        "location": "Mt. Silver",
+        "notes": "Hidden item inside the cave. Endgame only — accessible after defeating the Elite Four.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Mt._Silver"
+      }
+    ],
+    "ruby": [],
+    "sapphire": [],
+    "emerald": [
+      {
+        "location": "Mt. Pyre Summit",
+        "notes": "Hidden item near the top of the outdoor section of Mt. Pyre.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Mt._Pyre"
+      },
+      {
+        "location": "Sky Pillar",
+        "notes": "Found within Sky Pillar, accessible during/after the Rayquaza event.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Sky_Pillar"
+      }
+    ],
+    "firered": [
+      {
+        "location": "Cerulean Cave",
+        "notes": "Post-game cave on Cerulean City's north side. Multiple candies on different floors.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Cerulean_Cave"
+      },
+      {
+        "location": "Pokémon Mansion",
+        "notes": "Cinnabar Island. Hidden item on one of the upper floors.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Mansion"
+      },
+      {
+        "location": "Rocket Hideout",
+        "notes": "Celadon Game Corner basement.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Rocket_Hideout"
+      }
+    ],
+    "leafgreen": [
+      {
+        "location": "Cerulean Cave",
+        "notes": "Same as FireRed.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Cerulean_Cave"
+      },
+      {
+        "location": "Pokémon Mansion",
+        "notes": "Same as FireRed.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Mansion"
+      },
+      {
+        "location": "Rocket Hideout",
+        "notes": "Same as FireRed.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/Rocket_Hideout"
+      }
+    ]
+  }
+}

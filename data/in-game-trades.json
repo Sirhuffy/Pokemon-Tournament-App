@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "description": "NPC in-game trades. Traded Pokemon receive a 1.5× experience boost — useful for the 18-hour clock. EDIT THIS FILE to add your verified entries.",
+    "schema": {
+      "perGame": "Game key -> array of trades",
+      "npc": "Name or description of the NPC",
+      "location": "Where in-game you find them",
+      "wants": "The Pokemon you must give",
+      "gives": "The Pokemon you receive",
+      "givesNickname": "(optional) The nickname the traded Pokemon comes with",
+      "notes": "(optional) Conditions, level, useful items held, etc.",
+      "source": "URL to verify"
+    },
+    "verificationReminder": "Verify every trade against your cartridge before relying on it for the tournament."
+  },
+  "perGame": {
+    "gold": [],
+    "silver": [],
+    "crystal": [
+      {
+        "npc": "Trader (Onix house)",
+        "location": "Violet City",
+        "wants": "Bellsprout",
+        "gives": "Onix",
+        "givesNickname": "ROCKY",
+        "notes": "House to the right of the Pokémon Center. Useful for early Rock/Ground type.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Goldenrod City Department Store / Underground area",
+        "wants": "Drowzee",
+        "gives": "Machop",
+        "givesNickname": "MUSCLE",
+        "notes": "Useful for evolving via trade-back into Machamp.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Olivine City",
+        "wants": "Krabby",
+        "gives": "Voltorb",
+        "givesNickname": "VOLTY",
+        "notes": "Krabby available via Old Rod on routes near Olivine.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      }
+    ],
+    "ruby": [],
+    "sapphire": [],
+    "emerald": [
+      {
+        "npc": "Trader",
+        "location": "Pacifidlog Town",
+        "wants": "Horsea",
+        "gives": "Bagon",
+        "notes": "Bagon is otherwise extremely rare in Emerald (Meteor Falls B2F). This trade saves significant time.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      }
+    ],
+    "firered": [
+      {
+        "npc": "Trader",
+        "location": "Route 2 (north of Pewter Gate)",
+        "wants": "Abra",
+        "gives": "Mr. Mime",
+        "givesNickname": "MIMIEN",
+        "notes": "Mr. Mime is otherwise unobtainable in FRLG without trading.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Cinnabar Island",
+        "wants": "Raichu",
+        "gives": "Electrode",
+        "notes": "Helpful for Pokédex completion.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Route 18",
+        "wants": "Slowbro",
+        "gives": "Lickitung",
+        "givesNickname": "LICKY",
+        "notes": "Lickitung is otherwise unavailable in FRLG.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      }
+    ],
+    "leafgreen": [
+      {
+        "npc": "Trader",
+        "location": "Route 2 (north of Pewter Gate)",
+        "wants": "Abra",
+        "gives": "Mr. Mime",
+        "givesNickname": "MIMIEN",
+        "notes": "Same as FireRed.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Route 18",
+        "wants": "Slowbro",
+        "gives": "Lickitung",
+        "givesNickname": "LICKY",
+        "notes": "Same as FireRed.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      }
+    ]
+  }
+}
