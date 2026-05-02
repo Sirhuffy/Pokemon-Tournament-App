@@ -26,6 +26,9 @@ const DATA = {
   natures: [],
   items: [],          // optional — populated once user runs build_items.py
   machines: null,     // optional — { perGame, compatibility } from build_machines.py
+  evYields: [],       // optional — populated once user runs build_pokemon_evs.py
+  candies: null,      // optional — { perGame: { game: [{location, notes, source}] } }
+  trades: null,       // optional — { perGame: { game: [{npc, location, gives, ...}] } }
 };
 
 // Indexed for O(1) lookup (we have ~386 mons / 354 moves)
@@ -36,6 +39,7 @@ const IDX = {
   encountersByName: {},
   itemsByName: {},
   tmsByPokemon: {},   // { pokemonName -> { versionGroup -> [moveName, ...] } }
+  evByPokemon: {},    // { pokemonName -> { hp, attack, defense, spAttack, spDefense, speed } }
 };
 
 // Type chart (Gen 2+ — Steel/Dark exist; in Gen 1 they don't, but
@@ -67,7 +71,7 @@ async function initApp() {
   try {
     // Load all data in parallel. tournament-rules.json is required;
     // others degrade gracefully if missing.
-    const [rulesRes, pokemonRes, movesRes, learnsetsRes, encountersRes, naturesRes, itemsRes, machinesRes] = await Promise.all([
+    const [rulesRes, pokemonRes, movesRes, learnsetsRes, encountersRes, naturesRes, itemsRes, machinesRes, evRes, candiesRes, tradesRes] = await Promise.all([
       fetchJSON("data/tournament-rules.json", true),
       fetchJSON("data/pokemon-core.json", true),
       fetchJSON("data/moves.json", true),
@@ -76,6 +80,9 @@ async function initApp() {
       fetchJSON("data/natures.json", false),
       fetchJSON("data/items.json", false),
       fetchJSON("data/machines.json", false),
+      fetchJSON("data/ev-yields.json", false),
+      fetchJSON("data/rare-candies.json", false),
+      fetchJSON("data/in-game-trades.json", false),
     ]);
 
     STATE.rules     = rulesRes;
@@ -87,6 +94,9 @@ async function initApp() {
     DATA.items      = Array.isArray(itemsRes) ? itemsRes : [];
     // machines.json may be in old shape (from PokeAPI build) or null
     DATA.machines   = (machinesRes && machinesRes.perGame) ? machinesRes : null;
+    DATA.evYields   = Array.isArray(evRes) ? evRes : [];
+    DATA.candies    = (candiesRes && candiesRes.perGame) ? candiesRes : null;
+    DATA.trades     = (tradesRes && tradesRes.perGame) ? tradesRes : null;
 
     // Build indexes
     DATA.pokemon.forEach(p    => IDX.pokemonByName[p.name] = p);
@@ -97,6 +107,7 @@ async function initApp() {
     if (DATA.machines && Array.isArray(DATA.machines.compatibility)) {
       DATA.machines.compatibility.forEach(c => IDX.tmsByPokemon[c.pokemon] = c.tms);
     }
+    DATA.evYields.forEach(e => IDX.evByPokemon[e.pokemon] = e.yield);
 
     loadSavedState();
     bindControls();
@@ -210,16 +221,20 @@ function openPage(page) {
   });
 
   switch (page) {
-    case "team":     return renderTeamPage();
-    case "pokedex":  return renderPokedexPage();
-    case "maps":     return renderMapsPage();
-    case "moves":    return renderMovesPage();
-    case "items":    return renderItemsPage();
-    case "tms":      return renderTMsPage();
-    case "ivcalc":   return renderIVCalcPage();
-    case "weakness": return renderWeaknessPage();
-    case "rules":    return renderRulesPage();
-    default:         return renderTeamPage();
+    case "team":      return renderTeamPage();
+    case "pokedex":   return renderPokedexPage();
+    case "maps":      return renderMapsPage();
+    case "moves":     return renderMovesPage();
+    case "items":     return renderItemsPage();
+    case "tms":       return renderTMsPage();
+    case "ivcalc":    return renderIVCalcPage();
+    case "weakness":  return renderWeaknessPage();
+    case "typechart": return renderTypeChartPage();
+    case "evtrain":   return renderEVTrainPage();
+    case "candies":   return renderCandiesPage();
+    case "trades":    return renderTradesPage();
+    case "rules":     return renderRulesPage();
+    default:          return renderTeamPage();
   }
 }
 
@@ -1363,6 +1378,202 @@ function renderAreaDetail(areaName, areas) {
   $$(".view-pokemon-btn").forEach(btn => {
     btn.addEventListener("click", () => showPokemonDetail(btn.dataset.name));
   });
+}
+
+// ============================ TYPE CHART PAGE ============================
+function renderTypeChartPage() {
+  const types = Object.keys(TYPE_CHART);
+  // Build effectiveness: ATK -> DEF -> multiplier
+  function eff(atk, def) {
+    const c = TYPE_CHART[def];
+    if (!c) return 1;
+    if (c.immuneTo.includes(atk)) return 0;
+    if (c.weakTo.includes(atk))   return 2;
+    if (c.resists.includes(atk))  return 0.5;
+    return 1;
+  }
+
+  // Header row: defending types as columns. First column is attacker.
+  let grid = `<div style="overflow:auto; padding-bottom:12px;">
+    <div style="display:grid; grid-template-columns:auto repeat(${types.length}, 28px); gap:2px; min-width:max-content; font-size:10px;">
+      <div></div>
+      ${types.map(t => `<div title="${t}" class="type-pill type-${t}" style="writing-mode:vertical-rl; transform:rotate(180deg); padding:6px 2px; text-align:center; font-size:9px;">${t.slice(0,4)}</div>`).join("")}`;
+  for (const atk of types) {
+    grid += `<div class="type-pill type-${atk}" style="padding:4px 6px; text-align:center;">${atk.slice(0,4)}</div>`;
+    for (const def of types) {
+      const m = eff(atk, def);
+      const bg = m === 0   ? "#1a1a1a" :
+                 m === 2   ? "rgba(74,222,128,0.35)" :
+                 m === 0.5 ? "rgba(255,90,90,0.30)" :
+                             "var(--bg-elev)";
+      const sym = m === 0 ? "0" : m === 2 ? "2×" : m === 0.5 ? "½" : "";
+      const color = m === 0 ? "var(--text-faint)" : m === 2 ? "var(--good)" : m === 0.5 ? "var(--danger)" : "var(--text-dim)";
+      grid += `<div style="background:${bg}; color:${color}; text-align:center; padding:4px 0; border-radius:3px; font-weight:600;">${sym}</div>`;
+    }
+  }
+  grid += `</div></div>`;
+
+  const html = `
+    <h2>Type Effectiveness</h2>
+    <p class="muted tiny">Read row → column. Row = attacking type, column = defending type.
+       Built for Gen 1–3 (no Fairy type). Selecting your game family colors single-type pokemon contextually elsewhere.</p>
+    ${grid}
+
+    <h3>Quick Reference</h3>
+    <div class="row-list">
+      ${types.map(t => {
+        const c = TYPE_CHART[t];
+        const wk = c.weakTo.length    ? `<div class="meta">Weak to: ${c.weakTo.map(x => `<span class="type-pill type-${x}">${x}</span>`).join("")}</div>` : "";
+        const rs = c.resists.length   ? `<div class="meta">Resists: ${c.resists.map(x => `<span class="type-pill type-${x}">${x}</span>`).join("")}</div>` : "";
+        const im = c.immuneTo.length  ? `<div class="meta">Immune to: ${c.immuneTo.map(x => `<span class="type-pill type-${x}">${x}</span>`).join("")}</div>` : "";
+        return `<div class="row">
+          <div class="row-main">
+            <div class="name"><span class="type-pill type-${t}">${t}</span></div>
+            ${wk}${rs}${im}
+          </div>
+        </div>`;
+      }).join("")}
+    </div>
+  `;
+  setContent(html);
+}
+
+// ============================ EV TRAINING PAGE ============================
+const evState = { stat: "speed" };
+const STAT_LABELS = { hp: "HP", attack: "Attack", defense: "Defense", spAttack: "Sp. Attack", spDefense: "Sp. Defense", speed: "Speed" };
+
+function renderEVTrainPage() {
+  if (!DATA.evYields.length) {
+    setContent(`<h2>EV Training</h2>
+      <div class="empty"><span class="emoji">💪</span>
+        <p>No EV-yield data yet.</p>
+        <p class="tiny">Run <code>python3 tools/build_pokemon_evs.py</code> from the project folder
+          to fetch each Pokémon's EV yield from PokeAPI. Then refresh.</p>
+      </div>`);
+    return;
+  }
+  const isGen2 = gameInfo().family === "gsc";
+  const html = `
+    <h2>EV Training Spots — ${escapeHtml(gameInfo().label)}</h2>
+    ${isGen2 ? `<div class="warning">Gen 2 uses <strong>Stat Experience</strong>, not EVs. The same KO targets still help — every battle awards stat XP — but the cap is different (25,600 per stat vs 252 in Gen 3).</div>` : ""}
+    <label class="muted tiny" style="margin-top:10px; display:block;">Stat to train</label>
+    <select id="evStat">
+      ${Object.entries(STAT_LABELS).map(([k, v]) => `<option value="${k}" ${evState.stat===k?"selected":""}>${v}</option>`).join("")}
+    </select>
+    <div id="evResults" class="row-list" style="margin-top:14px;"></div>
+  `;
+  setContent(html);
+  $("#evStat").addEventListener("change", (e) => { evState.stat = e.target.value; updateEVResults(); });
+  updateEVResults();
+}
+
+function updateEVResults() {
+  const stat = evState.stat;
+  const game = gameInfo().encountersKey;
+
+  // Find all pokemon yielding the selected stat
+  const yielders = DATA.evYields
+    .filter(e => (e.yield?.[stat] || 0) > 0)
+    .sort((a, b) => (b.yield[stat] || 0) - (a.yield[stat] || 0));
+
+  // Map to encounter data, dedupe by area+method, score = (yield × encounter rate)
+  const spots = [];
+  for (const y of yielders) {
+    const enc = IDX.encountersByName[y.pokemon];
+    if (!enc) continue;
+    const locs = enc.games?.[game] || [];
+    const seen = new Set();
+    for (const loc of locs) {
+      if (loc.method !== "walk" && loc.method !== "surf" && !loc.method.includes("rod")) continue; // skip events/gifts
+      const key = `${loc.area}|${loc.method}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const ratePct = parseFloat(loc.rate) || 0;
+      spots.push({
+        pokemon: y.pokemon,
+        area: loc.area,
+        method: loc.method,
+        rate: loc.rate,
+        levels: loc.levels,
+        yieldVal: y.yield[stat],
+        score: (y.yield[stat] || 0) * ratePct, // higher = more EVs per slot
+      });
+    }
+  }
+  spots.sort((a, b) => b.score - a.score);
+
+  const top = spots.slice(0, 30);
+  const html = top.length === 0
+    ? `<div class="empty"><span class="emoji">🔍</span><p>No farming spots found for ${STAT_LABELS[stat]} in ${escapeHtml(gameInfo().label)}.</p></div>`
+    : top.map(s => `<div class="row">
+        <div class="row-main">
+          <div class="name">${escapeHtml(s.pokemon)} <span class="badge badge-tag">+${s.yieldVal} ${STAT_LABELS[stat]}</span></div>
+          <div class="meta">${escapeHtml(s.area)} · ${escapeHtml(methodLabel(s.method))} · ${escapeHtml(s.rate)} · Lv ${escapeHtml(s.levels || "?")}</div>
+        </div>
+      </div>`).join("");
+  $("#evResults").innerHTML = html;
+}
+
+// ============================ RARE CANDIES PAGE ============================
+function renderCandiesPage() {
+  if (!DATA.candies) {
+    setContent(`<h2>Rare Candies</h2>
+      <div class="empty"><span class="emoji">🍬</span><p>No Rare Candy data file present.</p></div>`);
+    return;
+  }
+  const game = STATE.currentGame;
+  const list = DATA.candies.perGame?.[game] || [];
+
+  let html = `
+    <h2>Rare Candies — ${escapeHtml(gameInfo().label)}</h2>
+    <div class="warning">⚠️ <strong>Hand-curated from Bulbapedia.</strong> Verify each entry against your cartridge before relying on it for the tournament. Edit <code>data/rare-candies.json</code> to correct or expand.</div>
+    <p class="muted tiny" style="margin-top:8px;">${list.length} known location${list.length===1?"":"s"} for this game.</p>
+  `;
+  if (list.length === 0) {
+    html += `<div class="empty"><span class="emoji">📭</span><p>No entries yet for ${escapeHtml(gameInfo().label)}.</p></div>`;
+  } else {
+    html += `<div class="row-list">${list.map(c => `
+      <div class="row">
+        <div class="row-main">
+          <div class="name">${escapeHtml(c.location)}</div>
+          <div class="meta">${escapeHtml(c.notes || "")}</div>
+          ${c.source ? `<div class="muted tiny" style="margin-top:4px;">↗ <a href="${escapeHtml(c.source)}" target="_blank" rel="noopener">${escapeHtml(c.source)}</a></div>` : ""}
+        </div>
+      </div>`).join("")}</div>`;
+  }
+  setContent(html);
+}
+
+// ============================ IN-GAME TRADES PAGE ============================
+function renderTradesPage() {
+  if (!DATA.trades) {
+    setContent(`<h2>In-Game Trades</h2>
+      <div class="empty"><span class="emoji">🤝</span><p>No trade data file present.</p></div>`);
+    return;
+  }
+  const game = STATE.currentGame;
+  const list = DATA.trades.perGame?.[game] || [];
+
+  let html = `
+    <h2>In-Game Trades — ${escapeHtml(gameInfo().label)}</h2>
+    <p class="muted tiny">Traded Pokémon receive a <strong>1.5× experience boost</strong>, useful for racing the 18-hour clock.</p>
+    <div class="warning">⚠️ <strong>Hand-curated from Bulbapedia.</strong> Verify each entry against your cartridge before tournament use. Edit <code>data/in-game-trades.json</code> to correct or expand.</div>
+    <p class="muted tiny" style="margin-top:8px;">${list.length} known trade${list.length===1?"":"s"} for this game.</p>
+  `;
+  if (list.length === 0) {
+    html += `<div class="empty"><span class="emoji">📭</span><p>No entries yet for ${escapeHtml(gameInfo().label)}.</p></div>`;
+  } else {
+    html += `<div class="row-list">${list.map(t => `
+      <div class="row">
+        <div class="row-main">
+          <div class="name">${escapeHtml(t.gives || "?")} ${t.givesNickname ? `<span class="badge badge-tag">"${escapeHtml(t.givesNickname)}"</span>` : ""}</div>
+          <div class="meta">From ${escapeHtml(t.npc || "NPC")} in ${escapeHtml(t.location || "?")} · wants ${escapeHtml(t.wants || "?")}</div>
+          ${t.notes ? `<div class="muted tiny" style="margin-top:4px;">${escapeHtml(t.notes)}</div>` : ""}
+          ${t.source ? `<div class="muted tiny" style="margin-top:4px;">↗ <a href="${escapeHtml(t.source)}" target="_blank" rel="noopener">${escapeHtml(t.source)}</a></div>` : ""}
+        </div>
+      </div>`).join("")}</div>`;
+  }
+  setContent(html);
 }
 
 // ============================ RULES PAGE ============================
