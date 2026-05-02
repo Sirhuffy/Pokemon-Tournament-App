@@ -69,12 +69,6 @@
         "area": "North dead-end path",
         "method": "Hidden",
         "notes": null
-      },
-      {
-        "location": "Vermilion City",
-        "area": "Story reward (NPC)",
-        "method": "Gift",
-        "notes": null
       }
     ],
     "silver": [
@@ -137,12 +131,6 @@
         "area": "North dead-end path",
         "method": "Hidden",
         "notes": null
-      },
-      {
-        "location": "Vermilion City",
-        "area": "Story reward (NPC)",
-        "method": "Gift",
-        "notes": null
       }
     ],
     "crystal": [
@@ -204,12 +192,6 @@
         "location": "Cinnabar Island",
         "area": "North dead-end path",
         "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Vermilion City",
-        "area": "Story reward (NPC)",
-        "method": "Gift",
         "notes": null
       },
       {

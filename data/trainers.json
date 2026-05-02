@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "description": "Tournament-relevant trainer rosters scraped from Bulbapedia. Each trainer has one or more rosters keyed by the games that share that roster.",
+    "scope": "Gym Leaders, Elite Four, Champion, Rival(s) — for the games covered by this app (GSC, RSE, FRLG).",
+    "fields": {
+      "role": "Gym Leader | Elite Four | Champion | Rival",
+      "specialty": "Type the trainer specializes in (or null for rivals/champions)",
+      "rosters": "Array of {games: [game keys], team: [...]}. Multiple entries when within a family there's variation (e.g. Emerald differs from R/S).",
+      "team[i].moves": "Moveset Bulbapedia lists for that game version. May be incomplete on Bulbapedia for older games — verify if exact moves matter."
+    }
+  },
+  "trainers": [
+    {
+      "id": "gsc-falkner",
+      "name": "Falkner",
+      "role": "Gym Leader",
+      "title": "The Elegant Master of Flying Pokémon",
+      "specialty": "Flying",
+      "location": "Violet City Gym",
+      "badge": "Zephyr Badge",
+      "order": 1,
+      "rosters": [
+        {
+          "games": ["gold", "silver", "crystal"],
+          "moneyReward": 900,
+          "tmReward": "TM31 Mud-Slap",
+          "team": [
+            {
+              "species": "Pidgey",
+              "level": 7,
+              "gender": "M",
+              "heldItem": null,
+              "moves": ["Tackle", "Mud-Slap"]
+            },
+            {
+              "species": "Pidgeotto",
+              "level": 9,
+              "gender": "M",
+              "heldItem": null,
+              "moves": ["Tackle", "Gust", "Mud-Slap"]
+            }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Falkner"
+    }
+  ]
+}

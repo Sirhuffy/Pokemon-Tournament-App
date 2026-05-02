@@ -1,0 +1,8445 @@
+[
+  {
+    "pokemon": "Bulbasaur",
+    "eggMoves": {
+      "gold-silver": [
+        "Charm",
+        "Light Screen",
+        "Petal Dance",
+        "Razor Wind",
+        "Safeguard",
+        "Skull Bash"
+      ],
+      "crystal": [
+        "Light Screen",
+        "Petal Dance",
+        "Razor Wind",
+        "Safeguard",
+        "Skull Bash"
+      ],
+      "ruby-sapphire": [
+        "Charm",
+        "Curse",
+        "Grass Whistle",
+        "Light Screen",
+        "Magical Leaf",
+        "Petal Dance",
+        "Safeguard",
+        "Skull Bash"
+      ],
+      "emerald": [
+        "Charm",
+        "Curse",
+        "Grass Whistle",
+        "Light Screen",
+        "Magical Leaf",
+        "Petal Dance",
+        "Safeguard",
+        "Skull Bash"
+      ],
+      "firered-leafgreen": [
+        "Charm",
+        "Curse",
+        "Grass Whistle",
+        "Light Screen",
+        "Magical Leaf",
+        "Petal Dance",
+        "Safeguard",
+        "Skull Bash"
+      ]
+    }
+  },
+  {
+    "pokemon": "Ivysaur",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Venusaur",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Charmander",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Beat Up",
+        "Belly Drum",
+        "Bite",
+        "Outrage",
+        "Rock Slide"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Beat Up",
+        "Belly Drum",
+        "Bite",
+        "Outrage",
+        "Rock Slide"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Beat Up",
+        "Belly Drum",
+        "Bite",
+        "Dragon Dance",
+        "Outrage",
+        "Rock Slide",
+        "Swords Dance"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Beat Up",
+        "Belly Drum",
+        "Bite",
+        "Dragon Dance",
+        "Outrage",
+        "Rock Slide",
+        "Swords Dance"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Beat Up",
+        "Belly Drum",
+        "Bite",
+        "Dragon Dance",
+        "Outrage",
+        "Rock Slide",
+        "Swords Dance"
+      ]
+    }
+  },
+  {
+    "pokemon": "Charmeleon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Charizard",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Squirtle",
+    "eggMoves": {
+      "gold-silver": [
+        "Confusion",
+        "Flail",
+        "Foresight",
+        "Haze",
+        "Mirror Coat",
+        "Mist"
+      ],
+      "crystal": [
+        "Confusion",
+        "Flail",
+        "Foresight",
+        "Haze",
+        "Mirror Coat",
+        "Mist"
+      ],
+      "ruby-sapphire": [
+        "Flail",
+        "Foresight",
+        "Haze",
+        "Mirror Coat",
+        "Mist",
+        "Mud Sport",
+        "Refresh",
+        "Yawn"
+      ],
+      "emerald": [
+        "Flail",
+        "Foresight",
+        "Haze",
+        "Mirror Coat",
+        "Mist",
+        "Mud Sport",
+        "Refresh",
+        "Yawn"
+      ],
+      "firered-leafgreen": [
+        "Flail",
+        "Foresight",
+        "Haze",
+        "Mirror Coat",
+        "Mist",
+        "Mud Sport",
+        "Refresh",
+        "Yawn"
+      ]
+    }
+  },
+  {
+    "pokemon": "Wartortle",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Blastoise",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Caterpie",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Metapod",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Butterfree",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Weedle",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Kakuna",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Beedrill",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Pidgey",
+    "eggMoves": {
+      "gold-silver": [
+        "Feint Attack",
+        "Foresight",
+        "Pursuit",
+        "Steel Wing"
+      ],
+      "crystal": [
+        "Feint Attack",
+        "Foresight",
+        "Pursuit"
+      ],
+      "ruby-sapphire": [
+        "Air Cutter",
+        "Feint Attack",
+        "Foresight",
+        "Pursuit",
+        "Steel Wing"
+      ],
+      "emerald": [
+        "Air Cutter",
+        "Feint Attack",
+        "Foresight",
+        "Pursuit",
+        "Steel Wing"
+      ],
+      "firered-leafgreen": [
+        "Air Cutter",
+        "Feint Attack",
+        "Foresight",
+        "Pursuit",
+        "Steel Wing"
+      ]
+    }
+  },
+  {
+    "pokemon": "Pidgeotto",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Pidgeot",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Rattata",
+    "eggMoves": {
+      "gold-silver": [
+        "Bite",
+        "Counter",
+        "Flame Wheel",
+        "Fury Swipes",
+        "Reversal",
+        "Screech"
+      ],
+      "crystal": [
+        "Bite",
+        "Counter",
+        "Flame Wheel",
+        "Fury Swipes",
+        "Reversal",
+        "Screech"
+      ],
+      "ruby-sapphire": [
+        "Bite",
+        "Counter",
+        "Flame Wheel",
+        "Fury Swipes",
+        "Reversal",
+        "Screech",
+        "Swagger",
+        "Uproar"
+      ],
+      "emerald": [
+        "Bite",
+        "Counter",
+        "Flame Wheel",
+        "Fury Swipes",
+        "Reversal",
+        "Screech",
+        "Swagger",
+        "Uproar"
+      ],
+      "firered-leafgreen": [
+        "Bite",
+        "Counter",
+        "Flame Wheel",
+        "Fury Swipes",
+        "Reversal",
+        "Screech",
+        "Swagger",
+        "Uproar"
+      ]
+    }
+  },
+  {
+    "pokemon": "Raticate",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Spearow",
+    "eggMoves": {
+      "gold-silver": [
+        "False Swipe",
+        "Feint Attack",
+        "Quick Attack",
+        "Scary Face",
+        "Tri Attack"
+      ],
+      "crystal": [
+        "False Swipe",
+        "Feint Attack",
+        "Quick Attack",
+        "Scary Face",
+        "Tri Attack"
+      ],
+      "ruby-sapphire": [
+        "Astonish",
+        "False Swipe",
+        "Feint Attack",
+        "Quick Attack",
+        "Scary Face",
+        "Sky Attack",
+        "Tri Attack"
+      ],
+      "emerald": [
+        "Astonish",
+        "False Swipe",
+        "Feint Attack",
+        "Quick Attack",
+        "Scary Face",
+        "Sky Attack",
+        "Tri Attack"
+      ],
+      "firered-leafgreen": [
+        "Astonish",
+        "False Swipe",
+        "Feint Attack",
+        "Quick Attack",
+        "Scary Face",
+        "Sky Attack",
+        "Tri Attack"
+      ]
+    }
+  },
+  {
+    "pokemon": "Fearow",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Ekans",
+    "eggMoves": {
+      "gold-silver": [
+        "Beat Up",
+        "Pursuit",
+        "Slam",
+        "Spite"
+      ],
+      "crystal": [
+        "Beat Up",
+        "Crunch",
+        "Pursuit",
+        "Slam",
+        "Spite"
+      ],
+      "ruby-sapphire": [
+        "Beat Up",
+        "Poison Fang",
+        "Pursuit",
+        "Slam",
+        "Spite"
+      ],
+      "emerald": [
+        "Beat Up",
+        "Poison Fang",
+        "Pursuit",
+        "Slam",
+        "Spite"
+      ],
+      "firered-leafgreen": [
+        "Beat Up",
+        "Poison Fang",
+        "Pursuit",
+        "Slam",
+        "Spite"
+      ]
+    }
+  },
+  {
+    "pokemon": "Arbok",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Pikachu",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Raichu",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Sandshrew",
+    "eggMoves": {
+      "gold-silver": [
+        "Counter",
+        "Flail",
+        "Rapid Spin",
+        "Safeguard"
+      ],
+      "crystal": [
+        "Counter",
+        "Flail",
+        "Metal Claw",
+        "Rapid Spin",
+        "Safeguard"
+      ],
+      "ruby-sapphire": [
+        "Counter",
+        "Crush Claw",
+        "Flail",
+        "Metal Claw",
+        "Rapid Spin",
+        "Rock Slide",
+        "Safeguard",
+        "Swords Dance"
+      ],
+      "emerald": [
+        "Counter",
+        "Crush Claw",
+        "Flail",
+        "Metal Claw",
+        "Rapid Spin",
+        "Rock Slide",
+        "Safeguard",
+        "Swords Dance"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Crush Claw",
+        "Flail",
+        "Metal Claw",
+        "Rapid Spin",
+        "Rock Slide",
+        "Safeguard",
+        "Swords Dance"
+      ]
+    }
+  },
+  {
+    "pokemon": "Sandslash",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Nidoran-f",
+    "eggMoves": {
+      "gold-silver": [
+        "Beat Up",
+        "Charm",
+        "Counter",
+        "Disable",
+        "Focus Energy",
+        "Supersonic",
+        "Take Down"
+      ],
+      "crystal": [
+        "Beat Up",
+        "Charm",
+        "Counter",
+        "Disable",
+        "Focus Energy",
+        "Supersonic",
+        "Take Down"
+      ],
+      "ruby-sapphire": [
+        "Beat Up",
+        "Charm",
+        "Counter",
+        "Disable",
+        "Focus Energy",
+        "Supersonic",
+        "Take Down"
+      ],
+      "emerald": [
+        "Beat Up",
+        "Charm",
+        "Counter",
+        "Disable",
+        "Focus Energy",
+        "Supersonic",
+        "Take Down"
+      ],
+      "firered-leafgreen": [
+        "Beat Up",
+        "Charm",
+        "Counter",
+        "Disable",
+        "Focus Energy",
+        "Supersonic",
+        "Take Down"
+      ]
+    }
+  },
+  {
+    "pokemon": "Nidorina",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Nidoqueen",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Nidoran-m",
+    "eggMoves": {
+      "gold-silver": [
+        "Amnesia",
+        "Beat Up",
+        "Confusion",
+        "Counter",
+        "Disable",
+        "Supersonic",
+        "Take Down"
+      ],
+      "crystal": [
+        "Amnesia",
+        "Beat Up",
+        "Confusion",
+        "Counter",
+        "Disable",
+        "Supersonic",
+        "Take Down"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Beat Up",
+        "Confusion",
+        "Counter",
+        "Disable",
+        "Supersonic",
+        "Take Down"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Beat Up",
+        "Confusion",
+        "Counter",
+        "Disable",
+        "Supersonic",
+        "Take Down"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Beat Up",
+        "Confusion",
+        "Counter",
+        "Disable",
+        "Supersonic",
+        "Take Down"
+      ]
+    }
+  },
+  {
+    "pokemon": "Nidorino",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Nidoking",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Clefairy",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Clefable",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Vulpix",
+    "eggMoves": {
+      "gold-silver": [
+        "Disable",
+        "Feint Attack",
+        "Flail",
+        "Hypnosis",
+        "Spite"
+      ],
+      "crystal": [
+        "Disable",
+        "Feint Attack",
+        "Flail",
+        "Hypnosis",
+        "Spite"
+      ],
+      "ruby-sapphire": [
+        "Disable",
+        "Feint Attack",
+        "Flail",
+        "Heat Wave",
+        "Howl",
+        "Hypnosis",
+        "Psych Up",
+        "Spite"
+      ],
+      "emerald": [
+        "Disable",
+        "Feint Attack",
+        "Flail",
+        "Heat Wave",
+        "Howl",
+        "Hypnosis",
+        "Psych Up",
+        "Spite"
+      ],
+      "firered-leafgreen": [
+        "Disable",
+        "Feint Attack",
+        "Flail",
+        "Heat Wave",
+        "Howl",
+        "Hypnosis",
+        "Psych Up",
+        "Spite"
+      ]
+    }
+  },
+  {
+    "pokemon": "Ninetales",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Jigglypuff",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Wigglytuff",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Zubat",
+    "eggMoves": {
+      "gold-silver": [
+        "Feint Attack",
+        "Gust",
+        "Pursuit",
+        "Quick Attack",
+        "Whirlwind"
+      ],
+      "crystal": [
+        "Feint Attack",
+        "Gust",
+        "Pursuit",
+        "Quick Attack",
+        "Whirlwind"
+      ],
+      "ruby-sapphire": [
+        "Curse",
+        "Feint Attack",
+        "Gust",
+        "Pursuit",
+        "Quick Attack",
+        "Whirlwind"
+      ],
+      "emerald": [
+        "Curse",
+        "Feint Attack",
+        "Gust",
+        "Pursuit",
+        "Quick Attack",
+        "Whirlwind"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Feint Attack",
+        "Gust",
+        "Pursuit",
+        "Quick Attack",
+        "Whirlwind"
+      ]
+    }
+  },
+  {
+    "pokemon": "Golbat",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Oddish",
+    "eggMoves": {
+      "gold-silver": [
+        "Charm",
+        "Flail",
+        "Razor Leaf",
+        "Swords Dance",
+        "Synthesis"
+      ],
+      "crystal": [
+        "Flail",
+        "Razor Leaf",
+        "Swords Dance",
+        "Synthesis"
+      ],
+      "ruby-sapphire": [
+        "Charm",
+        "Flail",
+        "Ingrain",
+        "Razor Leaf",
+        "Swords Dance",
+        "Synthesis"
+      ],
+      "emerald": [
+        "Charm",
+        "Flail",
+        "Ingrain",
+        "Razor Leaf",
+        "Swords Dance",
+        "Synthesis"
+      ],
+      "firered-leafgreen": [
+        "Charm",
+        "Flail",
+        "Ingrain",
+        "Razor Leaf",
+        "Swords Dance",
+        "Synthesis"
+      ]
+    }
+  },
+  {
+    "pokemon": "Gloom",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Vileplume",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Paras",
+    "eggMoves": {
+      "gold-silver": [
+        "Counter",
+        "False Swipe",
+        "Flail",
+        "Light Screen",
+        "Psybeam",
+        "Pursuit",
+        "Screech",
+        "Sweet Scent"
+      ],
+      "crystal": [
+        "Counter",
+        "False Swipe",
+        "Flail",
+        "Light Screen",
+        "Psybeam",
+        "Pursuit",
+        "Screech"
+      ],
+      "ruby-sapphire": [
+        "Counter",
+        "False Swipe",
+        "Flail",
+        "Light Screen",
+        "Psybeam",
+        "Pursuit",
+        "Screech",
+        "Sweet Scent"
+      ],
+      "emerald": [
+        "Counter",
+        "False Swipe",
+        "Flail",
+        "Light Screen",
+        "Psybeam",
+        "Pursuit",
+        "Screech",
+        "Sweet Scent"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "False Swipe",
+        "Flail",
+        "Light Screen",
+        "Psybeam",
+        "Pursuit",
+        "Screech",
+        "Sweet Scent"
+      ]
+    }
+  },
+  {
+    "pokemon": "Parasect",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Venonat",
+    "eggMoves": {
+      "gold-silver": [
+        "Baton Pass",
+        "Giga Drain",
+        "Screech"
+      ],
+      "crystal": [
+        "Baton Pass",
+        "Giga Drain",
+        "Screech"
+      ],
+      "ruby-sapphire": [
+        "Baton Pass",
+        "Giga Drain",
+        "Screech",
+        "Signal Beam"
+      ],
+      "emerald": [
+        "Baton Pass",
+        "Giga Drain",
+        "Screech",
+        "Signal Beam"
+      ],
+      "firered-leafgreen": [
+        "Baton Pass",
+        "Giga Drain",
+        "Screech",
+        "Signal Beam"
+      ]
+    }
+  },
+  {
+    "pokemon": "Venomoth",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Diglett",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Beat Up",
+        "Feint Attack",
+        "Pursuit",
+        "Screech"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Beat Up",
+        "Feint Attack",
+        "Pursuit",
+        "Screech"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Beat Up",
+        "Feint Attack",
+        "Pursuit",
+        "Rock Slide",
+        "Screech",
+        "Uproar"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Beat Up",
+        "Feint Attack",
+        "Pursuit",
+        "Rock Slide",
+        "Screech",
+        "Uproar"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Beat Up",
+        "Feint Attack",
+        "Pursuit",
+        "Rock Slide",
+        "Screech",
+        "Uproar"
+      ]
+    }
+  },
+  {
+    "pokemon": "Dugtrio",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Meowth",
+    "eggMoves": {
+      "gold-silver": [
+        "Amnesia",
+        "Charm",
+        "Hypnosis",
+        "Spite"
+      ],
+      "crystal": [
+        "Amnesia",
+        "Charm",
+        "Hypnosis",
+        "Spite"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Assist",
+        "Charm",
+        "Hypnosis",
+        "Psych Up",
+        "Spite"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Assist",
+        "Charm",
+        "Hypnosis",
+        "Psych Up",
+        "Spite"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Assist",
+        "Charm",
+        "Hypnosis",
+        "Psych Up",
+        "Spite"
+      ]
+    }
+  },
+  {
+    "pokemon": "Persian",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Psyduck",
+    "eggMoves": {
+      "gold-silver": [
+        "Foresight",
+        "Future Sight",
+        "Hypnosis",
+        "Ice Beam",
+        "Light Screen",
+        "Psybeam",
+        "Psychic"
+      ],
+      "crystal": [
+        "Cross Chop",
+        "Foresight",
+        "Future Sight",
+        "Hypnosis",
+        "Ice Beam",
+        "Light Screen",
+        "Psybeam",
+        "Psychic"
+      ],
+      "ruby-sapphire": [
+        "Cross Chop",
+        "Foresight",
+        "Future Sight",
+        "Hypnosis",
+        "Light Screen",
+        "Psybeam",
+        "Psychic",
+        "Refresh"
+      ],
+      "emerald": [
+        "Cross Chop",
+        "Foresight",
+        "Future Sight",
+        "Hypnosis",
+        "Light Screen",
+        "Psybeam",
+        "Psychic",
+        "Refresh"
+      ],
+      "firered-leafgreen": [
+        "Cross Chop",
+        "Foresight",
+        "Future Sight",
+        "Hypnosis",
+        "Light Screen",
+        "Psybeam",
+        "Psychic",
+        "Refresh"
+      ]
+    }
+  },
+  {
+    "pokemon": "Golduck",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Mankey",
+    "eggMoves": {
+      "gold-silver": [
+        "Beat Up",
+        "Counter",
+        "Foresight",
+        "Meditate",
+        "Reversal",
+        "Rock Slide"
+      ],
+      "crystal": [
+        "Beat Up",
+        "Counter",
+        "Foresight",
+        "Meditate",
+        "Reversal",
+        "Rock Slide"
+      ],
+      "ruby-sapphire": [
+        "Beat Up",
+        "Counter",
+        "Foresight",
+        "Meditate",
+        "Revenge",
+        "Reversal",
+        "Rock Slide",
+        "Smelling Salts"
+      ],
+      "emerald": [
+        "Beat Up",
+        "Counter",
+        "Foresight",
+        "Meditate",
+        "Revenge",
+        "Reversal",
+        "Rock Slide",
+        "Smelling Salts"
+      ],
+      "firered-leafgreen": [
+        "Beat Up",
+        "Counter",
+        "Foresight",
+        "Meditate",
+        "Revenge",
+        "Reversal",
+        "Rock Slide",
+        "Smelling Salts"
+      ]
+    }
+  },
+  {
+    "pokemon": "Primeape",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Growlithe",
+    "eggMoves": {
+      "gold-silver": [
+        "Body Slam",
+        "Crunch",
+        "Fire Spin",
+        "Safeguard",
+        "Thrash"
+      ],
+      "crystal": [
+        "Body Slam",
+        "Crunch",
+        "Fire Spin",
+        "Safeguard",
+        "Thrash"
+      ],
+      "ruby-sapphire": [
+        "Body Slam",
+        "Crunch",
+        "Fire Spin",
+        "Heat Wave",
+        "Howl",
+        "Safeguard",
+        "Thrash"
+      ],
+      "emerald": [
+        "Body Slam",
+        "Crunch",
+        "Fire Spin",
+        "Heat Wave",
+        "Howl",
+        "Safeguard",
+        "Thrash"
+      ],
+      "firered-leafgreen": [
+        "Body Slam",
+        "Crunch",
+        "Fire Spin",
+        "Heat Wave",
+        "Howl",
+        "Safeguard",
+        "Thrash"
+      ]
+    }
+  },
+  {
+    "pokemon": "Arcanine",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Poliwag",
+    "eggMoves": {
+      "gold-silver": [
+        "Bubble Beam",
+        "Haze",
+        "Mind Reader",
+        "Mist",
+        "Splash"
+      ],
+      "crystal": [
+        "Bubble Beam",
+        "Haze",
+        "Mind Reader",
+        "Mist",
+        "Splash"
+      ],
+      "ruby-sapphire": [
+        "Bubble Beam",
+        "Haze",
+        "Ice Ball",
+        "Mind Reader",
+        "Mist",
+        "Splash",
+        "Water Sport"
+      ],
+      "emerald": [
+        "Bubble Beam",
+        "Haze",
+        "Ice Ball",
+        "Mind Reader",
+        "Mist",
+        "Splash",
+        "Water Sport"
+      ],
+      "firered-leafgreen": [
+        "Bubble Beam",
+        "Haze",
+        "Ice Ball",
+        "Mind Reader",
+        "Mist",
+        "Splash",
+        "Water Sport"
+      ]
+    }
+  },
+  {
+    "pokemon": "Poliwhirl",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Poliwrath",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Abra",
+    "eggMoves": {
+      "gold-silver": [
+        "Barrier",
+        "Encore",
+        "Light Screen"
+      ],
+      "crystal": [
+        "Barrier",
+        "Encore",
+        "Light Screen"
+      ],
+      "ruby-sapphire": [
+        "Barrier",
+        "Encore",
+        "Fire Punch",
+        "Ice Punch",
+        "Knock Off",
+        "Thunder Punch"
+      ],
+      "emerald": [
+        "Barrier",
+        "Encore",
+        "Fire Punch",
+        "Ice Punch",
+        "Knock Off",
+        "Thunder Punch"
+      ],
+      "firered-leafgreen": [
+        "Barrier",
+        "Encore",
+        "Fire Punch",
+        "Ice Punch",
+        "Knock Off",
+        "Thunder Punch"
+      ]
+    }
+  },
+  {
+    "pokemon": "Kadabra",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Alakazam",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Machop",
+    "eggMoves": {
+      "gold-silver": [
+        "Encore",
+        "Light Screen",
+        "Meditate",
+        "Rolling Kick"
+      ],
+      "crystal": [
+        "Encore",
+        "Light Screen",
+        "Meditate",
+        "Rolling Kick"
+      ],
+      "ruby-sapphire": [
+        "Counter",
+        "Encore",
+        "Light Screen",
+        "Meditate",
+        "Rock Slide",
+        "Rolling Kick",
+        "Smelling Salts"
+      ],
+      "emerald": [
+        "Counter",
+        "Encore",
+        "Light Screen",
+        "Meditate",
+        "Rock Slide",
+        "Rolling Kick",
+        "Smelling Salts"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Encore",
+        "Light Screen",
+        "Meditate",
+        "Rock Slide",
+        "Rolling Kick",
+        "Smelling Salts"
+      ]
+    }
+  },
+  {
+    "pokemon": "Machoke",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Machamp",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Bellsprout",
+    "eggMoves": {
+      "gold-silver": [
+        "Encore",
+        "Leech Life",
+        "Reflect",
+        "Swords Dance",
+        "Synthesis"
+      ],
+      "crystal": [
+        "Encore",
+        "Leech Life",
+        "Reflect",
+        "Swords Dance",
+        "Synthesis"
+      ],
+      "ruby-sapphire": [
+        "Encore",
+        "Ingrain",
+        "Leech Life",
+        "Magical Leaf",
+        "Reflect",
+        "Swords Dance",
+        "Synthesis"
+      ],
+      "emerald": [
+        "Encore",
+        "Ingrain",
+        "Leech Life",
+        "Magical Leaf",
+        "Reflect",
+        "Swords Dance",
+        "Synthesis"
+      ],
+      "firered-leafgreen": [
+        "Encore",
+        "Ingrain",
+        "Leech Life",
+        "Magical Leaf",
+        "Reflect",
+        "Swords Dance",
+        "Synthesis"
+      ]
+    }
+  },
+  {
+    "pokemon": "Weepinbell",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Victreebel",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Tentacool",
+    "eggMoves": {
+      "gold-silver": [
+        "Aurora Beam",
+        "Haze",
+        "Mirror Coat",
+        "Rapid Spin",
+        "Safeguard"
+      ],
+      "crystal": [
+        "Aurora Beam",
+        "Haze",
+        "Mirror Coat",
+        "Rapid Spin",
+        "Safeguard"
+      ],
+      "ruby-sapphire": [
+        "Aurora Beam",
+        "Confuse Ray",
+        "Haze",
+        "Mirror Coat",
+        "Rapid Spin",
+        "Safeguard"
+      ],
+      "emerald": [
+        "Aurora Beam",
+        "Confuse Ray",
+        "Haze",
+        "Mirror Coat",
+        "Rapid Spin",
+        "Safeguard"
+      ],
+      "firered-leafgreen": [
+        "Aurora Beam",
+        "Confuse Ray",
+        "Haze",
+        "Mirror Coat",
+        "Rapid Spin",
+        "Safeguard"
+      ]
+    }
+  },
+  {
+    "pokemon": "Tentacruel",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Geodude",
+    "eggMoves": {
+      "gold-silver": [
+        "Mega Punch",
+        "Rock Slide"
+      ],
+      "crystal": [
+        "Mega Punch",
+        "Rock Slide"
+      ],
+      "ruby-sapphire": [
+        "Block",
+        "Mega Punch",
+        "Rock Slide"
+      ],
+      "emerald": [
+        "Block",
+        "Mega Punch",
+        "Rock Slide"
+      ],
+      "firered-leafgreen": [
+        "Block",
+        "Mega Punch",
+        "Rock Slide"
+      ]
+    }
+  },
+  {
+    "pokemon": "Graveler",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Golem",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Ponyta",
+    "eggMoves": {
+      "gold-silver": [
+        "Charm",
+        "Double Kick",
+        "Flame Wheel",
+        "Hypnosis",
+        "Quick Attack",
+        "Thrash"
+      ],
+      "crystal": [
+        "Charm",
+        "Double Kick",
+        "Flame Wheel",
+        "Hypnosis",
+        "Quick Attack",
+        "Thrash"
+      ],
+      "ruby-sapphire": [
+        "Charm",
+        "Double Edge",
+        "Double Kick",
+        "Flame Wheel",
+        "Hypnosis",
+        "Thrash"
+      ],
+      "emerald": [
+        "Charm",
+        "Double Edge",
+        "Double Kick",
+        "Flame Wheel",
+        "Hypnosis",
+        "Thrash"
+      ],
+      "firered-leafgreen": [
+        "Charm",
+        "Double Edge",
+        "Double Kick",
+        "Flame Wheel",
+        "Hypnosis",
+        "Thrash"
+      ]
+    }
+  },
+  {
+    "pokemon": "Rapidash",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Slowpoke",
+    "eggMoves": {
+      "gold-silver": [
+        "Belly Drum",
+        "Future Sight",
+        "Safeguard",
+        "Stomp"
+      ],
+      "crystal": [
+        "Belly Drum",
+        "Future Sight",
+        "Safeguard",
+        "Stomp"
+      ],
+      "ruby-sapphire": [
+        "Belly Drum",
+        "Future Sight",
+        "Mud Sport",
+        "Safeguard",
+        "Sleep Talk",
+        "Snore",
+        "Stomp"
+      ],
+      "emerald": [
+        "Belly Drum",
+        "Future Sight",
+        "Mud Sport",
+        "Safeguard",
+        "Sleep Talk",
+        "Snore",
+        "Stomp"
+      ],
+      "firered-leafgreen": [
+        "Belly Drum",
+        "Future Sight",
+        "Mud Sport",
+        "Safeguard",
+        "Sleep Talk",
+        "Snore",
+        "Stomp"
+      ]
+    }
+  },
+  {
+    "pokemon": "Slowbro",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Magnemite",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Magneton",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Farfetchd",
+    "eggMoves": {
+      "gold-silver": [
+        "Flail",
+        "Foresight",
+        "Gust",
+        "Mirror Move",
+        "Quick Attack",
+        "Steel Wing"
+      ],
+      "crystal": [
+        "Flail",
+        "Foresight",
+        "Gust",
+        "Mirror Move",
+        "Quick Attack"
+      ],
+      "ruby-sapphire": [
+        "Curse",
+        "Feather Dance",
+        "Flail",
+        "Foresight",
+        "Gust",
+        "Mirror Move",
+        "Quick Attack",
+        "Steel Wing"
+      ],
+      "emerald": [
+        "Curse",
+        "Feather Dance",
+        "Flail",
+        "Foresight",
+        "Gust",
+        "Mirror Move",
+        "Quick Attack",
+        "Steel Wing"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Feather Dance",
+        "Flail",
+        "Foresight",
+        "Gust",
+        "Mirror Move",
+        "Quick Attack",
+        "Steel Wing"
+      ]
+    }
+  },
+  {
+    "pokemon": "Doduo",
+    "eggMoves": {
+      "gold-silver": [
+        "Feint Attack",
+        "Flail",
+        "Haze",
+        "Quick Attack",
+        "Supersonic"
+      ],
+      "crystal": [
+        "Feint Attack",
+        "Flail",
+        "Haze",
+        "Quick Attack",
+        "Supersonic"
+      ],
+      "ruby-sapphire": [
+        "Endeavor",
+        "Feint Attack",
+        "Flail",
+        "Haze",
+        "Quick Attack",
+        "Supersonic"
+      ],
+      "emerald": [
+        "Endeavor",
+        "Feint Attack",
+        "Flail",
+        "Haze",
+        "Quick Attack",
+        "Supersonic"
+      ],
+      "firered-leafgreen": [
+        "Endeavor",
+        "Feint Attack",
+        "Flail",
+        "Haze",
+        "Quick Attack",
+        "Supersonic"
+      ]
+    }
+  },
+  {
+    "pokemon": "Dodrio",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Seel",
+    "eggMoves": {
+      "gold-silver": [
+        "Disable",
+        "Encore",
+        "Lick",
+        "Peck",
+        "Perish Song",
+        "Slam"
+      ],
+      "crystal": [
+        "Disable",
+        "Encore",
+        "Lick",
+        "Peck",
+        "Perish Song",
+        "Slam"
+      ],
+      "ruby-sapphire": [
+        "Disable",
+        "Encore",
+        "Fake Out",
+        "Horn Drill",
+        "Icicle Spear",
+        "Lick",
+        "Perish Song",
+        "Slam"
+      ],
+      "emerald": [
+        "Disable",
+        "Encore",
+        "Fake Out",
+        "Horn Drill",
+        "Icicle Spear",
+        "Lick",
+        "Perish Song",
+        "Slam"
+      ],
+      "firered-leafgreen": [
+        "Disable",
+        "Encore",
+        "Fake Out",
+        "Horn Drill",
+        "Icicle Spear",
+        "Lick",
+        "Perish Song",
+        "Slam"
+      ]
+    }
+  },
+  {
+    "pokemon": "Dewgong",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Grimer",
+    "eggMoves": {
+      "gold-silver": [
+        "Haze",
+        "Lick",
+        "Mean Look"
+      ],
+      "crystal": [
+        "Haze",
+        "Lick",
+        "Mean Look"
+      ],
+      "ruby-sapphire": [
+        "Curse",
+        "Explosion",
+        "Haze",
+        "Imprison",
+        "Lick",
+        "Mean Look",
+        "Shadow Punch"
+      ],
+      "emerald": [
+        "Curse",
+        "Explosion",
+        "Haze",
+        "Imprison",
+        "Lick",
+        "Mean Look",
+        "Shadow Punch"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Explosion",
+        "Haze",
+        "Imprison",
+        "Lick",
+        "Mean Look",
+        "Shadow Punch"
+      ]
+    }
+  },
+  {
+    "pokemon": "Muk",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Shellder",
+    "eggMoves": {
+      "gold-silver": [
+        "Barrier",
+        "Bubble Beam",
+        "Rapid Spin",
+        "Screech",
+        "Take Down"
+      ],
+      "crystal": [
+        "Barrier",
+        "Bubble Beam",
+        "Rapid Spin",
+        "Screech",
+        "Take Down"
+      ],
+      "ruby-sapphire": [
+        "Barrier",
+        "Bubble Beam",
+        "Icicle Spear",
+        "Rapid Spin",
+        "Screech",
+        "Take Down"
+      ],
+      "emerald": [
+        "Barrier",
+        "Bubble Beam",
+        "Icicle Spear",
+        "Rapid Spin",
+        "Screech",
+        "Take Down"
+      ],
+      "firered-leafgreen": [
+        "Barrier",
+        "Bubble Beam",
+        "Icicle Spear",
+        "Rapid Spin",
+        "Screech",
+        "Take Down"
+      ]
+    }
+  },
+  {
+    "pokemon": "Cloyster",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Gastly",
+    "eggMoves": {
+      "gold-silver": [
+        "Haze",
+        "Perish Song",
+        "Psywave"
+      ],
+      "crystal": [
+        "Haze",
+        "Perish Song",
+        "Psywave"
+      ],
+      "ruby-sapphire": [
+        "Astonish",
+        "Explosion",
+        "Grudge",
+        "Haze",
+        "Perish Song",
+        "Psywave",
+        "Will O Wisp"
+      ],
+      "emerald": [
+        "Astonish",
+        "Explosion",
+        "Grudge",
+        "Haze",
+        "Perish Song",
+        "Psywave",
+        "Will O Wisp"
+      ],
+      "firered-leafgreen": [
+        "Astonish",
+        "Explosion",
+        "Grudge",
+        "Haze",
+        "Perish Song",
+        "Psywave",
+        "Will O Wisp"
+      ]
+    }
+  },
+  {
+    "pokemon": "Haunter",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Gengar",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Onix",
+    "eggMoves": {
+      "gold-silver": [
+        "Flail",
+        "Rock Slide"
+      ],
+      "crystal": [
+        "Flail",
+        "Rock Slide"
+      ],
+      "ruby-sapphire": [
+        "Block",
+        "Explosion",
+        "Flail",
+        "Rock Slide"
+      ],
+      "emerald": [
+        "Block",
+        "Explosion",
+        "Flail",
+        "Rock Slide"
+      ],
+      "firered-leafgreen": [
+        "Block",
+        "Explosion",
+        "Flail",
+        "Rock Slide"
+      ]
+    }
+  },
+  {
+    "pokemon": "Drowzee",
+    "eggMoves": {
+      "gold-silver": [
+        "Barrier",
+        "Light Screen"
+      ],
+      "crystal": [
+        "Barrier",
+        "Light Screen"
+      ],
+      "ruby-sapphire": [
+        "Assist",
+        "Barrier",
+        "Fire Punch",
+        "Ice Punch",
+        "Role Play",
+        "Thunder Punch"
+      ],
+      "emerald": [
+        "Assist",
+        "Barrier",
+        "Fire Punch",
+        "Ice Punch",
+        "Role Play",
+        "Thunder Punch"
+      ],
+      "firered-leafgreen": [
+        "Assist",
+        "Barrier",
+        "Fire Punch",
+        "Ice Punch",
+        "Role Play",
+        "Thunder Punch"
+      ]
+    }
+  },
+  {
+    "pokemon": "Hypno",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Krabby",
+    "eggMoves": {
+      "gold-silver": [
+        "Amnesia",
+        "Dig",
+        "Flail",
+        "Haze",
+        "Slam"
+      ],
+      "crystal": [
+        "Amnesia",
+        "Dig",
+        "Flail",
+        "Haze",
+        "Slam"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Dig",
+        "Flail",
+        "Haze",
+        "Knock Off",
+        "Slam",
+        "Swords Dance"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Dig",
+        "Flail",
+        "Haze",
+        "Knock Off",
+        "Slam",
+        "Swords Dance"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Dig",
+        "Flail",
+        "Haze",
+        "Knock Off",
+        "Slam",
+        "Swords Dance"
+      ]
+    }
+  },
+  {
+    "pokemon": "Kingler",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Voltorb",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Electrode",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Exeggcute",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Mega Drain",
+        "Moonlight",
+        "Reflect",
+        "Synthesis"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Mega Drain",
+        "Moonlight",
+        "Reflect",
+        "Synthesis"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Curse",
+        "Ingrain",
+        "Moonlight",
+        "Psych Up",
+        "Reflect",
+        "Synthesis"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Curse",
+        "Ingrain",
+        "Moonlight",
+        "Psych Up",
+        "Reflect",
+        "Synthesis"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Curse",
+        "Ingrain",
+        "Moonlight",
+        "Psych Up",
+        "Reflect",
+        "Synthesis"
+      ]
+    }
+  },
+  {
+    "pokemon": "Exeggutor",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Cubone",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Belly Drum",
+        "Perish Song",
+        "Rock Slide",
+        "Screech",
+        "Skull Bash"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Belly Drum",
+        "Perish Song",
+        "Rock Slide",
+        "Screech",
+        "Skull Bash",
+        "Swords Dance"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Belly Drum",
+        "Perish Song",
+        "Rock Slide",
+        "Screech",
+        "Skull Bash",
+        "Swords Dance"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Belly Drum",
+        "Perish Song",
+        "Rock Slide",
+        "Screech",
+        "Skull Bash",
+        "Swords Dance"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Belly Drum",
+        "Perish Song",
+        "Rock Slide",
+        "Screech",
+        "Skull Bash",
+        "Swords Dance"
+      ]
+    }
+  },
+  {
+    "pokemon": "Marowak",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Hitmonlee",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Hitmonchan",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Lickitung",
+    "eggMoves": {
+      "gold-silver": [
+        "Belly Drum",
+        "Body Slam",
+        "Magnitude"
+      ],
+      "crystal": [
+        "Belly Drum",
+        "Body Slam",
+        "Magnitude"
+      ],
+      "ruby-sapphire": [
+        "Belly Drum",
+        "Body Slam",
+        "Curse",
+        "Magnitude",
+        "Sleep Talk",
+        "Smelling Salts",
+        "Snore",
+        "Substitute"
+      ],
+      "emerald": [
+        "Belly Drum",
+        "Body Slam",
+        "Curse",
+        "Magnitude",
+        "Sleep Talk",
+        "Smelling Salts",
+        "Snore",
+        "Substitute"
+      ],
+      "firered-leafgreen": [
+        "Belly Drum",
+        "Body Slam",
+        "Curse",
+        "Magnitude",
+        "Sleep Talk",
+        "Smelling Salts",
+        "Snore",
+        "Substitute"
+      ]
+    }
+  },
+  {
+    "pokemon": "Koffing",
+    "eggMoves": {
+      "gold-silver": [
+        "Destiny Bond",
+        "Pain Split",
+        "Psybeam",
+        "Psywave",
+        "Screech"
+      ],
+      "crystal": [
+        "Destiny Bond",
+        "Pain Split",
+        "Psybeam",
+        "Psywave",
+        "Screech"
+      ],
+      "ruby-sapphire": [
+        "Destiny Bond",
+        "Pain Split",
+        "Psybeam",
+        "Psywave",
+        "Screech",
+        "Will O Wisp"
+      ],
+      "emerald": [
+        "Destiny Bond",
+        "Pain Split",
+        "Psybeam",
+        "Psywave",
+        "Screech",
+        "Will O Wisp"
+      ],
+      "firered-leafgreen": [
+        "Destiny Bond",
+        "Pain Split",
+        "Psybeam",
+        "Psywave",
+        "Screech",
+        "Will O Wisp"
+      ]
+    }
+  },
+  {
+    "pokemon": "Weezing",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Rhyhorn",
+    "eggMoves": {
+      "gold-silver": [
+        "Counter",
+        "Crunch",
+        "Magnitude",
+        "Pursuit",
+        "Reversal",
+        "Rock Slide",
+        "Thrash"
+      ],
+      "crystal": [
+        "Counter",
+        "Crunch",
+        "Magnitude",
+        "Pursuit",
+        "Reversal",
+        "Rock Slide",
+        "Thrash"
+      ],
+      "ruby-sapphire": [
+        "Counter",
+        "Crunch",
+        "Crush Claw",
+        "Curse",
+        "Magnitude",
+        "Reversal",
+        "Rock Slide",
+        "Swords Dance"
+      ],
+      "emerald": [
+        "Counter",
+        "Crunch",
+        "Crush Claw",
+        "Curse",
+        "Magnitude",
+        "Reversal",
+        "Rock Slide",
+        "Swords Dance"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Crunch",
+        "Crush Claw",
+        "Curse",
+        "Magnitude",
+        "Reversal",
+        "Rock Slide",
+        "Swords Dance"
+      ]
+    }
+  },
+  {
+    "pokemon": "Rhydon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Chansey",
+    "eggMoves": {
+      "gold-silver": [
+        "Heal Bell",
+        "Metronome",
+        "Present"
+      ],
+      "crystal": [
+        "Heal Bell",
+        "Metronome",
+        "Present"
+      ],
+      "ruby-sapphire": [
+        "Aromatherapy",
+        "Heal Bell",
+        "Metronome",
+        "Present",
+        "Substitute"
+      ],
+      "emerald": [
+        "Aromatherapy",
+        "Heal Bell",
+        "Metronome",
+        "Present",
+        "Substitute"
+      ],
+      "firered-leafgreen": [
+        "Aromatherapy",
+        "Heal Bell",
+        "Metronome",
+        "Present",
+        "Substitute"
+      ]
+    }
+  },
+  {
+    "pokemon": "Tangela",
+    "eggMoves": {
+      "gold-silver": [
+        "Amnesia",
+        "Confusion",
+        "Flail",
+        "Mega Drain",
+        "Reflect"
+      ],
+      "crystal": [
+        "Amnesia",
+        "Confusion",
+        "Flail",
+        "Mega Drain",
+        "Reflect"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Confusion",
+        "Flail",
+        "Leech Seed",
+        "Mega Drain",
+        "Nature Power",
+        "Reflect"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Confusion",
+        "Flail",
+        "Leech Seed",
+        "Mega Drain",
+        "Nature Power",
+        "Reflect"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Confusion",
+        "Flail",
+        "Leech Seed",
+        "Mega Drain",
+        "Nature Power",
+        "Reflect"
+      ]
+    }
+  },
+  {
+    "pokemon": "Kangaskhan",
+    "eggMoves": {
+      "gold-silver": [
+        "Disable",
+        "Focus Energy",
+        "Foresight",
+        "Safeguard",
+        "Stomp"
+      ],
+      "crystal": [
+        "Disable",
+        "Focus Energy",
+        "Foresight",
+        "Safeguard",
+        "Stomp"
+      ],
+      "ruby-sapphire": [
+        "Counter",
+        "Crush Claw",
+        "Disable",
+        "Focus Energy",
+        "Foresight",
+        "Safeguard",
+        "Stomp",
+        "Substitute"
+      ],
+      "emerald": [
+        "Counter",
+        "Crush Claw",
+        "Disable",
+        "Focus Energy",
+        "Foresight",
+        "Safeguard",
+        "Stomp",
+        "Substitute"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Crush Claw",
+        "Disable",
+        "Focus Energy",
+        "Foresight",
+        "Safeguard",
+        "Stomp",
+        "Substitute"
+      ]
+    }
+  },
+  {
+    "pokemon": "Horsea",
+    "eggMoves": {
+      "gold-silver": [
+        "Aurora Beam",
+        "Disable",
+        "Dragon Rage",
+        "Flail",
+        "Octazooka",
+        "Splash"
+      ],
+      "crystal": [
+        "Aurora Beam",
+        "Disable",
+        "Dragon Rage",
+        "Flail",
+        "Octazooka",
+        "Splash"
+      ],
+      "ruby-sapphire": [
+        "Aurora Beam",
+        "Disable",
+        "Dragon Breath",
+        "Dragon Rage",
+        "Flail",
+        "Octazooka",
+        "Splash"
+      ],
+      "emerald": [
+        "Aurora Beam",
+        "Disable",
+        "Dragon Breath",
+        "Dragon Rage",
+        "Flail",
+        "Octazooka",
+        "Splash"
+      ],
+      "firered-leafgreen": [
+        "Aurora Beam",
+        "Disable",
+        "Dragon Breath",
+        "Dragon Rage",
+        "Flail",
+        "Octazooka",
+        "Splash"
+      ]
+    }
+  },
+  {
+    "pokemon": "Seadra",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Goldeen",
+    "eggMoves": {
+      "gold-silver": [
+        "Haze",
+        "Hydro Pump",
+        "Psybeam"
+      ],
+      "crystal": [
+        "Haze",
+        "Hydro Pump",
+        "Psybeam"
+      ],
+      "ruby-sapphire": [
+        "Haze",
+        "Hydro Pump",
+        "Mud Sport",
+        "Psybeam",
+        "Sleep Talk"
+      ],
+      "emerald": [
+        "Haze",
+        "Hydro Pump",
+        "Mud Sport",
+        "Psybeam",
+        "Sleep Talk"
+      ],
+      "firered-leafgreen": [
+        "Haze",
+        "Hydro Pump",
+        "Mud Sport",
+        "Psybeam",
+        "Sleep Talk"
+      ]
+    }
+  },
+  {
+    "pokemon": "Seaking",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Staryu",
+    "eggMoves": {
+      "gold-silver": [
+        "Aurora Beam",
+        "Barrier",
+        "Supersonic"
+      ],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Starmie",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Mr-mime",
+    "eggMoves": {
+      "gold-silver": [
+        "Future Sight",
+        "Hypnosis",
+        "Mimic"
+      ],
+      "crystal": [
+        "Future Sight",
+        "Hypnosis",
+        "Mimic"
+      ],
+      "ruby-sapphire": [
+        "Fake Out",
+        "Future Sight",
+        "Hypnosis",
+        "Mimic",
+        "Psych Up",
+        "Trick"
+      ],
+      "emerald": [
+        "Fake Out",
+        "Future Sight",
+        "Hypnosis",
+        "Mimic",
+        "Psych Up",
+        "Trick"
+      ],
+      "firered-leafgreen": [
+        "Fake Out",
+        "Future Sight",
+        "Hypnosis",
+        "Mimic",
+        "Psych Up",
+        "Trick"
+      ]
+    }
+  },
+  {
+    "pokemon": "Scyther",
+    "eggMoves": {
+      "gold-silver": [
+        "Baton Pass",
+        "Counter",
+        "Light Screen",
+        "Razor Wind",
+        "Reversal",
+        "Safeguard"
+      ],
+      "crystal": [
+        "Baton Pass",
+        "Counter",
+        "Light Screen",
+        "Razor Wind",
+        "Reversal",
+        "Safeguard"
+      ],
+      "ruby-sapphire": [
+        "Baton Pass",
+        "Counter",
+        "Endure",
+        "Light Screen",
+        "Razor Wind",
+        "Reversal",
+        "Safeguard",
+        "Silver Wind"
+      ],
+      "emerald": [
+        "Baton Pass",
+        "Counter",
+        "Endure",
+        "Light Screen",
+        "Razor Wind",
+        "Reversal",
+        "Safeguard",
+        "Silver Wind"
+      ],
+      "firered-leafgreen": [
+        "Baton Pass",
+        "Counter",
+        "Endure",
+        "Light Screen",
+        "Razor Wind",
+        "Reversal",
+        "Safeguard",
+        "Silver Wind"
+      ]
+    }
+  },
+  {
+    "pokemon": "Jynx",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Electabuzz",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Magmar",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Pinsir",
+    "eggMoves": {
+      "gold-silver": [
+        "Flail",
+        "Fury Attack"
+      ],
+      "crystal": [
+        "Flail",
+        "Fury Attack"
+      ],
+      "ruby-sapphire": [
+        "False Swipe",
+        "Feint Attack",
+        "Flail",
+        "Fury Attack"
+      ],
+      "emerald": [
+        "False Swipe",
+        "Feint Attack",
+        "Flail",
+        "Fury Attack"
+      ],
+      "firered-leafgreen": [
+        "False Swipe",
+        "Feint Attack",
+        "Flail",
+        "Fury Attack"
+      ]
+    }
+  },
+  {
+    "pokemon": "Tauros",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Magikarp",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Gyarados",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Lapras",
+    "eggMoves": {
+      "gold-silver": [
+        "Aurora Beam",
+        "Foresight"
+      ],
+      "crystal": [
+        "Aurora Beam",
+        "Foresight"
+      ],
+      "ruby-sapphire": [
+        "Curse",
+        "Dragon Dance",
+        "Foresight",
+        "Horn Drill",
+        "Refresh",
+        "Sleep Talk",
+        "Substitute",
+        "Tickle"
+      ],
+      "emerald": [
+        "Curse",
+        "Dragon Dance",
+        "Foresight",
+        "Horn Drill",
+        "Refresh",
+        "Sleep Talk",
+        "Substitute",
+        "Tickle"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Dragon Dance",
+        "Foresight",
+        "Horn Drill",
+        "Refresh",
+        "Sleep Talk",
+        "Substitute",
+        "Tickle"
+      ]
+    }
+  },
+  {
+    "pokemon": "Ditto",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Eevee",
+    "eggMoves": {
+      "gold-silver": [
+        "Charm",
+        "Flail"
+      ],
+      "crystal": [
+        "Charm",
+        "Flail"
+      ],
+      "ruby-sapphire": [
+        "Charm",
+        "Curse",
+        "Endure",
+        "Flail",
+        "Tickle",
+        "Wish"
+      ],
+      "emerald": [
+        "Charm",
+        "Curse",
+        "Endure",
+        "Flail",
+        "Tickle",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Charm",
+        "Curse",
+        "Endure",
+        "Flail",
+        "Tickle",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Vaporeon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Jolteon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Flareon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Porygon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Omanyte",
+    "eggMoves": {
+      "gold-silver": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Haze",
+        "Slam",
+        "Supersonic"
+      ],
+      "crystal": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Haze",
+        "Slam",
+        "Supersonic"
+      ],
+      "ruby-sapphire": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Haze",
+        "Rock Slide",
+        "Slam",
+        "Spikes",
+        "Supersonic"
+      ],
+      "emerald": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Haze",
+        "Rock Slide",
+        "Slam",
+        "Spikes",
+        "Supersonic"
+      ],
+      "firered-leafgreen": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Haze",
+        "Rock Slide",
+        "Slam",
+        "Spikes",
+        "Supersonic"
+      ]
+    }
+  },
+  {
+    "pokemon": "Omastar",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Kabuto",
+    "eggMoves": {
+      "gold-silver": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Dig",
+        "Flail",
+        "Rapid Spin"
+      ],
+      "crystal": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Dig",
+        "Flail",
+        "Rapid Spin"
+      ],
+      "ruby-sapphire": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Confuse Ray",
+        "Dig",
+        "Flail",
+        "Knock Off",
+        "Rapid Spin"
+      ],
+      "emerald": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Confuse Ray",
+        "Dig",
+        "Flail",
+        "Knock Off",
+        "Rapid Spin"
+      ],
+      "firered-leafgreen": [
+        "Aurora Beam",
+        "Bubble Beam",
+        "Confuse Ray",
+        "Dig",
+        "Flail",
+        "Knock Off",
+        "Rapid Spin"
+      ]
+    }
+  },
+  {
+    "pokemon": "Kabutops",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Aerodactyl",
+    "eggMoves": {
+      "gold-silver": [
+        "Foresight",
+        "Pursuit",
+        "Steel Wing",
+        "Whirlwind"
+      ],
+      "crystal": [
+        "Foresight",
+        "Pursuit",
+        "Whirlwind"
+      ],
+      "ruby-sapphire": [
+        "Curse",
+        "Dragon Breath",
+        "Foresight",
+        "Pursuit",
+        "Steel Wing",
+        "Whirlwind"
+      ],
+      "emerald": [
+        "Curse",
+        "Dragon Breath",
+        "Foresight",
+        "Pursuit",
+        "Steel Wing",
+        "Whirlwind"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Dragon Breath",
+        "Foresight",
+        "Pursuit",
+        "Steel Wing",
+        "Whirlwind"
+      ]
+    }
+  },
+  {
+    "pokemon": "Snorlax",
+    "eggMoves": {
+      "gold-silver": [
+        "Charm",
+        "Lick"
+      ],
+      "crystal": [
+        "Lick"
+      ],
+      "ruby-sapphire": [
+        "Charm",
+        "Curse",
+        "Double Edge",
+        "Fissure",
+        "Lick",
+        "Substitute"
+      ],
+      "emerald": [
+        "Charm",
+        "Curse",
+        "Double Edge",
+        "Fissure",
+        "Lick",
+        "Substitute"
+      ],
+      "firered-leafgreen": [
+        "Charm",
+        "Curse",
+        "Double Edge",
+        "Fissure",
+        "Lick",
+        "Substitute"
+      ]
+    }
+  },
+  {
+    "pokemon": "Articuno",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Zapdos",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Moltres",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Dratini",
+    "eggMoves": {
+      "gold-silver": [
+        "Haze",
+        "Light Screen",
+        "Mist",
+        "Supersonic"
+      ],
+      "crystal": [
+        "Haze",
+        "Light Screen",
+        "Mist",
+        "Supersonic"
+      ],
+      "ruby-sapphire": [
+        "Dragon Breath",
+        "Dragon Dance",
+        "Haze",
+        "Light Screen",
+        "Mist",
+        "Supersonic"
+      ],
+      "emerald": [
+        "Dragon Breath",
+        "Dragon Dance",
+        "Haze",
+        "Light Screen",
+        "Mist",
+        "Supersonic"
+      ],
+      "firered-leafgreen": [
+        "Dragon Breath",
+        "Dragon Dance",
+        "Haze",
+        "Light Screen",
+        "Mist",
+        "Supersonic"
+      ]
+    }
+  },
+  {
+    "pokemon": "Dragonair",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Dragonite",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Mewtwo",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Mew",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Chikorita",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Counter",
+        "Flail",
+        "Leech Seed",
+        "Vine Whip"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Counter",
+        "Flail",
+        "Leech Seed",
+        "Swords Dance",
+        "Vine Whip"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Counter",
+        "Flail",
+        "Grass Whistle",
+        "Ingrain",
+        "Leech Seed",
+        "Nature Power",
+        "Vine Whip"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Counter",
+        "Flail",
+        "Grass Whistle",
+        "Ingrain",
+        "Leech Seed",
+        "Nature Power",
+        "Vine Whip"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Counter",
+        "Flail",
+        "Grass Whistle",
+        "Ingrain",
+        "Leech Seed",
+        "Nature Power",
+        "Vine Whip"
+      ]
+    }
+  },
+  {
+    "pokemon": "Bayleef",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Meganium",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Cyndaquil",
+    "eggMoves": {
+      "gold-silver": [
+        "Foresight",
+        "Fury Swipes",
+        "Quick Attack",
+        "Reversal",
+        "Thrash"
+      ],
+      "crystal": [
+        "Foresight",
+        "Fury Swipes",
+        "Quick Attack",
+        "Reversal",
+        "Submission",
+        "Thrash"
+      ],
+      "ruby-sapphire": [
+        "Covet",
+        "Crush Claw",
+        "Foresight",
+        "Fury Swipes",
+        "Howl",
+        "Quick Attack",
+        "Reversal",
+        "Thrash"
+      ],
+      "emerald": [
+        "Covet",
+        "Crush Claw",
+        "Foresight",
+        "Fury Swipes",
+        "Howl",
+        "Quick Attack",
+        "Reversal",
+        "Thrash"
+      ],
+      "firered-leafgreen": [
+        "Covet",
+        "Crush Claw",
+        "Foresight",
+        "Fury Swipes",
+        "Howl",
+        "Quick Attack",
+        "Reversal",
+        "Thrash"
+      ]
+    }
+  },
+  {
+    "pokemon": "Quilava",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Typhlosion",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Totodile",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Crunch",
+        "Hydro Pump",
+        "Razor Wind",
+        "Rock Slide",
+        "Thrash"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Crunch",
+        "Hydro Pump",
+        "Razor Wind",
+        "Rock Slide",
+        "Thrash"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Crunch",
+        "Dragon Claw",
+        "Hydro Pump",
+        "Mud Sport",
+        "Rock Slide",
+        "Thrash",
+        "Water Sport"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Crunch",
+        "Dragon Claw",
+        "Hydro Pump",
+        "Mud Sport",
+        "Rock Slide",
+        "Thrash",
+        "Water Sport"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Crunch",
+        "Dragon Claw",
+        "Hydro Pump",
+        "Mud Sport",
+        "Rock Slide",
+        "Thrash",
+        "Water Sport"
+      ]
+    }
+  },
+  {
+    "pokemon": "Croconaw",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Feraligatr",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Sentret",
+    "eggMoves": {
+      "gold-silver": [
+        "Double Edge",
+        "Focus Energy",
+        "Pursuit",
+        "Reversal",
+        "Slash"
+      ],
+      "crystal": [
+        "Double Edge",
+        "Focus Energy",
+        "Pursuit",
+        "Reversal",
+        "Slash"
+      ],
+      "ruby-sapphire": [
+        "Assist",
+        "Double Edge",
+        "Focus Energy",
+        "Pursuit",
+        "Reversal",
+        "Slash",
+        "Substitute",
+        "Trick"
+      ],
+      "emerald": [
+        "Assist",
+        "Double Edge",
+        "Focus Energy",
+        "Pursuit",
+        "Reversal",
+        "Slash",
+        "Substitute",
+        "Trick"
+      ],
+      "firered-leafgreen": [
+        "Assist",
+        "Double Edge",
+        "Focus Energy",
+        "Pursuit",
+        "Reversal",
+        "Slash",
+        "Substitute",
+        "Trick"
+      ]
+    }
+  },
+  {
+    "pokemon": "Furret",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Hoothoot",
+    "eggMoves": {
+      "gold-silver": [
+        "Feint Attack",
+        "Mirror Move",
+        "Supersonic",
+        "Whirlwind",
+        "Wing Attack"
+      ],
+      "crystal": [
+        "Feint Attack",
+        "Mirror Move",
+        "Sky Attack",
+        "Supersonic",
+        "Whirlwind",
+        "Wing Attack"
+      ],
+      "ruby-sapphire": [
+        "Feather Dance",
+        "Feint Attack",
+        "Mirror Move",
+        "Sky Attack",
+        "Supersonic",
+        "Whirlwind",
+        "Wing Attack"
+      ],
+      "emerald": [
+        "Feather Dance",
+        "Feint Attack",
+        "Mirror Move",
+        "Sky Attack",
+        "Supersonic",
+        "Whirlwind",
+        "Wing Attack"
+      ],
+      "firered-leafgreen": [
+        "Feather Dance",
+        "Feint Attack",
+        "Mirror Move",
+        "Sky Attack",
+        "Supersonic",
+        "Whirlwind",
+        "Wing Attack"
+      ]
+    }
+  },
+  {
+    "pokemon": "Noctowl",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Ledyba",
+    "eggMoves": {
+      "gold-silver": [
+        "Bide",
+        "Light Screen",
+        "Psybeam"
+      ],
+      "crystal": [
+        "Bide",
+        "Light Screen",
+        "Psybeam"
+      ],
+      "ruby-sapphire": [
+        "Bide",
+        "Psybeam",
+        "Silver Wind"
+      ],
+      "emerald": [
+        "Bide",
+        "Psybeam",
+        "Silver Wind"
+      ],
+      "firered-leafgreen": [
+        "Bide",
+        "Psybeam",
+        "Silver Wind"
+      ]
+    }
+  },
+  {
+    "pokemon": "Ledian",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Spinarak",
+    "eggMoves": {
+      "gold-silver": [
+        "Baton Pass",
+        "Disable",
+        "Psybeam",
+        "Pursuit",
+        "Sonic Boom"
+      ],
+      "crystal": [
+        "Baton Pass",
+        "Disable",
+        "Psybeam",
+        "Pursuit",
+        "Sonic Boom"
+      ],
+      "ruby-sapphire": [
+        "Baton Pass",
+        "Disable",
+        "Psybeam",
+        "Pursuit",
+        "Signal Beam",
+        "Sonic Boom"
+      ],
+      "emerald": [
+        "Baton Pass",
+        "Disable",
+        "Psybeam",
+        "Pursuit",
+        "Signal Beam",
+        "Sonic Boom"
+      ],
+      "firered-leafgreen": [
+        "Baton Pass",
+        "Disable",
+        "Psybeam",
+        "Pursuit",
+        "Signal Beam",
+        "Sonic Boom"
+      ]
+    }
+  },
+  {
+    "pokemon": "Ariados",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Crobat",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Chinchou",
+    "eggMoves": {
+      "gold-silver": [
+        "Flail",
+        "Screech",
+        "Supersonic"
+      ],
+      "crystal": [
+        "Flail",
+        "Screech",
+        "Supersonic"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Flail",
+        "Screech"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Flail",
+        "Screech"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Flail",
+        "Screech"
+      ]
+    }
+  },
+  {
+    "pokemon": "Lanturn",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Pichu",
+    "eggMoves": {
+      "gold-silver": [
+        "Bide",
+        "Double Slap",
+        "Encore",
+        "Present",
+        "Reversal"
+      ],
+      "crystal": [
+        "Bide",
+        "Double Slap",
+        "Encore",
+        "Present",
+        "Reversal"
+      ],
+      "ruby-sapphire": [
+        "Bide",
+        "Charge",
+        "Double Slap",
+        "Encore",
+        "Present",
+        "Reversal",
+        "Wish"
+      ],
+      "emerald": [
+        "Bide",
+        "Charge",
+        "Double Slap",
+        "Encore",
+        "Present",
+        "Reversal",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Bide",
+        "Charge",
+        "Double Slap",
+        "Encore",
+        "Present",
+        "Reversal",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Cleffa",
+    "eggMoves": {
+      "gold-silver": [
+        "Amnesia",
+        "Belly Drum",
+        "Metronome",
+        "Mimic",
+        "Present",
+        "Splash"
+      ],
+      "crystal": [
+        "Amnesia",
+        "Belly Drum",
+        "Metronome",
+        "Mimic",
+        "Present",
+        "Splash"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Belly Drum",
+        "Metronome",
+        "Mimic",
+        "Present",
+        "Splash",
+        "Substitute",
+        "Wish"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Belly Drum",
+        "Metronome",
+        "Mimic",
+        "Present",
+        "Splash",
+        "Substitute",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Belly Drum",
+        "Metronome",
+        "Mimic",
+        "Present",
+        "Splash",
+        "Substitute",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Igglybuff",
+    "eggMoves": {
+      "gold-silver": [
+        "Feint Attack",
+        "Perish Song",
+        "Present"
+      ],
+      "crystal": [
+        "Feint Attack",
+        "Perish Song",
+        "Present"
+      ],
+      "ruby-sapphire": [
+        "Fake Tears",
+        "Feint Attack",
+        "Perish Song",
+        "Present",
+        "Wish"
+      ],
+      "emerald": [
+        "Fake Tears",
+        "Feint Attack",
+        "Perish Song",
+        "Present",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Fake Tears",
+        "Feint Attack",
+        "Perish Song",
+        "Present",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Togepi",
+    "eggMoves": {
+      "gold-silver": [
+        "Foresight",
+        "Future Sight",
+        "Mirror Move",
+        "Peck",
+        "Present"
+      ],
+      "crystal": [
+        "Foresight",
+        "Future Sight",
+        "Mirror Move",
+        "Peck",
+        "Present"
+      ],
+      "ruby-sapphire": [
+        "Foresight",
+        "Future Sight",
+        "Mirror Move",
+        "Peck",
+        "Present",
+        "Psych Up",
+        "Substitute"
+      ],
+      "emerald": [
+        "Foresight",
+        "Future Sight",
+        "Mirror Move",
+        "Peck",
+        "Present",
+        "Psych Up",
+        "Substitute"
+      ],
+      "firered-leafgreen": [
+        "Foresight",
+        "Future Sight",
+        "Mirror Move",
+        "Peck",
+        "Present",
+        "Psych Up",
+        "Substitute"
+      ]
+    }
+  },
+  {
+    "pokemon": "Togetic",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Natu",
+    "eggMoves": {
+      "gold-silver": [
+        "Drill Peck",
+        "Feint Attack",
+        "Haze",
+        "Quick Attack",
+        "Steel Wing"
+      ],
+      "crystal": [
+        "Drill Peck",
+        "Feint Attack",
+        "Haze",
+        "Quick Attack",
+        "Steel Wing"
+      ],
+      "ruby-sapphire": [
+        "Drill Peck",
+        "Feather Dance",
+        "Feint Attack",
+        "Haze",
+        "Psych Up",
+        "Quick Attack",
+        "Refresh",
+        "Steel Wing"
+      ],
+      "emerald": [
+        "Drill Peck",
+        "Feather Dance",
+        "Feint Attack",
+        "Haze",
+        "Psych Up",
+        "Quick Attack",
+        "Refresh",
+        "Steel Wing"
+      ],
+      "firered-leafgreen": [
+        "Drill Peck",
+        "Feather Dance",
+        "Feint Attack",
+        "Haze",
+        "Psych Up",
+        "Quick Attack",
+        "Refresh",
+        "Steel Wing"
+      ]
+    }
+  },
+  {
+    "pokemon": "Xatu",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Mareep",
+    "eggMoves": {
+      "gold-silver": [
+        "Body Slam",
+        "Reflect",
+        "Safeguard",
+        "Screech",
+        "Take Down",
+        "Thunderbolt"
+      ],
+      "crystal": [
+        "Body Slam",
+        "Reflect",
+        "Safeguard",
+        "Screech",
+        "Take Down",
+        "Thunderbolt"
+      ],
+      "ruby-sapphire": [
+        "Body Slam",
+        "Charge",
+        "Odor Sleuth",
+        "Reflect",
+        "Safeguard",
+        "Screech",
+        "Take Down"
+      ],
+      "emerald": [
+        "Body Slam",
+        "Charge",
+        "Odor Sleuth",
+        "Reflect",
+        "Safeguard",
+        "Screech",
+        "Take Down"
+      ],
+      "firered-leafgreen": [
+        "Body Slam",
+        "Charge",
+        "Odor Sleuth",
+        "Reflect",
+        "Safeguard",
+        "Screech",
+        "Take Down"
+      ]
+    }
+  },
+  {
+    "pokemon": "Flaaffy",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Ampharos",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Bellossom",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Marill",
+    "eggMoves": {
+      "gold-silver": [
+        "Amnesia",
+        "Belly Drum",
+        "Foresight",
+        "Future Sight",
+        "Light Screen",
+        "Perish Song",
+        "Present",
+        "Supersonic"
+      ],
+      "crystal": [
+        "Amnesia",
+        "Belly Drum",
+        "Foresight",
+        "Future Sight",
+        "Light Screen",
+        "Perish Song",
+        "Present",
+        "Supersonic"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Belly Drum",
+        "Future Sight",
+        "Light Screen",
+        "Perish Song",
+        "Present",
+        "Substitute",
+        "Supersonic"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Belly Drum",
+        "Future Sight",
+        "Light Screen",
+        "Perish Song",
+        "Present",
+        "Substitute",
+        "Supersonic"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Belly Drum",
+        "Future Sight",
+        "Light Screen",
+        "Perish Song",
+        "Present",
+        "Substitute",
+        "Supersonic"
+      ]
+    }
+  },
+  {
+    "pokemon": "Azumarill",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Sudowoodo",
+    "eggMoves": {
+      "gold-silver": [
+        "Self Destruct"
+      ],
+      "crystal": [
+        "Self Destruct"
+      ],
+      "ruby-sapphire": [
+        "Self Destruct"
+      ],
+      "emerald": [
+        "Self Destruct"
+      ],
+      "firered-leafgreen": [
+        "Self Destruct"
+      ]
+    }
+  },
+  {
+    "pokemon": "Politoed",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Hoppip",
+    "eggMoves": {
+      "gold-silver": [
+        "Amnesia",
+        "Confusion",
+        "Double Edge",
+        "Encore",
+        "Growl",
+        "Pay Day",
+        "Reflect"
+      ],
+      "crystal": [
+        "Amnesia",
+        "Confusion",
+        "Double Edge",
+        "Encore",
+        "Growl",
+        "Pay Day",
+        "Reflect"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Confusion",
+        "Double Edge",
+        "Encore",
+        "Helping Hand",
+        "Psych Up",
+        "Reflect"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Confusion",
+        "Double Edge",
+        "Encore",
+        "Helping Hand",
+        "Psych Up",
+        "Reflect"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Confusion",
+        "Double Edge",
+        "Encore",
+        "Helping Hand",
+        "Psych Up",
+        "Reflect"
+      ]
+    }
+  },
+  {
+    "pokemon": "Skiploom",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Jumpluff",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Aipom",
+    "eggMoves": {
+      "gold-silver": [
+        "Agility",
+        "Beat Up",
+        "Counter",
+        "Double Slap",
+        "Pursuit",
+        "Screech",
+        "Slam",
+        "Spite"
+      ],
+      "crystal": [
+        "Agility",
+        "Beat Up",
+        "Counter",
+        "Double Slap",
+        "Pursuit",
+        "Screech",
+        "Slam",
+        "Spite"
+      ],
+      "ruby-sapphire": [
+        "Agility",
+        "Beat Up",
+        "Counter",
+        "Double Slap",
+        "Pursuit",
+        "Screech",
+        "Slam",
+        "Spite"
+      ],
+      "emerald": [
+        "Agility",
+        "Beat Up",
+        "Counter",
+        "Double Slap",
+        "Pursuit",
+        "Screech",
+        "Slam",
+        "Spite"
+      ],
+      "firered-leafgreen": [
+        "Agility",
+        "Beat Up",
+        "Counter",
+        "Double Slap",
+        "Pursuit",
+        "Screech",
+        "Slam",
+        "Spite"
+      ]
+    }
+  },
+  {
+    "pokemon": "Sunkern",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Curse",
+        "Encore",
+        "Grass Whistle",
+        "Helping Hand",
+        "Leech Seed",
+        "Nature Power"
+      ],
+      "emerald": [
+        "Curse",
+        "Encore",
+        "Grass Whistle",
+        "Helping Hand",
+        "Leech Seed",
+        "Nature Power"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Encore",
+        "Grass Whistle",
+        "Helping Hand",
+        "Leech Seed",
+        "Nature Power"
+      ]
+    }
+  },
+  {
+    "pokemon": "Sunflora",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Yanma",
+    "eggMoves": {
+      "gold-silver": [
+        "Leech Life",
+        "Reversal",
+        "Whirlwind"
+      ],
+      "crystal": [
+        "Leech Life",
+        "Reversal",
+        "Whirlwind"
+      ],
+      "ruby-sapphire": [
+        "Leech Life",
+        "Reversal",
+        "Signal Beam",
+        "Silver Wind",
+        "Whirlwind"
+      ],
+      "emerald": [
+        "Leech Life",
+        "Reversal",
+        "Signal Beam",
+        "Silver Wind",
+        "Whirlwind"
+      ],
+      "firered-leafgreen": [
+        "Leech Life",
+        "Reversal",
+        "Signal Beam",
+        "Silver Wind",
+        "Whirlwind"
+      ]
+    }
+  },
+  {
+    "pokemon": "Wooper",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Body Slam",
+        "Safeguard"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Body Slam",
+        "Safeguard"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Body Slam",
+        "Curse",
+        "Mud Sport",
+        "Safeguard",
+        "Spit Up",
+        "Stockpile",
+        "Swallow"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Body Slam",
+        "Curse",
+        "Mud Sport",
+        "Safeguard",
+        "Spit Up",
+        "Stockpile",
+        "Swallow"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Body Slam",
+        "Curse",
+        "Mud Sport",
+        "Safeguard",
+        "Spit Up",
+        "Stockpile",
+        "Swallow"
+      ]
+    }
+  },
+  {
+    "pokemon": "Quagsire",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Espeon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Umbreon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Murkrow",
+    "eggMoves": {
+      "gold-silver": [
+        "Drill Peck",
+        "Mirror Move",
+        "Quick Attack",
+        "Whirlwind",
+        "Wing Attack"
+      ],
+      "crystal": [
+        "Drill Peck",
+        "Mirror Move",
+        "Quick Attack",
+        "Sky Attack",
+        "Whirlwind",
+        "Wing Attack"
+      ],
+      "ruby-sapphire": [
+        "Confuse Ray",
+        "Drill Peck",
+        "Feather Dance",
+        "Mirror Move",
+        "Perish Song",
+        "Sky Attack",
+        "Whirlwind",
+        "Wing Attack"
+      ],
+      "emerald": [
+        "Confuse Ray",
+        "Drill Peck",
+        "Feather Dance",
+        "Mirror Move",
+        "Perish Song",
+        "Sky Attack",
+        "Whirlwind",
+        "Wing Attack"
+      ],
+      "firered-leafgreen": [
+        "Confuse Ray",
+        "Drill Peck",
+        "Feather Dance",
+        "Mirror Move",
+        "Perish Song",
+        "Sky Attack",
+        "Whirlwind",
+        "Wing Attack"
+      ]
+    }
+  },
+  {
+    "pokemon": "Slowking",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Misdreavus",
+    "eggMoves": {
+      "gold-silver": [
+        "Destiny Bond",
+        "Screech"
+      ],
+      "crystal": [
+        "Destiny Bond",
+        "Screech"
+      ],
+      "ruby-sapphire": [
+        "Destiny Bond",
+        "Imprison",
+        "Psych Up",
+        "Screech"
+      ],
+      "emerald": [
+        "Destiny Bond",
+        "Imprison",
+        "Psych Up",
+        "Screech"
+      ],
+      "firered-leafgreen": [
+        "Destiny Bond",
+        "Imprison",
+        "Psych Up",
+        "Screech"
+      ]
+    }
+  },
+  {
+    "pokemon": "Unown",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Wobbuffet",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Girafarig",
+    "eggMoves": {
+      "gold-silver": [
+        "Amnesia",
+        "Beat Up",
+        "Foresight",
+        "Future Sight",
+        "Take Down"
+      ],
+      "crystal": [
+        "Amnesia",
+        "Beat Up",
+        "Foresight",
+        "Future Sight",
+        "Take Down"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Beat Up",
+        "Foresight",
+        "Future Sight",
+        "Magic Coat",
+        "Psych Up",
+        "Take Down",
+        "Wish"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Beat Up",
+        "Foresight",
+        "Future Sight",
+        "Magic Coat",
+        "Psych Up",
+        "Take Down",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Beat Up",
+        "Foresight",
+        "Future Sight",
+        "Magic Coat",
+        "Psych Up",
+        "Take Down",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Pineco",
+    "eggMoves": {
+      "gold-silver": [
+        "Flail",
+        "Pin Missile",
+        "Reflect",
+        "Swift"
+      ],
+      "crystal": [
+        "Flail",
+        "Pin Missile",
+        "Reflect",
+        "Swift"
+      ],
+      "ruby-sapphire": [
+        "Counter",
+        "Flail",
+        "Pin Missile",
+        "Reflect",
+        "Sand Tomb",
+        "Swift"
+      ],
+      "emerald": [
+        "Counter",
+        "Flail",
+        "Pin Missile",
+        "Reflect",
+        "Sand Tomb",
+        "Swift"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Flail",
+        "Pin Missile",
+        "Reflect",
+        "Sand Tomb",
+        "Swift"
+      ]
+    }
+  },
+  {
+    "pokemon": "Forretress",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Dunsparce",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Bide",
+        "Bite",
+        "Rage",
+        "Rock Slide"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Bide",
+        "Bite",
+        "Rage",
+        "Rock Slide"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Astonish",
+        "Bide",
+        "Bite",
+        "Curse",
+        "Headbutt",
+        "Rock Slide"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Astonish",
+        "Bide",
+        "Bite",
+        "Curse",
+        "Headbutt",
+        "Rock Slide"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Astonish",
+        "Bide",
+        "Bite",
+        "Curse",
+        "Headbutt",
+        "Rock Slide"
+      ]
+    }
+  },
+  {
+    "pokemon": "Gligar",
+    "eggMoves": {
+      "gold-silver": [
+        "Counter",
+        "Metal Claw",
+        "Razor Wind",
+        "Wing Attack"
+      ],
+      "crystal": [
+        "Counter",
+        "Metal Claw",
+        "Razor Wind",
+        "Wing Attack"
+      ],
+      "ruby-sapphire": [
+        "Counter",
+        "Metal Claw",
+        "Razor Wind",
+        "Sand Tomb",
+        "Wing Attack"
+      ],
+      "emerald": [
+        "Counter",
+        "Metal Claw",
+        "Razor Wind",
+        "Sand Tomb",
+        "Wing Attack"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Metal Claw",
+        "Razor Wind",
+        "Sand Tomb",
+        "Wing Attack"
+      ]
+    }
+  },
+  {
+    "pokemon": "Steelix",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Snubbull",
+    "eggMoves": {
+      "gold-silver": [
+        "Crunch",
+        "Feint Attack",
+        "Heal Bell",
+        "Leer",
+        "Lick",
+        "Metronome",
+        "Present",
+        "Reflect"
+      ],
+      "crystal": [
+        "Crunch",
+        "Feint Attack",
+        "Heal Bell",
+        "Leer",
+        "Lick",
+        "Metronome",
+        "Present",
+        "Reflect"
+      ],
+      "ruby-sapphire": [
+        "Crunch",
+        "Feint Attack",
+        "Heal Bell",
+        "Metronome",
+        "Present",
+        "Reflect",
+        "Smelling Salts",
+        "Snore"
+      ],
+      "emerald": [
+        "Crunch",
+        "Feint Attack",
+        "Heal Bell",
+        "Metronome",
+        "Present",
+        "Reflect",
+        "Smelling Salts",
+        "Snore"
+      ],
+      "firered-leafgreen": [
+        "Crunch",
+        "Feint Attack",
+        "Heal Bell",
+        "Metronome",
+        "Present",
+        "Reflect",
+        "Smelling Salts",
+        "Snore"
+      ]
+    }
+  },
+  {
+    "pokemon": "Granbull",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Qwilfish",
+    "eggMoves": {
+      "gold-silver": [
+        "Bubble Beam",
+        "Flail",
+        "Haze",
+        "Supersonic"
+      ],
+      "crystal": [
+        "Bubble Beam",
+        "Flail",
+        "Haze",
+        "Supersonic"
+      ],
+      "ruby-sapphire": [
+        "Astonish",
+        "Bubble Beam",
+        "Flail",
+        "Haze",
+        "Supersonic"
+      ],
+      "emerald": [
+        "Astonish",
+        "Bubble Beam",
+        "Flail",
+        "Haze",
+        "Supersonic"
+      ],
+      "firered-leafgreen": [
+        "Astonish",
+        "Bubble Beam",
+        "Flail",
+        "Haze",
+        "Supersonic"
+      ]
+    }
+  },
+  {
+    "pokemon": "Scizor",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Shuckle",
+    "eggMoves": {
+      "gold-silver": [
+        "Sweet Scent"
+      ],
+      "crystal": [
+        "Sweet Scent"
+      ],
+      "ruby-sapphire": [
+        "Sweet Scent"
+      ],
+      "emerald": [
+        "Sweet Scent"
+      ],
+      "firered-leafgreen": [
+        "Sweet Scent"
+      ]
+    }
+  },
+  {
+    "pokemon": "Heracross",
+    "eggMoves": {
+      "gold-silver": [
+        "Bide",
+        "Flail",
+        "Harden"
+      ],
+      "crystal": [
+        "Bide",
+        "Flail",
+        "Harden"
+      ],
+      "ruby-sapphire": [
+        "Bide",
+        "False Swipe",
+        "Flail",
+        "Harden"
+      ],
+      "emerald": [
+        "Bide",
+        "False Swipe",
+        "Flail",
+        "Harden"
+      ],
+      "firered-leafgreen": [
+        "Bide",
+        "False Swipe",
+        "Flail",
+        "Harden"
+      ]
+    }
+  },
+  {
+    "pokemon": "Sneasel",
+    "eggMoves": {
+      "gold-silver": [
+        "Bite",
+        "Counter",
+        "Foresight",
+        "Reflect",
+        "Spite"
+      ],
+      "crystal": [
+        "Bite",
+        "Counter",
+        "Foresight",
+        "Reflect",
+        "Spite"
+      ],
+      "ruby-sapphire": [
+        "Bite",
+        "Counter",
+        "Crush Claw",
+        "Fake Out",
+        "Foresight",
+        "Reflect",
+        "Spite"
+      ],
+      "emerald": [
+        "Bite",
+        "Counter",
+        "Crush Claw",
+        "Fake Out",
+        "Foresight",
+        "Reflect",
+        "Spite"
+      ],
+      "firered-leafgreen": [
+        "Bite",
+        "Counter",
+        "Crush Claw",
+        "Fake Out",
+        "Foresight",
+        "Reflect",
+        "Spite"
+      ]
+    }
+  },
+  {
+    "pokemon": "Teddiursa",
+    "eggMoves": {
+      "gold-silver": [
+        "Counter",
+        "Crunch",
+        "Focus Energy",
+        "Seismic Toss",
+        "Take Down"
+      ],
+      "crystal": [
+        "Counter",
+        "Crunch",
+        "Focus Energy",
+        "Metal Claw",
+        "Seismic Toss",
+        "Take Down"
+      ],
+      "ruby-sapphire": [
+        "Counter",
+        "Crunch",
+        "Fake Tears",
+        "Metal Claw",
+        "Seismic Toss",
+        "Sleep Talk",
+        "Take Down",
+        "Yawn"
+      ],
+      "emerald": [
+        "Counter",
+        "Crunch",
+        "Fake Tears",
+        "Metal Claw",
+        "Seismic Toss",
+        "Sleep Talk",
+        "Take Down",
+        "Yawn"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Crunch",
+        "Fake Tears",
+        "Metal Claw",
+        "Seismic Toss",
+        "Sleep Talk",
+        "Take Down",
+        "Yawn"
+      ]
+    }
+  },
+  {
+    "pokemon": "Ursaring",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Slugma",
+    "eggMoves": {
+      "gold-silver": [
+        "Acid Armor"
+      ],
+      "crystal": [
+        "Acid Armor"
+      ],
+      "ruby-sapphire": [
+        "Acid Armor",
+        "Heat Wave"
+      ],
+      "emerald": [
+        "Acid Armor",
+        "Heat Wave"
+      ],
+      "firered-leafgreen": [
+        "Acid Armor",
+        "Heat Wave"
+      ]
+    }
+  },
+  {
+    "pokemon": "Magcargo",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Swinub",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Bite",
+        "Body Slam",
+        "Rock Slide",
+        "Take Down"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Bite",
+        "Body Slam",
+        "Rock Slide",
+        "Take Down"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Bite",
+        "Body Slam",
+        "Double Edge",
+        "Icicle Spear",
+        "Mud Shot",
+        "Rock Slide",
+        "Take Down"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Bite",
+        "Body Slam",
+        "Double Edge",
+        "Icicle Spear",
+        "Mud Shot",
+        "Rock Slide",
+        "Take Down"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Bite",
+        "Body Slam",
+        "Double Edge",
+        "Icicle Spear",
+        "Mud Shot",
+        "Rock Slide",
+        "Take Down"
+      ]
+    }
+  },
+  {
+    "pokemon": "Piloswine",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Corsola",
+    "eggMoves": {
+      "gold-silver": [
+        "Amnesia",
+        "Mist",
+        "Rock Slide",
+        "Safeguard",
+        "Screech"
+      ],
+      "crystal": [
+        "Amnesia",
+        "Mist",
+        "Rock Slide",
+        "Safeguard",
+        "Screech"
+      ],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Barrier",
+        "Confuse Ray",
+        "Icicle Spear",
+        "Ingrain",
+        "Mist",
+        "Rock Slide",
+        "Screech"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Barrier",
+        "Confuse Ray",
+        "Icicle Spear",
+        "Ingrain",
+        "Mist",
+        "Rock Slide",
+        "Screech"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Barrier",
+        "Confuse Ray",
+        "Icicle Spear",
+        "Ingrain",
+        "Mist",
+        "Rock Slide",
+        "Screech"
+      ]
+    }
+  },
+  {
+    "pokemon": "Remoraid",
+    "eggMoves": {
+      "gold-silver": [
+        "Aurora Beam",
+        "Haze",
+        "Octazooka",
+        "Screech",
+        "Supersonic"
+      ],
+      "crystal": [
+        "Aurora Beam",
+        "Haze",
+        "Octazooka",
+        "Screech",
+        "Supersonic"
+      ],
+      "ruby-sapphire": [
+        "Aurora Beam",
+        "Haze",
+        "Octazooka",
+        "Rock Blast",
+        "Screech",
+        "Supersonic",
+        "Thunder Wave"
+      ],
+      "emerald": [
+        "Aurora Beam",
+        "Haze",
+        "Octazooka",
+        "Rock Blast",
+        "Screech",
+        "Supersonic",
+        "Thunder Wave"
+      ],
+      "firered-leafgreen": [
+        "Aurora Beam",
+        "Haze",
+        "Octazooka",
+        "Rock Blast",
+        "Screech",
+        "Supersonic",
+        "Thunder Wave"
+      ]
+    }
+  },
+  {
+    "pokemon": "Octillery",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Delibird",
+    "eggMoves": {
+      "gold-silver": [
+        "Aurora Beam",
+        "Future Sight",
+        "Quick Attack",
+        "Rapid Spin",
+        "Splash"
+      ],
+      "crystal": [
+        "Aurora Beam",
+        "Future Sight",
+        "Quick Attack",
+        "Rapid Spin",
+        "Splash"
+      ],
+      "ruby-sapphire": [
+        "Aurora Beam",
+        "Future Sight",
+        "Ice Ball",
+        "Quick Attack",
+        "Rapid Spin",
+        "Splash"
+      ],
+      "emerald": [
+        "Aurora Beam",
+        "Future Sight",
+        "Ice Ball",
+        "Quick Attack",
+        "Rapid Spin",
+        "Splash"
+      ],
+      "firered-leafgreen": [
+        "Aurora Beam",
+        "Future Sight",
+        "Ice Ball",
+        "Quick Attack",
+        "Rapid Spin",
+        "Splash"
+      ]
+    }
+  },
+  {
+    "pokemon": "Mantine",
+    "eggMoves": {
+      "gold-silver": [
+        "Haze",
+        "Hydro Pump",
+        "Slam",
+        "Twister"
+      ],
+      "crystal": [
+        "Haze",
+        "Hydro Pump",
+        "Slam",
+        "Twister"
+      ],
+      "ruby-sapphire": [
+        "Haze",
+        "Hydro Pump",
+        "Mud Sport",
+        "Rock Slide",
+        "Slam",
+        "Twister"
+      ],
+      "emerald": [
+        "Haze",
+        "Hydro Pump",
+        "Mud Sport",
+        "Rock Slide",
+        "Slam",
+        "Twister"
+      ],
+      "firered-leafgreen": [
+        "Haze",
+        "Hydro Pump",
+        "Mud Sport",
+        "Rock Slide",
+        "Slam",
+        "Twister"
+      ]
+    }
+  },
+  {
+    "pokemon": "Skarmory",
+    "eggMoves": {
+      "gold-silver": [
+        "Drill Peck",
+        "Pursuit",
+        "Whirlwind"
+      ],
+      "crystal": [
+        "Drill Peck",
+        "Pursuit",
+        "Sky Attack",
+        "Whirlwind"
+      ],
+      "ruby-sapphire": [
+        "Curse",
+        "Drill Peck",
+        "Pursuit",
+        "Sky Attack",
+        "Whirlwind"
+      ],
+      "emerald": [
+        "Curse",
+        "Drill Peck",
+        "Pursuit",
+        "Sky Attack",
+        "Whirlwind"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Drill Peck",
+        "Pursuit",
+        "Sky Attack",
+        "Whirlwind"
+      ]
+    }
+  },
+  {
+    "pokemon": "Houndour",
+    "eggMoves": {
+      "gold-silver": [
+        "Beat Up",
+        "Counter",
+        "Fire Spin",
+        "Pursuit",
+        "Rage",
+        "Reversal",
+        "Spite"
+      ],
+      "crystal": [
+        "Beat Up",
+        "Counter",
+        "Fire Spin",
+        "Pursuit",
+        "Rage",
+        "Reversal",
+        "Spite"
+      ],
+      "ruby-sapphire": [
+        "Beat Up",
+        "Counter",
+        "Fire Spin",
+        "Pursuit",
+        "Rage",
+        "Reversal",
+        "Spite",
+        "Will O Wisp"
+      ],
+      "emerald": [
+        "Beat Up",
+        "Counter",
+        "Fire Spin",
+        "Pursuit",
+        "Rage",
+        "Reversal",
+        "Spite",
+        "Will O Wisp"
+      ],
+      "firered-leafgreen": [
+        "Beat Up",
+        "Counter",
+        "Fire Spin",
+        "Pursuit",
+        "Rage",
+        "Reversal",
+        "Spite",
+        "Will O Wisp"
+      ]
+    }
+  },
+  {
+    "pokemon": "Houndoom",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Kingdra",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Phanpy",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Body Slam",
+        "Focus Energy"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Body Slam",
+        "Focus Energy",
+        "Water Gun"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Body Slam",
+        "Counter",
+        "Fissure",
+        "Focus Energy",
+        "Snore"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Body Slam",
+        "Counter",
+        "Fissure",
+        "Focus Energy",
+        "Snore"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Body Slam",
+        "Counter",
+        "Fissure",
+        "Focus Energy",
+        "Snore"
+      ]
+    }
+  },
+  {
+    "pokemon": "Donphan",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Porygon2",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Stantler",
+    "eggMoves": {
+      "gold-silver": [
+        "Bite",
+        "Disable",
+        "Light Screen",
+        "Reflect",
+        "Spite"
+      ],
+      "crystal": [
+        "Bite",
+        "Disable",
+        "Light Screen",
+        "Reflect",
+        "Spite"
+      ],
+      "ruby-sapphire": [
+        "Bite",
+        "Disable",
+        "Extrasensory",
+        "Psych Up",
+        "Spite",
+        "Swagger"
+      ],
+      "emerald": [
+        "Bite",
+        "Disable",
+        "Extrasensory",
+        "Psych Up",
+        "Spite",
+        "Swagger"
+      ],
+      "firered-leafgreen": [
+        "Bite",
+        "Disable",
+        "Extrasensory",
+        "Psych Up",
+        "Spite",
+        "Swagger"
+      ]
+    }
+  },
+  {
+    "pokemon": "Smeargle",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Tyrogue",
+    "eggMoves": {
+      "gold-silver": [
+        "High Jump Kick",
+        "Mach Punch",
+        "Mind Reader",
+        "Rapid Spin"
+      ],
+      "crystal": [
+        "High Jump Kick",
+        "Mach Punch",
+        "Mind Reader",
+        "Rapid Spin"
+      ],
+      "ruby-sapphire": [
+        "Helping Hand",
+        "High Jump Kick",
+        "Mach Punch",
+        "Mind Reader",
+        "Rapid Spin"
+      ],
+      "emerald": [
+        "Helping Hand",
+        "High Jump Kick",
+        "Mach Punch",
+        "Mind Reader",
+        "Rapid Spin"
+      ],
+      "firered-leafgreen": [
+        "Helping Hand",
+        "High Jump Kick",
+        "Mach Punch",
+        "Mind Reader",
+        "Rapid Spin"
+      ]
+    }
+  },
+  {
+    "pokemon": "Hitmontop",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Smoochum",
+    "eggMoves": {
+      "gold-silver": [
+        "Lovely Kiss",
+        "Meditate"
+      ],
+      "crystal": [
+        "Meditate"
+      ],
+      "ruby-sapphire": [
+        "Fake Out",
+        "Ice Punch",
+        "Meditate",
+        "Psych Up",
+        "Wish"
+      ],
+      "emerald": [
+        "Fake Out",
+        "Ice Punch",
+        "Meditate",
+        "Psych Up",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Fake Out",
+        "Ice Punch",
+        "Meditate",
+        "Psych Up",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Elekid",
+    "eggMoves": {
+      "gold-silver": [
+        "Barrier",
+        "Karate Chop",
+        "Meditate",
+        "Rolling Kick"
+      ],
+      "crystal": [
+        "Barrier",
+        "Cross Chop",
+        "Karate Chop",
+        "Meditate",
+        "Rolling Kick"
+      ],
+      "ruby-sapphire": [
+        "Barrier",
+        "Cross Chop",
+        "Fire Punch",
+        "Ice Punch",
+        "Karate Chop",
+        "Meditate",
+        "Rolling Kick"
+      ],
+      "emerald": [
+        "Barrier",
+        "Cross Chop",
+        "Fire Punch",
+        "Ice Punch",
+        "Karate Chop",
+        "Meditate",
+        "Rolling Kick"
+      ],
+      "firered-leafgreen": [
+        "Barrier",
+        "Cross Chop",
+        "Fire Punch",
+        "Ice Punch",
+        "Karate Chop",
+        "Meditate",
+        "Rolling Kick"
+      ]
+    }
+  },
+  {
+    "pokemon": "Magby",
+    "eggMoves": {
+      "gold-silver": [
+        "Barrier",
+        "Karate Chop",
+        "Mega Punch",
+        "Screech"
+      ],
+      "crystal": [
+        "Barrier",
+        "Cross Chop",
+        "Karate Chop",
+        "Mega Punch",
+        "Screech"
+      ],
+      "ruby-sapphire": [
+        "Barrier",
+        "Cross Chop",
+        "Karate Chop",
+        "Mega Punch",
+        "Screech",
+        "Thunder Punch"
+      ],
+      "emerald": [
+        "Barrier",
+        "Cross Chop",
+        "Karate Chop",
+        "Mega Punch",
+        "Screech",
+        "Thunder Punch"
+      ],
+      "firered-leafgreen": [
+        "Barrier",
+        "Cross Chop",
+        "Karate Chop",
+        "Mega Punch",
+        "Screech",
+        "Thunder Punch"
+      ]
+    }
+  },
+  {
+    "pokemon": "Miltank",
+    "eggMoves": {
+      "gold-silver": [
+        "Present",
+        "Reversal",
+        "Seismic Toss"
+      ],
+      "crystal": [
+        "Present",
+        "Reversal",
+        "Seismic Toss"
+      ],
+      "ruby-sapphire": [
+        "Curse",
+        "Endure",
+        "Helping Hand",
+        "Present",
+        "Psych Up",
+        "Reversal",
+        "Seismic Toss",
+        "Sleep Talk"
+      ],
+      "emerald": [
+        "Curse",
+        "Endure",
+        "Helping Hand",
+        "Present",
+        "Psych Up",
+        "Reversal",
+        "Seismic Toss",
+        "Sleep Talk"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Endure",
+        "Helping Hand",
+        "Present",
+        "Psych Up",
+        "Reversal",
+        "Seismic Toss",
+        "Sleep Talk"
+      ]
+    }
+  },
+  {
+    "pokemon": "Blissey",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Raikou",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Entei",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Suicune",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Larvitar",
+    "eggMoves": {
+      "gold-silver": [
+        "Ancient Power",
+        "Focus Energy",
+        "Outrage",
+        "Pursuit",
+        "Stomp"
+      ],
+      "crystal": [
+        "Ancient Power",
+        "Focus Energy",
+        "Outrage",
+        "Pursuit",
+        "Stomp"
+      ],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Curse",
+        "Dragon Dance",
+        "Focus Energy",
+        "Outrage",
+        "Pursuit",
+        "Stomp"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Curse",
+        "Dragon Dance",
+        "Focus Energy",
+        "Outrage",
+        "Pursuit",
+        "Stomp"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Curse",
+        "Dragon Dance",
+        "Focus Energy",
+        "Outrage",
+        "Pursuit",
+        "Stomp"
+      ]
+    }
+  },
+  {
+    "pokemon": "Pupitar",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Tyranitar",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Lugia",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Ho-oh",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Celebi",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Treecko",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Crunch",
+        "Crush Claw",
+        "Dragon Breath",
+        "Endeavor",
+        "Leech Seed",
+        "Mud Sport"
+      ],
+      "emerald": [
+        "Crunch",
+        "Crush Claw",
+        "Dragon Breath",
+        "Endeavor",
+        "Leech Seed",
+        "Mud Sport"
+      ],
+      "firered-leafgreen": [
+        "Crunch",
+        "Crush Claw",
+        "Dragon Breath",
+        "Endeavor",
+        "Leech Seed",
+        "Mud Sport"
+      ]
+    }
+  },
+  {
+    "pokemon": "Grovyle",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Sceptile",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Torchic",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Counter",
+        "Endure",
+        "Reversal",
+        "Rock Slide",
+        "Smelling Salts",
+        "Swagger"
+      ],
+      "emerald": [
+        "Counter",
+        "Endure",
+        "Reversal",
+        "Rock Slide",
+        "Smelling Salts",
+        "Swagger"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Endure",
+        "Reversal",
+        "Rock Slide",
+        "Smelling Salts",
+        "Swagger"
+      ]
+    }
+  },
+  {
+    "pokemon": "Combusken",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Blaziken",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Mudkip",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Curse",
+        "Ice Ball",
+        "Mirror Coat",
+        "Refresh",
+        "Stomp",
+        "Uproar"
+      ],
+      "emerald": [
+        "Curse",
+        "Ice Ball",
+        "Mirror Coat",
+        "Refresh",
+        "Stomp",
+        "Uproar"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Ice Ball",
+        "Mirror Coat",
+        "Refresh",
+        "Stomp",
+        "Uproar"
+      ]
+    }
+  },
+  {
+    "pokemon": "Marshtomp",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Swampert",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Poochyena",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Astonish",
+        "Covet",
+        "Leer",
+        "Poison Fang",
+        "Yawn"
+      ],
+      "emerald": [
+        "Astonish",
+        "Covet",
+        "Leer",
+        "Poison Fang",
+        "Yawn"
+      ],
+      "firered-leafgreen": [
+        "Astonish",
+        "Covet",
+        "Leer",
+        "Poison Fang",
+        "Yawn"
+      ]
+    }
+  },
+  {
+    "pokemon": "Mightyena",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Zigzagoon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Charm",
+        "Pursuit",
+        "Substitute",
+        "Tickle",
+        "Trick"
+      ],
+      "emerald": [
+        "Charm",
+        "Pursuit",
+        "Substitute",
+        "Tickle",
+        "Trick"
+      ],
+      "firered-leafgreen": [
+        "Charm",
+        "Pursuit",
+        "Substitute",
+        "Tickle",
+        "Trick"
+      ]
+    }
+  },
+  {
+    "pokemon": "Linoone",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Wurmple",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Silcoon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Beautifly",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Cascoon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Dustox",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Lotad",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Flail",
+        "Leech Seed",
+        "Razor Leaf",
+        "Sweet Scent",
+        "Synthesis",
+        "Water Gun"
+      ],
+      "emerald": [
+        "Flail",
+        "Leech Seed",
+        "Razor Leaf",
+        "Sweet Scent",
+        "Synthesis",
+        "Water Gun"
+      ],
+      "firered-leafgreen": [
+        "Flail",
+        "Leech Seed",
+        "Razor Leaf",
+        "Sweet Scent",
+        "Synthesis",
+        "Water Gun"
+      ]
+    }
+  },
+  {
+    "pokemon": "Lombre",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Ludicolo",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Seedot",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Amnesia",
+        "False Swipe",
+        "Leech Seed",
+        "Quick Attack",
+        "Razor Wind",
+        "Take Down"
+      ],
+      "emerald": [
+        "Amnesia",
+        "False Swipe",
+        "Leech Seed",
+        "Quick Attack",
+        "Razor Wind",
+        "Take Down"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "False Swipe",
+        "Leech Seed",
+        "Quick Attack",
+        "Razor Wind",
+        "Take Down"
+      ]
+    }
+  },
+  {
+    "pokemon": "Nuzleaf",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Shiftry",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Taillow",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Mirror Move",
+        "Pursuit",
+        "Rage",
+        "Refresh",
+        "Sky Attack",
+        "Supersonic"
+      ],
+      "emerald": [
+        "Mirror Move",
+        "Pursuit",
+        "Rage",
+        "Refresh",
+        "Sky Attack",
+        "Supersonic"
+      ],
+      "firered-leafgreen": [
+        "Mirror Move",
+        "Pursuit",
+        "Rage",
+        "Refresh",
+        "Sky Attack",
+        "Supersonic"
+      ]
+    }
+  },
+  {
+    "pokemon": "Swellow",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Wingull",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Agility",
+        "Gust",
+        "Mist",
+        "Twister",
+        "Water Sport"
+      ],
+      "emerald": [
+        "Agility",
+        "Gust",
+        "Mist",
+        "Twister",
+        "Water Sport"
+      ],
+      "firered-leafgreen": [
+        "Agility",
+        "Gust",
+        "Mist",
+        "Twister",
+        "Water Sport"
+      ]
+    }
+  },
+  {
+    "pokemon": "Pelipper",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Ralts",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Destiny Bond",
+        "Disable",
+        "Mean Look",
+        "Memento",
+        "Will O Wisp"
+      ],
+      "emerald": [
+        "Destiny Bond",
+        "Disable",
+        "Mean Look",
+        "Memento",
+        "Will O Wisp"
+      ],
+      "firered-leafgreen": [
+        "Destiny Bond",
+        "Disable",
+        "Mean Look",
+        "Memento",
+        "Will O Wisp"
+      ]
+    }
+  },
+  {
+    "pokemon": "Kirlia",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Gardevoir",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Surskit",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Foresight",
+        "Hydro Pump",
+        "Mind Reader",
+        "Mud Shot",
+        "Psybeam"
+      ],
+      "emerald": [
+        "Foresight",
+        "Hydro Pump",
+        "Mind Reader",
+        "Mud Shot",
+        "Psybeam"
+      ],
+      "firered-leafgreen": [
+        "Foresight",
+        "Hydro Pump",
+        "Mind Reader",
+        "Mud Shot",
+        "Psybeam"
+      ]
+    }
+  },
+  {
+    "pokemon": "Masquerain",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Shroomish",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Charm",
+        "Fake Tears",
+        "False Swipe",
+        "Helping Hand",
+        "Swagger"
+      ],
+      "emerald": [
+        "Charm",
+        "Fake Tears",
+        "False Swipe",
+        "Helping Hand",
+        "Swagger"
+      ],
+      "firered-leafgreen": [
+        "Charm",
+        "Fake Tears",
+        "False Swipe",
+        "Helping Hand",
+        "Swagger"
+      ]
+    }
+  },
+  {
+    "pokemon": "Breloom",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Slakoth",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Body Slam",
+        "Crush Claw",
+        "Curse",
+        "Pursuit",
+        "Slash",
+        "Sleep Talk",
+        "Snore"
+      ],
+      "emerald": [
+        "Body Slam",
+        "Crush Claw",
+        "Curse",
+        "Pursuit",
+        "Slash",
+        "Sleep Talk",
+        "Snore"
+      ],
+      "firered-leafgreen": [
+        "Body Slam",
+        "Crush Claw",
+        "Curse",
+        "Pursuit",
+        "Slash",
+        "Sleep Talk",
+        "Snore"
+      ]
+    }
+  },
+  {
+    "pokemon": "Vigoroth",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Slaking",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Nincada",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Endure",
+        "Feint Attack",
+        "Gust",
+        "Silver Wind"
+      ],
+      "emerald": [
+        "Endure",
+        "Feint Attack",
+        "Gust",
+        "Silver Wind"
+      ],
+      "firered-leafgreen": [
+        "Endure",
+        "Feint Attack",
+        "Gust",
+        "Silver Wind"
+      ]
+    }
+  },
+  {
+    "pokemon": "Ninjask",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Shedinja",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Whismur",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Extrasensory",
+        "Smelling Salts",
+        "Snore",
+        "Swagger",
+        "Take Down"
+      ],
+      "emerald": [
+        "Extrasensory",
+        "Smelling Salts",
+        "Snore",
+        "Swagger",
+        "Take Down"
+      ],
+      "firered-leafgreen": [
+        "Extrasensory",
+        "Smelling Salts",
+        "Snore",
+        "Swagger",
+        "Take Down"
+      ]
+    }
+  },
+  {
+    "pokemon": "Loudred",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Exploud",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Makuhita",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Counter",
+        "Cross Chop",
+        "Detect",
+        "Dynamic Punch",
+        "Feint Attack",
+        "Foresight",
+        "Helping Hand",
+        "Revenge"
+      ],
+      "emerald": [
+        "Counter",
+        "Cross Chop",
+        "Detect",
+        "Dynamic Punch",
+        "Feint Attack",
+        "Foresight",
+        "Helping Hand",
+        "Revenge"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Cross Chop",
+        "Detect",
+        "Dynamic Punch",
+        "Feint Attack",
+        "Foresight",
+        "Helping Hand",
+        "Revenge"
+      ]
+    }
+  },
+  {
+    "pokemon": "Hariyama",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Azurill",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Encore",
+        "Refresh",
+        "Sing",
+        "Slam",
+        "Tickle"
+      ],
+      "emerald": [
+        "Encore",
+        "Refresh",
+        "Sing",
+        "Slam",
+        "Tickle"
+      ],
+      "firered-leafgreen": [
+        "Encore",
+        "Refresh",
+        "Sing",
+        "Slam",
+        "Tickle"
+      ]
+    }
+  },
+  {
+    "pokemon": "Nosepass",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Explosion",
+        "Magnitude",
+        "Rollout"
+      ],
+      "emerald": [
+        "Explosion",
+        "Magnitude",
+        "Rollout"
+      ],
+      "firered-leafgreen": [
+        "Explosion",
+        "Magnitude",
+        "Rollout"
+      ]
+    }
+  },
+  {
+    "pokemon": "Skitty",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Baton Pass",
+        "Fake Tears",
+        "Helping Hand",
+        "Psych Up",
+        "Substitute",
+        "Tickle",
+        "Uproar",
+        "Wish"
+      ],
+      "emerald": [
+        "Baton Pass",
+        "Fake Tears",
+        "Helping Hand",
+        "Psych Up",
+        "Substitute",
+        "Tickle",
+        "Uproar",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Baton Pass",
+        "Fake Tears",
+        "Helping Hand",
+        "Psych Up",
+        "Substitute",
+        "Tickle",
+        "Uproar",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Delcatty",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Sableye",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Moonlight",
+        "Psych Up",
+        "Recover"
+      ],
+      "emerald": [
+        "Moonlight",
+        "Psych Up",
+        "Recover"
+      ],
+      "firered-leafgreen": [
+        "Moonlight",
+        "Psych Up",
+        "Recover"
+      ]
+    }
+  },
+  {
+    "pokemon": "Mawile",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "False Swipe",
+        "Poison Fang",
+        "Psych Up",
+        "Swords Dance",
+        "Tickle"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "False Swipe",
+        "Poison Fang",
+        "Psych Up",
+        "Swords Dance",
+        "Tickle"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "False Swipe",
+        "Poison Fang",
+        "Psych Up",
+        "Swords Dance",
+        "Tickle"
+      ]
+    }
+  },
+  {
+    "pokemon": "Aron",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Body Slam",
+        "Endeavor",
+        "Smelling Salts",
+        "Stomp"
+      ],
+      "emerald": [
+        "Body Slam",
+        "Endeavor",
+        "Smelling Salts",
+        "Stomp"
+      ],
+      "firered-leafgreen": [
+        "Body Slam",
+        "Endeavor",
+        "Smelling Salts",
+        "Stomp"
+      ]
+    }
+  },
+  {
+    "pokemon": "Lairon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Aggron",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Meditite",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Baton Pass",
+        "Dynamic Punch",
+        "Fake Out",
+        "Fire Punch",
+        "Foresight",
+        "Ice Punch",
+        "Thunder Punch"
+      ],
+      "emerald": [
+        "Baton Pass",
+        "Dynamic Punch",
+        "Fake Out",
+        "Fire Punch",
+        "Foresight",
+        "Ice Punch",
+        "Thunder Punch"
+      ],
+      "firered-leafgreen": [
+        "Baton Pass",
+        "Dynamic Punch",
+        "Fake Out",
+        "Fire Punch",
+        "Foresight",
+        "Ice Punch",
+        "Thunder Punch"
+      ]
+    }
+  },
+  {
+    "pokemon": "Medicham",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Electrike",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Crunch",
+        "Curse",
+        "Headbutt",
+        "Swift",
+        "Uproar"
+      ],
+      "emerald": [
+        "Crunch",
+        "Curse",
+        "Headbutt",
+        "Swift",
+        "Uproar"
+      ],
+      "firered-leafgreen": [
+        "Crunch",
+        "Curse",
+        "Headbutt",
+        "Swift",
+        "Uproar"
+      ]
+    }
+  },
+  {
+    "pokemon": "Manectric",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Plusle",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Substitute",
+        "Wish"
+      ],
+      "emerald": [
+        "Substitute",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Substitute",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Minun",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Substitute",
+        "Wish"
+      ],
+      "emerald": [
+        "Substitute",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Substitute",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Volbeat",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Baton Pass",
+        "Silver Wind",
+        "Trick"
+      ],
+      "emerald": [
+        "Baton Pass",
+        "Silver Wind",
+        "Trick"
+      ],
+      "firered-leafgreen": [
+        "Baton Pass",
+        "Silver Wind",
+        "Trick"
+      ]
+    }
+  },
+  {
+    "pokemon": "Illumise",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Baton Pass",
+        "Growth",
+        "Silver Wind"
+      ],
+      "emerald": [
+        "Baton Pass",
+        "Growth",
+        "Silver Wind"
+      ],
+      "firered-leafgreen": [
+        "Baton Pass",
+        "Growth",
+        "Silver Wind"
+      ]
+    }
+  },
+  {
+    "pokemon": "Roselia",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Cotton Spore",
+        "Pin Missile",
+        "Spikes",
+        "Synthesis"
+      ],
+      "emerald": [
+        "Cotton Spore",
+        "Pin Missile",
+        "Spikes",
+        "Synthesis"
+      ],
+      "firered-leafgreen": [
+        "Cotton Spore",
+        "Pin Missile",
+        "Spikes",
+        "Synthesis"
+      ]
+    }
+  },
+  {
+    "pokemon": "Gulpin",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Acid Armor",
+        "Dream Eater",
+        "Pain Split",
+        "Smog"
+      ],
+      "emerald": [
+        "Acid Armor",
+        "Dream Eater",
+        "Pain Split",
+        "Smog"
+      ],
+      "firered-leafgreen": [
+        "Acid Armor",
+        "Dream Eater",
+        "Pain Split",
+        "Smog"
+      ]
+    }
+  },
+  {
+    "pokemon": "Swalot",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Carvanha",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Double Edge",
+        "Hydro Pump",
+        "Thrash"
+      ],
+      "emerald": [
+        "Double Edge",
+        "Hydro Pump",
+        "Thrash"
+      ],
+      "firered-leafgreen": [
+        "Double Edge",
+        "Hydro Pump",
+        "Thrash"
+      ]
+    }
+  },
+  {
+    "pokemon": "Sharpedo",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Wailmer",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Curse",
+        "Double Edge",
+        "Fissure",
+        "Sleep Talk",
+        "Snore",
+        "Swagger",
+        "Thrash",
+        "Tickle"
+      ],
+      "emerald": [
+        "Curse",
+        "Double Edge",
+        "Fissure",
+        "Sleep Talk",
+        "Snore",
+        "Swagger",
+        "Thrash",
+        "Tickle"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Double Edge",
+        "Fissure",
+        "Sleep Talk",
+        "Snore",
+        "Swagger",
+        "Thrash",
+        "Tickle"
+      ]
+    }
+  },
+  {
+    "pokemon": "Wailord",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Numel",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Body Slam",
+        "Defense Curl",
+        "Howl",
+        "Rollout",
+        "Scary Face",
+        "Stomp"
+      ],
+      "emerald": [
+        "Body Slam",
+        "Defense Curl",
+        "Howl",
+        "Rollout",
+        "Scary Face",
+        "Stomp"
+      ],
+      "firered-leafgreen": [
+        "Body Slam",
+        "Defense Curl",
+        "Howl",
+        "Rollout",
+        "Scary Face",
+        "Stomp"
+      ]
+    }
+  },
+  {
+    "pokemon": "Camerupt",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Torkoal",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Endure",
+        "Eruption",
+        "Sleep Talk",
+        "Yawn"
+      ],
+      "emerald": [
+        "Endure",
+        "Eruption",
+        "Sleep Talk",
+        "Yawn"
+      ],
+      "firered-leafgreen": [
+        "Endure",
+        "Eruption",
+        "Sleep Talk",
+        "Yawn"
+      ]
+    }
+  },
+  {
+    "pokemon": "Spoink",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Extrasensory",
+        "Future Sight",
+        "Substitute",
+        "Trick"
+      ],
+      "emerald": [
+        "Extrasensory",
+        "Future Sight",
+        "Substitute",
+        "Trick"
+      ],
+      "firered-leafgreen": [
+        "Extrasensory",
+        "Future Sight",
+        "Substitute",
+        "Trick"
+      ]
+    }
+  },
+  {
+    "pokemon": "Grumpig",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Spinda",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Assist",
+        "Baton Pass",
+        "Disable",
+        "Encore",
+        "Rock Slide",
+        "Smelling Salts",
+        "Trick",
+        "Wish"
+      ],
+      "emerald": [
+        "Assist",
+        "Baton Pass",
+        "Disable",
+        "Encore",
+        "Rock Slide",
+        "Smelling Salts",
+        "Trick",
+        "Wish"
+      ],
+      "firered-leafgreen": [
+        "Assist",
+        "Baton Pass",
+        "Disable",
+        "Encore",
+        "Rock Slide",
+        "Smelling Salts",
+        "Trick",
+        "Wish"
+      ]
+    }
+  },
+  {
+    "pokemon": "Trapinch",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Focus Energy",
+        "Gust",
+        "Quick Attack"
+      ],
+      "emerald": [
+        "Focus Energy",
+        "Gust",
+        "Quick Attack"
+      ],
+      "firered-leafgreen": [
+        "Focus Energy",
+        "Gust",
+        "Quick Attack"
+      ]
+    }
+  },
+  {
+    "pokemon": "Vibrava",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Flygon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Cacnea",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Acid",
+        "Counter",
+        "Dynamic Punch",
+        "Grass Whistle",
+        "Teeter Dance"
+      ],
+      "emerald": [
+        "Acid",
+        "Counter",
+        "Dynamic Punch",
+        "Grass Whistle",
+        "Teeter Dance"
+      ],
+      "firered-leafgreen": [
+        "Acid",
+        "Counter",
+        "Dynamic Punch",
+        "Grass Whistle",
+        "Teeter Dance"
+      ]
+    }
+  },
+  {
+    "pokemon": "Cacturne",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Swablu",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Agility",
+        "Haze",
+        "Pursuit",
+        "Rage"
+      ],
+      "emerald": [
+        "Agility",
+        "Haze",
+        "Pursuit",
+        "Rage"
+      ],
+      "firered-leafgreen": [
+        "Agility",
+        "Haze",
+        "Pursuit",
+        "Rage"
+      ]
+    }
+  },
+  {
+    "pokemon": "Altaria",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Zangoose",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Counter",
+        "Curse",
+        "Double Kick",
+        "Flail",
+        "Razor Wind",
+        "Roar"
+      ],
+      "emerald": [
+        "Counter",
+        "Curse",
+        "Double Kick",
+        "Flail",
+        "Razor Wind",
+        "Roar"
+      ],
+      "firered-leafgreen": [
+        "Counter",
+        "Curse",
+        "Double Kick",
+        "Flail",
+        "Razor Wind",
+        "Roar"
+      ]
+    }
+  },
+  {
+    "pokemon": "Seviper",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Body Slam",
+        "Spit Up",
+        "Stockpile",
+        "Swallow"
+      ],
+      "emerald": [
+        "Body Slam",
+        "Spit Up",
+        "Stockpile",
+        "Swallow"
+      ],
+      "firered-leafgreen": [
+        "Body Slam",
+        "Spit Up",
+        "Stockpile",
+        "Swallow"
+      ]
+    }
+  },
+  {
+    "pokemon": "Lunatone",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Solrock",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Barboach",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Spark",
+        "Thrash",
+        "Whirlpool"
+      ],
+      "emerald": [
+        "Spark",
+        "Thrash",
+        "Whirlpool"
+      ],
+      "firered-leafgreen": [
+        "Spark",
+        "Thrash",
+        "Whirlpool"
+      ]
+    }
+  },
+  {
+    "pokemon": "Whiscash",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Corphish",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Ancient Power",
+        "Body Slam",
+        "Endeavor",
+        "Mud Sport"
+      ],
+      "emerald": [
+        "Ancient Power",
+        "Body Slam",
+        "Endeavor",
+        "Mud Sport"
+      ],
+      "firered-leafgreen": [
+        "Ancient Power",
+        "Body Slam",
+        "Endeavor",
+        "Mud Sport"
+      ]
+    }
+  },
+  {
+    "pokemon": "Crawdaunt",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Baltoy",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Claydol",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Lileep",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Barrier",
+        "Mirror Coat",
+        "Recover",
+        "Rock Slide"
+      ],
+      "emerald": [
+        "Barrier",
+        "Mirror Coat",
+        "Recover",
+        "Rock Slide"
+      ],
+      "firered-leafgreen": [
+        "Barrier",
+        "Mirror Coat",
+        "Recover",
+        "Rock Slide"
+      ]
+    }
+  },
+  {
+    "pokemon": "Cradily",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Anorith",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Knock Off",
+        "Rapid Spin",
+        "Rock Slide",
+        "Swords Dance"
+      ],
+      "emerald": [
+        "Knock Off",
+        "Rapid Spin",
+        "Rock Slide",
+        "Swords Dance"
+      ],
+      "firered-leafgreen": [
+        "Knock Off",
+        "Rapid Spin",
+        "Rock Slide",
+        "Swords Dance"
+      ]
+    }
+  },
+  {
+    "pokemon": "Armaldo",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Feebas",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Confuse Ray",
+        "Dragon Breath",
+        "Hypnosis",
+        "Light Screen",
+        "Mirror Coat",
+        "Mud Sport"
+      ],
+      "emerald": [
+        "Confuse Ray",
+        "Dragon Breath",
+        "Hypnosis",
+        "Light Screen",
+        "Mirror Coat",
+        "Mud Sport"
+      ],
+      "firered-leafgreen": [
+        "Confuse Ray",
+        "Dragon Breath",
+        "Hypnosis",
+        "Light Screen",
+        "Mirror Coat",
+        "Mud Sport"
+      ]
+    }
+  },
+  {
+    "pokemon": "Milotic",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Castform",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Future Sight",
+        "Psych Up"
+      ],
+      "emerald": [
+        "Future Sight",
+        "Psych Up"
+      ],
+      "firered-leafgreen": [
+        "Future Sight",
+        "Psych Up"
+      ]
+    }
+  },
+  {
+    "pokemon": "Kecleon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Disable",
+        "Magic Coat",
+        "Trick"
+      ],
+      "emerald": [
+        "Disable",
+        "Magic Coat",
+        "Trick"
+      ],
+      "firered-leafgreen": [
+        "Disable",
+        "Magic Coat",
+        "Trick"
+      ]
+    }
+  },
+  {
+    "pokemon": "Shuppet",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Astonish",
+        "Destiny Bond",
+        "Disable",
+        "Foresight",
+        "Imprison"
+      ],
+      "emerald": [
+        "Astonish",
+        "Destiny Bond",
+        "Disable",
+        "Foresight",
+        "Imprison"
+      ],
+      "firered-leafgreen": [
+        "Astonish",
+        "Destiny Bond",
+        "Disable",
+        "Foresight",
+        "Imprison"
+      ]
+    }
+  },
+  {
+    "pokemon": "Banette",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Duskull",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Destiny Bond",
+        "Feint Attack",
+        "Grudge",
+        "Imprison",
+        "Memento",
+        "Pain Split"
+      ],
+      "emerald": [
+        "Destiny Bond",
+        "Feint Attack",
+        "Grudge",
+        "Imprison",
+        "Memento",
+        "Pain Split"
+      ],
+      "firered-leafgreen": [
+        "Destiny Bond",
+        "Feint Attack",
+        "Grudge",
+        "Imprison",
+        "Memento",
+        "Pain Split"
+      ]
+    }
+  },
+  {
+    "pokemon": "Dusclops",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Tropius",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Headbutt",
+        "Leech Seed",
+        "Nature Power",
+        "Razor Wind",
+        "Slam"
+      ],
+      "emerald": [
+        "Headbutt",
+        "Leech Seed",
+        "Nature Power",
+        "Razor Wind",
+        "Slam"
+      ],
+      "firered-leafgreen": [
+        "Headbutt",
+        "Leech Seed",
+        "Nature Power",
+        "Razor Wind",
+        "Slam"
+      ]
+    }
+  },
+  {
+    "pokemon": "Chimecho",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Curse",
+        "Disable",
+        "Dream Eater",
+        "Hypnosis"
+      ],
+      "emerald": [
+        "Curse",
+        "Disable",
+        "Dream Eater",
+        "Hypnosis"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Disable",
+        "Dream Eater",
+        "Hypnosis"
+      ]
+    }
+  },
+  {
+    "pokemon": "Absol",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Baton Pass",
+        "Curse",
+        "Double Edge",
+        "Feint Attack",
+        "Magic Coat",
+        "Substitute"
+      ],
+      "emerald": [
+        "Baton Pass",
+        "Curse",
+        "Double Edge",
+        "Feint Attack",
+        "Magic Coat",
+        "Substitute"
+      ],
+      "firered-leafgreen": [
+        "Baton Pass",
+        "Curse",
+        "Double Edge",
+        "Feint Attack",
+        "Magic Coat",
+        "Substitute"
+      ]
+    }
+  },
+  {
+    "pokemon": "Wynaut",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Snorunt",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Block",
+        "Spikes"
+      ],
+      "emerald": [
+        "Block",
+        "Spikes"
+      ],
+      "firered-leafgreen": [
+        "Block",
+        "Spikes"
+      ]
+    }
+  },
+  {
+    "pokemon": "Glalie",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Spheal",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Curse",
+        "Fissure",
+        "Rock Slide",
+        "Spit Up",
+        "Stockpile",
+        "Swallow",
+        "Water Sport",
+        "Yawn"
+      ],
+      "emerald": [
+        "Curse",
+        "Fissure",
+        "Rock Slide",
+        "Spit Up",
+        "Stockpile",
+        "Swallow",
+        "Water Sport",
+        "Yawn"
+      ],
+      "firered-leafgreen": [
+        "Curse",
+        "Fissure",
+        "Rock Slide",
+        "Spit Up",
+        "Stockpile",
+        "Swallow",
+        "Water Sport",
+        "Yawn"
+      ]
+    }
+  },
+  {
+    "pokemon": "Sealeo",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Walrein",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Clamperl",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Barrier",
+        "Body Slam",
+        "Confuse Ray",
+        "Mud Sport",
+        "Refresh",
+        "Supersonic"
+      ],
+      "emerald": [
+        "Barrier",
+        "Body Slam",
+        "Confuse Ray",
+        "Mud Sport",
+        "Refresh",
+        "Supersonic"
+      ],
+      "firered-leafgreen": [
+        "Barrier",
+        "Body Slam",
+        "Confuse Ray",
+        "Mud Sport",
+        "Refresh",
+        "Supersonic"
+      ]
+    }
+  },
+  {
+    "pokemon": "Huntail",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Gorebyss",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Relicanth",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Amnesia",
+        "Magnitude",
+        "Rock Slide",
+        "Skull Bash",
+        "Sleep Talk",
+        "Water Sport"
+      ],
+      "emerald": [
+        "Amnesia",
+        "Magnitude",
+        "Rock Slide",
+        "Skull Bash",
+        "Sleep Talk",
+        "Water Sport"
+      ],
+      "firered-leafgreen": [
+        "Amnesia",
+        "Magnitude",
+        "Rock Slide",
+        "Skull Bash",
+        "Sleep Talk",
+        "Water Sport"
+      ]
+    }
+  },
+  {
+    "pokemon": "Luvdisc",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Mud Sport",
+        "Splash",
+        "Supersonic",
+        "Water Sport"
+      ],
+      "emerald": [
+        "Mud Sport",
+        "Splash",
+        "Supersonic",
+        "Water Sport"
+      ],
+      "firered-leafgreen": [
+        "Mud Sport",
+        "Splash",
+        "Supersonic",
+        "Water Sport"
+      ]
+    }
+  },
+  {
+    "pokemon": "Bagon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [
+        "Dragon Dance",
+        "Dragon Rage",
+        "Hydro Pump",
+        "Thrash",
+        "Twister"
+      ],
+      "emerald": [
+        "Dragon Dance",
+        "Dragon Rage",
+        "Hydro Pump",
+        "Thrash",
+        "Twister"
+      ],
+      "firered-leafgreen": [
+        "Dragon Dance",
+        "Dragon Rage",
+        "Hydro Pump",
+        "Thrash",
+        "Twister"
+      ]
+    }
+  },
+  {
+    "pokemon": "Shelgon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Salamence",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Beldum",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Metang",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Metagross",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Regirock",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Regice",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Registeel",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Latias",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Latios",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Kyogre",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Groudon",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Rayquaza",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Jirachi",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  },
+  {
+    "pokemon": "Deoxys-normal",
+    "eggMoves": {
+      "gold-silver": [],
+      "crystal": [],
+      "ruby-sapphire": [],
+      "emerald": [],
+      "firered-leafgreen": []
+    }
+  }
+]

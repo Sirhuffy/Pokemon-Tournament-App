@@ -32,6 +32,7 @@ const DATA = {
   trades: null,       // optional — { perGame: { game: [{npc, location, gives, ...}] } }
   availability: null, // optional — { perGame: { game: [pokemonName, ...] } } from build_pokedex_availability.py
   eggMoves: [],       // optional — [{ pokemon, eggMoves: { versionGroup: [moveName, ...] } }]
+  trainers: [],       // optional — [{ id, name, role, ..., rosters: [{games, team}] }]
 };
 
 // Indexed for O(1) lookup (we have ~386 mons / 354 moves)
@@ -75,7 +76,7 @@ async function initApp() {
   try {
     // Load all data in parallel. tournament-rules.json is required;
     // others degrade gracefully if missing.
-    const [rulesRes, pokemonRes, movesRes, learnsetsRes, encountersRes, naturesRes, itemsRes, machinesRes, evRes, candiesRes, tradesRes, availRes, eggRes] = await Promise.all([
+    const [rulesRes, pokemonRes, movesRes, learnsetsRes, encountersRes, naturesRes, itemsRes, machinesRes, evRes, candiesRes, tradesRes, availRes, eggRes, trainersRes] = await Promise.all([
       fetchJSON("data/tournament-rules.json", true),
       fetchJSON("data/pokemon-core.json", true),
       fetchJSON("data/moves.json", true),
@@ -89,6 +90,7 @@ async function initApp() {
       fetchJSON("data/in-game-trades.json", false),
       fetchJSON("data/pokedex-availability.json", false),
       fetchJSON("data/egg-moves.json", false),
+      fetchJSON("data/trainers.json", false),
     ]);
 
     STATE.rules     = rulesRes;
@@ -105,6 +107,7 @@ async function initApp() {
     DATA.trades     = (tradesRes && tradesRes.perGame) ? tradesRes : null;
     DATA.availability = (availRes && availRes.perGame) ? availRes : null;
     DATA.eggMoves   = Array.isArray(eggRes) ? eggRes : [];
+    DATA.trainers   = (trainersRes && Array.isArray(trainersRes.trainers)) ? trainersRes.trainers : [];
 
     // Build indexes
     DATA.pokemon.forEach(p    => IDX.pokemonByName[p.name] = p);
@@ -244,6 +247,7 @@ function openPage(page) {
     case "tms":       return renderTMsPage();
     case "ivcalc":    return renderIVCalcPage();
     case "dmgcalc":   return renderDmgCalcPage();
+    case "trainers":  return renderTrainersPage();
     case "weakness":  return renderWeaknessPage();
     case "typechart": return renderTypeChartPage();
     case "evtrain":   return renderEVTrainPage();
@@ -1296,6 +1300,422 @@ function renderIVResult(result, isGen2) {
   }
   html += `</div>`;
   $("#ivResult").innerHTML = html;
+}
+
+// ============================ TRAINERS PAGE ============================
+const ROLE_ORDER = { "Gym Leader": 0, "Elite Four": 1, "Champion": 2, "Rival": 3 };
+
+function renderTrainersPage() {
+  if (!DATA.trainers.length) {
+    setContent(`<h2>Trainers</h2>
+      <div class="empty"><span class="emoji">🥋</span>
+        <p>No trainer data yet.</p>
+        <p class="tiny">Schema is in <code>data/trainers.json</code>. Currently only Falkner is populated as a proof of concept — bulk scrape from Bulbapedia is next step.</p>
+      </div>`);
+    return;
+  }
+  // Filter to trainers whose roster includes the current game
+  const game = STATE.currentGame;
+  const relevant = DATA.trainers.filter(t =>
+    t.rosters?.some(r => r.games.includes(game))
+  );
+  // Sort by role -> order within role
+  relevant.sort((a, b) => {
+    const r = (ROLE_ORDER[a.role] ?? 9) - (ROLE_ORDER[b.role] ?? 9);
+    if (r !== 0) return r;
+    return (a.order ?? 99) - (b.order ?? 99);
+  });
+
+  let html = `<h2>Trainers — ${escapeHtml(gameInfo().label)}</h2>
+    <p class="muted tiny">${relevant.length} trainer${relevant.length === 1 ? "" : "s"} on file. Tap any to expand.</p>`;
+
+  if (relevant.length === 0) {
+    html += `<div class="empty"><span class="emoji">📭</span><p>No trainers populated for this game yet.</p></div>`;
+  } else {
+    let lastRole = null;
+    for (const t of relevant) {
+      if (t.role !== lastRole) {
+        html += `<h3>${escapeHtml(t.role)}s</h3>`;
+        lastRole = t.role;
+      }
+      const roster = t.rosters.find(r => r.games.includes(game));
+      const summaryTeam = roster.team.map(p => `${escapeHtml(p.species)} L${p.level}`).join(" · ");
+      html += `<details class="team-card" style="margin-bottom:10px;">
+        <summary style="cursor:pointer; list-style:none;">
+          <div class="header" style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+            <div>
+              <div class="name">${escapeHtml(t.name)}${t.specialty ? ` <span class="badge badge-tag">${escapeHtml(t.specialty)}</span>` : ""}</div>
+              <div class="muted tiny" style="margin-top:2px;">${escapeHtml(t.location || "")}${t.badge ? ` · ${escapeHtml(t.badge)}` : ""}</div>
+              <div class="muted tiny" style="margin-top:4px;">${summaryTeam}</div>
+            </div>
+            <span class="muted tiny">tap ›</span>
+          </div>
+        </summary>
+        <div style="margin-top:12px;">
+          ${t.title ? `<p class="muted tiny" style="font-style:italic;">"${escapeHtml(t.title)}"</p>` : ""}
+          <div class="muted tiny" style="margin-bottom:10px;">
+            ${roster.moneyReward ? `Reward: ¥${roster.moneyReward}` : ""}
+            ${roster.tmReward ? ` · ${escapeHtml(roster.tmReward)}` : ""}
+          </div>
+          ${roster.team.map(renderTrainerPokemon).join("")}
+          ${t.source ? `<p class="muted tiny" style="margin-top:8px;">↗ <a href="${escapeHtml(t.source)}" target="_blank" rel="noopener">verify on Bulbapedia</a></p>` : ""}
+        </div>
+      </details>`;
+    }
+  }
+  setContent(html);
+}
+
+function renderTrainerPokemon(p) {
+  const types = (IDX.pokemonByName[p.species]?.types || []).map(t => `<span class="type-pill type-${t}">${t}</span>`).join("");
+  const moves = (p.moves || []).map(m => {
+    const md = getMoveData(m);
+    const status = moveStatus(m);
+    const badge = status === "banned" ? `<span class="badge badge-banned">banned</span>` :
+                  status === "warn"   ? `<span class="badge badge-warn">caution</span>` : "";
+    const typeLabel = md ? `<span class="type-pill type-${md.type}" style="font-size:9px;">${md.type}</span>` : "";
+    return `<div style="display:flex; justify-content:space-between; padding:4px 8px; background:var(--bg-elev-2); border-radius:6px; margin-bottom:4px; font-size:13px;">
+      <span>${escapeHtml(m)} ${badge}</span>
+      <span>${typeLabel}${md && md.power ? ` <span class="muted tiny">${md.power}pw</span>` : ""}</span>
+    </div>`;
+  }).join("");
+
+  return `<div style="border:1px solid var(--border); border-radius:8px; padding:10px; margin-bottom:8px; background:var(--bg-elev-2);">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+      <div>
+        <strong>${escapeHtml(p.species)}</strong>
+        ${p.gender ? ` <span class="muted tiny">${p.gender === "M" ? "♂" : p.gender === "F" ? "♀" : ""}</span>` : ""}
+        <span class="muted">Lv ${p.level}</span>
+      </div>
+      <div>${types}</div>
+    </div>
+    ${p.heldItem ? `<div class="muted tiny" style="margin-top:4px;">Holds: ${escapeHtml(p.heldItem)}</div>` : ""}
+    ${moves ? `<div style="margin-top:8px;">${moves}</div>` : ""}
+  </div>`;
+}
+
+// ============================ DAMAGE CALCULATOR ============================
+// Gen 1-3 use type-based physical/special split (not the move-by-move
+// classification PokeAPI returns). Override accordingly.
+const PHYSICAL_TYPES_GEN3 = new Set(["Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel"]);
+function getMoveCategoryGen3(md) {
+  if (!md || !md.power) return "Status";
+  if (md.category === "Status") return "Status";
+  return PHYSICAL_TYPES_GEN3.has(md.type) ? "Physical" : "Special";
+}
+
+// Type-boosting hold items (10% in Gen 2, 20% in Gen 3).
+// Items not in this map are ignored for the damage calc.
+const TYPE_BOOST_ITEMS = {
+  "Charcoal":      "Fire",
+  "Mystic Water":  "Water",
+  "Sea Incense":   "Water",
+  "Magnet":        "Electric",
+  "Miracle Seed":  "Grass",
+  "Never-Melt Ice":"Ice",
+  "Black Belt":    "Fighting",
+  "Poison Barb":   "Poison",
+  "Soft Sand":     "Ground",
+  "Sharp Beak":    "Flying",
+  "Twisted Spoon": "Psychic",
+  "Silver Powder": "Bug",
+  "Hard Stone":    "Rock",
+  "Spell Tag":     "Ghost",
+  "Black Glasses": "Dark",
+  "Metal Coat":    "Steel",
+  "Dragon Fang":   "Dragon",
+  "Silk Scarf":    "Normal",   // Gen 3 only — Gen 2 had "Polkadot Bow"
+};
+
+const dmgCalcState = {
+  attacker: null, defender: null, move: null,
+  item: "", weather: "none", status: "none", crit: false,
+};
+
+function renderDmgCalcPage() {
+  const allPokemon = DATA.pokemon.map(p => p.name).sort();
+  const teamFirst = STATE.team.length
+    ? `<optgroup label="Your team">${STATE.team.map(n => `<option value="${escapeHtml(n)}">${escapeHtml(n)}</option>`).join("")}</optgroup>`
+    : "";
+  const allOpts = `<optgroup label="All Pokémon">${DATA.pokemon.map(p => `<option value="${escapeHtml(p.name)}">#${p.number} ${escapeHtml(p.name)}</option>`).join("")}</optgroup>`;
+
+  // Pick first team member as default if nothing chosen yet
+  if (!dmgCalcState.attacker && STATE.team.length) dmgCalcState.attacker = STATE.team[0];
+  if (!dmgCalcState.defender && STATE.team.length > 1) dmgCalcState.defender = STATE.team[1];
+
+  const isGen2 = gameInfo().family === "gsc";
+  const itemBoostPct = isGen2 ? 10 : 20;
+
+  setContent(`
+    <h2>Damage Calculator</h2>
+    <p class="muted tiny">Tournament conditions: both Pokémon at level ${STATE.levelCap}, average IVs (Gen ${isGen2 ? "2: 8 DVs" : "3: 16 IVs"}), 0 EVs, neutral nature. Type-boost items add +${itemBoostPct}%.</p>
+
+    <h3>Attacker</h3>
+    <select id="dcAtk">
+      <option value="">— Pick —</option>
+      ${teamFirst}${allOpts}
+    </select>
+    <div class="iv-grid" style="margin-top:8px;">
+      <div>
+        <label class="muted tiny">Held item</label>
+        <select id="dcItem">
+          <option value="">None</option>
+          ${Object.keys(TYPE_BOOST_ITEMS).sort().map(n => `<option value="${escapeHtml(n)}">${escapeHtml(n)} (+${itemBoostPct}% ${TYPE_BOOST_ITEMS[n]})</option>`).join("")}
+        </select>
+      </div>
+      <div>
+        <label class="muted tiny">Status</label>
+        <select id="dcStatus">
+          <option value="none">None</option>
+          <option value="burn">Burned (½ physical Atk)</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Defender</h3>
+    <select id="dcDef">
+      <option value="">— Pick —</option>
+      ${teamFirst}${allOpts}
+    </select>
+
+    <h3>Move &amp; Conditions</h3>
+    <select id="dcMove">
+      <option value="">— Pick a move (choose attacker first) —</option>
+    </select>
+    <div class="iv-grid" style="margin-top:8px;">
+      <div>
+        <label class="muted tiny">Weather</label>
+        <select id="dcWeather">
+          <option value="none">None</option>
+          <option value="sun">Sunny Day (Fire ×1.5, Water ×0.5)</option>
+          <option value="rain">Rain Dance (Water ×1.5, Fire ×0.5)</option>
+        </select>
+      </div>
+      <div>
+        <label class="muted tiny">Critical hit</label>
+        <select id="dcCrit">
+          <option value="false">No crit</option>
+          <option value="true">Critical hit (×2)</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="dcResult" style="margin-top:18px;"></div>
+  `);
+
+  // Restore state to controls
+  $("#dcAtk").value = dmgCalcState.attacker || "";
+  $("#dcDef").value = dmgCalcState.defender || "";
+  $("#dcItem").value = dmgCalcState.item || "";
+  $("#dcStatus").value = dmgCalcState.status || "none";
+  $("#dcWeather").value = dmgCalcState.weather || "none";
+  $("#dcCrit").value = String(dmgCalcState.crit);
+
+  // Wire change handlers
+  $("#dcAtk").addEventListener("change", e => { dmgCalcState.attacker = e.target.value || null; refreshMoveDropdown(); runDmgCalc(); });
+  $("#dcDef").addEventListener("change", e => { dmgCalcState.defender = e.target.value || null; runDmgCalc(); });
+  $("#dcMove").addEventListener("change", e => { dmgCalcState.move = e.target.value || null; runDmgCalc(); });
+  $("#dcItem").addEventListener("change", e => { dmgCalcState.item = e.target.value; runDmgCalc(); });
+  $("#dcStatus").addEventListener("change", e => { dmgCalcState.status = e.target.value; runDmgCalc(); });
+  $("#dcWeather").addEventListener("change", e => { dmgCalcState.weather = e.target.value; runDmgCalc(); });
+  $("#dcCrit").addEventListener("change", e => { dmgCalcState.crit = e.target.value === "true"; runDmgCalc(); });
+
+  refreshMoveDropdown();
+  runDmgCalc();
+}
+
+function refreshMoveDropdown() {
+  const sel = $("#dcMove");
+  if (!sel) return;
+  if (!dmgCalcState.attacker) {
+    sel.innerHTML = `<option value="">— Pick a move (choose attacker first) —</option>`;
+    return;
+  }
+  const all = getAllAvailableMoves(dmgCalcState.attacker);
+  const damaging = (list, isEgg) => list
+    .filter(m => {
+      const md = getMoveData(m.move || m);
+      return md && md.power; // damaging moves only
+    })
+    .map(m => ({ move: m.move || m, isEgg: !!isEgg, level: m.level || null, tm: m.tm || null }));
+
+  const groups = [
+    { label: "Level-up (legal)",  items: damaging(all.legal) },
+    { label: "TMs/HMs",           items: damaging(all.tms) },
+    { label: "Egg moves",         items: damaging(all.eggs || [], true) },
+    { label: "Above level cap",   items: damaging(all.overCap) },
+  ].filter(g => g.items.length);
+
+  let html = `<option value="">— Pick a move —</option>`;
+  for (const g of groups) {
+    html += `<optgroup label="${g.label}">`;
+    for (const m of g.items) {
+      const md = getMoveData(m.move);
+      const tag = m.isEgg ? " (egg)" : m.tm ? ` (${m.tm})` : m.level !== null ? ` Lv${m.level}` : "";
+      html += `<option value="${escapeHtml(m.move)}">${escapeHtml(m.move)} — ${md.type}/${md.power}pw${tag}</option>`;
+    }
+    html += `</optgroup>`;
+  }
+  sel.innerHTML = html;
+  // Try to keep previous selection
+  if (dmgCalcState.move) sel.value = dmgCalcState.move;
+}
+
+// Average DV (Gen 2) or IV (Gen 3) used for tournament-condition calcs.
+function avgIV() { return gameInfo().family === "gsc" ? 8 : 16; }
+
+// Compute the actual stat at the level cap with average IVs and 0 EVs.
+function computeStat(base, statKey) {
+  const level = STATE.levelCap;
+  const iv = avgIV();
+  const isGen2 = gameInfo().family === "gsc";
+  if (statKey === "hp") {
+    if (isGen2) {
+      // Gen 2 HP: floor((Base + DV) * 2 * Level / 100) + Level + 10
+      return Math.floor((base + iv) * 2 * level / 100) + level + 10;
+    }
+    // Gen 3 HP: floor((2*Base + IV) * Level / 100) + Level + 10
+    return Math.floor((2 * base + iv) * level / 100) + level + 10;
+  }
+  if (isGen2) {
+    // Gen 2 non-HP: floor((Base + DV) * 2 * Level / 100) + 5
+    return Math.floor((base + iv) * 2 * level / 100) + 5;
+  }
+  // Gen 3 non-HP: floor((2*Base + IV) * Level / 100) + 5  [neutral nature, 0 EV]
+  return Math.floor((2 * base + iv) * level / 100) + 5;
+}
+
+function calculateDamage(attacker, defender, moveName, opts) {
+  const md = getMoveData(moveName);
+  if (!md || !md.power) return null;
+
+  const cat = getMoveCategoryGen3(md);
+  if (cat === "Status") return null;
+
+  const level = STATE.levelCap;
+  const isGen2 = gameInfo().family === "gsc";
+  const itemBoost = isGen2 ? 1.10 : 1.20;
+
+  // Attacker / defender stats at tournament conditions
+  let atk = cat === "Physical" ? computeStat(attacker.baseStats.attack, "attack")
+                                : computeStat(attacker.baseStats.spAttack, "spAttack");
+  const def = cat === "Physical" ? computeStat(defender.baseStats.defense, "defense")
+                                  : computeStat(defender.baseStats.spDefense, "spDefense");
+  const defenderHP = computeStat(defender.baseStats.hp, "hp");
+
+  // Burn halves physical Atk
+  let burnApplied = false;
+  if (opts.status === "burn" && cat === "Physical") {
+    atk = Math.floor(atk / 2);
+    burnApplied = true;
+  }
+
+  // Base damage (Gen 3 formula)
+  let dmg = Math.floor(Math.floor(Math.floor(2 * level / 5 + 2) * md.power * atk / def) / 50) + 2;
+
+  // Critical hit (×2)
+  if (opts.crit) dmg *= 2;
+
+  // STAB
+  const stab = attacker.types.includes(md.type) ? 1.5 : 1;
+  dmg = Math.floor(dmg * stab);
+
+  // Type effectiveness
+  let typeEff = 1;
+  for (const defType of defender.types) {
+    const c = TYPE_CHART[defType];
+    if (!c) continue;
+    if (c.immuneTo.includes(md.type)) typeEff *= 0;
+    else if (c.weakTo.includes(md.type)) typeEff *= 2;
+    else if (c.resists.includes(md.type)) typeEff *= 0.5;
+  }
+  dmg = Math.floor(dmg * typeEff);
+
+  // Weather
+  let weatherMod = 1;
+  if (opts.weather === "sun") {
+    if (md.type === "Fire") weatherMod = 1.5;
+    if (md.type === "Water") weatherMod = 0.5;
+  } else if (opts.weather === "rain") {
+    if (md.type === "Water") weatherMod = 1.5;
+    if (md.type === "Fire") weatherMod = 0.5;
+  }
+  dmg = Math.floor(dmg * weatherMod);
+
+  // Item boost
+  let itemMod = 1;
+  if (opts.item && TYPE_BOOST_ITEMS[opts.item] === md.type) itemMod = itemBoost;
+  dmg = Math.floor(dmg * itemMod);
+
+  // Random factor 0.85 - 1.00
+  const min = Math.floor(dmg * 0.85);
+  const max = dmg;
+
+  return {
+    min, max, defenderHP,
+    typeEff, stab, weatherMod, itemMod, burnApplied,
+    minPct: (min / defenderHP * 100),
+    maxPct: (max / defenderHP * 100),
+    category: cat,
+  };
+}
+
+function runDmgCalc() {
+  const out = $("#dcResult");
+  if (!out) return;
+  const { attacker, defender, move, item, weather, status, crit } = dmgCalcState;
+  if (!attacker || !defender || !move) {
+    out.innerHTML = `<div class="empty"><span class="emoji">🧮</span><p>Pick attacker, defender, and move to see damage.</p></div>`;
+    return;
+  }
+  const atkP = IDX.pokemonByName[attacker], defP = IDX.pokemonByName[defender];
+  if (!atkP || !defP) return;
+  const r = calculateDamage(atkP, defP, move, { item, weather, status, crit });
+  if (!r) {
+    out.innerHTML = `<div class="warning">${escapeHtml(move)} is a status move (no damage).</div>`;
+    return;
+  }
+
+  const md = getMoveData(move);
+  const effLabel = r.typeEff === 0 ? "0× — IMMUNE" :
+                   r.typeEff === 0.25 ? "¼× (double resist)" :
+                   r.typeEff === 0.5 ? "½× (resist)" :
+                   r.typeEff === 1 ? "1× (neutral)" :
+                   r.typeEff === 2 ? "2× (super effective)" :
+                   r.typeEff === 4 ? "4× (quad)" :
+                   `${r.typeEff}×`;
+
+  // KO threshold (assumes max-damage random roll)
+  const koHits = r.max > 0 ? Math.ceil(r.defenderHP / r.max) : "—";
+  const koGuaranteed = r.min > 0 ? Math.ceil(r.defenderHP / r.min) : "—";
+
+  out.innerHTML = `
+    <div class="team-card">
+      <div class="header">
+        <div>
+          <div class="name">${escapeHtml(attacker)} → ${escapeHtml(defender)}</div>
+          <div class="muted tiny" style="margin-top:2px;">${escapeHtml(move)} <span class="type-pill type-${md.type}">${md.type}</span> · ${r.category} · ${md.power}pw</div>
+        </div>
+      </div>
+      <hr class="hr">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px 14px; font-size:14px;">
+        <div class="muted tiny">Damage range</div>
+        <div style="font-weight:700;">${r.min} – ${r.max}</div>
+        <div class="muted tiny">% of HP (${r.defenderHP})</div>
+        <div style="font-weight:700; color:${r.maxPct >= 100 ? "var(--good)" : r.maxPct >= 50 ? "var(--warn)" : "var(--text)"};">${r.minPct.toFixed(1)}% – ${r.maxPct.toFixed(1)}%</div>
+        <div class="muted tiny">Type effectiveness</div>
+        <div>${effLabel}</div>
+        <div class="muted tiny">KO in (best case)</div>
+        <div>${koHits === 1 ? "1HKO ✓" : koHits + " hits"}</div>
+        <div class="muted tiny">KO in (worst case)</div>
+        <div>${koGuaranteed} hits</div>
+      </div>
+      <hr class="hr">
+      <div class="muted tiny">
+        Modifiers active: STAB ×${r.stab.toFixed(1)}${r.itemMod !== 1 ? `, Item ×${r.itemMod}` : ""}${r.weatherMod !== 1 ? `, Weather ×${r.weatherMod}` : ""}${crit ? ", Crit ×2" : ""}${r.burnApplied ? ", Burn (½ Atk)" : ""}
+      </div>
+    </div>
+  `;
 }
 
 // ============================ WEAKNESS PAGE ============================

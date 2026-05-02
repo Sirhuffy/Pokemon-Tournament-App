@@ -1,7 +1,7 @@
 /* Pokemon Tournament Companion — service worker
    Versioned cache: bump CACHE_VERSION to force clients to refresh. */
 
-const CACHE_VERSION = "ptc-v6";
+const CACHE_VERSION = "ptc-v7";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -24,7 +24,8 @@ const CORE_ASSETS = [
   "./data/rare-candies.json",
   "./data/in-game-trades.json",
   "./data/pokedex-availability.json",
-  "./data/egg-moves.json"
+  "./data/egg-moves.json",
+  "./data/trainers.json"
 ];
 
 // Install: precache the shell + data so the app is fully usable offline.
