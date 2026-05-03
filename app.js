@@ -1384,7 +1384,6 @@ function renderTrainerPokemon(p) {
     <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
       <div>
         <strong>${escapeHtml(p.species)}</strong>
-        ${p.gender ? ` <span class="muted tiny">${p.gender === "M" ? "♂" : p.gender === "F" ? "♀" : ""}</span>` : ""}
         <span class="muted">Lv ${p.level}</span>
       </div>
       <div>${types}</div>

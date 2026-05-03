@@ -1,13 +1,14 @@
 {
   "_meta": {
     "description": "Tournament-relevant trainer rosters scraped from Bulbapedia. Each trainer has one or more rosters keyed by the games that share that roster.",
-    "scope": "Gym Leaders, Elite Four, Champion, Rival(s) — for the games covered by this app (GSC, RSE, FRLG).",
+    "scope": "Gym Leaders, Elite Four, Champion — for the games covered by this app (GSC, RSE, FRLG).",
     "fields": {
-      "role": "Gym Leader | Elite Four | Champion | Rival",
-      "specialty": "Type the trainer specializes in (or null for rivals/champions)",
-      "rosters": "Array of {games: [game keys], team: [...]}. Multiple entries when within a family there's variation (e.g. Emerald differs from R/S).",
-      "team[i].moves": "Moveset Bulbapedia lists for that game version. May be incomplete on Bulbapedia for older games — verify if exact moves matter."
-    }
+      "role": "Gym Leader | Elite Four | Champion",
+      "specialty": "Type the trainer specializes in (or null for champions/multi-type)",
+      "rosters": "Array of {games: [game keys], team: [...]}.",
+      "team[i].moves": "Order matches Bulbapedia roster which is the canonical lead-out order."
+    },
+    "progress": "GSC: 8/8 Johto leaders done + Will, Koga of E4. Bruno, Karen, Lance still pending. FRLG and RSE not yet started."
   },
   "trainers": [
     {
@@ -19,30 +20,205 @@
       "location": "Violet City Gym",
       "badge": "Zephyr Badge",
       "order": 1,
-      "rosters": [
-        {
-          "games": ["gold", "silver", "crystal"],
-          "moneyReward": 900,
-          "tmReward": "TM31 Mud-Slap",
-          "team": [
-            {
-              "species": "Pidgey",
-              "level": 7,
-              "gender": "M",
-              "heldItem": null,
-              "moves": ["Tackle", "Mud-Slap"]
-            },
-            {
-              "species": "Pidgeotto",
-              "level": 9,
-              "gender": "M",
-              "heldItem": null,
-              "moves": ["Tackle", "Gust", "Mud-Slap"]
-            }
-          ]
-        }
-      ],
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 900,
+        "tmReward": "TM31 Mud-Slap",
+        "team": [
+          { "species": "Pidgey",    "level": 7, "moves": ["Tackle", "Mud-Slap"] },
+          { "species": "Pidgeotto", "level": 9, "moves": ["Tackle", "Gust", "Mud-Slap"] }
+        ]
+      }],
       "source": "https://bulbapedia.bulbagarden.net/wiki/Falkner"
+    },
+    {
+      "id": "gsc-bugsy",
+      "name": "Bugsy",
+      "role": "Gym Leader",
+      "title": "The Walking Bug Pokémon Encyclopedia",
+      "specialty": "Bug",
+      "location": "Azalea Town Gym",
+      "badge": "Hive Badge",
+      "order": 2,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 1600,
+        "tmReward": "TM49 Fury Cutter",
+        "team": [
+          { "species": "Metapod", "level": 14, "moves": ["Tackle", "String Shot", "Harden"] },
+          { "species": "Kakuna",  "level": 14, "moves": ["Poison Sting", "String Shot", "Harden"] },
+          { "species": "Scyther", "level": 16, "moves": ["Fury Cutter", "Quick Attack", "Leer"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Bugsy"
+    },
+    {
+      "id": "gsc-whitney",
+      "name": "Whitney",
+      "role": "Gym Leader",
+      "title": "The Incredibly Pretty Girl",
+      "specialty": "Normal",
+      "location": "Goldenrod City Gym",
+      "badge": "Plain Badge",
+      "order": 3,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 2000,
+        "tmReward": "TM45 Attract",
+        "team": [
+          { "species": "Clefairy", "level": 18, "moves": ["Encore", "Mimic", "Double Slap", "Metronome"] },
+          { "species": "Miltank",  "level": 20, "moves": ["Stomp", "Attract", "Milk Drink", "Rollout"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Whitney"
+    },
+    {
+      "id": "gsc-morty",
+      "name": "Morty",
+      "role": "Gym Leader",
+      "title": "The Mystic Seer of the Future",
+      "specialty": "Ghost",
+      "location": "Ecruteak City Gym",
+      "badge": "Fog Badge",
+      "order": 4,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 2300,
+        "tmReward": "TM30 Shadow Ball",
+        "team": [
+          { "species": "Gastly",  "level": 21, "moves": ["Lick", "Spite", "Mean Look", "Curse"] },
+          { "species": "Haunter", "level": 21, "moves": ["Hypnosis", "Curse", "Mimic", "Night Shade"] },
+          { "species": "Gengar",  "level": 25, "moves": ["Shadow Ball", "Mean Look", "Hypnosis", "Dream Eater"] },
+          { "species": "Haunter", "level": 23, "moves": ["Spite", "Mean Look", "Mimic", "Night Shade"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Morty"
+    },
+    {
+      "id": "gsc-chuck",
+      "name": "Chuck",
+      "role": "Gym Leader",
+      "title": "His Roaring Fists Do the Talking",
+      "specialty": "Fighting",
+      "location": "Cianwood City Gym",
+      "badge": "Storm Badge",
+      "order": 5,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 3000,
+        "tmReward": "TM01 Dynamic Punch (also HM02 Fly from his wife)",
+        "team": [
+          { "species": "Primeape",  "level": 27, "moves": ["Leer", "Rage", "Karate Chop", "Fury Swipes"] },
+          { "species": "Poliwrath", "level": 30, "moves": ["Hypnosis", "Mind Reader", "Surf", "Dynamic Punch"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Chuck"
+    },
+    {
+      "id": "gsc-jasmine",
+      "name": "Jasmine",
+      "role": "Gym Leader",
+      "title": "The Steel-Clad Defense Girl",
+      "specialty": "Steel",
+      "location": "Olivine City Gym",
+      "badge": "Mineral Badge",
+      "order": 6,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 3500,
+        "tmReward": "TM23 Iron Tail",
+        "team": [
+          { "species": "Magnemite", "level": 30, "moves": ["Thunderbolt", "Supersonic", "Sonic Boom", "Thunder Wave"] },
+          { "species": "Magnemite", "level": 30, "moves": ["Thunderbolt", "Supersonic", "Sonic Boom", "Thunder Wave"] },
+          { "species": "Steelix",   "level": 35, "moves": ["Iron Tail", "Rock Throw", "Sunny Day", "Screech"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Jasmine"
+    },
+    {
+      "id": "gsc-pryce",
+      "name": "Pryce",
+      "role": "Gym Leader",
+      "title": "The Teacher of Winter's Harshness",
+      "specialty": "Ice",
+      "location": "Mahogany Town Gym",
+      "badge": "Glacier Badge",
+      "order": 7,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 3100,
+        "tmReward": "TM16 Icy Wind",
+        "team": [
+          { "species": "Seel",      "level": 27, "moves": ["Headbutt", "Icy Wind", "Aurora Beam", "Rest"] },
+          { "species": "Dewgong",   "level": 29, "moves": ["Headbutt", "Icy Wind", "Aurora Beam", "Rest"] },
+          { "species": "Piloswine", "level": 31, "moves": ["Icy Wind", "Fury Attack", "Mist", "Blizzard"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Pryce"
+    },
+    {
+      "id": "gsc-clair",
+      "name": "Clair",
+      "role": "Gym Leader",
+      "title": "The Blessed User of Dragon Pokémon",
+      "specialty": "Dragon",
+      "location": "Blackthorn City Gym",
+      "badge": "Rising Badge",
+      "order": 8,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 4000,
+        "tmReward": "TM24 DragonBreath",
+        "team": [
+          { "species": "Dragonair", "level": 37, "moves": ["Surf", "Slam", "Thunder Wave", "DragonBreath"] },
+          { "species": "Dragonair", "level": 37, "moves": ["Thunderbolt", "Slam", "Thunder Wave", "DragonBreath"] },
+          { "species": "Dragonair", "level": 37, "moves": ["Ice Beam", "Slam", "Thunder Wave", "DragonBreath"] },
+          { "species": "Kingdra",   "level": 40, "moves": ["Surf", "DragonBreath", "Smokescreen", "Hyper Beam"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Clair"
+    },
+    {
+      "id": "gsc-will",
+      "name": "Will",
+      "role": "Elite Four",
+      "specialty": "Psychic",
+      "location": "Indigo Plateau",
+      "order": 1,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 4200,
+        "tmReward": null,
+        "team": [
+          { "species": "Xatu",      "level": 40, "moves": ["Quick Attack", "Future Sight", "Psychic", "Confuse Ray"] },
+          { "species": "Exeggutor", "level": 41, "moves": ["Reflect", "Egg Bomb", "Psychic", "Leech Seed"] },
+          { "species": "Slowbro",   "level": 41, "moves": ["Curse", "Amnesia", "Body Slam", "Psychic"] },
+          { "species": "Jynx",      "level": 41, "moves": ["Ice Punch", "Double Slap", "Psychic", "Lovely Kiss"] },
+          { "species": "Xatu",      "level": 42, "moves": ["Quick Attack", "Future Sight", "Psychic", "Confuse Ray"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Will"
+    },
+    {
+      "id": "gsc-koga",
+      "name": "Koga",
+      "role": "Elite Four",
+      "specialty": "Poison",
+      "location": "Indigo Plateau",
+      "order": 2,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 4400,
+        "tmReward": null,
+        "team": [
+          { "species": "Ariados",    "level": 40, "moves": ["Spider Web", "Double Team", "Baton Pass", "Giga Drain"] },
+          { "species": "Venomoth",   "level": 41, "moves": ["Psychic", "Gust", "Supersonic", "Toxic"] },
+          { "species": "Forretress", "level": 43, "moves": ["Protect", "Spikes", "Swift", "Explosion"] },
+          { "species": "Muk",        "level": 42, "moves": ["Sludge Bomb", "Acid Armor", "Minimize", "Toxic"] },
+          { "species": "Crobat",     "level": 44, "moves": ["Double Team", "Wing Attack", "Quick Attack", "Toxic"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Koga"
     }
   ]
 }
