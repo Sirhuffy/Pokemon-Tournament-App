@@ -8,7 +8,7 @@
       "rosters": "Array of {games: [game keys], team: [...]}.",
       "team[i].moves": "Order matches Bulbapedia roster which is the canonical lead-out order."
     },
-    "progress": "GSC: 8/8 Johto leaders done + Will, Koga of E4. Bruno, Karen, Lance still pending. FRLG and RSE not yet started."
+    "progress": "GSC: 13/13 complete. FRLG: 13/13 complete. RSE: not yet started."
   },
   "trainers": [
     {
@@ -219,6 +219,341 @@
         ]
       }],
       "source": "https://bulbapedia.bulbagarden.net/wiki/Koga"
+    },
+    {
+      "id": "gsc-bruno",
+      "name": "Bruno",
+      "role": "Elite Four",
+      "specialty": "Fighting",
+      "location": "Indigo Plateau",
+      "order": 3,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 4600,
+        "tmReward": null,
+        "team": [
+          { "species": "Hitmontop",  "level": 42, "moves": ["Quick Attack", "Dig", "Detect", "Pursuit"] },
+          { "species": "Hitmonlee",  "level": 42, "moves": ["Double Kick", "Foresight", "Hi Jump Kick", "Swagger"] },
+          { "species": "Hitmonchan", "level": 42, "moves": ["Ice Punch", "Fire Punch", "Thunder Punch", "Mach Punch"] },
+          { "species": "Onix",       "level": 43, "moves": ["Rock Slide", "Sandstorm", "Earthquake", "Bind"] },
+          { "species": "Machamp",    "level": 46, "moves": ["Rock Slide", "Foresight", "Cross Chop", "Vital Throw"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Bruno"
+    },
+    {
+      "id": "gsc-karen",
+      "name": "Karen",
+      "role": "Elite Four",
+      "specialty": "Dark",
+      "location": "Indigo Plateau",
+      "order": 4,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 4700,
+        "tmReward": null,
+        "team": [
+          { "species": "Umbreon",   "level": 42, "moves": ["Faint Attack", "Confuse Ray", "Mean Look", "Sand Attack"] },
+          { "species": "Vileplume", "level": 42, "moves": ["Stun Spore", "Acid", "Petal Dance", "Moonlight"] },
+          { "species": "Gengar",    "level": 45, "moves": ["Lick", "Spite", "Curse", "Destiny Bond"] },
+          { "species": "Murkrow",   "level": 44, "moves": ["Faint Attack", "Whirlwind", "Pursuit", "Quick Attack"] },
+          { "species": "Houndoom",  "level": 47, "moves": ["Crunch", "Flamethrower", "Roar", "Pursuit"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Karen"
+    },
+    {
+      "id": "gsc-lance",
+      "name": "Lance",
+      "role": "Champion",
+      "title": "The Dragon Master",
+      "specialty": "Dragon",
+      "location": "Indigo Plateau",
+      "order": 5,
+      "rosters": [{
+        "games": ["gold", "silver", "crystal"],
+        "moneyReward": 5000,
+        "tmReward": null,
+        "team": [
+          { "species": "Gyarados",   "level": 44, "moves": ["Rain Dance", "Surf", "Flail", "Hyper Beam"] },
+          { "species": "Dragonite",  "level": 47, "moves": ["Twister", "Thunder Wave", "Blizzard", "Hyper Beam"] },
+          { "species": "Charizard",  "level": 46, "moves": ["Flamethrower", "Wing Attack", "Slash", "Hyper Beam"] },
+          { "species": "Aerodactyl", "level": 46, "moves": ["Rock Slide", "AncientPower", "Wing Attack", "Hyper Beam"] },
+          { "species": "Dragonite",  "level": 47, "moves": ["Twister", "Thunder Wave", "Thunder", "Hyper Beam"] },
+          { "species": "Dragonite",  "level": 50, "moves": ["Safeguard", "Outrage", "Fire Blast", "Hyper Beam"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Lance"
+    },
+    {
+      "id": "frlg-brock",
+      "name": "Brock",
+      "role": "Gym Leader",
+      "specialty": "Rock",
+      "location": "Pewter City Gym",
+      "badge": "Boulder Badge",
+      "order": 1,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 1400,
+        "tmReward": "TM39 Rock Tomb",
+        "team": [
+          { "species": "Geodude", "level": 12, "moves": ["Tackle", "Defense Curl"] },
+          { "species": "Onix",    "level": 14, "moves": ["Tackle", "Harden", "Bind", "Rock Tomb"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Brock"
+    },
+    {
+      "id": "frlg-misty",
+      "name": "Misty",
+      "role": "Gym Leader",
+      "specialty": "Water",
+      "location": "Cerulean City Gym",
+      "badge": "Cascade Badge",
+      "order": 2,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 2100,
+        "tmReward": "TM03 Water Pulse",
+        "team": [
+          { "species": "Staryu",  "level": 18, "moves": ["Tackle", "Harden", "Recover", "Water Pulse"] },
+          { "species": "Starmie", "level": 21, "moves": ["Rapid Spin", "Swift", "Recover", "Water Pulse"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Misty"
+    },
+    {
+      "id": "frlg-ltsurge",
+      "name": "Lt. Surge",
+      "role": "Gym Leader",
+      "specialty": "Electric",
+      "location": "Vermilion City Gym",
+      "badge": "Thunder Badge",
+      "order": 3,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 2400,
+        "tmReward": "TM34 Shock Wave",
+        "team": [
+          { "species": "Voltorb", "level": 21, "moves": ["Shock Wave", "Tackle", "Screech", "Sonic Boom"] },
+          { "species": "Pikachu", "level": 18, "moves": ["Shock Wave", "Thunder Wave", "Quick Attack", "Double Team"] },
+          { "species": "Raichu",  "level": 24, "moves": ["Shock Wave", "Thunder Wave", "Quick Attack", "Double Team"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Lt._Surge"
+    },
+    {
+      "id": "frlg-erika",
+      "name": "Erika",
+      "role": "Gym Leader",
+      "specialty": "Grass",
+      "location": "Celadon City Gym",
+      "badge": "Rainbow Badge",
+      "order": 4,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 2900,
+        "tmReward": "TM19 Giga Drain",
+        "team": [
+          { "species": "Victreebel", "level": 29, "moves": ["Stun Spore", "Acid", "Poison Powder", "Giga Drain"] },
+          { "species": "Tangela",    "level": 24, "moves": ["Poison Powder", "Constrict", "Ingrain", "Giga Drain"] },
+          { "species": "Vileplume",  "level": 29, "moves": ["Sleep Powder", "Acid", "Stun Spore", "Giga Drain"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Erika"
+    },
+    {
+      "id": "frlg-koga",
+      "name": "Koga",
+      "role": "Gym Leader",
+      "specialty": "Poison",
+      "location": "Fuchsia City Gym",
+      "badge": "Soul Badge",
+      "order": 5,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 4300,
+        "tmReward": "TM06 Toxic",
+        "team": [
+          { "species": "Koffing", "level": 37, "moves": ["Selfdestruct", "Sludge", "Smokescreen", "Toxic"] },
+          { "species": "Muk",     "level": 39, "moves": ["Minimize", "Sludge", "Acid Armor", "Toxic"] },
+          { "species": "Koffing", "level": 37, "moves": ["Selfdestruct", "Sludge", "Smokescreen", "Toxic"] },
+          { "species": "Weezing", "level": 43, "moves": ["Tackle", "Sludge", "Smokescreen", "Toxic"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Koga"
+    },
+    {
+      "id": "frlg-sabrina",
+      "name": "Sabrina",
+      "role": "Gym Leader",
+      "specialty": "Psychic",
+      "location": "Saffron City Gym",
+      "badge": "Marsh Badge",
+      "order": 6,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 4300,
+        "tmReward": "TM04 Calm Mind",
+        "team": [
+          { "species": "Kadabra",  "level": 38, "moves": ["Psybeam", "Reflect", "Future Sight", "Calm Mind"] },
+          { "species": "Mr-mime",  "level": 37, "moves": ["Barrier", "Psybeam", "Baton Pass", "Calm Mind"] },
+          { "species": "Venomoth", "level": 38, "moves": ["Psybeam", "Gust", "Leech Life", "Supersonic"] },
+          { "species": "Alakazam", "level": 43, "moves": ["Psychic", "Recover", "Future Sight", "Calm Mind"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Sabrina"
+    },
+    {
+      "id": "frlg-blaine",
+      "name": "Blaine",
+      "role": "Gym Leader",
+      "specialty": "Fire",
+      "location": "Cinnabar Gym (Seafoam Islands)",
+      "badge": "Volcano Badge",
+      "order": 7,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 4700,
+        "tmReward": "TM38 Fire Blast",
+        "team": [
+          { "species": "Growlithe", "level": 42, "moves": ["Bite", "Roar", "Take Down", "Fire Blast"] },
+          { "species": "Ponyta",    "level": 40, "moves": ["Stomp", "Bounce", "Fire Spin", "Fire Blast"] },
+          { "species": "Rapidash",  "level": 42, "moves": ["Stomp", "Bounce", "Fire Spin", "Fire Blast"] },
+          { "species": "Arcanine",  "level": 47, "moves": ["Bite", "Roar", "Take Down", "Fire Blast"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Blaine"
+    },
+    {
+      "id": "frlg-giovanni",
+      "name": "Giovanni",
+      "role": "Gym Leader",
+      "specialty": "Ground",
+      "location": "Viridian City Gym",
+      "badge": "Earth Badge",
+      "order": 8,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 5000,
+        "tmReward": "TM26 Earthquake",
+        "team": [
+          { "species": "Rhyhorn",   "level": 45, "moves": ["Take Down", "Rock Blast", "Scary Face", "Earthquake"] },
+          { "species": "Dugtrio",   "level": 42, "moves": ["Slash", "Sand Tomb", "Mud Slap", "Earthquake"] },
+          { "species": "Nidoqueen", "level": 44, "moves": ["Double Kick", "Earthquake", "Poison Sting", "Body Slam"] },
+          { "species": "Nidoking",  "level": 45, "moves": ["Double Kick", "Earthquake", "Poison Sting", "Thrash"] },
+          { "species": "Rhyhorn",   "level": 50, "moves": ["Take Down", "Rock Blast", "Scary Face", "Earthquake"], "_note": "Bulbapedia displays Rhyhorn here; canonical sources sometimes list this slot as Rhydon — verify in-game" }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Giovanni"
+    },
+    {
+      "id": "frlg-lorelei",
+      "name": "Lorelei",
+      "role": "Elite Four",
+      "specialty": "Ice",
+      "location": "Indigo Plateau",
+      "order": 1,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 5400,
+        "tmReward": null,
+        "team": [
+          { "species": "Dewgong",  "level": 52, "moves": ["Surf", "Ice Beam", "Hail", "Safeguard"] },
+          { "species": "Cloyster", "level": 51, "moves": ["Spikes", "Dive", "Hail", "Protect"] },
+          { "species": "Slowbro",  "level": 52, "moves": ["Ice Beam", "Surf", "Amnesia", "Yawn"] },
+          { "species": "Jynx",     "level": 54, "moves": ["Double Slap", "Ice Punch", "Lovely Kiss", "Attract"] },
+          { "species": "Lapras",   "level": 54, "heldItem": "Sitrus Berry", "moves": ["Body Slam", "Confuse Ray", "Surf", "Ice Beam"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Lorelei"
+    },
+    {
+      "id": "frlg-bruno",
+      "name": "Bruno",
+      "role": "Elite Four",
+      "specialty": "Fighting",
+      "location": "Indigo Plateau",
+      "order": 2,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 5600,
+        "tmReward": null,
+        "team": [
+          { "species": "Onix",       "level": 51, "moves": ["Earthquake", "Rock Tomb", "Iron Tail", "Roar"] },
+          { "species": "Hitmonchan", "level": 53, "moves": ["Sky Uppercut", "Mach Punch", "Rock Tomb", "Counter"] },
+          { "species": "Hitmonlee",  "level": 53, "moves": ["Mega Kick", "Foresight", "Brick Break", "Facade"] },
+          { "species": "Onix",       "level": 54, "moves": ["Double-Edge", "Iron Tail", "Earthquake", "Sand Tomb"] },
+          { "species": "Machamp",    "level": 56, "heldItem": "Sitrus Berry", "moves": ["Bulk Up", "Cross Chop", "Scary Face", "Rock Tomb"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Bruno"
+    },
+    {
+      "id": "frlg-agatha",
+      "name": "Agatha",
+      "role": "Elite Four",
+      "specialty": "Ghost",
+      "location": "Indigo Plateau",
+      "order": 3,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 5800,
+        "tmReward": null,
+        "team": [
+          { "species": "Gengar",  "level": 54, "moves": ["Confuse Ray", "Shadow Punch", "Double Team", "Toxic"] },
+          { "species": "Golbat",  "level": 54, "moves": ["Confuse Ray", "Bite", "Air Cutter", "Poison Fang"] },
+          { "species": "Haunter", "level": 53, "moves": ["Mean Look", "Curse", "Hypnosis", "Dream Eater"] },
+          { "species": "Arbok",   "level": 56, "moves": ["Bite", "Sludge Bomb", "Screech", "Iron Tail"] },
+          { "species": "Gengar",  "level": 58, "heldItem": "Sitrus Berry", "moves": ["Shadow Ball", "Sludge Bomb", "Hypnosis", "Nightmare"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Agatha"
+    },
+    {
+      "id": "frlg-lance",
+      "name": "Lance",
+      "role": "Elite Four",
+      "specialty": "Dragon",
+      "location": "Indigo Plateau",
+      "order": 4,
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 6000,
+        "tmReward": null,
+        "team": [
+          { "species": "Gyarados",   "level": 56, "moves": ["Bite", "Dragon Rage", "Twister", "Hyper Beam"] },
+          { "species": "Dragonair",  "level": 54, "moves": ["Safeguard", "Outrage", "Dragon Rage", "Hyper Beam"] },
+          { "species": "Dragonair",  "level": 54, "moves": ["Safeguard", "Outrage", "Thunder Wave", "Hyper Beam"] },
+          { "species": "Aerodactyl", "level": 58, "moves": ["Wing Attack", "AncientPower", "Scary Face", "Hyper Beam"] },
+          { "species": "Dragonite",  "level": 60, "heldItem": "Sitrus Berry", "moves": ["Safeguard", "Outrage", "Wing Attack", "Hyper Beam"] }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Lance"
+    },
+    {
+      "id": "frlg-blue",
+      "name": "Blue",
+      "role": "Champion",
+      "specialty": null,
+      "location": "Indigo Plateau",
+      "order": 5,
+      "_note": "Blue's 6th Pokémon (his ace) varies based on the player's starter: Charizard if you picked Bulbasaur, Blastoise if you picked Charmander, Venusaur if you picked Squirtle. The roster below shows the Bulbasaur-starter variant; the other 5 Pokémon are identical across all variants.",
+      "rosters": [{
+        "games": ["firered", "leafgreen"],
+        "moneyReward": 6300,
+        "tmReward": null,
+        "team": [
+          { "species": "Pidgeot",   "level": 59, "moves": ["Aerial Ace", "FeatherDance", "Sand Attack", "Whirlwind"] },
+          { "species": "Alakazam",  "level": 57, "moves": ["Psychic", "Future Sight", "Recover", "Reflect"] },
+          { "species": "Rhydon",    "level": 59, "moves": ["Take Down", "Earthquake", "Rock Tomb", "Scary Face"] },
+          { "species": "Exeggutor", "level": 59, "moves": ["Giga Drain", "Egg Bomb", "Sleep Powder", "Light Screen"] },
+          { "species": "Gyarados",  "level": 61, "moves": ["Hydro Pump", "Dragon Rage", "Bite", "Thrash"] },
+          { "species": "Charizard", "level": 63, "heldItem": "Sitrus Berry", "moves": ["Fire Blast", "Aerial Ace", "Slash", "Fire Spin"], "_aceVariant": "Bulbasaur starter" }
+        ]
+      }],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Blue_(game)"
     }
   ]
 }
