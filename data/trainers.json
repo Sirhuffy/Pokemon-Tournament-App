@@ -8,7 +8,7 @@
       "rosters": "Array of {games: [game keys], team: [...]}.",
       "team[i].moves": "Order matches Bulbapedia roster which is the canonical lead-out order."
     },
-    "progress": "GSC: 13/13 complete. FRLG: 13/13 complete. RSE: not yet started."
+    "progress": "GSC: 13/13 complete. FRLG: 13/13 complete. RSE: 15/15 complete (R/S gym leader Wallace and E champion Wallace are stored as separate trainer objects; all other shared trainers use multiple roster entries to capture R/S vs E roster differences)."
   },
   "trainers": [
     {
@@ -554,6 +554,487 @@
         ]
       }],
       "source": "https://bulbapedia.bulbagarden.net/wiki/Blue_(game)"
+    },
+    {
+      "id": "rse-roxanne",
+      "name": "Roxanne",
+      "role": "Gym Leader",
+      "title": "The Rock-Loving Honors Student",
+      "specialty": "Rock",
+      "location": "Rustboro City Gym",
+      "badge": "Stone Badge",
+      "order": 1,
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 1500,
+          "tmReward": "TM39 Rock Tomb",
+          "team": [
+            { "species": "Geodude",  "level": 14, "moves": ["Tackle", "Defense Curl", "Rock Throw"] },
+            { "species": "Nosepass", "level": 15, "moves": ["Tackle", "Harden", "Rock Tomb", "Rock Throw"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 1500,
+          "tmReward": "TM39 Rock Tomb",
+          "team": [
+            { "species": "Geodude",  "level": 12, "moves": ["Tackle", "Defense Curl", "Rock Throw"] },
+            { "species": "Geodude",  "level": 12, "moves": ["Tackle", "Defense Curl", "Rock Throw"] },
+            { "species": "Nosepass", "level": 15, "heldItem": "Oran Berry", "moves": ["Block", "Harden", "Tackle", "Rock Tomb"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Roxanne"
+    },
+    {
+      "id": "rse-brawly",
+      "name": "Brawly",
+      "role": "Gym Leader",
+      "title": "A Big Wave in Dewford",
+      "specialty": "Fighting",
+      "location": "Dewford Town Gym",
+      "badge": "Knuckle Badge",
+      "order": 2,
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 1800,
+          "tmReward": "TM08 Bulk Up",
+          "team": [
+            { "species": "Machop",   "level": 17, "moves": ["Leer", "Karate Chop", "Seismic Toss", "Bulk Up"] },
+            { "species": "Makuhita", "level": 18, "moves": ["Sand Attack", "Arm Thrust", "Knock Off", "Bulk Up"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 1900,
+          "tmReward": "TM08 Bulk Up",
+          "team": [
+            { "species": "Machop",   "level": 16, "moves": ["Leer", "Focus Energy", "Karate Chop", "Seismic Toss"] },
+            { "species": "Meditite", "level": 16, "moves": ["Confusion", "Detect", "Meditate", "Calm Mind"], "_note": "Meditite moveset best-effort from search; verify against Bulbapedia when accessible" },
+            { "species": "Makuhita", "level": 19, "moves": ["Arm Thrust", "Vital Throw", "Knock Off", "Bulk Up"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Brawly"
+    },
+    {
+      "id": "rse-wattson",
+      "name": "Wattson",
+      "role": "Gym Leader",
+      "title": "The Cheerfully Electrifying Man",
+      "specialty": "Electric",
+      "location": "Mauville City Gym",
+      "badge": "Dynamo Badge",
+      "order": 3,
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 2200,
+          "tmReward": "TM34 Shock Wave",
+          "team": [
+            { "species": "Voltorb",   "level": 20, "moves": ["Sonic Boom", "Spark", "Rollout", "Selfdestruct"] },
+            { "species": "Magnemite", "level": 22, "moves": ["Thunder Shock", "Thunder Wave", "Sonic Boom", "Supersonic"] },
+            { "species": "Magneton",  "level": 23, "moves": ["Shock Wave", "Thunder Wave", "Sonic Boom", "Supersonic"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 2400,
+          "tmReward": "TM34 Shock Wave",
+          "team": [
+            { "species": "Voltorb",   "level": 20, "moves": ["Rollout", "Spark", "Selfdestruct", "Shock Wave"] },
+            { "species": "Electrike", "level": 20, "moves": ["Quick Attack", "Thunder Wave", "Leer", "Howl"] },
+            { "species": "Magneton",  "level": 22, "moves": ["Shock Wave", "Thunder Wave", "Sonic Boom", "Supersonic"] },
+            { "species": "Manectric", "level": 24, "moves": ["Quick Attack", "Thunder Wave", "Howl", "Shock Wave"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Wattson"
+    },
+    {
+      "id": "rse-flannery",
+      "name": "Flannery",
+      "role": "Gym Leader",
+      "title": "A Spirited and Skilled New Leader",
+      "specialty": "Fire",
+      "location": "Lavaridge Town Gym",
+      "badge": "Heat Badge",
+      "order": 4,
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 2800,
+          "tmReward": "TM50 Overheat",
+          "team": [
+            { "species": "Slugma",  "level": 26, "moves": ["Smog", "Light Screen", "Sunny Day", "Overheat"] },
+            { "species": "Slugma",  "level": 26, "moves": ["Rock Throw", "Light Screen", "Sunny Day", "Flamethrower"] },
+            { "species": "Torkoal", "level": 28, "moves": ["Body Slam", "Flail", "Attract", "Overheat"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 2900,
+          "tmReward": "TM50 Overheat",
+          "team": [
+            { "species": "Numel",    "level": 24, "moves": ["Take Down", "Amnesia", "Magnitude", "Tackle"] },
+            { "species": "Slugma",   "level": 24, "moves": ["Smog", "Light Screen", "Sunny Day", "Overheat"] },
+            { "species": "Camerupt", "level": 26, "moves": ["Take Down", "Magnitude", "Focus Energy", "Tackle"] },
+            { "species": "Torkoal",  "level": 29, "heldItem": "White Herb", "moves": ["Body Slam", "Attract", "Sunny Day", "Overheat"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Flannery"
+    },
+    {
+      "id": "rse-norman",
+      "name": "Norman",
+      "role": "Gym Leader",
+      "title": "The Petalburg Gym's Always-Battling Leader",
+      "specialty": "Normal",
+      "location": "Petalburg City Gym",
+      "badge": "Balance Badge",
+      "order": 5,
+      "_note": "Norman is the player's father and the 5th Gym Leader. Hoenn gym order intentionally takes the player past the gym at the start of the game before becoming battleable.",
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 3100,
+          "tmReward": "TM42 Facade",
+          "team": [
+            { "species": "Slaking",  "level": 28, "moves": ["Encore", "Facade", "Yawn", "Faint Attack"] },
+            { "species": "Vigoroth", "level": 30, "moves": ["Slash", "Faint Attack", "Facade", "Encore"] },
+            { "species": "Slaking",  "level": 31, "moves": ["Focus Punch", "Slack Off", "Facade", "Faint Attack"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 3100,
+          "tmReward": "TM42 Facade",
+          "team": [
+            { "species": "Spinda",   "level": 27, "moves": ["Psybeam", "Encore", "Teeter Dance", "Facade"] },
+            { "species": "Vigoroth", "level": 27, "moves": ["Slash", "Faint Attack", "Facade", "Encore"] },
+            { "species": "Linoone",  "level": 29, "moves": ["Slash", "Belly Drum", "Headbutt", "Facade"] },
+            { "species": "Slaking",  "level": 31, "heldItem": "Sitrus Berry", "moves": ["Counter", "Yawn", "Facade", "Faint Attack"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Norman"
+    },
+    {
+      "id": "rse-winona",
+      "name": "Winona",
+      "role": "Gym Leader",
+      "title": "The Bird User Taking Flight Into the World",
+      "specialty": "Flying",
+      "location": "Fortree City Gym",
+      "badge": "Feather Badge",
+      "order": 6,
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 3300,
+          "tmReward": "TM40 Aerial Ace",
+          "team": [
+            { "species": "Swellow",  "level": 31, "moves": ["Quick Attack", "Aerial Ace", "Double Team", "Endeavor"] },
+            { "species": "Pelipper", "level": 30, "moves": ["Water Gun", "Supersonic", "Aerial Ace", "Protect"] },
+            { "species": "Skarmory", "level": 32, "moves": ["Sand Attack", "Fury Attack", "Steel Wing", "Aerial Ace"] },
+            { "species": "Altaria",  "level": 33, "heldItem": "Oran Berry", "moves": ["Earthquake", "Dragon Breath", "Dragon Dance", "Aerial Ace"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 3300,
+          "tmReward": "TM40 Aerial Ace",
+          "team": [
+            { "species": "Swablu",   "level": 29, "moves": ["Perish Song", "Mirror Move", "Aerial Ace", "Safeguard"] },
+            { "species": "Tropius",  "level": 29, "moves": ["Sunny Day", "SolarBeam", "Synthesis", "Aerial Ace"], "_note": "Tropius's Synthesis is a healing move; recorded here as canonical roster — under tournament rules it would not be allowed on a player team" },
+            { "species": "Pelipper", "level": 30, "moves": ["Water Gun", "Supersonic", "Aerial Ace", "Protect"] },
+            { "species": "Skarmory", "level": 31, "moves": ["Sand Attack", "Fury Attack", "Steel Wing", "Aerial Ace"] },
+            { "species": "Altaria",  "level": 33, "heldItem": "Oran Berry", "moves": ["Earthquake", "Dragon Breath", "Dragon Dance", "Aerial Ace"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Winona"
+    },
+    {
+      "id": "rse-tate-liza",
+      "name": "Tate & Liza",
+      "role": "Gym Leader",
+      "title": "The Mystic Combination",
+      "specialty": "Psychic",
+      "location": "Mossdeep City Gym",
+      "badge": "Mind Badge",
+      "order": 7,
+      "_note": "Mossdeep Gym is a mandatory Double Battle (the only required Double Battle gym in Hoenn). Tate uses Solrock; Liza uses Lunatone. In Emerald, the duo also brings Claydol and Xatu.",
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 4200,
+          "tmReward": "TM04 Calm Mind",
+          "team": [
+            { "species": "Lunatone", "level": 42, "moves": ["Light Screen", "Psychic", "Hypnosis", "Calm Mind"] },
+            { "species": "Solrock",  "level": 42, "moves": ["Sunny Day", "SolarBeam", "Psychic", "Flamethrower"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 4200,
+          "tmReward": "TM04 Calm Mind",
+          "team": [
+            { "species": "Claydol",  "level": 41, "moves": ["Earthquake", "AncientPower", "Psychic", "Light Screen"] },
+            { "species": "Xatu",     "level": 41, "moves": ["Psychic", "Sunny Day", "Confuse Ray", "Calm Mind"] },
+            { "species": "Lunatone", "level": 42, "moves": ["Light Screen", "Psychic", "Hypnosis", "Calm Mind"] },
+            { "species": "Solrock",  "level": 42, "moves": ["Sunny Day", "SolarBeam", "Psychic", "Flamethrower"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Tate_and_Liza"
+    },
+    {
+      "id": "rse-wallace",
+      "name": "Wallace",
+      "role": "Gym Leader",
+      "title": "The Artist Whose Sensitivity Sparkles Like the Water's Surface",
+      "specialty": "Water",
+      "location": "Sootopolis City Gym",
+      "badge": "Rain Badge",
+      "order": 8,
+      "_note": "Wallace is the 8th Gym Leader in Ruby/Sapphire ONLY. In Emerald, he is promoted to Champion and Juan replaces him in this gym slot — see rse-juan and rse-wallace-champion.",
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 4300,
+          "tmReward": "TM03 Water Pulse",
+          "team": [
+            { "species": "Luvdisc",  "level": 40, "moves": ["Water Pulse", "Attract", "Sweet Kiss", "Flail"] },
+            { "species": "Whiscash", "level": 42, "moves": ["Rain Dance", "Water Pulse", "Earthquake", "Amnesia"] },
+            { "species": "Sealeo",   "level": 40, "moves": ["Encore", "Body Slam", "Aurora Beam", "Water Pulse"] },
+            { "species": "Seaking",  "level": 42, "moves": ["Water Pulse", "Rain Dance", "Fury Attack", "Horn Drill"] },
+            { "species": "Milotic",  "level": 43, "moves": ["Water Pulse", "Twister", "Ice Beam", "Recover"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Wallace"
+    },
+    {
+      "id": "rse-juan",
+      "name": "Juan",
+      "role": "Gym Leader",
+      "title": "The Mannerly Master of Water-type Pokémon",
+      "specialty": "Water",
+      "location": "Sootopolis City Gym",
+      "badge": "Rain Badge",
+      "order": 8,
+      "_note": "Juan is the 8th Gym Leader in Emerald ONLY (replacing Wallace, who became Champion in that version).",
+      "rosters": [
+        {
+          "games": ["emerald"],
+          "moneyReward": 4600,
+          "tmReward": "TM03 Water Pulse",
+          "team": [
+            { "species": "Luvdisc",   "level": 41, "moves": ["Water Pulse", "Attract", "Sweet Kiss", "Flail"] },
+            { "species": "Whiscash",  "level": 41, "moves": ["Rain Dance", "Water Pulse", "Earthquake", "Amnesia"] },
+            { "species": "Sealeo",    "level": 43, "moves": ["Encore", "Body Slam", "Aurora Beam", "Water Pulse"] },
+            { "species": "Crawdaunt", "level": 43, "moves": ["Crabhammer", "Water Pulse", "Leer", "Taunt"] },
+            { "species": "Kingdra",   "level": 46, "heldItem": "Chesto Berry", "moves": ["Water Pulse", "Rest", "Ice Beam", "Double Team"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Juan"
+    },
+    {
+      "id": "rse-sidney",
+      "name": "Sidney",
+      "role": "Elite Four",
+      "specialty": "Dark",
+      "location": "Ever Grande City Pokémon League",
+      "order": 1,
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 4900,
+          "tmReward": null,
+          "team": [
+            { "species": "Mightyena", "level": 46, "moves": ["Sand Attack", "Take Down", "Roar", "Crunch"] },
+            { "species": "Shiftry",   "level": 48, "moves": ["Fake Out", "Extrasensory", "Double Team", "Swagger"] },
+            { "species": "Cacturne",  "level": 46, "moves": ["Faint Attack", "Needle Arm", "Cotton Spore", "Leech Seed"] },
+            { "species": "Sharpedo",  "level": 48, "moves": ["Surf", "Crunch", "Slash", "Swagger"] },
+            { "species": "Absol",     "level": 49, "moves": ["Swords Dance", "Slash", "Aerial Ace", "Snatch"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 4900,
+          "tmReward": null,
+          "team": [
+            { "species": "Mightyena", "level": 46, "moves": ["Roar", "Double-Edge", "Sand Attack", "Crunch"] },
+            { "species": "Shiftry",   "level": 48, "moves": ["Torment", "Double Team", "Swagger", "Extrasensory"] },
+            { "species": "Cacturne",  "level": 46, "moves": ["Leech Seed", "Faint Attack", "Needle Arm", "Cotton Spore"] },
+            { "species": "Crawdaunt", "level": 48, "moves": ["Surf", "Swords Dance", "Strength", "Facade"] },
+            { "species": "Absol",     "level": 49, "moves": ["Aerial Ace", "Rock Slide", "Swords Dance", "Slash"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Sidney"
+    },
+    {
+      "id": "rse-phoebe",
+      "name": "Phoebe",
+      "role": "Elite Four",
+      "specialty": "Ghost",
+      "location": "Ever Grande City Pokémon League",
+      "order": 2,
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 5100,
+          "tmReward": null,
+          "team": [
+            { "species": "Dusclops", "level": 48, "moves": ["Curse", "Confuse Ray", "Future Sight", "Shadow Punch"] },
+            { "species": "Banette",  "level": 49, "moves": ["Spite", "Will-O-Wisp", "Shadow Ball", "Faint Attack"] },
+            { "species": "Banette",  "level": 49, "moves": ["Toxic", "Skill Swap", "Shadow Ball", "Psychic"] },
+            { "species": "Sableye",  "level": 50, "moves": ["Faint Attack", "Shadow Ball", "Psychic", "Attract"] },
+            { "species": "Dusclops", "level": 51, "moves": ["Confuse Ray", "Shadow Ball", "Ice Beam", "Earthquake"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 5100,
+          "tmReward": null,
+          "team": [
+            { "species": "Dusclops", "level": 48, "moves": ["Shadow Punch", "Confuse Ray", "Curse", "Protect"] },
+            { "species": "Banette",  "level": 49, "moves": ["Shadow Ball", "Grudge", "Will-O-Wisp", "Faint Attack"] },
+            { "species": "Sableye",  "level": 50, "moves": ["Shadow Ball", "Double Team", "Night Shade", "Faint Attack"] },
+            { "species": "Banette",  "level": 49, "moves": ["Shadow Ball", "Psychic", "Thunderbolt", "Facade"] },
+            { "species": "Dusclops", "level": 51, "moves": ["Shadow Ball", "Ice Beam", "Rock Slide", "Earthquake"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Phoebe"
+    },
+    {
+      "id": "rse-glacia",
+      "name": "Glacia",
+      "role": "Elite Four",
+      "specialty": "Ice",
+      "location": "Ever Grande City Pokémon League",
+      "order": 3,
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 5300,
+          "tmReward": null,
+          "team": [
+            { "species": "Glalie",  "level": 50, "moves": ["Hail", "Light Screen", "Ice Beam", "Crunch"] },
+            { "species": "Sealeo",  "level": 50, "moves": ["Surf", "Ice Ball", "Hail", "Body Slam"] },
+            { "species": "Sealeo",  "level": 52, "moves": ["Hail", "Blizzard", "Dive", "Attract"] },
+            { "species": "Glalie",  "level": 52, "moves": ["Hail", "Ice Beam", "Shadow Ball", "Crunch"] },
+            { "species": "Walrein", "level": 53, "moves": ["Blizzard", "Surf", "Body Slam", "Sheer Cold"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 5300,
+          "tmReward": null,
+          "team": [
+            { "species": "Sealeo",  "level": 50, "moves": ["Encore", "Body Slam", "Hail", "Ice Ball"] },
+            { "species": "Glalie",  "level": 50, "moves": ["Light Screen", "Crunch", "Icy Wind", "Ice Beam"] },
+            { "species": "Sealeo",  "level": 52, "moves": ["Attract", "Double-Edge", "Hail", "Blizzard"] },
+            { "species": "Glalie",  "level": 52, "moves": ["Shadow Ball", "Explosion", "Hail", "Ice Beam"] },
+            { "species": "Walrein", "level": 53, "moves": ["Surf", "Body Slam", "Ice Beam", "Sheer Cold"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Glacia"
+    },
+    {
+      "id": "rse-drake",
+      "name": "Drake",
+      "role": "Elite Four",
+      "specialty": "Dragon",
+      "location": "Ever Grande City Pokémon League",
+      "order": 4,
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 5500,
+          "tmReward": null,
+          "team": [
+            { "species": "Shelgon",   "level": 52, "moves": ["Dragon Claw", "Rock Tomb", "Protect", "Crunch"] },
+            { "species": "Flygon",    "level": 53, "moves": ["Fly", "Dig", "Dragon Breath", "Sandstorm"] },
+            { "species": "Flygon",    "level": 53, "moves": ["Flamethrower", "Crunch", "Dragon Breath", "Sand Attack"] },
+            { "species": "Altaria",   "level": 54, "moves": ["Take Down", "Dragon Breath", "Dragon Dance", "Refresh"] },
+            { "species": "Salamence", "level": 55, "moves": ["Flamethrower", "Crunch", "Dragon Claw", "Fly"] }
+          ]
+        },
+        {
+          "games": ["emerald"],
+          "moneyReward": 5500,
+          "tmReward": null,
+          "team": [
+            { "species": "Shelgon",   "level": 52, "moves": ["Rock Tomb", "Dragon Claw", "Protect", "Double-Edge"] },
+            { "species": "Altaria",   "level": 54, "moves": ["Double-Edge", "Dragon Breath", "Dragon Dance", "Aerial Ace"] },
+            { "species": "Kingdra",   "level": 53, "moves": ["Smokescreen", "Dragon Dance", "Surf", "Body Slam"] },
+            { "species": "Flygon",    "level": 53, "moves": ["Flamethrower", "Crunch", "Dragon Breath", "Earthquake"] },
+            { "species": "Salamence", "level": 55, "moves": ["Flamethrower", "Dragon Claw", "Rock Slide", "Crunch"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Drake_(Elite_Four)"
+    },
+    {
+      "id": "rse-steven",
+      "name": "Steven",
+      "role": "Champion",
+      "title": "The Stone-Loving Trainer",
+      "specialty": "Steel",
+      "location": "Ever Grande City Pokémon League",
+      "order": 5,
+      "_note": "Steven is the Champion in Ruby/Sapphire ONLY. In Emerald he steps down (Wallace becomes Champion) and is fought as a post-game battle at Meteor Falls instead — that battle uses a different, higher-level team and is not captured here.",
+      "rosters": [
+        {
+          "games": ["ruby", "sapphire"],
+          "moneyReward": 11600,
+          "tmReward": null,
+          "team": [
+            { "species": "Skarmory", "level": 57, "moves": ["Steel Wing", "Toxic", "Aerial Ace", "Spikes"] },
+            { "species": "Claydol",  "level": 55, "moves": ["Earthquake", "AncientPower", "Light Screen", "Reflect"] },
+            { "species": "Aggron",   "level": 56, "moves": ["Earthquake", "Dragon Claw", "Thunder", "SolarBeam"] },
+            { "species": "Cradily",  "level": 56, "moves": ["AncientPower", "Confuse Ray", "Sludge Bomb", "Giga Drain"] },
+            { "species": "Armaldo",  "level": 56, "moves": ["AncientPower", "Slash", "Aerial Ace", "Water Pulse"] },
+            { "species": "Metagross","level": 58, "moves": ["Meteor Mash", "Earthquake", "Psychic", "Hyper Beam"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Steven_Stone"
+    },
+    {
+      "id": "rse-wallace-champion",
+      "name": "Wallace",
+      "role": "Champion",
+      "title": "The Artist Whose Sensitivity Sparkles Like the Water's Surface",
+      "specialty": "Water",
+      "location": "Ever Grande City Pokémon League",
+      "order": 5,
+      "_note": "In Emerald ONLY, Wallace is promoted from Sootopolis Gym Leader (see rse-wallace) to Champion. His Sootopolis gym slot is filled by Juan in Emerald (see rse-juan).",
+      "rosters": [
+        {
+          "games": ["emerald"],
+          "moneyReward": 11600,
+          "tmReward": null,
+          "team": [
+            { "species": "Wailord",    "level": 57, "moves": ["Rain Dance", "Water Spout", "Double-Edge", "Blizzard"] },
+            { "species": "Tentacruel", "level": 55, "moves": ["Toxic", "Hydro Pump", "Sludge Bomb", "Ice Beam"] },
+            { "species": "Ludicolo",   "level": 56, "moves": ["Giga Drain", "Surf", "Leech Seed", "Double Team"] },
+            { "species": "Whiscash",   "level": 56, "moves": ["Earthquake", "Surf", "Amnesia", "Hyper Beam"] },
+            { "species": "Gyarados",   "level": 56, "moves": ["Dragon Dance", "Earthquake", "Hyper Beam", "Surf"] },
+            { "species": "Milotic",    "level": 58, "moves": ["Recover", "Surf", "Ice Beam", "Toxic"] }
+          ]
+        }
+      ],
+      "source": "https://bulbapedia.bulbagarden.net/wiki/Wallace"
     }
   ]
 }
