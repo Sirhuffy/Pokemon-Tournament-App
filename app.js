@@ -270,6 +270,97 @@ function escapeHtml(s) {
 
 function setContent(html) { document.getElementById("content").innerHTML = html; }
 
+/**
+ * Wire a search <input> to filter a <select>'s options as the user types.
+ * On iOS, hiding <option> elements is unreliable in the native picker, so we
+ * rebuild the select's HTML on each input event instead. Original options
+ * are cached so clearing the search restores the full list.
+ *
+ * @param {string} searchInputId - id of the <input type="search"> element
+ * @param {string} selectId - id of the <select> element to filter
+ * @param {string} [matchCountId] - optional id of an element to show "N of M" matches
+ * @param {Function} [onSelect] - optional callback when select value changes via search
+ */
+function attachPokemonSearch(searchInputId, selectId, matchCountId, onSelect) {
+  const searchEl = document.getElementById(searchInputId);
+  const selectEl = document.getElementById(selectId);
+  if (!searchEl || !selectEl) return;
+  const countEl = matchCountId ? document.getElementById(matchCountId) : null;
+  const originalHTML = selectEl.innerHTML;
+
+  // Count "real" options (non-placeholder) for the match-count display
+  const tmp = document.createElement("select");
+  tmp.innerHTML = originalHTML;
+  const totalReal = Array.from(tmp.querySelectorAll("option")).filter(o => o.value).length;
+
+  const updateCount = (visible) => {
+    if (!countEl) return;
+    if (!searchEl.value.trim()) { countEl.textContent = ""; return; }
+    countEl.textContent = visible === 1
+      ? `1 match — tap dropdown to select`
+      : `${visible} of ${totalReal} match`;
+  };
+
+  searchEl.addEventListener("input", () => {
+    const q = searchEl.value.trim().toLowerCase();
+    const previousValue = selectEl.value;
+
+    if (!q) {
+      selectEl.innerHTML = originalHTML;
+      if ([...selectEl.options].some(o => o.value === previousValue)) {
+        selectEl.value = previousValue;
+      }
+      updateCount(totalReal);
+      return;
+    }
+
+    const tmpSel = document.createElement("select");
+    tmpSel.innerHTML = originalHTML;
+    let html = "";
+    let visibleReal = 0;
+
+    for (const child of tmpSel.children) {
+      if (child.tagName === "OPTGROUP") {
+        const matching = [...child.children].filter(o =>
+          !o.value || o.textContent.toLowerCase().includes(q)
+        );
+        const hasReal = matching.some(o => o.value);
+        if (hasReal) {
+          html += `<optgroup label="${escapeHtml(child.label)}">`;
+          for (const o of matching) {
+            html += o.outerHTML;
+            if (o.value) visibleReal++;
+          }
+          html += `</optgroup>`;
+        }
+      } else if (child.tagName === "OPTION") {
+        if (!child.value || child.textContent.toLowerCase().includes(q)) {
+          html += child.outerHTML;
+          if (child.value) visibleReal++;
+        }
+      }
+    }
+
+    selectEl.innerHTML = html || `<option value="">— No matches —</option>`;
+    if ([...selectEl.options].some(o => o.value === previousValue)) {
+      selectEl.value = previousValue;
+    }
+    updateCount(visibleReal);
+  });
+
+  // If user picks a single match by hitting Enter, commit it to the select
+  searchEl.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    const real = [...selectEl.options].filter(o => o.value);
+    if (real.length === 1) {
+      selectEl.value = real[0].value;
+      selectEl.dispatchEvent(new Event("change", { bubbles: true }));
+      searchEl.blur();
+      e.preventDefault();
+    }
+  });
+}
+
 let toastTimer = null;
 function toast(msg, kind = "") {
   const el = document.getElementById("toast");
@@ -1125,11 +1216,15 @@ function renderIVCalcPage() {
     <p class="muted tiny">${isGen2 ? "Gen 2 uses DVs (0–15) with derived HP." : "Gen 3 uses IVs (0–31) with nature modifiers."}</p>
 
     <label class="muted tiny">Pokémon</label>
-    <select id="ivPokemon">
-      <option value="">— Select Pokémon —</option>
-      ${teamOptions ? `<optgroup label="Your team">${teamOptions}</optgroup>` : ""}
-      <optgroup label="All Pokémon">${allOptions}</optgroup>
-    </select>
+    <div class="search-select">
+      <input type="search" id="ivPokemonSearch" placeholder="Type to search (e.g. Alak, 065)…" autocomplete="off" inputmode="search">
+      <span class="match-count" id="ivPokemonCount"></span>
+      <select id="ivPokemon">
+        <option value="">— Select Pokémon —</option>
+        ${teamOptions ? `<optgroup label="Your team">${teamOptions}</optgroup>` : ""}
+        <optgroup label="All Pokémon">${allOptions}</optgroup>
+      </select>
+    </div>
 
     <div class="iv-grid">
       <div>
@@ -1170,6 +1265,7 @@ function renderIVCalcPage() {
 
   if (ivCalcContext.pokemonName) $("#ivPokemon").value = ivCalcContext.pokemonName;
 
+  attachPokemonSearch("ivPokemonSearch", "ivPokemon", "ivPokemonCount");
   $("#ivRunBtn").addEventListener("click", runIVCalc);
 }
 
@@ -1450,10 +1546,14 @@ function renderDmgCalcPage() {
     <p class="muted tiny">Tournament conditions: both Pokémon at level ${STATE.levelCap}, average IVs (Gen ${isGen2 ? "2: 8 DVs" : "3: 16 IVs"}), 0 EVs, neutral nature. Type-boost items add +${itemBoostPct}%.</p>
 
     <h3>Attacker</h3>
-    <select id="dcAtk">
-      <option value="">— Pick —</option>
-      ${teamFirst}${allOpts}
-    </select>
+    <div class="search-select">
+      <input type="search" id="dcAtkSearch" placeholder="Type to search…" autocomplete="off" inputmode="search">
+      <span class="match-count" id="dcAtkCount"></span>
+      <select id="dcAtk">
+        <option value="">— Pick —</option>
+        ${teamFirst}${allOpts}
+      </select>
+    </div>
     <div class="iv-grid" style="margin-top:8px;">
       <div>
         <label class="muted tiny">Held item</label>
@@ -1472,10 +1572,14 @@ function renderDmgCalcPage() {
     </div>
 
     <h3>Defender</h3>
-    <select id="dcDef">
-      <option value="">— Pick —</option>
-      ${teamFirst}${allOpts}
-    </select>
+    <div class="search-select">
+      <input type="search" id="dcDefSearch" placeholder="Type to search…" autocomplete="off" inputmode="search">
+      <span class="match-count" id="dcDefCount"></span>
+      <select id="dcDef">
+        <option value="">— Pick —</option>
+        ${teamFirst}${allOpts}
+      </select>
+    </div>
 
     <h3>Move &amp; Conditions</h3>
     <select id="dcMove">
@@ -1518,6 +1622,9 @@ function renderDmgCalcPage() {
   $("#dcStatus").addEventListener("change", e => { dmgCalcState.status = e.target.value; runDmgCalc(); });
   $("#dcWeather").addEventListener("change", e => { dmgCalcState.weather = e.target.value; runDmgCalc(); });
   $("#dcCrit").addEventListener("change", e => { dmgCalcState.crit = e.target.value === "true"; runDmgCalc(); });
+
+  attachPokemonSearch("dcAtkSearch", "dcAtk", "dcAtkCount");
+  attachPokemonSearch("dcDefSearch", "dcDef", "dcDefCount");
 
   refreshMoveDropdown();
   runDmgCalc();

@@ -429,6 +429,23 @@ input:focus, select:focus, textarea:focus {
 }
 .iv-grid .full { grid-column: 1 / -1; }
 
+/* Searchable-select pattern: a search input that filters a <select>'s options.
+   Visually pairs the input + select so they read as one control. */
+.search-select {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.search-select input[type="search"] {
+  margin-bottom: 0;
+}
+.search-select .match-count {
+  font-size: 11px;
+  color: var(--text-dim);
+  padding-left: 4px;
+  min-height: 14px;
+}
+
 /* ================================================================
    STATUS / INFO
    ================================================================ */
