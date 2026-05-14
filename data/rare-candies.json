@@ -5,7 +5,8 @@
       "location": "Town/route name",
       "area": "Specific spot within the location",
       "method": "Hidden item, Overworld item, gift, etc.",
-      "notes": "Requirements (Surf, Strength, etc.) or other context"
+      "notes": "Requirements (Surf, Strength, etc.) or other context",
+      "images": "Optional array of { src, label? } pointing to snapshot files under icons/maps/candy_<game>/."
     }
   },
   "perGame": {
@@ -14,61 +15,102 @@
         "location": "Violet City",
         "area": "Near eastern pond",
         "method": "Overworld item",
-        "notes": "Requires Surf"
+        "notes": "Requires Surf",
+        "images": [
+          { "src": "icons/maps/candy_gsc/violet city.png" }
+        ]
       },
       {
         "location": "Route 34 (Daycare area)",
         "area": "Behind fence in trees",
         "method": "Hidden",
-        "notes": "Requires Surf"
+        "notes": "Requires Surf",
+        "images": [
+          { "src": "icons/maps/candy_gsc/route 34.png" }
+        ]
       },
       {
         "location": "Olivine Lighthouse",
         "area": "Upper floors",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/olivine lighthouse.png" }
+        ]
       },
       {
         "location": "Whirl Islands",
         "area": "Interior area",
         "method": "Overworld item",
-        "notes": null
+        "notes": "Top right cave entrance",
+        "images": [
+          { "src": "icons/maps/candy_gsc/whirl islands.png", "label": "Gold/Silver" },
+          { "src": "icons/maps/candy_gsc/whirl islands crystal.png", "label": "Crystal" }
+        ]
       },
       {
         "location": "Mt. Mortar",
         "area": "Interior cave",
         "method": "Overworld item",
-        "notes": null
+        "notes": "Up the waterfall and to the left",
+        "images": [
+          { "src": "icons/maps/candy_gsc/mt mortar.png", "label": "Gold/Silver" },
+          { "src": "icons/maps/candy_gsc/mt mortar crystal.png", "label": "Crystal" }
+        ]
       },
       {
         "location": "Lake of Rage (forest area)",
         "area": "Hidden tile",
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/lake of rage.png" }
+        ]
       },
       {
         "location": "Tin Tower (Bell Tower)",
         "area": "Interior",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/tin tower.png" }
+        ]
       },
       {
         "location": "Route 27 (east of New Bark)",
         "area": null,
         "method": "Overworld",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/route 27.png" }
+        ]
+      },
+      {
+        "location": "Vermilion City",
+        "area": null,
+        "method": "Gift",
+        "notes": "Talk to old man",
+        "images": [
+          { "src": "icons/maps/candy_gsc/vermilion city.png" }
+        ]
       },
       {
         "location": "Route 28 (near Mt. Silver)",
         "area": "Dead-end/tree",
         "method": "Hidden",
-        "notes": "Tile differs (tree in C vs ground in G/S)"
+        "notes": "Tile differs (tree in C vs ground in G/S)",
+        "images": [
+          { "src": "icons/maps/candy_gsc/route 28.png" }
+        ]
       },
       {
         "location": "Cinnabar Island",
         "area": "North dead-end path",
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/cinnabar island.png" }
+        ]
       }
     ],
     "silver": [
@@ -76,61 +118,102 @@
         "location": "Violet City",
         "area": "Near eastern pond",
         "method": "Overworld item",
-        "notes": "Requires Surf"
+        "notes": "Requires Surf",
+        "images": [
+          { "src": "icons/maps/candy_gsc/violet city.png" }
+        ]
       },
       {
         "location": "Route 34 (Daycare area)",
         "area": "Behind fence in trees",
         "method": "Hidden",
-        "notes": "Requires Surf"
+        "notes": "Requires Surf",
+        "images": [
+          { "src": "icons/maps/candy_gsc/route 34.png" }
+        ]
       },
       {
         "location": "Olivine Lighthouse",
         "area": "Upper floors",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/olivine lighthouse.png" }
+        ]
       },
       {
         "location": "Whirl Islands",
         "area": "Interior area",
         "method": "Overworld item",
-        "notes": null
+        "notes": "Top right cave entrance",
+        "images": [
+          { "src": "icons/maps/candy_gsc/whirl islands.png", "label": "Gold/Silver" },
+          { "src": "icons/maps/candy_gsc/whirl islands crystal.png", "label": "Crystal" }
+        ]
       },
       {
         "location": "Mt. Mortar",
         "area": "Interior cave",
         "method": "Overworld item",
-        "notes": null
+        "notes": "Up the waterfall and to the left",
+        "images": [
+          { "src": "icons/maps/candy_gsc/mt mortar.png", "label": "Gold/Silver" },
+          { "src": "icons/maps/candy_gsc/mt mortar crystal.png", "label": "Crystal" }
+        ]
       },
       {
         "location": "Lake of Rage (forest area)",
         "area": "Hidden tile",
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/lake of rage.png" }
+        ]
       },
       {
         "location": "Tin Tower (Bell Tower)",
         "area": "Interior",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/tin tower.png" }
+        ]
       },
       {
         "location": "Route 27 (east of New Bark)",
         "area": null,
         "method": "Overworld",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/route 27.png" }
+        ]
+      },
+      {
+        "location": "Vermilion City",
+        "area": null,
+        "method": "Gift",
+        "notes": "Talk to old man",
+        "images": [
+          { "src": "icons/maps/candy_gsc/vermilion city.png" }
+        ]
       },
       {
         "location": "Route 28 (near Mt. Silver)",
         "area": "Dead-end/tree",
         "method": "Hidden",
-        "notes": "Tile differs (tree in C vs ground in G/S)"
+        "notes": "Tile differs (tree in C vs ground in G/S)",
+        "images": [
+          { "src": "icons/maps/candy_gsc/route 28.png" }
+        ]
       },
       {
         "location": "Cinnabar Island",
         "area": "North dead-end path",
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/cinnabar island.png" }
+        ]
       }
     ],
     "crystal": [
@@ -138,61 +221,102 @@
         "location": "Violet City",
         "area": "Near eastern pond",
         "method": "Overworld item",
-        "notes": "Requires Surf"
+        "notes": "Requires Surf",
+        "images": [
+          { "src": "icons/maps/candy_gsc/violet city.png" }
+        ]
       },
       {
         "location": "Route 34 (Daycare area)",
         "area": "Behind fence in trees",
         "method": "Hidden",
-        "notes": "Requires Surf"
+        "notes": "Requires Surf",
+        "images": [
+          { "src": "icons/maps/candy_gsc/route 34.png" }
+        ]
       },
       {
         "location": "Olivine Lighthouse",
         "area": "Upper floors",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/olivine lighthouse.png" }
+        ]
       },
       {
         "location": "Whirl Islands",
         "area": "Interior area",
         "method": "Overworld item",
-        "notes": null
+        "notes": "Top right cave entrance",
+        "images": [
+          { "src": "icons/maps/candy_gsc/whirl islands.png", "label": "Gold/Silver" },
+          { "src": "icons/maps/candy_gsc/whirl islands crystal.png", "label": "Crystal" }
+        ]
       },
       {
         "location": "Mt. Mortar",
         "area": "Interior cave",
         "method": "Overworld item",
-        "notes": null
+        "notes": "Up the waterfall and to the left",
+        "images": [
+          { "src": "icons/maps/candy_gsc/mt mortar.png", "label": "Gold/Silver" },
+          { "src": "icons/maps/candy_gsc/mt mortar crystal.png", "label": "Crystal" }
+        ]
       },
       {
         "location": "Lake of Rage (forest area)",
         "area": "Hidden tile",
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/lake of rage.png" }
+        ]
       },
       {
         "location": "Tin Tower (Bell Tower)",
         "area": "Interior",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/tin tower.png" }
+        ]
       },
       {
         "location": "Route 27 (east of New Bark)",
         "area": null,
         "method": "Overworld",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/route 27.png" }
+        ]
+      },
+      {
+        "location": "Vermilion City",
+        "area": null,
+        "method": "Gift",
+        "notes": "Talk to old man",
+        "images": [
+          { "src": "icons/maps/candy_gsc/vermilion city.png" }
+        ]
       },
       {
         "location": "Route 28 (near Mt. Silver)",
         "area": "Dead-end/tree",
         "method": "Hidden",
-        "notes": "Tile differs (tree in C vs ground in G/S)"
+        "notes": "Tile differs (tree in C vs ground in G/S)",
+        "images": [
+          { "src": "icons/maps/candy_gsc/route 28.png" }
+        ]
       },
       {
         "location": "Cinnabar Island",
         "area": "North dead-end path",
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_gsc/cinnabar island.png" }
+        ]
       },
       {
         "location": "Goldenrod Radio Tower",
@@ -509,174 +633,258 @@
     ],
     "firered": [
       {
+        "location": "Mt. Moon",
+        "area": null,
+        "method": "Hidden",
+        "notes": "Bottom right floor one",
+        "images": [
+          { "src": "icons/maps/candy_frlg/mt moon.png" }
+        ]
+      },
+      {
         "location": "Cerulean City",
         "area": "Bike Shop backyard",
         "method": "Hidden",
-        "notes": "Behind building"
+        "notes": "Behind building",
+        "images": [
+          { "src": "icons/maps/candy_frlg/cerulean city.png" }
+        ]
+      },
+      {
+        "location": "Route 6",
+        "area": null,
+        "method": "Hidden",
+        "notes": "Right of building",
+        "images": [
+          { "src": "icons/maps/candy_frlg/route 6.png" }
+        ]
       },
       {
         "location": "Route 9",
         "area": "Near grass patch",
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/route 9.png" }
+        ]
       },
       {
-        "location": "Route 10",
-        "area": "Rocky area near Power Plant entrance",
-        "method": "Overworld item",
-        "notes": null
+        "location": "Celadon City",
+        "area": "Team Rocket Hideout",
+        "method": "Hidden",
+        "notes": "Team Rocket Hideout, B3F",
+        "images": [
+          { "src": "icons/maps/candy_frlg/celadon hideout.png" }
+        ]
       },
       {
         "location": "Route 12",
         "area": "Near fishing house",
         "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Route 13",
-        "area": "Along fence line",
-        "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Route 17 (Cycling Road)",
-        "area": "Slope section",
-        "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Route 23 (Victory Road path)",
-        "area": "Before Indigo Plateau",
-        "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Victory Road (Kanto)",
-        "area": "Interior floor",
-        "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/route 12.png" }
+        ]
       },
       {
         "location": "Pokemon Tower (Lavender)",
         "area": "Upper floor",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/pokemon tower.png" }
+        ]
+      },
+      {
+        "location": "Route 17 (Cycling Road)",
+        "area": "Slope section",
+        "method": "Hidden",
+        "notes": "Horizontal to 3rd sign post",
+        "images": [
+          { "src": "icons/maps/candy_frlg/route 17.png" }
+        ]
       },
       {
         "location": "Silph Co. (Saffron)",
         "area": "Office floor item",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/silph co saffron.png" }
+        ]
       },
       {
-        "location": "Mt. Ember (One Island)",
-        "area": "Mountain path",
-        "method": "Overworld item",
-        "notes": "Sevii Islands"
-      },
-      {
-        "location": "Berry Forest (Three Island)",
-        "area": "Forest ground",
+        "location": "Fuchsia City",
+        "area": null,
         "method": "Hidden",
-        "notes": "Sevii Islands"
+        "notes": "Inside house",
+        "images": [
+          { "src": "icons/maps/candy_frlg/fuchsia city.png" }
+        ]
+      },
+      {
+        "location": "Pokemon Mansion (Cinnabar)",
+        "area": null,
+        "method": "Hidden",
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/pokemon mansion cinnabar.png" }
+        ]
+      },
+      {
+        "location": "Victory Road (Kanto)",
+        "area": "Interior floor",
+        "method": "Overworld item",
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/victory road.png" }
+        ]
+      },
+      {
+        "location": "Two Island",
+        "area": null,
+        "method": "Hidden",
+        "notes": "Behind house",
+        "images": [
+          { "src": "icons/maps/candy_frlg/two island.png" }
+        ]
       },
       {
         "location": "Lost Cave (Five Island)",
         "area": "Maze room item",
         "method": "Overworld item",
-        "notes": "Sevii Islands"
-      },
-      {
-        "location": "Trainer Tower (Seven Island)",
-        "area": "Reward",
-        "method": "Gift",
-        "notes": "Repeatable depending on mode"
+        "notes": "Sevii Islands",
+        "images": [
+          { "src": "icons/maps/candy_frlg/lost cave.png" }
+        ]
       }
     ],
     "leafgreen": [
       {
+        "location": "Mt. Moon",
+        "area": null,
+        "method": "Hidden",
+        "notes": "Bottom right floor one",
+        "images": [
+          { "src": "icons/maps/candy_frlg/mt moon.png" }
+        ]
+      },
+      {
         "location": "Cerulean City",
         "area": "Bike Shop backyard",
         "method": "Hidden",
-        "notes": "Behind building"
+        "notes": "Behind building",
+        "images": [
+          { "src": "icons/maps/candy_frlg/cerulean city.png" }
+        ]
+      },
+      {
+        "location": "Route 6",
+        "area": null,
+        "method": "Hidden",
+        "notes": "Right of building",
+        "images": [
+          { "src": "icons/maps/candy_frlg/route 6.png" }
+        ]
       },
       {
         "location": "Route 9",
         "area": "Near grass patch",
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/route 9.png" }
+        ]
       },
       {
-        "location": "Route 10",
-        "area": "Rocky area near Power Plant entrance",
-        "method": "Overworld item",
-        "notes": null
+        "location": "Celadon City",
+        "area": "Team Rocket Hideout",
+        "method": "Hidden",
+        "notes": "Team Rocket Hideout, B3F",
+        "images": [
+          { "src": "icons/maps/candy_frlg/celadon hideout.png" }
+        ]
       },
       {
         "location": "Route 12",
         "area": "Near fishing house",
         "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Route 13",
-        "area": "Along fence line",
-        "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Route 17 (Cycling Road)",
-        "area": "Slope section",
-        "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Route 23 (Victory Road path)",
-        "area": "Before Indigo Plateau",
-        "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Victory Road (Kanto)",
-        "area": "Interior floor",
-        "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/route 12.png" }
+        ]
       },
       {
         "location": "Pokemon Tower (Lavender)",
         "area": "Upper floor",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/pokemon tower.png" }
+        ]
+      },
+      {
+        "location": "Route 17 (Cycling Road)",
+        "area": "Slope section",
+        "method": "Hidden",
+        "notes": "Horizontal to 3rd sign post",
+        "images": [
+          { "src": "icons/maps/candy_frlg/route 17.png" }
+        ]
       },
       {
         "location": "Silph Co. (Saffron)",
         "area": "Office floor item",
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/silph co saffron.png" }
+        ]
       },
       {
-        "location": "Mt. Ember (One Island)",
-        "area": "Mountain path",
-        "method": "Overworld item",
-        "notes": "Sevii Islands"
-      },
-      {
-        "location": "Berry Forest (Three Island)",
-        "area": "Forest ground",
+        "location": "Fuchsia City",
+        "area": null,
         "method": "Hidden",
-        "notes": "Sevii Islands"
+        "notes": "Inside house",
+        "images": [
+          { "src": "icons/maps/candy_frlg/fuchsia city.png" }
+        ]
+      },
+      {
+        "location": "Pokemon Mansion (Cinnabar)",
+        "area": null,
+        "method": "Hidden",
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/pokemon mansion cinnabar.png" }
+        ]
+      },
+      {
+        "location": "Victory Road (Kanto)",
+        "area": "Interior floor",
+        "method": "Overworld item",
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_frlg/victory road.png" }
+        ]
+      },
+      {
+        "location": "Two Island",
+        "area": null,
+        "method": "Hidden",
+        "notes": "Behind house",
+        "images": [
+          { "src": "icons/maps/candy_frlg/two island.png" }
+        ]
       },
       {
         "location": "Lost Cave (Five Island)",
         "area": "Maze room item",
         "method": "Overworld item",
-        "notes": "Sevii Islands"
-      },
-      {
-        "location": "Trainer Tower (Seven Island)",
-        "area": "Reward",
-        "method": "Gift",
-        "notes": "Repeatable depending on mode"
+        "notes": "Sevii Islands",
+        "images": [
+          { "src": "icons/maps/candy_frlg/lost cave.png" }
+        ]
       }
     ]
   }

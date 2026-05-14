@@ -2433,17 +2433,37 @@ function renderCandiesPage() {
       const areaLine = c.area ? `<div class="meta">${escapeHtml(c.area)}</div>` : "";
       const noteLine = c.notes ? `<div class="muted tiny" style="margin-top:4px;">📝 ${escapeHtml(c.notes)}</div>` : "";
       const sourceLine = c.source ? `<div class="muted tiny" style="margin-top:4px;">↗ <a href="${escapeHtml(c.source)}" target="_blank" rel="noopener">verify</a></div>` : "";
+      const hasImages = Array.isArray(c.images) && c.images.length > 0;
+      const photoHint = hasImages ? ` <span class="muted tiny">📸 tap to view</span>` : "";
+      const mainBlock = `
+        <div class="name">${escapeHtml(c.location)} ${methodBadge}${photoHint}</div>
+        ${areaLine}
+        ${noteLine}
+        ${sourceLine}
+      `;
+      if (hasImages) {
+        const imgsHtml = c.images.map(i => `
+          <figure class="candy-img-wrap">
+            <img src="${escapeHtml(i.src)}" alt="${escapeHtml(c.location)} candy location${i.label ? ` (${escapeHtml(i.label)})` : ""}" loading="lazy" data-fullscreen="${escapeHtml(i.src)}">
+            ${i.label ? `<figcaption class="muted tiny">${escapeHtml(i.label)}</figcaption>` : ""}
+          </figure>
+        `).join("");
+        return `<details class="row candy-row">
+          <summary><div class="row-main">${mainBlock}</div></summary>
+          <div class="candy-images">${imgsHtml}</div>
+        </details>`;
+      }
       return `<div class="row">
-        <div class="row-main">
-          <div class="name">${escapeHtml(c.location)} ${methodBadge}</div>
-          ${areaLine}
-          ${noteLine}
-          ${sourceLine}
-        </div>
+        <div class="row-main">${mainBlock}</div>
       </div>`;
     }).join("")}</div>`;
   }
   setContent(html);
+
+  // Wire candy-image taps to the existing fullscreen overlay
+  document.querySelectorAll(".candy-img-wrap img[data-fullscreen]").forEach(img => {
+    img.addEventListener("click", () => openFullscreenMap(img.dataset.fullscreen));
+  });
 }
 
 // ============================ IN-GAME TRADES PAGE ============================

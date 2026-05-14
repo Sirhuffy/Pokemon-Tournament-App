@@ -446,6 +446,53 @@ input:focus, select:focus, textarea:focus {
   min-height: 14px;
 }
 
+/* Rare Candy rows: expandable when they have location snapshots */
+.row.candy-row {
+  display: block;
+  padding: 0;
+}
+.row.candy-row > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px;
+  -webkit-tap-highlight-color: transparent;
+}
+.row.candy-row > summary::-webkit-details-marker { display: none; }
+.row.candy-row > summary::after {
+  content: "▸";
+  float: right;
+  color: var(--text-dim);
+  font-size: 12px;
+  margin-left: 8px;
+  transition: transform 0.15s ease;
+}
+.row.candy-row[open] > summary::after {
+  transform: rotate(90deg);
+  display: inline-block;
+}
+.candy-images {
+  padding: 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.candy-img-wrap {
+  margin: 0;
+  text-align: center;
+}
+.candy-img-wrap img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  cursor: zoom-in;
+  display: block;
+  margin: 0 auto;
+}
+.candy-img-wrap figcaption {
+  margin-top: 4px;
+}
+
 /* ================================================================
    STATUS / INFO
    ================================================================ */
