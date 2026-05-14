@@ -2421,9 +2421,16 @@ function renderCandiesPage() {
   const game = STATE.currentGame;
   const list = DATA.candies.perGame?.[game] || [];
 
+  const family = gameInfo().family;
+  const pickupTip = family === "frlg"
+    ? " Use <strong>Meowth</strong> with Pickup Ability for more!"
+    : family === "rse"
+    ? " Use <strong>Zigzagoon</strong> with Pickup Ability for more!"
+    : " Edit <code>tools/rare_candies.xlsx</code> and re-run <code>build_rare_candies.py</code> to add more.";
+
   let html = `
     <h2>Rare Candies — ${escapeHtml(gameInfo().label)}</h2>
-    <p class="muted tiny">${list.length} known location${list.length===1?"":"s"} for this game. Edit <code>tools/rare_candies.xlsx</code> and re-run <code>build_rare_candies.py</code> to add more.</p>
+    <p class="muted tiny">${list.length} known location${list.length===1?"":"s"} for this game.${pickupTip}</p>
   `;
   if (list.length === 0) {
     html += `<div class="empty"><span class="emoji">📭</span><p>No entries yet for ${escapeHtml(gameInfo().label)}.</p></div>`;
