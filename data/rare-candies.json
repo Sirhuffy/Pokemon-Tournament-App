@@ -327,308 +327,404 @@
     ],
     "ruby": [
       {
-        "location": "Route 102",
-        "area": "Near Petalburg entrance",
+        "location": "Petalburg City",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/petalburg city.png" }
+        ]
       },
       {
-        "location": "Route 104 (south)",
-        "area": "Near flower patches",
-        "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Petalburg Woods",
-        "area": "Forest floor item",
+        "location": "Granite Cave",
+        "area": null,
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/granite cave.png" }
+        ]
+      },
+      {
+        "location": "Route 108",
+        "area": null,
+        "method": "Hidden",
+        "notes": "Requires Surf",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 108.png" }
+        ]
       },
       {
         "location": "Route 110",
-        "area": "Near Trick House area",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 110.png" }
+        ]
       },
       {
-        "location": "Route 111 (desert edge)",
-        "area": "Sand tile",
-        "method": "Hidden",
-        "notes": "Requires Go-Goggles"
+        "location": "Trick House",
+        "area": null,
+        "method": "Gift",
+        "notes": "Puzzle reward",
+        "images": [
+          { "src": "icons/maps/candy_rse/trick house.png" }
+        ]
       },
       {
-        "location": "Route 113",
-        "area": "Ash-covered grass",
+        "location": "Route 111",
+        "area": "Desert edge",
         "method": "Hidden",
-        "notes": null
+        "notes": "Requires Go-Goggles",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 111.png" }
+        ]
       },
       {
         "location": "Route 114",
-        "area": "Near fossil maniac house",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 114.png" }
+        ]
       },
       {
-        "location": "Fiery Path",
-        "area": "Interior ground item",
-        "method": "Overworld item",
-        "notes": null
-      },
-      {
-        "location": "Mt. Chimney",
-        "area": "Mountain path",
-        "method": "Overworld item",
-        "notes": null
-      },
-      {
-        "location": "Jagged Pass",
-        "area": "Rocky slope",
+        "location": "Route 119",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": "Acro bike and Waterfall",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 119.png" }
+        ]
       },
       {
-        "location": "Route 119 (north)",
-        "area": "Tall grass area",
+        "location": "Route 120 (north)",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 120 north.png" }
+        ]
       },
       {
-        "location": "Route 120",
-        "area": "Near Ancient Tomb",
+        "location": "Route 120 (south)",
+        "area": null,
         "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Lilycove City",
-        "area": "Department Store roof gift",
-        "method": "Gift",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 120 south.png" }
+        ]
       },
       {
         "location": "Route 123",
-        "area": "Berry master vicinity",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 123.png" }
+        ]
       },
       {
-        "location": "Safari Zone (Hoenn)",
-        "area": "Interior zone item",
+        "location": "Mt. Pyre",
+        "area": null,
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/mt pyer.png" }
+        ]
       },
       {
-        "location": "Victory Road (Hoenn)",
-        "area": "Cave interior",
+        "location": "Shoal Cave",
+        "area": null,
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/shoal cave.png" }
+        ]
+      },
+      {
+        "location": "Route 132",
+        "area": null,
+        "method": "Hidden",
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 132.png" }
+        ]
       }
     ],
     "sapphire": [
       {
-        "location": "Route 102",
-        "area": "Near Petalburg entrance",
+        "location": "Petalburg City",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/petalburg city.png" }
+        ]
       },
       {
-        "location": "Route 104 (south)",
-        "area": "Near flower patches",
-        "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Petalburg Woods",
-        "area": "Forest floor item",
+        "location": "Granite Cave",
+        "area": null,
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/granite cave.png" }
+        ]
+      },
+      {
+        "location": "Route 108",
+        "area": null,
+        "method": "Hidden",
+        "notes": "Requires Surf",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 108.png" }
+        ]
       },
       {
         "location": "Route 110",
-        "area": "Near Trick House area",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 110.png" }
+        ]
       },
       {
-        "location": "Route 111 (desert edge)",
-        "area": "Sand tile",
-        "method": "Hidden",
-        "notes": "Requires Go-Goggles"
+        "location": "Trick House",
+        "area": null,
+        "method": "Gift",
+        "notes": "Puzzle reward",
+        "images": [
+          { "src": "icons/maps/candy_rse/trick house.png" }
+        ]
       },
       {
-        "location": "Route 113",
-        "area": "Ash-covered grass",
+        "location": "Route 111",
+        "area": "Desert edge",
         "method": "Hidden",
-        "notes": null
+        "notes": "Requires Go-Goggles",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 111.png" }
+        ]
       },
       {
         "location": "Route 114",
-        "area": "Near fossil maniac house",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 114.png" }
+        ]
       },
       {
-        "location": "Fiery Path",
-        "area": "Interior ground item",
-        "method": "Overworld item",
-        "notes": null
-      },
-      {
-        "location": "Mt. Chimney",
-        "area": "Mountain path",
-        "method": "Overworld item",
-        "notes": null
-      },
-      {
-        "location": "Jagged Pass",
-        "area": "Rocky slope",
+        "location": "Route 119",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": "Acro bike and Waterfall",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 119.png" }
+        ]
       },
       {
-        "location": "Route 119 (north)",
-        "area": "Tall grass area",
+        "location": "Route 120 (north)",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 120 north.png" }
+        ]
       },
       {
-        "location": "Route 120",
-        "area": "Near Ancient Tomb",
+        "location": "Route 120 (south)",
+        "area": null,
         "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Lilycove City",
-        "area": "Department Store roof gift",
-        "method": "Gift",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 120 south.png" }
+        ]
       },
       {
         "location": "Route 123",
-        "area": "Berry master vicinity",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 123.png" }
+        ]
       },
       {
-        "location": "Safari Zone (Hoenn)",
-        "area": "Interior zone item",
+        "location": "Mt. Pyre",
+        "area": null,
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/mt pyer.png" }
+        ]
       },
       {
-        "location": "Victory Road (Hoenn)",
-        "area": "Cave interior",
+        "location": "Shoal Cave",
+        "area": null,
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/shoal cave.png" }
+        ]
+      },
+      {
+        "location": "Route 132",
+        "area": null,
+        "method": "Hidden",
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 132.png" }
+        ]
       }
     ],
     "emerald": [
       {
-        "location": "Route 102",
-        "area": "Near Petalburg entrance",
+        "location": "Petalburg City",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/petalburg city.png" }
+        ]
       },
       {
-        "location": "Route 104 (south)",
-        "area": "Near flower patches",
-        "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Petalburg Woods",
-        "area": "Forest floor item",
+        "location": "Granite Cave",
+        "area": null,
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/granite cave.png" }
+        ]
+      },
+      {
+        "location": "Route 108",
+        "area": null,
+        "method": "Hidden",
+        "notes": "Requires Surf",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 108.png" }
+        ]
       },
       {
         "location": "Route 110",
-        "area": "Near Trick House area",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 110.png" }
+        ]
       },
       {
-        "location": "Route 111 (desert edge)",
-        "area": "Sand tile",
-        "method": "Hidden",
-        "notes": "Requires Go-Goggles"
+        "location": "Trick House",
+        "area": null,
+        "method": "Gift",
+        "notes": "Puzzle reward",
+        "images": [
+          { "src": "icons/maps/candy_rse/trick house.png" }
+        ]
       },
       {
-        "location": "Route 113",
-        "area": "Ash-covered grass",
+        "location": "Route 111",
+        "area": "Desert edge",
         "method": "Hidden",
-        "notes": null
+        "notes": "Requires Go-Goggles",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 111.png" }
+        ]
       },
       {
         "location": "Route 114",
-        "area": "Near fossil maniac house",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 114.png" }
+        ]
       },
       {
-        "location": "Fiery Path",
-        "area": "Interior ground item",
-        "method": "Overworld item",
-        "notes": null
-      },
-      {
-        "location": "Mt. Chimney",
-        "area": "Mountain path",
-        "method": "Overworld item",
-        "notes": null
-      },
-      {
-        "location": "Jagged Pass",
-        "area": "Rocky slope",
+        "location": "Route 119",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": "Acro bike and Waterfall",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 119.png" }
+        ]
       },
       {
-        "location": "Route 119 (north)",
-        "area": "Tall grass area",
+        "location": "Route 120 (north)",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 120 north.png" }
+        ]
       },
       {
-        "location": "Route 120",
-        "area": "Near Ancient Tomb",
+        "location": "Route 120 (south)",
+        "area": null,
         "method": "Hidden",
-        "notes": null
-      },
-      {
-        "location": "Lilycove City",
-        "area": "Department Store roof gift",
-        "method": "Gift",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 120 south.png" }
+        ]
       },
       {
         "location": "Route 123",
-        "area": "Berry master vicinity",
+        "area": null,
         "method": "Hidden",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 123.png" }
+        ]
       },
       {
-        "location": "Safari Zone (Hoenn)",
-        "area": "Interior zone item",
+        "location": "Mt. Pyre",
+        "area": null,
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/mt pyer.png" }
+        ]
       },
       {
-        "location": "Victory Road (Hoenn)",
-        "area": "Cave interior",
+        "location": "Shoal Cave",
+        "area": null,
         "method": "Overworld item",
-        "notes": null
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/shoal cave.png" }
+        ]
       },
       {
-        "location": "Route 132 (currents route)",
-        "area": "Island tile",
+        "location": "Route 127",
+        "area": null,
         "method": "Hidden",
-        "notes": "Emerald-only location"
+        "notes": "Emerald only",
+        "images": [
+          { "src": "icons/maps/candy_rse/route 127 emerald.png" }
+        ]
       },
       {
-        "location": "Battle Frontier",
-        "area": "Exchange/Reward",
-        "method": "Gift",
-        "notes": "Emerald repeatable source"
+        "location": "Route 132",
+        "area": null,
+        "method": "Hidden",
+        "notes": null,
+        "images": [
+          { "src": "icons/maps/candy_rse/route 132.png" }
+        ]
+      },
+      {
+        "location": "Safari Zone — Zone 6",
+        "area": null,
+        "method": "Overworld item",
+        "notes": "Emerald only",
+        "images": [
+          { "src": "icons/maps/candy_rse/safari zone 6 emerald.png" }
+        ]
       }
     ],
     "firered": [

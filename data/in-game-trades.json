@@ -1,107 +1,478 @@
 {
   "_meta": {
-    "description": "NPC in-game trades. Traded Pokemon receive a 1.5× experience boost — useful for the 18-hour clock. EDIT THIS FILE to add your verified entries.",
+    "description": "NPC in-game trades. Traded Pokemon receive a 1.5× experience boost — useful for the 18-hour clock. EDIT THIS FILE to add or correct entries.",
     "schema": {
       "perGame": "Game key -> array of trades",
       "npc": "Name or description of the NPC",
       "location": "Where in-game you find them",
-      "wants": "The Pokemon you must give",
-      "gives": "The Pokemon you receive",
+      "wants": "The Pokemon you must give (include gender symbol for Nidoran)",
+      "gives": "The Pokemon you receive (include gender symbol for Nidoran)",
       "givesNickname": "(optional) The nickname the traded Pokemon comes with",
+      "nature": "(optional) Nature of the received Pokemon — Gen 3 trades have fixed natures",
+      "heldItem": "(optional) Item the received Pokemon holds",
       "notes": "(optional) Conditions, level, useful items held, etc.",
       "source": "URL to verify"
     },
     "verificationReminder": "Verify every trade against your cartridge before relying on it for the tournament."
   },
   "perGame": {
-    "gold": [],
-    "silver": [],
-    "crystal": [
+    "gold": [
       {
-        "npc": "Trader (Onix house)",
-        "location": "Violet City",
+        "npc": "Trader",
+        "location": "Violet City (house right of Pokémon Center)",
         "wants": "Bellsprout",
         "gives": "Onix",
         "givesNickname": "ROCKY",
-        "notes": "House to the right of the Pokémon Center. Useful for early Rock/Ground type.",
+        "heldItem": "Bitter Berry",
+        "notes": "Useful early Rock/Ground type.",
         "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
       },
       {
         "npc": "Trader",
-        "location": "Goldenrod City Department Store / Underground area",
+        "location": "Goldenrod City Department Store",
         "wants": "Drowzee",
         "gives": "Machop",
         "givesNickname": "MUSCLE",
-        "notes": "Useful for evolving via trade-back into Machamp.",
+        "heldItem": "Gold Berry",
+        "notes": null,
         "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
       },
       {
         "npc": "Trader",
-        "location": "Olivine City",
+        "location": "Olivine City (house)",
         "wants": "Krabby",
         "gives": "Voltorb",
         "givesNickname": "VOLTY",
-        "notes": "Krabby available via Old Rod on routes near Olivine.",
+        "heldItem": "PrzCure Berry",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Blackthorn City (house)",
+        "wants": "Dragonair",
+        "gives": "Rhydon",
+        "heldItem": "Bitter Berry",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader (in grass)",
+        "location": "Route 14",
+        "wants": "Chansey",
+        "gives": "Aerodactyl",
+        "heldItem": "Gold Berry",
+        "notes": "Verify on cartridge — unusual trade location.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Pewter City Pokémon Center",
+        "wants": "Gloom",
+        "gives": "Rapidash",
+        "heldItem": "Burnt Berry",
+        "notes": null,
         "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
       }
     ],
-    "ruby": [],
-    "sapphire": [],
+    "silver": [
+      {
+        "npc": "Trader",
+        "location": "Violet City (house right of Pokémon Center)",
+        "wants": "Bellsprout",
+        "gives": "Onix",
+        "givesNickname": "ROCKY",
+        "heldItem": "Bitter Berry",
+        "notes": "Useful early Rock/Ground type.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Goldenrod City Department Store",
+        "wants": "Drowzee",
+        "gives": "Machop",
+        "givesNickname": "MUSCLE",
+        "heldItem": "Gold Berry",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Olivine City (house)",
+        "wants": "Krabby",
+        "gives": "Voltorb",
+        "givesNickname": "VOLTY",
+        "heldItem": "PrzCure Berry",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Blackthorn City (house)",
+        "wants": "Dragonair",
+        "gives": "Rhydon",
+        "heldItem": "Bitter Berry",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader (in grass)",
+        "location": "Route 14",
+        "wants": "Chansey",
+        "gives": "Aerodactyl",
+        "heldItem": "Gold Berry",
+        "notes": "Verify on cartridge — unusual trade location.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Pewter City Pokémon Center",
+        "wants": "Gloom",
+        "gives": "Rapidash",
+        "heldItem": "Burnt Berry",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      }
+    ],
+    "crystal": [
+      {
+        "npc": "Trader",
+        "location": "Violet City (house right of Pokémon Center)",
+        "wants": "Bellsprout",
+        "gives": "Onix",
+        "givesNickname": "ROCKY",
+        "heldItem": "Bitter Berry",
+        "notes": "Useful early Rock/Ground type.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Goldenrod City Department Store",
+        "wants": "Drowzee",
+        "gives": "Machop",
+        "givesNickname": "MUSCLE",
+        "heldItem": "Gold Berry",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Olivine City (house)",
+        "wants": "Krabby",
+        "gives": "Voltorb",
+        "givesNickname": "VOLTY",
+        "heldItem": "PrzCure Berry",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Blackthorn City (house)",
+        "wants": "Dragonair",
+        "gives": "Dodrio",
+        "heldItem": "Bitter Berry",
+        "notes": "Crystal replaces the G/S Rhydon trade.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Power Plant (Route 10)",
+        "wants": "Dugtrio",
+        "gives": "Magneton",
+        "heldItem": "Mystery Berry",
+        "notes": "Crystal only.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader (in grass)",
+        "location": "Route 14",
+        "wants": "Chansey",
+        "gives": "Aerodactyl",
+        "heldItem": "Gold Berry",
+        "notes": "Verify on cartridge — unusual trade location.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Pewter City Pokémon Center",
+        "wants": "Haunter",
+        "gives": "Xatu",
+        "heldItem": "Mystery Berry",
+        "notes": "Crystal replaces the G/S Rapidash trade.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      }
+    ],
+    "ruby": [
+      {
+        "npc": "Trader",
+        "location": "Rustboro City (house next to gym)",
+        "wants": "Slakoth",
+        "gives": "Makuhita",
+        "nature": "Hardy",
+        "heldItem": "X Attack",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Fortree City (treehouse by Pokémon Center)",
+        "wants": "Pikachu",
+        "gives": "Skitty",
+        "nature": "Timid",
+        "heldItem": "Glitter Mail",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Pacifidlog Town (house below Pokémon Center)",
+        "wants": "Bellossom",
+        "gives": "Corsola",
+        "nature": "Calm",
+        "heldItem": "Tropic Mail",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      }
+    ],
+    "sapphire": [
+      {
+        "npc": "Trader",
+        "location": "Rustboro City (house next to gym)",
+        "wants": "Slakoth",
+        "gives": "Makuhita",
+        "nature": "Hardy",
+        "heldItem": "X Attack",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Fortree City (treehouse by Pokémon Center)",
+        "wants": "Pikachu",
+        "gives": "Skitty",
+        "nature": "Timid",
+        "heldItem": "Glitter Mail",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Pacifidlog Town (house below Pokémon Center)",
+        "wants": "Bellossom",
+        "gives": "Corsola",
+        "nature": "Calm",
+        "heldItem": "Tropic Mail",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      }
+    ],
     "emerald": [
       {
         "npc": "Trader",
-        "location": "Pacifidlog Town",
-        "wants": "Horsea",
-        "gives": "Bagon",
-        "notes": "Bagon is otherwise extremely rare in Emerald (Meteor Falls B2F). This trade saves significant time.",
+        "location": "Rustboro City (house next to gym)",
+        "wants": "Ralts",
+        "gives": "Seedot",
+        "nature": "Relaxed",
+        "heldItem": "Chesto Berry",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Fortree City (inside house)",
+        "wants": "Volbeat",
+        "gives": "Plusle",
+        "nature": "Hasty",
+        "heldItem": "Wood Mail",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Pacifidlog Town (inside house)",
+        "wants": "Bagon",
+        "gives": "Horsea",
+        "nature": "Brave",
+        "heldItem": "Wave Mail",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Battle Frontier (inside house)",
+        "wants": "Skitty",
+        "gives": "Meowth",
+        "nature": "Naive",
+        "heldItem": "Retro Mail",
+        "notes": null,
         "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
       }
     ],
     "firered": [
       {
         "npc": "Trader",
-        "location": "Route 2 (north of Pewter Gate)",
+        "location": "Route 2 (house, north of Pewter Gate)",
         "wants": "Abra",
         "gives": "Mr. Mime",
-        "givesNickname": "MIMIEN",
+        "nature": "Timid",
         "notes": "Mr. Mime is otherwise unobtainable in FRLG without trading.",
         "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
       },
       {
         "npc": "Trader",
-        "location": "Cinnabar Island",
-        "wants": "Raichu",
-        "gives": "Electrode",
-        "notes": "Helpful for Pokédex completion.",
+        "location": "Cerulean City (house next to Pokémon Center)",
+        "wants": "Poliwhirl",
+        "gives": "Jynx",
+        "nature": "Mild",
+        "notes": null,
         "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
       },
       {
         "npc": "Trader",
-        "location": "Route 18",
-        "wants": "Slowbro",
+        "location": "Route 5 (building)",
+        "wants": "Nidoran♂",
+        "gives": "Nidoran♀",
+        "nature": "Lonely",
+        "notes": "FireRed variant — LeafGreen swaps the genders.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Route 11 (building)",
+        "wants": "Nidoran♀",
+        "gives": "Nidorino",
+        "nature": "Bold",
+        "notes": "FireRed variant — LeafGreen gives Nidorina and wants Nidoran♂.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Vermilion City (house)",
+        "wants": "Spearow",
+        "gives": "Farfetch'd",
+        "nature": "Adamant",
+        "heldItem": "Stick",
+        "notes": "Stick boosts Farfetch'd's critical-hit ratio.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Route 18 (building)",
+        "wants": "Golduck",
         "gives": "Lickitung",
-        "givesNickname": "LICKY",
-        "notes": "Lickitung is otherwise unavailable in FRLG.",
+        "nature": "Bold",
+        "notes": "FireRed variant — LeafGreen wants Slowbro instead.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Cinnabar Island Lab",
+        "wants": "Ponyta",
+        "gives": "Seel",
+        "nature": "Bold",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Cinnabar Island Lab",
+        "wants": "Raichu",
+        "gives": "Electrode",
+        "nature": "Hasty",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Cinnabar Island Lab",
+        "wants": "Venonat",
+        "gives": "Tangela",
+        "nature": "Hasty",
+        "notes": null,
         "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
       }
     ],
     "leafgreen": [
       {
         "npc": "Trader",
-        "location": "Route 2 (north of Pewter Gate)",
+        "location": "Route 2 (house, north of Pewter Gate)",
         "wants": "Abra",
         "gives": "Mr. Mime",
-        "givesNickname": "MIMIEN",
-        "notes": "Same as FireRed.",
+        "nature": "Timid",
+        "notes": "Mr. Mime is otherwise unobtainable in FRLG without trading.",
         "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
       },
       {
         "npc": "Trader",
-        "location": "Route 18",
+        "location": "Cerulean City (house next to Pokémon Center)",
+        "wants": "Poliwhirl",
+        "gives": "Jynx",
+        "nature": "Mild",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Route 5 (building)",
+        "wants": "Nidoran♀",
+        "gives": "Nidoran♂",
+        "nature": "Bold",
+        "notes": "LeafGreen variant — FireRed swaps the genders.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Route 11 (building)",
+        "wants": "Nidoran♂",
+        "gives": "Nidorina",
+        "nature": "Lonely",
+        "notes": "LeafGreen variant — FireRed gives Nidorino and wants Nidoran♀.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Vermilion City (house)",
+        "wants": "Spearow",
+        "gives": "Farfetch'd",
+        "nature": "Adamant",
+        "heldItem": "Stick",
+        "notes": "Stick boosts Farfetch'd's critical-hit ratio.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Route 18 (building)",
         "wants": "Slowbro",
         "gives": "Lickitung",
-        "givesNickname": "LICKY",
-        "notes": "Same as FireRed.",
+        "nature": "Bold",
+        "notes": "LeafGreen variant — FireRed wants Golduck instead.",
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Cinnabar Island Lab",
+        "wants": "Ponyta",
+        "gives": "Seel",
+        "nature": "Bold",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Cinnabar Island Lab",
+        "wants": "Raichu",
+        "gives": "Electrode",
+        "nature": "Hasty",
+        "notes": null,
+        "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
+      },
+      {
+        "npc": "Trader",
+        "location": "Cinnabar Island Lab",
+        "wants": "Venonat",
+        "gives": "Tangela",
+        "nature": "Hasty",
+        "notes": null,
         "source": "https://bulbapedia.bulbagarden.net/wiki/In-game_trade"
       }
     ]

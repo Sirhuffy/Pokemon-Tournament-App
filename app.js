@@ -116,7 +116,17 @@ async function initApp() {
     DATA.encounters.forEach(e => IDX.encountersByName[e.pokemon] = e);
     DATA.items.forEach(it     => IDX.itemsByName[it.name] = it);
     if (DATA.machines && Array.isArray(DATA.machines.compatibility)) {
-      DATA.machines.compatibility.forEach(c => IDX.tmsByPokemon[c.pokemon] = c.tms);
+      // machines.json was scraped with a slightly different name convention than
+      // pokemon-core.json — spaces vs hyphens for compound names like "Mr Mime" /
+      // "Mr-mime", "Ho Oh" / "Ho-oh", "Nidoran F" / "Nidoran-f". Normalize on lookup
+      // so the canonical pokemon-core name is always the index key.
+      const norm = s => String(s || "").toLowerCase().replace(/[\s\-.'']/g, "");
+      const coreByNorm = {};
+      DATA.pokemon.forEach(p => { coreByNorm[norm(p.name)] = p.name; });
+      DATA.machines.compatibility.forEach(c => {
+        const canonical = coreByNorm[norm(c.pokemon)] || c.pokemon;
+        IDX.tmsByPokemon[canonical] = c.tms;
+      });
     }
     DATA.evYields.forEach(e => IDX.evByPokemon[e.pokemon] = e.yield);
     DATA.eggMoves.forEach(e => IDX.eggByPokemon[e.pokemon] = e.eggMoves);
@@ -2492,15 +2502,22 @@ function renderTradesPage() {
   if (list.length === 0) {
     html += `<div class="empty"><span class="emoji">📭</span><p>No entries yet for ${escapeHtml(gameInfo().label)}.</p></div>`;
   } else {
-    html += `<div class="row-list">${list.map(t => `
-      <div class="row">
+    html += `<div class="row-list">${list.map(t => {
+      const nicknameBadge = t.givesNickname ? `<span class="badge badge-tag">"${escapeHtml(t.givesNickname)}"</span>` : "";
+      const natureBadge   = t.nature ? `<span class="badge badge-tag">${escapeHtml(t.nature)} nature</span>` : "";
+      const heldLine      = t.heldItem ? `<div class="muted tiny" style="margin-top:4px;">🎒 Holds: <strong>${escapeHtml(t.heldItem)}</strong></div>` : "";
+      const noteLine      = t.notes ? `<div class="muted tiny" style="margin-top:4px;">${escapeHtml(t.notes)}</div>` : "";
+      const sourceLine    = t.source ? `<div class="muted tiny" style="margin-top:4px;">↗ <a href="${escapeHtml(t.source)}" target="_blank" rel="noopener">${escapeHtml(t.source)}</a></div>` : "";
+      return `<div class="row">
         <div class="row-main">
-          <div class="name">${escapeHtml(t.gives || "?")} ${t.givesNickname ? `<span class="badge badge-tag">"${escapeHtml(t.givesNickname)}"</span>` : ""}</div>
+          <div class="name">${escapeHtml(t.gives || "?")} ${nicknameBadge} ${natureBadge}</div>
           <div class="meta">From ${escapeHtml(t.npc || "NPC")} in ${escapeHtml(t.location || "?")} · wants ${escapeHtml(t.wants || "?")}</div>
-          ${t.notes ? `<div class="muted tiny" style="margin-top:4px;">${escapeHtml(t.notes)}</div>` : ""}
-          ${t.source ? `<div class="muted tiny" style="margin-top:4px;">↗ <a href="${escapeHtml(t.source)}" target="_blank" rel="noopener">${escapeHtml(t.source)}</a></div>` : ""}
+          ${heldLine}
+          ${noteLine}
+          ${sourceLine}
         </div>
-      </div>`).join("")}</div>`;
+      </div>`;
+    }).join("")}</div>`;
   }
   setContent(html);
 }
